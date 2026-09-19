@@ -1182,6 +1182,7 @@ tr.cat-casc td.left { box-shadow: inset 3px 0 0 var(--cat-casc); }
 }
 
 .cue-chip { border-color: #e5d6c2; background: #fdf7ef; color: #8a6420; }
+.source-dataset, .source-subtype { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
 .cue-chip::before { content: "\266A"; margin-right: 5px; opacity: .7; }
 
 .prompt-chip.def { border-color: #ccd8f7; background: var(--blue-soft); color: #23439d; }

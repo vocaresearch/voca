@@ -30,7 +30,7 @@ from `index.html` with relative paths and play on click:
 <audio controls preload="none" src="static/audio/pc_para_hit_model.m4a"></audio>
 ```
 
-The page links 78 audio clips: 75 original WAV files from the candidate sample
+The page links 80 audio clips: 77 original WAV files from the candidate sample
 selection and three existing M4A recordings for the role-and-permission item.
 The WAV files in `static/audio/examples/` are copied without re-encoding and
 checked against source hashes recorded in `tools/example-media.json`.
@@ -38,7 +38,7 @@ checked against source hashes recorded in `tools/example-media.json`.
 
 ## Example gallery
 
-The gallery contains 30 selected examples: eight user-state understanding cases,
+The gallery contains 32 selected examples: ten user-state understanding cases,
 eight emotional interaction cases, nine proactive care comparisons and five
 safety cases. Select a dimension, then expand a case. Opening another case in
 that dimension closes the previous one; closing or switching pauses its audio.
@@ -56,14 +56,20 @@ history text, and relevant background constraints. Prompts and judge details can
 be expanded. Raw records containing local source paths are not copied into the
 public gallery.
 
+Every example displays its recorded `source-dataset` and, where available, its
+type. For constructed examples, this field can identify the source text or task
+rather than the entire recording. Emotion examples include sadness mistaken for
+calm and both correct and incorrect recognition of a happy-to-sad transition.
+
 To change the curated selection, edit `tools/example-selection.json`, then run:
 
 ```bash
 python3 tools/build_examples.py
 ```
 
-Regeneration reads `../candidate_samples/`, which is only needed for this optional
-authoring step. The published HTML, scripts and audio are self-contained.
+Regeneration reads `../candidate_samples/` and the selected folders under
+`../用户理解/`, which are only needed for this optional authoring step.
+The published HTML, scripts and audio are self-contained.
 
 ## Preview locally
 

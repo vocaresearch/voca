@@ -17,6 +17,41 @@ TOOLS = Path(__file__).resolve().parent
 load = lambda p: json.loads(p.read_text())
 esc = lambda value: html.escape(str(value), quote=True)
 ASSETS = []
+
+def sample_data(d):
+    data = load(d / 'sample.json')
+    return data.get('sample', data)
+
+def sample_id(d):
+    return sample_data(d)['id']
+
+def sample_directory(choice):
+    if choice.get('source_folder'):
+        directory = (PAGE.parent / choice['source_folder']).resolve()
+        assert directory.is_relative_to(PAGE.parent.resolve())
+        assert sample_id(directory) == choice['id']
+        return directory
+    return next(SOURCE.glob('*/' + choice['id']))
+
+def sample_index(d):
+    if (d / 'index.json').exists():
+        return load(d / 'index.json')
+    sample = sample_data(d)
+    judge = load(d / 'judge_record.json')
+    return {'sample_id': sample['id'], 'track': sample['level-2'], 'variants': [{
+        'folder': 'original', 'output_audio': None, 'judge_record': 'judge_record.json',
+        'score': judge['score'], 'max_score': judge['max_score'], 'label': None,
+        'evaluation_type': judge['evaluation_type'], 'flat_files': True
+    }]}
+
+def source_badge(sample):
+    source = sample.get('source-dataset') or sample.get('source_dataset') or 'Not recorded'
+    subtype = sample.get('subtype')
+    result = f'<span class="meta-chip source-dataset">Source dataset: {esc(source)}</span>'
+    if subtype and str(subtype).lower() != 'none':
+        result += f'<span class="meta-chip source-subtype">Type: {esc(subtype)}</span>'
+    return result
+
 GROUPS = [
  ('usu', '01_用户状态理解', 'User State Understanding', 'Choose an answer from the supplied options. Correctness is an exact comparison with the reference option; no model judge is used. Each sub-capability includes a correct and an incorrect response.'),
  ('ei', '02_共情交互', 'Emotional Interaction', 'The user explicitly requests an emotional response or vocal performance. The audio judge scores each case-specific criterion independently: supportive wording does not automatically prove the required vocal delivery. Each sub-capability includes a full-score and a low-score response.'),
@@ -37,7 +72,7 @@ def audio(d, rel, label):
         return ''
     src = (d / rel).resolve()
     assert src.is_relative_to(d.resolve()) and src.is_file(), src
-    dest = PAGE / 'static/audio/examples' / d.name / rel
+    dest = PAGE / 'static/audio/examples' / sample_id(d) / rel
     dest.parent.mkdir(parents=True, exist_ok=True)
     digest = hashlib.sha256(src.read_bytes()).hexdigest()
     if not dest.exists() or hashlib.sha256(dest.read_bytes()).hexdigest() != digest:
@@ -73,10 +108,10 @@ def score_label(v):
 def conversation(d):
     messages=load(d/'conversation.json')
     result=[]
-    speakers={s:i+1 for i,s in enumerate(dict.fromkeys(m['speaker_id'] for m in messages if m['role']=='user' and m['speaker_id']))}
+    speakers={s:i+1 for i,s in enumerate(dict.fromkeys(m.get('speaker_id') for m in messages if m['role']=='user' and m.get('speaker_id')))}
     for m in messages:
         role=m['role']; text=m['text']; n=m['order']
-        speaker=m['speaker_id']
+        speaker=m.get('speaker_id')
         label=('Assistant' if role=='assistant' else f'Speaker {chr(64+speakers[speaker])}' if len(speakers)>1 else 'User')
         if len(messages)>1: label += f' · message {n}' + (' (current)' if m is messages[-1] else '')
         body=audio(d,m['audio_path'],label+' audio')
@@ -113,35 +148,41 @@ def judging(j):
 
 def render_variant(d,v,group):
     folder=v['folder']; j=load(d/v['judge_record'])
-    assert j['sample_id']==d.name
+    sid=sample_id(d)
+    if v.get('flat_files'):
+        j['sample_id']=sid
+        j['results']=[{'criterion':j['criterion'], 'satisfied':j['correct'],
+                      'reason':f'predicted={j["predicted_answer"]} ({j["predicted_text"]}); reference={j["reference_answer"]} ({j["reference_text"]})'}]
+    assert j['sample_id']==sid
     assert (j['score'],j['max_score'],j.get('label'))==(v['score'],v['max_score'],v.get('label'))
     label={'default':'Default prompt','care':'Care prompt','original':'Model response'}[folder]
     model='Gemini-3-Pro + TTS' if v['output_audio'] else 'Gemini-3-Pro · text response'
     out=f'<div class="response-heading"><h4>{label}</h4>{verdict(j)}</div>'+prose(model,'ab-sub')
     out+=audio(d,v['output_audio'],label+' response')
-    answer=(d/folder/'answer.txt').read_text().strip()
+    response_dir=d if v.get('flat_files') else d/folder
+    answer=(response_dir/'answer.txt').read_text().strip()
     if group=='usu':
-        sample=load(d/'sample.json')['sample']; out+=prose(sample['question'],'qtext')
+        sample=sample_data(d); out+=prose(sample['question'],'qtext')
         out+='<ul class="opts">'+''.join(f'<li class="{"correct" if key==sample["answer"] else ""}"><strong>{esc(key)}.</strong> {esc(value)}'+(' <span class="reference-label">Reference answer</span>' if key==sample['answer'] else '')+'</li>' for key,value in sample['options'].items())+'</ul>'
         out+=prose('Saved model output: '+answer,'utt')
     else:
         out+=prose(answer,'utt response-text')
         if not v['output_audio']:out+=prose('The original response was text-only; no response audio is available.','note')
-    record=d/folder/'records'/f'{d.name}.json'
+    record=d/'model_record.json' if v.get('flat_files') else d/folder/'records'/f'{sid}.json'
     if record.exists():
         original=load(record); style=original.get('output',{}).get('style')
         out+=detail('Style prompt passed to the TTS stage',style,'tts-style')
-    prompts=load(d/folder/'prompts.json')
+    prompts=load(d/'input_contract.json') if v.get('flat_files') else load(d/folder/'prompts.json')
     out+=detail('Actual system prompt for this response',prompts.get('effective_system_prompt'))
     out+=judging(j)
     return f'<div class="response-card {"def" if folder=="default" else "pro" if folder=="care" else "original"}" data-condition="{folder}">{out}</div>'
 
 def render_card(choice,group):
-    d=next(SOURCE.glob('*/'+choice['id']));idx=load(d/'index.json');sample=load(d/'sample.json')['sample']
-    anchor=choice.get('anchor','sample-'+d.name)
+    d=sample_directory(choice);idx=sample_index(d);sample=sample_data(d);sid=sample['id']
+    anchor=choice.get('anchor','sample-'+sid)
     scores=' · '.join((('Default ' if v['folder']=='default' else 'Care ') if v['folder']!='original' else '')+score_label(v) for v in idx['variants'])
     summary=f'<summary><span class="choice-title">{esc(choice["title"])}</span><span class="choice-score">{esc(scores)}</span></summary>'
-    content=f'<header class="ex-head"><span class="badge {group}">{esc(TRACKS[idx["track"]])}</span></header>'+prose(choice['description'],'ex-desc')
+    content=f'<header class="ex-head"><span class="badge {group}">{esc(TRACKS[idx["track"]])}</span>{source_badge(sample)}</header>'+prose(choice['description'],'ex-desc')
     if choice.get('interpretation'):
         content+='<div class="pc-explanation"><h4>What the recorded evaluation shows</h4>'+prose(choice['interpretation'])+'</div>'
     elif group=='ei':
@@ -151,7 +192,7 @@ def render_card(choice,group):
         content+='<div class="pc-explanation"><h4>What the judge found</h4>'+prose(summary_text)+'</div>'
     if sample.get('expected_response'):
         content+=detail('Original reference behavior / response',sample['expected_response'])
-    background=(d/'background_system_prompt.txt').read_text().strip()
+    background=(d/'background_system_prompt.txt').read_text().strip() if (d/'background_system_prompt.txt').exists() else ''
     if background:content+=detail('Background and constraints available to the model',background)
     # Keep the complete user audio sequence visible when the example is open.
     content+=conversation(d)
@@ -159,8 +200,8 @@ def render_card(choice,group):
         criteria=load(d/idx['variants'][0]['judge_record'])['criteria']
         content+='<div class="expected-rules"><h4>Task requirements</h4><p>The saved rubric below defines this example. Each requirement is judged independently.</p><ol>'+''.join(f'<li>{esc(c)}</li>' for c in criteria)+'</ol></div>'
     content+='<div class="response-grid'+(' paired' if len(idx['variants'])>1 else '')+'">'+''.join(render_variant(d,v,group) for v in idx['variants'])+'</div>'
-    content+=f'<p class="prov">Sample <code>{esc(d.name)}</code></p>'
-    return f'<details class="example-choice" name="examples-{group}" id="{anchor}" data-sample-id="{d.name}">{summary}<article class="ex crit-mode">{content}</article></details>'
+    content+=f'<p class="prov">Sample <code>{esc(sid)}</code></p>'
+    return f'<details class="example-choice" name="examples-{group}" id="{anchor}" data-sample-id="{sid}">{summary}<article class="ex crit-mode">{content}</article></details>'
 
 def protocol():
     # Read the actual paired example so the shared explanation stays tied to its records.
@@ -175,7 +216,7 @@ def main():
     selected=load(TOOLS/'example-selection.json'); assert len({c['id'] for c in selected})==len(selected)
     snippets=[]; counts={}
     for n,(key,category,title,description) in enumerate(GROUPS,1):
-        chosen=[c for c in selected if (SOURCE/category/c['id']).is_dir()]
+        chosen=[c for c in selected if c.get('category')==category or (SOURCE/category/c['id']).is_dir()]
         cards=[render_card(c,key) for c in chosen]
         if key=='scb':
             original=(TOOLS/'role-permission-example.html').read_text()
@@ -186,7 +227,8 @@ def main():
     content='''<!-- EXAMPLES:BEGIN (generated by tools/build_examples.py) -->
 <section id="examples" data-reveal>
 <div class="section-head"><span class="eyebrow">Listen and compare</span><h2>Examples</h2>
-<p class="section-sub">Explore selected successes and failures across the four dimensions. Choose a dimension, then open an example for the original input, response, task rules and evaluation. These are illustrative cases, not a representative estimate of benchmark performance.</p></div>
+<p class="section-sub">Explore selected successes and failures across the four dimensions. Choose a dimension, then open an example for the original input, response, task rules and evaluation. These are illustrative cases, not a representative estimate of benchmark performance.</p>
+<p class="note">Source dataset labels reproduce each benchmark record’s source-dataset field. For constructed examples, the label can identify the source text or task rather than the complete audio recording; the example type is shown where recorded. Model responses are generated outputs.</p></div>
 '''+nav+'\n'.join(snippets)+'\n</section>\n<!-- EXAMPLES:END -->'
     p=PAGE/'index.html';s=p.read_text();start=s.index('<!-- EXAMPLES:BEGIN');end=s.index('<!-- EXAMPLES:END -->',start)+len('<!-- EXAMPLES:END -->');p.write_text(s[:start]+content+s[end:])
     # Auditable media manifest contains relative public paths and hashes only.

@@ -1,11 +1,19 @@
 [
   {
-    "path": "static/audio/examples/0140d4ce-2977-4456-af41-ec3aece7835d/input/01_0140d4ce-2977-4456-af41-ec3aece7835d.wav",
-    "sha256": "228795265b470702802cf03d5ab24a48a6f570a5199be8a408ba38baf140e99d"
+    "path": "static/audio/examples/030d2dbd-0204-4578-9b98-b09e404ebe20/input/01_030d2dbd-0204-4578-9b98-b09e404ebe20.wav",
+    "sha256": "96333363ca7fb78991694b724427e41d6abfd1615566daefec7571e2561fd804"
   },
   {
-    "path": "static/audio/examples/080edbfa-1e00-4c19-a98a-11a2b7de9628/input/01_080edbfa-1e00-4c19-a98a-11a2b7de9628.wav",
-    "sha256": "e25cf55626be46c9c793be71d34bed75f4615a57b6b8762f8f62956d64c7e0ea"
+    "path": "static/audio/examples/731398aa-b40b-491e-ac9b-fbb580c3317c/input.wav",
+    "sha256": "5dfe44c33e8c31f70f25b5baaaeafa0a007c7bf6d325dc7b3e3c96ed7829bdbc"
+  },
+  {
+    "path": "static/audio/examples/45d1ac21-e601-473e-99b0-2193e861e903/input.wav",
+    "sha256": "5d6d616aa7249a0028bf3415ec685738042508b54f9710838d18e63d47f734d4"
+  },
+  {
+    "path": "static/audio/examples/01722d73-f830-41b6-8fd1-2b662fe51df8/input.wav",
+    "sha256": "13114434d6613f1c38fefb151dc6065c1fa8e8f2d4613fcd56b393a9020c12a8"
   },
   {
     "path": "static/audio/examples/091d7ccd-8656-4ac9-a391-8fee33e7a401/input/01_091d7ccd-8656-4ac9-a391-8fee33e7a401.wav",
