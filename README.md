@@ -30,7 +30,7 @@ from `index.html` with relative paths and play on click:
 <audio controls preload="none" src="static/audio/pc_para_hit_model.m4a"></audio>
 ```
 
-The page links 80 audio clips: 77 original WAV files from the candidate sample
+The page links 120 audio clips: 117 original WAV files from the candidate sample
 selection and three existing M4A recordings for the role-and-permission item.
 The WAV files in `static/audio/examples/` are copied without re-encoding and
 checked against source hashes recorded in `tools/example-media.json`.
@@ -38,8 +38,8 @@ checked against source hashes recorded in `tools/example-media.json`.
 
 ## Example gallery
 
-The gallery contains 32 selected examples: ten user-state understanding cases,
-eight emotional interaction cases, nine proactive care comparisons and five
+The gallery contains 44 selected examples: ten user-state understanding cases,
+eight emotional interaction cases, 21 proactive care comparisons and five
 safety cases. Select a dimension, then expand a case. Opening another case in
 that dimension closes the previous one; closing or switching pauses its audio.
 Arrow keys switch dimension tabs. Case IDs support direct URL fragments.
@@ -63,6 +63,14 @@ history text, and relevant background constraints. Prompts and judge details can
 be expanded. Raw records containing local source paths are not copied into the
 public gallery.
 
+Proactive care includes 14 voice or background-cue cases, three semantic cases
+and four contextual cases. The expanded selection covers nonverbal-only sniffing
+and coughing, sneezing, barking, sadness, fear, anger and sobbing alongside the
+existing cases. Equal scores retain their different failed criteria; the
+aftercare activity example distinguishes a vocal-emphasis deduction from a
+failure to remember the restriction. Nonverbal-only inputs are identified as
+such instead of displaying a missing-transcript notice.
+
 Every example displays its recorded `source-dataset` and, where available, its
 type. For constructed examples, this field can identify the source text or task
 rather than the entire recording. Emotion examples include sadness mistaken for
@@ -74,8 +82,9 @@ To change the curated selection, edit `tools/example-selection.json`, then run:
 python3 tools/build_examples.py
 ```
 
-Regeneration reads `../candidate_samples/` and the selected folders under
-`../用户理解/`, which are only needed for this optional authoring step.
+Regeneration reads `../candidate_samples/` and selected folders under
+`../用户理解/`, `../主动关怀_多样对比/` and `../副语言触发_不提升与下降/`,
+which are only needed for this optional authoring step.
 The published HTML, scripts and audio are self-contained.
 
 ## Preview locally

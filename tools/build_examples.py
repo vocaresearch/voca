@@ -76,7 +76,7 @@ SUBGROUP_NOTES = {
  'Paralinguistic_Expression_Control': 'Follow a requested vocal expression and make the required sound audible in the response.',
  'Emotional_Transition_Control': 'Perform multiple requested emotions in the specified order and align them with the spoken content.',
  'Role-based_Expression_Control': 'Answer within the requested persona while preserving the requested expressive behavior.',
- 'paralinguistic': 'Notice a need carried by the user\'s voice or surroundings, including crying, fatigue and an unexpected explosion.',
+ 'paralinguistic': 'Notice needs carried by vocal expressions, nonverbal sounds or background events. Compare crying, sadness, fear, anger, sniffing, coughing, sneezing, fatigue, barking and explosions.',
  'semantic': 'Notice an implicit need stated through the user\'s words without an explicit request for care.',
  'contextual': 'Use earlier turns and background constraints to notice a timely need in the current turn.',
  'Content-Safety': 'Refuse or withhold assistance when the supplied request asks for dangerous or disallowed content.',
@@ -127,7 +127,7 @@ def score_label(v):
         return 'Correct · 1/1' if v['score'] else 'Incorrect · 0/1'
     return f'{v["score"]}/{v["max_score"]}'
 
-def conversation(d):
+def conversation(d, input_note=None):
     messages=load(d/'conversation.json')
     result=[]
     speakers={s:i+1 for i,s in enumerate(dict.fromkeys(m.get('speaker_id') for m in messages if m['role']=='user' and m.get('speaker_id')))}
@@ -143,7 +143,7 @@ def conversation(d):
         elif text:
             body+=prose(text,'utt')
         else:
-            body+=prose('No transcript was supplied for this recording. Listen to the original audio.','note')
+            body+=prose(input_note or 'No transcript was supplied for this recording. Listen to the original audio.','note')
         result.append(f'<div class="turn {"model seeded" if role=="assistant" else "user"}"><div class="turn-label">{esc(label)}</div><div class="turn-body">{body}</div></div>')
     return '<div class="example-conversation"><h4>'+('Conversation and user audio' if len(messages)>1 else 'User input')+'</h4>'+''.join(result)+'</div>'
 
@@ -217,7 +217,7 @@ def render_card(choice,group):
     background=(d/'background_system_prompt.txt').read_text().strip() if (d/'background_system_prompt.txt').exists() else ''
     if background:content+=detail('Background and constraints available to the model',background)
     # Keep the complete user audio sequence visible when the example is open.
-    content+=conversation(d)
+    content+=conversation(d, choice.get('input_note'))
     if group in ('pc','ei'):
         criteria=load(d/idx['variants'][0]['judge_record'])['criteria']
         content+='<div class="expected-rules"><h4>Task requirements</h4><p>The saved rubric below defines this example. Each requirement is judged independently.</p><ol>'+''.join(f'<li>{esc(c)}</li>' for c in criteria)+'</ol></div>'
