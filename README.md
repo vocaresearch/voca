@@ -1,99 +1,113 @@
 # Voca project page
 
-Static project page for the Voca benchmark. No build step and no third-party
-requests: system fonts only, inline SVG icons, and a small inline script for
-smooth scrolling, scroll-reveal, active-nav highlighting, and back-to-top. The
-script is progressive enhancement, so all content is present and readable with
-JavaScript disabled.
+Anonymous project page for the ICLR submission *Voca: Are Large Audio Language
+Models Ready for Voice Companionship?*
+
+Everything the page needs is in this folder. It is plain static HTML: no build
+step, no framework, and no third-party requests — system fonts, inline SVG icons,
+local audio files, and small scripts for scroll-reveal, navigation, audio playback
+and the example gallery. With JavaScript disabled, all dimensions remain visible
+and the native expandable examples still work.
 
 ```
 voca-page/
 ├── index.html
-├── .nojekyll                     # tells GitHub Pages to serve files as-is
-├── scripts/gen_audio.sh          # regenerates the placeholder demo clips
+├── .nojekyll                 # tells GitHub Pages to serve files as-is
+├── tools/                    # optional gallery regeneration and selection manifest
 └── static/
+    ├── audio/                # selected original WAVs under examples/
     ├── css/style.css
-    ├── audio/           # placeholder example clips (macOS `say` TTS)
+    ├── js/examples.js
     └── images/overview.png
 ```
+
+## Audio
+
+`static/audio/` holds every clip the page plays. They are referenced straight
+from `index.html` with relative paths and play on click:
+
+```html
+<audio controls preload="none" src="static/audio/pc_para_hit_model.m4a"></audio>
+```
+
+The page links 78 audio clips: 75 original WAV files from the candidate sample
+selection and three existing M4A recordings for the role-and-permission item.
+The WAV files in `static/audio/examples/` are copied without re-encoding and
+checked against source hashes recorded in `tools/example-media.json`.
+`preload="none"` defers loading until playback is requested.
+
+## Example gallery
+
+The gallery contains 30 selected examples: eight user-state understanding cases,
+eight emotional interaction cases, nine proactive care comparisons and five
+safety cases. Select a dimension, then expand a case. Opening another case in
+that dimension closes the previous one; closing or switching pauses its audio.
+Arrow keys switch dimension tabs. Case IDs support direct URL fragments.
+
+Examples include successes, partial scores and failures. Understanding uses
+reference-answer matching; emotional interaction and proactive care use saved
+audio-judge criteria; safety uses refusal labels from a text judge. Scores and
+reasons are reproduced from the supplied records. Missing analyses, transcripts
+or response audio are identified rather than invented. The driving example now
+has its saved evaluations (Default 4/5, Care 5/5) and all six user recordings.
+
+All selected conversations retain the available original user audio, assistant
+history text, and relevant background constraints. Prompts and judge details can
+be expanded. Raw records containing local source paths are not copied into the
+public gallery.
+
+To change the curated selection, edit `tools/example-selection.json`, then run:
+
+```bash
+python3 tools/build_examples.py
+```
+
+Regeneration reads `../candidate_samples/`, which is only needed for this optional
+authoring step. The published HTML, scripts and audio are self-contained.
 
 ## Preview locally
 
 ```bash
-cd voca-page
 python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-## Before publishing
-
-This is a submission-stage, double-blind page: it shows no authors, no
-affiliations, and no code/repository link, and it states plainly that
-"All data and evaluation code will be released upon acceptance." Keep it that
-way until the paper is accepted.
-
-1. **Replace the overview image.** `static/images/overview.png` is currently a
-   screenshot of the compiled figure and still has the `Figure 1: overall`
-   caption strip at the bottom. Export the source figure to PNG at roughly
-   2000 px wide and overwrite the file.
-2. **Add safe companion behavior numbers** once finalized. The placeholder note
-   sits directly below the main leaderboard table, and the SCB dimension can
-   then get its own per-capability table alongside USU and EI.
-3. **Fill the podium.** The three champion / runner-up / third-place slots in
-   the leaderboard are keyed to the Overall column. When Overall is ready, edit
-   the podium markup and add the `gold` / `silver` / `bronze` class to the
-   matching `<tr>` in the main table to tint and badge that row.
-4. **Replace the example audio.** The clips under `static/audio/` are macOS
-   `say` TTS placeholders, not model inputs/outputs. Regenerate or overwrite
-   them (see `scripts/gen_audio.sh`), keeping the same filenames. The visible
-   "placeholders synthesized locally" disclaimer in the Examples section can then
-   be removed.
-5. **On acceptance**, add the real code/data link and, for the camera-ready
-   version, the author names and affiliations.
-
-## Anonymity checklist
-
-Double-blind review means the page itself must not identify the authors, and
-neither must the hosting account.
-
-- The page contains no author names, affiliations, acknowledgements, or funding
-  statements, and loads no external fonts, analytics, or CDN assets. Keep it
-  that way when editing.
-- Host under a **freshly created throwaway GitHub account**. A personal account
-  leaks identity through the username, profile, followers, and starred repos.
-- Strip git history before pushing, since commit author name and email are
-  recorded in every commit:
-  ```bash
-  cd voca-page
-  git init
-  git config user.name "Anonymous"
-  git config user.email "anonymous@example.com"
-  git add .
-  git commit -m "Voca project page"
-  ```
-  Note the `git config` calls are repository-local, so they do not touch your
-  global git identity.
-- Check the image for leaks before uploading. Screenshots can carry window
-  titles, file paths, and user names, and PNG/PDF exports can carry author
-  metadata.
+Opening `index.html` directly as a `file://` URL also works.
 
 ## Deploy on GitHub Pages
 
+Host under a **freshly created throwaway account** — a personal account leaks
+identity through the username, profile, followers and starred repos. Commit
+author name and email are recorded in every commit, so set them locally:
+
 ```bash
-# in the throwaway account, create an empty public repo, then:
+git init
+git config user.name "Anonymous"
+git config user.email "anonymous@example.com"
+git add .
+git commit -m "Voca project page"
 git remote add origin https://github.com/<anon-account>/<repo>.git
 git branch -M main
 git push -u origin main
 ```
 
-Then in the repo: **Settings -> Pages -> Source: Deploy from a branch ->
+Those `git config` calls are repository-local and do not touch your global git
+identity. Then in the repo: **Settings → Pages → Source: Deploy from a branch →
 `main` / `/ (root)`**. The page appears at
 `https://<anon-account>.github.io/<repo>/` within a couple of minutes.
 
-## A note on anonymous.4open.science
+## Anonymity
 
-`anonymous.4open.science` anonymizes a repository for review, but it serves
-files through its own viewer rather than rendering HTML as a website, so it is
-suitable for the code and data link and not for a live project page. Use
-GitHub Pages under a throwaway account for the page, and 4open.science for the
-artifact link if you prefer its anonymization guarantees.
+The page contains no author names, affiliations, acknowledgements or funding
+statements, loads no external fonts, analytics or CDN assets, and links to no
+repository. It states that all data and evaluation code will be released upon
+acceptance. Keep it that way while the paper is under review.
+
+## Content still to fill in
+
+Three evaluation runs are incomplete and show `–` on the page: Qwen3-Omni and
+Step-Audio-R1.5 on safe companion behavior, and role-and-permission safety for
+every system. The role-and-permission example still shows the benchmark input
+without a model response or evaluation. Speaker-identity examples include their
+original text-only responses and refusal classifications. On acceptance, add the code and data links, then the
+author names and affiliations for the camera-ready version.
