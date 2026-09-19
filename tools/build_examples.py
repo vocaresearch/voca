@@ -89,6 +89,13 @@ def subgroup_slug(group, track):
 def subgroup_heading(track):
     return TRACKS.get(track, track.replace('_', ' '))
 
+READING_GUIDES = {
+ 'usu': 'Listen to the user input, then compare the saved model answer with the green reference answer. The answer check explains whether they match.',
+ 'ei': 'Read the user’s request, listen to the response, then check which task requirements pass or fail. Expand the saved judge analysis for more detail where available.',
+ 'pc': 'Listen to the user input, then compare Default and Care on that same input. Read the task requirements and each Pass/Fail reason: equal totals can hide different omissions. Care adds a proactive-care instruction; this is a prompt comparison.',
+ 'scb': 'Follow who is speaking and what is requested, then read the model response and recorded refusal decision. REFUSAL and NOT_REFUSAL describe the saved response; the role-and-permission case has input only.'
+}
+
 def audio(d, rel, label):
     if not rel:
         return ''
@@ -258,22 +265,24 @@ def main():
                     cards.append('<details class="example-choice" name="examples-scb" id="sample-role-permission"><summary><span class="choice-title">'+choice['title']+'</span><span class="choice-score">Input-only example</span></summary>'+choice['legacy_html']+'</details>')
                 else:
                     cards.append(render_card(choice,key))
-            ability_blocks.append(f'<section class="example-subgroup" id="{ability_id}" aria-labelledby="{ability_id}-heading"><div class="subgroup-head"><div><span class="subgroup-kicker">Second-level capability</span><h4 id="{ability_id}-heading">{esc(ability_title)}</h4><p>{esc(ability_note)}</p></div><span class="subgroup-count">{len(cards)} example{"s" if len(cards)!=1 else ""}</span></div>'+''.join(cards)+'</section>')
+            ability_blocks.append(f'<section class="example-subgroup" id="{ability_id}" aria-labelledby="{ability_id}-heading"><div class="subgroup-head"><div><span class="subgroup-kicker">Capability</span><h4 id="{ability_id}-heading">{esc(ability_title)}</h4><p>{esc(ability_note)}</p></div><span class="subgroup-count">{len(cards)} example{"s" if len(cards)!=1 else ""}</span></div>'+''.join(cards)+'</section>')
         counts[key]=sum(len(items) for items in by_ability.values())
-        subnav='<nav class="subgroup-nav" aria-label="'+esc(title)+' capabilities">'+''.join(f'<a href="#{subgroup_slug(key, track)}">{esc("Role & permission safety" if track=="Role-Permission-Safety" else subgroup_heading(track))}<span>{len(items)}</span></a>' for track,items in by_ability.items())+'</nav>'
+        subnav='<p class="browse-label">2. Choose a capability</p><nav class="subgroup-nav" aria-label="'+esc(title)+' capabilities">'+''.join(f'<a href="#{subgroup_slug(key, track)}" id="{subgroup_slug(key, track)}-tab"><span class="capability-name">{esc("Role & permission safety" if track=="Role-Permission-Safety" else subgroup_heading(track))}</span><span class="example-count">{len(items)}</span></a>' for track,items in by_ability.items())+'</nav>'
         controls='''<div class="gallery-tools" role="group" aria-label="Example controls" hidden>
-<button type="button" class="gallery-action" data-action="expand">Expand all</button>
-<button type="button" class="gallery-action" data-action="collapse">Collapse all</button>
-<button type="button" class="gallery-action" data-action="copy">Copy category link</button>
-<label class="gallery-search"><span>Filter examples</span><input type="search" placeholder="Search this category" autocomplete="off"></label>
+<span class="gallery-context"></span>
+<button type="button" class="gallery-action" data-action="expand">Expand examples</button>
+<button type="button" class="gallery-action" data-action="collapse">Collapse examples</button>
+<button type="button" class="gallery-action" data-action="copy">Copy capability link</button>
 <span class="gallery-status" aria-live="polite"></span></div>'''
-        snippets.append(f'<div class="example-group" id="ex-{key}" aria-labelledby="example-heading-{key}"><h3 class="sub-h" id="example-heading-{key}"><span class="chip {key}">{n}</span>{title}</h3><p class="lead">{description}</p>'+controls+subnav+(protocol() if key=='pc' else '')+''.join(ability_blocks)+'</div>')
+        guide='<aside class="reading-guide"><strong>3. Open an example, then listen and compare</strong>'+prose(READING_GUIDES[key])+'</aside>'
+        snippets.append(f'<div class="example-group" id="ex-{key}" aria-labelledby="example-heading-{key}"><h3 class="sub-h" id="example-heading-{key}"><span class="chip {key}">{n}</span>{title}</h3><p class="lead">{description}</p>'+subnav+guide+controls+(protocol() if key=='pc' else '')+''.join(ability_blocks)+'</div>')
     nav='<nav class="ex-jump example-tabs" aria-label="Example dimensions">'+''.join(f'<a href="#ex-{k}" id="example-tab-{k}"><span class="chip {k}">{n}</span>{title}<span class="example-count">{counts[k]}</span></a>' for n,(k,_,title,_) in enumerate(GROUPS,1))+'</nav>'
     content='''<!-- EXAMPLES:BEGIN (generated by tools/build_examples.py) -->
 <section id="examples" data-reveal>
 <div class="section-head"><span class="eyebrow">Listen and compare</span><h2>Examples</h2>
-<p class="section-sub">Choose a dimension, browse its capabilities, then open an example for the original input, response, task rules and evaluation. Each capability includes selected successes and failures where evaluations are available. These are illustrative cases, not a representative estimate of benchmark performance.</p>
+<p class="section-sub">Choose a dimension below, select a capability, then open an example. Start with the user’s audio and follow the response and evaluation. Selected successes and failures illustrate behavior; they are not a representative estimate of benchmark performance.</p>
 <p class="note">Source dataset labels reproduce each benchmark record’s source-dataset field. For constructed examples, the label can identify the source text or task rather than the complete audio recording; the example type is shown where recorded. Model responses are generated outputs.</p></div>
+<p class="browse-label">1. Choose a dimension</p>
 '''+nav+'\n'.join(snippets)+'\n</section>\n<!-- EXAMPLES:END -->'
     p=PAGE/'index.html';s=p.read_text();start=s.index('<!-- EXAMPLES:BEGIN');end=s.index('<!-- EXAMPLES:END -->',start)+len('<!-- EXAMPLES:END -->');p.write_text(s[:start]+content+s[end:])
     # Auditable media manifest contains relative public paths and hashes only.

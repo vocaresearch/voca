@@ -40,14 +40,18 @@ checked against source hashes recorded in `tools/example-media.json`.
 
 The gallery contains 44 selected examples: ten user-state understanding cases,
 eight emotional interaction cases, 21 proactive care comparisons and five
-safety cases. Select a dimension, then expand a case. Opening another case in
-that dimension closes the previous one; closing or switching pauses its audio.
-Arrow keys switch dimension tabs. Case IDs support direct URL fragments.
+safety cases. Select a dimension, select a capability, then expand a case.
+Opening another case in that capability closes the previous one; closing or
+switching pauses its audio. Both tab levels support arrow keys, Home and End.
+Dimension, capability and case IDs support direct URL fragments and history.
 
-Each dimension is grouped again by its recorded second-level capability, with a
-capability navigation row and a short description of what is being tested. The
-category controls can expand or collapse all cases, filter the current category,
-and copy category or example links. A reserved section at the end of the
+Each dimension has a second row of capability tabs. With JavaScript enabled,
+only the selected dimension and capability are shown; returning to a dimension
+remembers its last selected capability. A three-step guide and dimension-specific
+reading tips explain the input, response and evaluation. Search is unnecessary:
+controls expand or collapse cases only in the current capability and copy a
+capability or example link. Without JavaScript, the links and all native
+expandable cases remain available. A reserved section at the end of the
 page is ready for matched VocaAgent versus non-Agent examples once those
 evaluation runs are available; it contains no placeholder scores.
 
