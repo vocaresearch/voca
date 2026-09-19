@@ -67,6 +67,28 @@ TRACKS = {
  'Content-Safety':'Content safety', 'Speaker-Identity-Safety':'Speaker identity safety'
 }
 
+SUBGROUP_NOTES = {
+ 'Emotion_Understanding': 'Identify the speaker\'s expressed emotion or an ordered emotion change from the recording.',
+ 'Intent_Understanding': 'Infer what the speaker means to do, request or postpone when the intent is not stated as a command.',
+ 'Context_Understanding': 'Use the surrounding conversation and the correct speaker attribution to interpret the current turn.',
+ 'Audio_Event_Understanding': 'Identify audible events, their order and their foreground or background position.',
+ 'Empathetic_Response': 'Respond to an explicitly emotional situation with relevant acknowledgement and appropriate delivery.',
+ 'Paralinguistic_Expression_Control': 'Follow a requested vocal expression and make the required sound audible in the response.',
+ 'Emotional_Transition_Control': 'Perform multiple requested emotions in the specified order and align them with the spoken content.',
+ 'Role-based_Expression_Control': 'Answer within the requested persona while preserving the requested expressive behavior.',
+ 'paralinguistic': 'Notice a need carried by the user\'s voice or surroundings, including crying, fatigue and an unexpected explosion.',
+ 'semantic': 'Notice an implicit need stated through the user\'s words without an explicit request for care.',
+ 'contextual': 'Use earlier turns and background constraints to notice a timely need in the current turn.',
+ 'Content-Safety': 'Refuse or withhold assistance when the supplied request asks for dangerous or disallowed content.',
+ 'Speaker-Identity-Safety': 'Respect private information when a different speaker asks about another speaker\'s disclosure.'
+}
+
+def subgroup_slug(group, track):
+    return f'{group}-ability-' + re.sub(r'[^a-z0-9]+', '-', track.lower()).strip('-')
+
+def subgroup_heading(track):
+    return TRACKS.get(track, track.replace('_', ' '))
+
 def audio(d, rel, label):
     if not rel:
         return ''
@@ -217,17 +239,40 @@ def main():
     snippets=[]; counts={}
     for n,(key,category,title,description) in enumerate(GROUPS,1):
         chosen=[c for c in selected if c.get('category')==category or (SOURCE/category/c['id']).is_dir()]
-        cards=[render_card(c,key) for c in chosen]
+        by_ability={}
+        for choice in chosen:
+            d=sample_directory(choice)
+            track=sample_index(d)['track']
+            by_ability.setdefault(track, []).append(choice)
         if key=='scb':
             original=(TOOLS/'role-permission-example.html').read_text()
-            cards.append('<details class="example-choice" name="examples-scb" id="sample-role-permission"><summary><span class="choice-title">Role &amp; permission · a private birthday gift</span><span class="choice-score">Input-only example</span></summary>'+original+'</details>')
-        counts[key]=len(cards)
-        snippets.append(f'<div class="example-group" id="ex-{key}" aria-labelledby="example-heading-{key}"><h3 class="sub-h" id="example-heading-{key}"><span class="chip {key}">{n}</span>{title}</h3><p class="lead">{description}</p>'+ (protocol() if key=='pc' else '')+'\n'.join(cards)+'</div>')
+            by_ability.setdefault('Role-Permission-Safety', []).append({'legacy_html': original, 'id': 'sample-role-permission', 'title':'Role & permission · a private birthday gift'})
+        ability_blocks=[]
+        for track, items in by_ability.items():
+            ability_id=subgroup_slug(key, track)
+            ability_title='Role & permission safety' if track=='Role-Permission-Safety' else subgroup_heading(track)
+            ability_note='Keep a disclosed secret private when the request comes from another speaker.' if track=='Role-Permission-Safety' else SUBGROUP_NOTES.get(track, 'Examples grouped by the recorded second-level capability.')
+            cards=[]
+            for choice in items:
+                if choice.get('legacy_html'):
+                    cards.append('<details class="example-choice" name="examples-scb" id="sample-role-permission"><summary><span class="choice-title">'+choice['title']+'</span><span class="choice-score">Input-only example</span></summary>'+choice['legacy_html']+'</details>')
+                else:
+                    cards.append(render_card(choice,key))
+            ability_blocks.append(f'<section class="example-subgroup" id="{ability_id}" aria-labelledby="{ability_id}-heading"><div class="subgroup-head"><div><span class="subgroup-kicker">Second-level capability</span><h4 id="{ability_id}-heading">{esc(ability_title)}</h4><p>{esc(ability_note)}</p></div><span class="subgroup-count">{len(cards)} example{"s" if len(cards)!=1 else ""}</span></div>'+''.join(cards)+'</section>')
+        counts[key]=sum(len(items) for items in by_ability.values())
+        subnav='<nav class="subgroup-nav" aria-label="'+esc(title)+' capabilities">'+''.join(f'<a href="#{subgroup_slug(key, track)}">{esc("Role & permission safety" if track=="Role-Permission-Safety" else subgroup_heading(track))}<span>{len(items)}</span></a>' for track,items in by_ability.items())+'</nav>'
+        controls='''<div class="gallery-tools" role="group" aria-label="Example controls" hidden>
+<button type="button" class="gallery-action" data-action="expand">Expand all</button>
+<button type="button" class="gallery-action" data-action="collapse">Collapse all</button>
+<button type="button" class="gallery-action" data-action="copy">Copy category link</button>
+<label class="gallery-search"><span>Filter examples</span><input type="search" placeholder="Search this category" autocomplete="off"></label>
+<span class="gallery-status" aria-live="polite"></span></div>'''
+        snippets.append(f'<div class="example-group" id="ex-{key}" aria-labelledby="example-heading-{key}"><h3 class="sub-h" id="example-heading-{key}"><span class="chip {key}">{n}</span>{title}</h3><p class="lead">{description}</p>'+controls+subnav+(protocol() if key=='pc' else '')+''.join(ability_blocks)+'</div>')
     nav='<nav class="ex-jump example-tabs" aria-label="Example dimensions">'+''.join(f'<a href="#ex-{k}" id="example-tab-{k}"><span class="chip {k}">{n}</span>{title}<span class="example-count">{counts[k]}</span></a>' for n,(k,_,title,_) in enumerate(GROUPS,1))+'</nav>'
     content='''<!-- EXAMPLES:BEGIN (generated by tools/build_examples.py) -->
 <section id="examples" data-reveal>
 <div class="section-head"><span class="eyebrow">Listen and compare</span><h2>Examples</h2>
-<p class="section-sub">Explore selected successes and failures across the four dimensions. Choose a dimension, then open an example for the original input, response, task rules and evaluation. These are illustrative cases, not a representative estimate of benchmark performance.</p>
+<p class="section-sub">Choose a dimension, browse its capabilities, then open an example for the original input, response, task rules and evaluation. Each capability includes selected successes and failures where evaluations are available. These are illustrative cases, not a representative estimate of benchmark performance.</p>
 <p class="note">Source dataset labels reproduce each benchmark record’s source-dataset field. For constructed examples, the label can identify the source text or task rather than the complete audio recording; the example type is shown where recorded. Model responses are generated outputs.</p></div>
 '''+nav+'\n'.join(snippets)+'\n</section>\n<!-- EXAMPLES:END -->'
     p=PAGE/'index.html';s=p.read_text();start=s.index('<!-- EXAMPLES:BEGIN');end=s.index('<!-- EXAMPLES:END -->',start)+len('<!-- EXAMPLES:END -->');p.write_text(s[:start]+content+s[end:])

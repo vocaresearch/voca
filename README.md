@@ -44,6 +44,13 @@ safety cases. Select a dimension, then expand a case. Opening another case in
 that dimension closes the previous one; closing or switching pauses its audio.
 Arrow keys switch dimension tabs. Case IDs support direct URL fragments.
 
+Each dimension is grouped again by its recorded second-level capability, with a
+capability navigation row and a short description of what is being tested. The
+category controls can expand or collapse all cases, filter the current category,
+and copy category or example links. A reserved section at the end of the
+page is ready for matched VocaAgent versus non-Agent examples once those
+evaluation runs are available; it contains no placeholder scores.
+
 Examples include successes, partial scores and failures. Understanding uses
 reference-answer matching; emotional interaction and proactive care use saved
 audio-judge criteria; safety uses refusal labels from a text judge. Scores and
