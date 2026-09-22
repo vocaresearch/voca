@@ -3,12 +3,12 @@
     "strong": {
       "paralinguistic": 20,
       "semantic": 7,
-      "contextual": 10
+      "contextual": 13
     },
     "limited": {
       "paralinguistic": 12,
-      "semantic": 6,
-      "contextual": 2
+      "semantic": 8,
+      "contextual": 5
     }
   },
   "case_pages": [
@@ -43,12 +43,15 @@
     "pages/voca-agent/agent-case-18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9.html",
     "pages/voca-agent/agent-case-19_22d7ce66-13e9-47e0-a055-968086b31020.html",
     "pages/voca-agent/agent-case-20_e531e1d5-d733-4923-a28f-3ee4f564b175.html",
+    "pages/voca-agent/agent-case-01_a0b803e7-1736-4eb3-8334-f415aa881a55.html",
     "pages/voca-agent/agent-case-21_4c531111-bb80-4a88-a52b-bdfeba306d07.html",
     "pages/voca-agent/agent-case-22_55f2ffbe-3415-4c75-bac2-2e4b819d0c01.html",
     "pages/voca-agent/agent-case-23_69811e2f-fe4f-445d-8896-be2e63cba2b3.html",
     "pages/voca-agent/agent-case-24_7701b35a-f542-45ec-96cd-b5ac9916b614.html",
     "pages/voca-agent/agent-case-25_7819a456-37cb-491c-bfb4-a629a53550fb.html",
     "pages/voca-agent/agent-case-26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0.html",
+    "pages/voca-agent/agent-case-02_86b6cfe0-37e0-4105-b98f-e94a0f1ee12e.html",
+    "pages/voca-agent/agent-case-04_24e8c764-1733-434f-8f53-bcd7cd6bc3d4.html",
     "pages/voca-agent/agent-case-18_a3032adf-7fb0-4019-b1e3-e6a6764cfa1e.html",
     "pages/voca-agent/agent-case-19_190836eb-6795-4e3e-88e3-7af821a7df24.html",
     "pages/voca-agent/agent-case-41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae.html",
@@ -62,12 +65,17 @@
     "pages/voca-agent/agent-case-09_c98af3aa-8482-4ff0-b736-90134b70a694.html",
     "pages/voca-agent/agent-case-07_16aff2bf-2483-45e6-b44e-4e06a1787f46.html",
     "pages/voca-agent/agent-case-44_eb7754ce-71fb-452a-b3cc-23f50373beb3.html",
+    "pages/voca-agent/agent-case-16_8783a8c3-6098-4223-9f05-6f34ab48bb0b.html",
     "pages/voca-agent/agent-case-48_6965c327-62d3-4e87-93ff-9bd3de8cc808.html",
+    "pages/voca-agent/agent-case-29_9178e154-ec46-4468-80ec-4085c84dd0dd.html",
     "pages/voca-agent/agent-case-49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc.html",
     "pages/voca-agent/agent-case-38_170fe5ea-6e06-4d80-a4c9-4b998ff99aed.html",
     "pages/voca-agent/agent-case-40_732fae80-4699-4c8f-8fd0-1636a2ab7927.html",
     "pages/voca-agent/agent-case-36_c2312f2b-4b78-4dea-b1bc-091b2199c600.html",
     "pages/voca-agent/agent-case-45_d26f678e-7516-4a0d-b515-68dd9b808048.html",
+    "pages/voca-agent/agent-case-08_a5b3aadb-7fea-4f29-aa59-7c59c90e1a10.html",
+    "pages/voca-agent/agent-case-11_d1d74c96-2a1b-4d22-b535-9e1372960fd5.html",
+    "pages/voca-agent/agent-case-12_28f61cc7-7273-470d-968f-fd765f3feff6.html",
     "pages/voca-agent/agent-case-50_8ce7df49-0e43-4e5f-9080-18d01e027e60.html"
   ],
   "cases": [
@@ -270,6 +278,15 @@
       "display_code": "QW-S04"
     },
     {
+      "id": "8783a8c3-6098-4223-9f05-6f34ab48bb0b",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 16,
+      "track": "semantic",
+      "outcome": "limited",
+      "model": "Qwen-Audio-3.0-Realtime-Flash",
+      "display_code": "QW-S05"
+    },
+    {
       "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
       "source_package": "VocaAgent_Fun_Qwen_50例试听",
       "source_number": 17,
@@ -306,13 +323,22 @@
       "display_code": "QW-C04"
     },
     {
+      "id": "a0b803e7-1736-4eb3-8334-f415aa881a55",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 1,
+      "track": "contextual",
+      "outcome": "strong",
+      "model": "Qwen-Audio-3.0-Realtime-Flash",
+      "display_code": "QW-C05"
+    },
+    {
       "id": "4c531111-bb80-4a88-a52b-bdfeba306d07",
       "source_package": "VocaAgent_Fun_Qwen_50例试听",
       "source_number": 21,
       "track": "contextual",
       "outcome": "strong",
       "model": "Qwen-Audio-3.0-Realtime-Flash",
-      "display_code": "QW-C05"
+      "display_code": "QW-C06"
     },
     {
       "id": "55f2ffbe-3415-4c75-bac2-2e4b819d0c01",
@@ -321,7 +347,7 @@
       "track": "contextual",
       "outcome": "strong",
       "model": "Qwen-Audio-3.0-Realtime-Flash",
-      "display_code": "QW-C06"
+      "display_code": "QW-C07"
     },
     {
       "id": "69811e2f-fe4f-445d-8896-be2e63cba2b3",
@@ -330,7 +356,7 @@
       "track": "contextual",
       "outcome": "strong",
       "model": "Qwen-Audio-3.0-Realtime-Flash",
-      "display_code": "QW-C07"
+      "display_code": "QW-C08"
     },
     {
       "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
@@ -339,7 +365,7 @@
       "track": "contextual",
       "outcome": "strong",
       "model": "Qwen-Audio-3.0-Realtime-Flash",
-      "display_code": "QW-C08"
+      "display_code": "QW-C09"
     },
     {
       "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
@@ -348,7 +374,7 @@
       "track": "contextual",
       "outcome": "strong",
       "model": "Qwen-Audio-3.0-Realtime-Flash",
-      "display_code": "QW-C09"
+      "display_code": "QW-C10"
     },
     {
       "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
@@ -357,7 +383,25 @@
       "track": "contextual",
       "outcome": "strong",
       "model": "Qwen-Audio-3.0-Realtime-Flash",
-      "display_code": "QW-C10"
+      "display_code": "QW-C11"
+    },
+    {
+      "id": "86b6cfe0-37e0-4105-b98f-e94a0f1ee12e",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 2,
+      "track": "contextual",
+      "outcome": "strong",
+      "model": "Qwen-Audio-3.0-Realtime-Flash",
+      "display_code": "QW-C12"
+    },
+    {
+      "id": "24e8c764-1733-434f-8f53-bcd7cd6bc3d4",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 4,
+      "track": "contextual",
+      "outcome": "strong",
+      "model": "Qwen-Audio-3.0-Realtime-Flash",
+      "display_code": "QW-C13"
     },
     {
       "id": "d26f678e-7516-4a0d-b515-68dd9b808048",
@@ -366,7 +410,16 @@
       "track": "contextual",
       "outcome": "limited",
       "model": "Qwen-Audio-3.0-Realtime-Flash",
-      "display_code": "QW-C11"
+      "display_code": "QW-C14"
+    },
+    {
+      "id": "a5b3aadb-7fea-4f29-aa59-7c59c90e1a10",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 8,
+      "track": "contextual",
+      "outcome": "limited",
+      "model": "Qwen-Audio-3.0-Realtime-Flash",
+      "display_code": "QW-C15"
     },
     {
       "id": "2c9e00a7-3cbf-40da-9f49-459e69c69c70",
@@ -540,13 +593,22 @@
       "display_code": "FUN-S05"
     },
     {
+      "id": "9178e154-ec46-4468-80ec-4085c84dd0dd",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 29,
+      "track": "semantic",
+      "outcome": "limited",
+      "model": "Fun-Audio-Chat",
+      "display_code": "FUN-S06"
+    },
+    {
       "id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
       "source_package": "VocaAgent_Fun_Qwen_50例试听",
       "source_number": 49,
       "track": "semantic",
       "outcome": "limited",
       "model": "Fun-Audio-Chat",
-      "display_code": "FUN-S06"
+      "display_code": "FUN-S07"
     },
     {
       "id": "170fe5ea-6e06-4d80-a4c9-4b998ff99aed",
@@ -555,7 +617,7 @@
       "track": "semantic",
       "outcome": "limited",
       "model": "Fun-Audio-Chat",
-      "display_code": "FUN-S07"
+      "display_code": "FUN-S08"
     },
     {
       "id": "732fae80-4699-4c8f-8fd0-1636a2ab7927",
@@ -564,7 +626,7 @@
       "track": "semantic",
       "outcome": "limited",
       "model": "Fun-Audio-Chat",
-      "display_code": "FUN-S08"
+      "display_code": "FUN-S09"
     },
     {
       "id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
@@ -573,7 +635,25 @@
       "track": "semantic",
       "outcome": "limited",
       "model": "Fun-Audio-Chat",
-      "display_code": "FUN-S09"
+      "display_code": "FUN-S10"
+    },
+    {
+      "id": "d1d74c96-2a1b-4d22-b535-9e1372960fd5",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 11,
+      "track": "contextual",
+      "outcome": "limited",
+      "model": "Fun-Audio-Chat",
+      "display_code": "FUN-C01"
+    },
+    {
+      "id": "28f61cc7-7273-470d-968f-fd765f3feff6",
+      "source_package": "VocaAgent_上下文与语义_30例试听",
+      "source_number": 12,
+      "track": "contextual",
+      "outcome": "limited",
+      "model": "Fun-Audio-Chat",
+      "display_code": "FUN-C02"
     },
     {
       "id": "8ce7df49-0e43-4e5f-9080-18d01e027e60",
@@ -582,7 +662,7 @@
       "track": "contextual",
       "outcome": "limited",
       "model": "Fun-Audio-Chat",
-      "display_code": "FUN-C01"
+      "display_code": "FUN-C03"
     }
   ]
 }

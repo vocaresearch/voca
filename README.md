@@ -14,7 +14,7 @@ voca-page/
 ├── index.html
 ├── .nojekyll                 # tells GitHub Pages to serve files as-is
 ├── tools/                    # optional gallery regeneration and selection manifest
-├── pages/                    # 44 benchmark and 57 VocaAgent case pages
+├── pages/                    # 44 benchmark and 65 VocaAgent case pages
 └── static/
     ├── audio/                # selected original WAVs under examples/ and voca-agent/
     ├── css/style.css
@@ -32,7 +32,7 @@ from `index.html` with relative paths and play on click:
 <audio controls preload="none" src="static/audio/pc_para_hit_model.m4a"></audio>
 ```
 
-The page links the original example audio plus 337 copied WAV files for the
+The page links the original example audio plus 406 copied WAV files for the
 VocaAgent gallery. The VocaAgent files preserve every selected input turn and
 the recorded Default, Care, Agent 3 and final VocaAgent response audio without
 re-encoding. The new audio manifest is `tools/voca-agent-media.json`.
@@ -69,10 +69,10 @@ history text, and relevant background constraints. Prompts and judge details can
 be expanded. Raw records containing local source paths are not copied into the
 public gallery.
 
-The VocaAgent gallery contains 57 cases: the twelve explicitly selected
+The VocaAgent gallery contains 65 cases: the twelve explicitly selected
 paralinguistic cases from the original package, its thirteen semantic and twelve
 contextual cases, and all twenty environmental/emotional cases from the new
-package. The paralinguistic total is 32. Outcome tabs distinguish higher recorded
+package, plus eight selected semantic/contextual cases from the third package. The totals are 32 paralinguistic, 15 semantic and 18 contextual. Outcome tabs distinguish higher recorded
 scores from no gain/regressions; unavailable Default scores are labeled. Cases
 that reuse Default are not labeled as improvements over Default.
 
@@ -85,7 +85,7 @@ The original case URLs remain unchanged. Linking to a case from another model
 reveals that model automatically.
 
 Four supplied publication figures are displayed as responsive WebP previews
-with links to the original PDFs under `static/figures/`. To refresh the previews
+without open/download controls. Original PDFs remain under `static/figures/`. To refresh the previews
 from `../VocaAgent.pdf` and the three PDFs under `../Fig/`, install PyMuPDF and
 Pillow in the authoring environment and run `python3 tools/build_figures.py`.
 No PDF renderer or Python dependency is required by the deployed website.
@@ -127,7 +127,7 @@ Regeneration reads `../candidate_samples/` and selected folders under
 `../用户理解/`, `../主动关怀_多样对比/` and `../副语言触发_不提升与下降/`,
 which are only needed for this optional authoring step.
 VocaAgent regeneration additionally reads `../VocaAgent_Fun_Qwen_50例试听/` and
-`../VocaAgent_环境音与情感_20例试听/`. The published HTML, scripts and audio are self-contained.
+`../VocaAgent_环境音与情感_20例试听/` and `../VocaAgent_上下文与语义_30例试听/`. The published HTML, scripts and audio are self-contained.
 
 ## Preview locally
 
@@ -175,3 +175,25 @@ every system. The role-and-permission example still shows the benchmark input
 without a model response or evaluation. Speaker-identity examples include their
 original text-only responses and refusal classifications. On acceptance, add the code and data links, then the
 author names and affiliations for the camera-ready version.
+
+## Reviewer browsing
+
+Each capability has a sticky case selector, Previous/Next navigation, a return
+to the case list, and a toggle for all judge details in the current case.
+Browsing one case hides the other summaries; the selector keeps them available.
+The existing benchmark Expand examples control still supports reading all cases.
+Default, Care and final VocaAgent responses appear together; intermediate agent
+steps are grouped underneath. Judge names are explicitly labeled as evaluators.
+
+The case loader caches HTML in memory, prefetches the nearby visible category
+with at most two background requests, and anticipates hover/focus. It never
+prefetches audio or JSON; data-saver connections skip speculative fetching.
+Failed fetches retain a retry control and the standalone HTML fallback.
+Empty result/trigger tabs are hidden for the selected model. New Fun contextual
+cases do not exceed the best available baseline and remain in the limited group;
+identical-audio score reuse and unavailable Default judgments are stated.
+
+The third-package selection is limited to source numbers 01, 02, 04, 08, 11, 12,
+16 and 29 (five Qwen cases and three Fun cases). All other third-package files
+are excluded from the public pages and audio directories. The original 57-case
+selection, including the twelve specifically approved vocal cases, is unchanged.

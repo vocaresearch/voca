@@ -61,20 +61,24 @@
         updateHash(panels[index]);
       });
       tab.addEventListener('keydown', function (event) {
+        var available = tabs.filter(function (item) { return !item.hidden; });
+        var current = available.indexOf(tab);
         var next;
-        if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-        else if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+        if (event.key === 'ArrowRight') next = (current + 1) % available.length;
+        else if (event.key === 'ArrowLeft') next = (current + available.length - 1) % available.length;
         else if (event.key === 'Home') next = 0;
-        else if (event.key === 'End') next = tabs.length - 1;
+        else if (event.key === 'End') next = available.length - 1;
         else return;
         event.preventDefault();
-        tabs[next].focus();
-        tabs[next].click();
+        available[next].focus();
+        available[next].click();
       });
     });
   }
 
   function activateSubgroup(state, index) {
+    if (state.tabs[index].hidden) index = state.tabs.findIndex(function (tab) { return !tab.hidden; });
+    if (index < 0) return;
     state.selected = index;
     display(state.tabs, state.panels, index);
   }
@@ -101,11 +105,13 @@
     subgroupStates.forEach(function (state, i) {
       var count = visibleCount(state.outcome);
       outcomeTabs[i].querySelector('span').textContent = count;
+      outcomeTabs[i].hidden = count === 0;
       var heading = state.outcome.querySelector('.sub-h');
       heading.textContent = heading.dataset.title + ' · ' + count + ' cases';
       state.panels.forEach(function (panel, j) {
         var n = visibleCount(panel);
         state.tabs[j].querySelector('b').textContent = n;
+        state.tabs[j].hidden = n === 0;
         panel.querySelector('.subgroup-count').textContent = n + ' cases';
         panel.querySelector('.agent-empty').hidden = n !== 0;
       });
@@ -186,7 +192,7 @@
     });
   }
 
-  activateOutcome(0);
+  filterModel('all', false);
   revealHash();
   window.addEventListener('hashchange', revealHash);
   window.addEventListener('popstate', revealHash);

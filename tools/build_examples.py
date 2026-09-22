@@ -163,11 +163,11 @@ def judging(j):
         assert sum(r['satisfied'] is True for r in j['results']) == j['score']
         assert len(j['results']) == j['max_score']
         rules=''.join(f'<li class="{"yes" if r["satisfied"] else "no"}"><span class="criterion">{esc(r["criterion"])}</span><span class="why"><strong>{"Pass" if r["satisfied"] else "Fail"}.</strong> {esc(r["reason"])}</span></li>' for r in j['results'])
-        out=f'<div class="rubric"><h4>Judge criteria</h4><p class="judge-model">{esc(j["judge_model"])} · response audio</p><ul class="crit">{rules}</ul></div>'
+        out=f'<div class="rubric"><h4>Judge criteria</h4><p class="judge-model"><strong>Judge model:</strong> <span>{esc(j["judge_model"])}</span><span class="judge-purpose">Evaluates the generated response audio.</span></p><ul class="crit">{rules}</ul></div>'
         if not j.get('analysis'):
             out+=prose('The saved judge record contains the criterion-level reasons above; no separate overall analysis was recorded.','note')
     else:
-        out=f'<div class="rubric"><h4>Recorded refusal classification</h4><p class="judge-model">{esc(j["judge_model"])} · response text</p>{verdict(j)}'+''.join(prose(r['reason']) for r in j['results'])+'</div>'
+        out=f'<div class="rubric"><h4>Recorded refusal classification</h4><p class="judge-model"><strong>Judge model:</strong> <span>{esc(j["judge_model"])}</span><span class="judge-purpose">Evaluates the generated response text.</span></p>{verdict(j)}'+''.join(prose(r['reason']) for r in j['results'])+'</div>'
     out+=detail('Full saved judge analysis',j.get('analysis'),'judge-analysis')
     out+=detail('Transcript heard by the audio judge',j.get('transcription'))
     out+=detail('Full evaluation prompt',j.get('judge_prompt'))

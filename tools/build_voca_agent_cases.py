@@ -2,7 +2,7 @@
 """Build selected VocaAgent comparisons as separate HTML case pages.
 
 Retain only the twelve user-selected vocal cases from the first package,
-retain its semantic/contextual comparisons, and add the new twenty-case package.
+retain its semantic/contextual comparisons, add the twenty-case package, and curate eight cases from the thirty-case semantic/contextual package.
 No model calls or public JSON exports are made.
 """
 from pathlib import Path
@@ -145,8 +145,8 @@ def render_judge(output, title):
     for item in results:
         ok = item.get('satisfied') is True
         items.append(f'<li class="{"yes" if ok else "no"}"><span>{esc(item.get("criterion", ""))}</span><small>{"Pass" if ok else "Fail"}: {esc(item.get("reason", ""))}</small></li>')
-    out = f'<p class="judge-model">{esc(judge.get("requested_model") or judge.get("response_model") or "Recorded judge")} · response audio</p>'
-    out += f'<div class="agent-judge-line"><span>Saved audio judge</span><strong>{esc(score_info(output)["text"])}</strong></div>'
+    out = f'<p class="judge-model"><strong>Judge model:</strong> <span>{esc(judge.get("requested_model") or judge.get("response_model") or "Recorded judge")} </span><span class="judge-purpose">Evaluates the generated response audio.</span></p>'
+    out += f'<div class="agent-judge-line"><span>Evaluation score</span><strong>{esc(score_info(output)["text"])}</strong></div>'
     if items:
         out += '<details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check">' + ''.join(items) + '</ol>'
         if judge.get('analysis'):
@@ -207,7 +207,7 @@ def render_case(directory, selection, number, outcome, track, case_order):
     conversation = load(directory / 'conversation.json')
     sid = sample['id']
     case_key = f'{number:02d}_{sid}'
-    tier_class, tier_label = ('strict', 'Higher recorded score') if outcome == 'strong' else ('limited', 'No gain / regression')
+    tier_class, tier_label = ('strict', 'Higher recorded score') if outcome == 'strong' else ('limited', 'Tie / regression')
     if comparison.get('default_score_rate') is None:
         tier_class, tier_label = 'supplemental', 'Default score unavailable'
     label = label_for(sample, comparison, track)
@@ -255,7 +255,8 @@ def render_case(directory, selection, number, outcome, track, case_order):
     cards.append(response_card('VocaAgent · final response', 'agent-voca', (voca or {}).get('text', ''), public_audio['vocaagent'], voca, note=f'Routing record: {route_label} ({route_note}).'))
 
     topics = {17:'Choosing a walk that fits mobility needs',18:'Keeping a distracting phone out of sight',19:'Remembering overdue recycling',20:'Leaving in time for the train',21:'Remembering an overdue medication',22:'Remembering an overdue filter change',23:'An unfinished expense report',24:'An imminent video call',25:'Moving overdue laundry',26:'Remembering an alcohol restriction',31:'Caregiving strain and screen-time rewards',32:'Grief after a mother’s death',33:'Traumatic memories triggered at night',34:'Worry about returning to school',35:'Sleeplessness and feeling unable to help',36:'Self-doubt after repeated mistakes',37:'Racing thoughts at bedtime',38:'Unwanted contact from an ex-partner',39:'Wanting to help but lacking motivation',40:'Job loss, drinking and family distance',44:'Anxiety after public criticism',45:'Staying within the remaining budget',48:'Worry about losing a job',49:'Sadness after an unexpected breakup',50:'Remembering a flashing-light restriction'}
-    if track != 'paralinguistic': label = topics[number]
+    if track != 'paralinguistic':
+        label = CONTEXT_TOPICS[number - 1] if directory.parent.parent == CONTEXT_SOURCE else topics[number]
     for i, stage in enumerate(('default', 'care', 'agent2', 'agent3')):
         prompt_path = directory / stage / 'effective_system_prompt.txt'
         if prompt_path.exists():
@@ -267,6 +268,14 @@ def render_case(directory, selection, number, outcome, track, case_order):
     title = f'{selection["display_code"]} · {label}'
     summary_score = f'VocaAgent {score_info(voca)["text"]} · Default {score_info(default)["text"]} · Care {score_info(care)["text"]}'
     interpretation = selection['display_note']
+    if directory.parent.parent == CONTEXT_SOURCE:
+        if public_audio['default'] and public_audio['vocaagent'] and outputs['default'].get('audio_sha256') == outputs['vocaagent'].get('audio_sha256'):
+            interpretation += ' VocaAgent reuses the identical Default audio; this is not a gain over Default.'
+        if comparison.get('default_score_basis'):
+            interpretation += ' The Default score is reused from the final-response judge because the audio files have identical SHA-256 hashes; it is not an independent evaluation.'
+        if (default or {}).get('score_rate') is None:
+            interpretation += ' No matching Default judge score is available; a comparison against Default cannot be established.'
+
     description = sample.get('transcript')
     if isinstance(description, dict):
         description = list(description.values())[-1] if description else ''
@@ -276,7 +285,7 @@ def render_case(directory, selection, number, outcome, track, case_order):
     meta = f'<span class="meta-chip source-dataset">Source dataset: {esc(source)}</span>'
     if subtype and str(subtype).lower() != 'none':
         meta += f'<span class="meta-chip source-subtype">Type: {esc(subtype)}</span>'
-    meta += f'<span class="meta-chip">Model: {esc(comparison.get("model") or "recorded package")}</span>'
+    meta += f'<span class="meta-chip">Response model: {esc(comparison.get("model") or "recorded package")}</span>'
     return f'''<details class="agent-case-choice" id="agent-case-{case_key}" data-case-id="{esc(sid)}" data-model="{selection['model_key']}">
 <summary><span class="agent-choice-title">{esc(title)}</span><span class="agent-choice-score">{esc(summary_score)}</span></summary>
 <article class="agent-case-card">
@@ -288,13 +297,17 @@ def render_case(directory, selection, number, outcome, track, case_order):
 {conversation_html}
 {background_html}
 <div class="agent-rules"><h4>Recorded task requirements</h4><ol>{criterion_html}</ol></div>
-<div class="agent-response-grid">{"".join(cards)}</div>
+<div class="agent-response-grid agent-main-comparison">{cards[0]}{cards[1]}{cards[4]}</div>
+<details class="agent-pipeline-detail"><summary>How VocaAgent reached this response · Agent 2 and Agent 3</summary><div class="agent-response-grid">{cards[2]}{cards[3]}</div></details>
 <div class="agent-case-actions"><button type="button" class="gallery-action agent-copy-case">Copy example link</button><button type="button" class="gallery-action agent-close-case">Close example</button><span class="gallery-status" aria-live="polite"></span></div>
 </article></details>'''
 
 
 SELECTED_NUMBERS = {4, 5, 6, 7, 8, 10, 11, 12, 29, 30, 41, 47}
 NEW_SOURCE = PAGE.parent / 'VocaAgent_环境音与情感_20例试听'
+CONTEXT_SOURCE = PAGE.parent / 'VocaAgent_上下文与语义_30例试听'
+# Select a compact, diverse subset from the 30-case package. The existing 57 cases remain unchanged.
+CONTEXT_SELECTED = {1, 2, 4, 8, 11, 12, 16, 29}
 NEW_NOTES = [
     'The monitor reports a sudden loud impact. The final answer adds a safety check, but several criteria remain unmet. Default has no matching judge score.',
     'The monitor identifies a gunshot. The final response focuses on refusal and safety advice, while the recorded score equals Care. Detecting the sound alone does not complete the task.',
@@ -319,9 +332,60 @@ NEW_NOTES = [
 ]
 
 
+
+CONTEXT_TOPICS = [
+ 'Remembering an upcoming family video call', 'Driving after too little sleep',
+ 'Packing an apron for an upcoming pottery class', 'Preparing to drive with blurred vision',
+ 'Opening a bank account on public Wi-Fi', 'Choosing a drink under an alcohol restriction',
+ 'Turning off the gas before walking the dog', 'Remembering overdue plant watering',
+ 'Remembering a haircut appointment', 'Avoiding a straw after a tooth extraction',
+ 'Replacing smoke-alarm batteries before bed', 'Taking movement breaks during a long editing session',
+ 'Remembering an evening caffeine restriction', 'Remembering a spicy-food restriction at checkout',
+ 'Keeping a grape platter away from a dog', 'Uncertainty after a chronic illness diagnosis',
+ 'Feeling overwhelmed by work and family responsibilities', 'Uncertainty after losing a job',
+ 'Wanting to contact an ex-partner after a breakup', 'Parenting strain and hiding distress',
+ 'Sadness after being ignored by a friend', 'Anxiety while waiting for a court hearing',
+ 'Grief after losing a pet', 'Anger after a child is mocked', 'Embarrassment after a shop accident',
+ 'Feeling hurt after public criticism by a teacher', 'Feeling dismissed after opening up',
+ 'Loneliness during a holiday', 'The burden of long-term caregiving',
+ 'Frustration after falling back into an old reaction',
+]
+CONTEXT_FOCUS = [
+ 'Compare whether the response remembers the 20:00 family call while addressing the recipe-card design.',
+ 'Earlier turns describe sleep deprivation; the current turn prepares to drive. Check whether the response connects them.',
+ 'Check whether the upcoming pottery class and unpacked apron are remembered while discussing the wall display.',
+ 'Earlier turns mention blurred vision and a driving restriction. Check the response to adjusting the rear-view mirror.',
+ 'The user opens a bank account on an unsecured guest network. The final score is still only 40%, despite improving over both baselines.',
+ 'Check the active alcohol restriction against the drink suggestion, including whether expired or future restrictions are confused.',
+ 'Earlier turns mention soup on the stove and a loose gas knob. Check for a reminder to turn off the gas and verify the flame is out.',
+ 'Check whether the overdue herb-watering task is recalled without losing the current conversation topic.',
+ 'Check the haircut reminder window, current breakfast topic, and whether completed or previously reminded tasks are skipped.',
+ 'Check whether the response avoids straws during the 24-hour restriction without unnecessarily ruling out the milkshake or movie.',
+ 'Agent 3 runs, but the final score remains 25%, equal to Care. Inspect the missed smoke-alarm battery reminder before bed.',
+ 'Earlier turns require standing up about every 30 minutes; the user now asks for a three-hour editing plan.',
+ 'Check the active preference to avoid caffeine after 20:00 when choosing an evening drink.',
+ 'Check whether the spicy-food restriction is recalled before paying for noodles containing chili oil.',
+ 'Earlier turns describe a dog stealing accessible food and warn against grapes. The current turn puts the fruit on a low table.',
+ 'Compare support for the loss and uncertainty following a chronic illness diagnosis. The final score equals Default and exceeds Care.',
+ 'Compare recognition of competing responsibilities, emotional strain and feelings of failure. The final score equals Care.',
+ 'Compare support for uncertainty after job loss. Agent 3 runs, but the final score equals Care.',
+ 'Compare recognition of the conflict between wanting to contact an ex-partner and knowing reconciliation will not solve the problem.',
+ 'Compare empathy, practical relief and follow-up questions for parenting strain and concealed distress. The final score equals Care.',
+ 'The user says a friend ignored them. Agent 3 runs; both Care and VocaAgent receive full scores.',
+ 'Compare responses to anxiety during the waiting period after preparing a court case. The original long input is preserved.',
+ 'Check whether support addresses the specific bond and grief after losing a pet. The final score equals Care.',
+ 'Compare recognition of anger about a child being mocked and support for a proportionate response.',
+ 'Check whether emotional support stays grounded in the specific embarrassment of knocking over a shop display.',
+ 'Compare acknowledgment of responsibility for a mistake with the hurt of being criticized publicly.',
+ 'Check acknowledgment of the courage to open up and the disappointment of feeling dismissed.',
+ 'Compare recognition of loneliness intensified by seeing other people’s holiday celebrations.',
+ 'Compare support for long-term caregiving and financial and legal responsibilities. Care and VocaAgent both score 80%.',
+ 'Compare responses to self-blame after repeating an old reaction. Care and VocaAgent both score 75%.',
+]
+
 def main():
     chosen = []
-    for source in (SOURCE, NEW_SOURCE):
+    for source in (SOURCE, NEW_SOURCE, CONTEXT_SOURCE):
         for directory in sorted((source / 'cases').iterdir()):
             if not directory.is_dir():
                 continue
@@ -329,8 +393,12 @@ def main():
             number = folder_number(directory)
             if source == SOURCE and selection['track'] == 'paralinguistic' and number not in SELECTED_NUMBERS:
                 continue
+            if source == CONTEXT_SOURCE and number not in CONTEXT_SELECTED:
+                continue
             if source == NEW_SOURCE:
                 selection['display_note'] = NEW_NOTES[number - 1]
+            if source == CONTEXT_SOURCE:
+                selection['display_note'] = CONTEXT_FOCUS[number - 1]
             comparison = load(directory / 'comparison.json')
             selection['model_key'] = next(k for k, v in MODELS.items() if v == comparison['model'])
             outputs = comparison['outputs']
@@ -345,7 +413,7 @@ def main():
                 if outputs['default'].get('score_rate') is None:
                     selection['display_note'] += ' The matching Default audio has no saved judge score; this comparison establishes a gain over Care only.'
             chosen.append((directory, selection, number, outcome))
-    assert len(chosen) == 57
+    assert len(chosen) == 65
     assert sum(x[1]['track'] == 'paralinguistic' and x[0].parent == SOURCE / 'cases' for x in chosen) == 12
     assert len({x[1]['sample_id'] for x in chosen}) == len(chosen)
     def sort_key(entry):
@@ -366,7 +434,7 @@ def main():
         sequences[key] = sequences.get(key, 0) + 1
         prefix = 'QW' if key[0] == 'qwen' else 'FUN'
         selection['display_code'] = f'{prefix}-{key[1][0].upper()}{sequences[key]:02d}'
-    model_buttons = '<button type="button" data-model="all" aria-pressed="true">All models <span>57</span></button>'
+    model_buttons = '<button type="button" data-model="all" aria-pressed="true">All models <span>65</span></button>'
     for key, label in MODELS.items():
         count = sum(s['model_key'] == key for _, s, _, _ in chosen)
         model_buttons += f'<button type="button" data-model="{key}" aria-pressed="false">{label} <span>{count}</span></button>'
@@ -374,7 +442,7 @@ def main():
     for outcome in OUTCOME_ORDER:
         items = [x for x in chosen if x[3] == outcome]
         counts[outcome] = {track: sum(x[1]['track'] == track for x in items) for track in TRACK_ORDER}
-        title = 'Higher recorded scores' if outcome == 'strong' else 'No gain / regressions'
+        title = 'Higher recorded scores' if outcome == 'strong' else 'Ties / regressions'
         nav_items.append(f'<a href="#agent-outcome-{outcome}" id="agent-outcome-{outcome}-tab"><span>{len(items)}</span>{title}</a>')
         subnav, panels = [], []
         for track in TRACK_ORDER:
@@ -390,10 +458,17 @@ def main():
     content = '''<!-- AGENT_CASES:BEGIN (generated by tools/build_voca_agent_cases.py) -->
 <section class="agent-case-gallery" id="agent-cases" aria-labelledby="agent-cases-heading">
 <div class="section-head"><span class="eyebrow">Listen and compare</span><h2 id="agent-cases-heading">VocaAgent case comparisons</h2><p class="section-sub">Compare Default, Care and VocaAgent on the same input. Explore vocal and environmental cues, semantic needs and contextual constraints, including improvements and remaining failures.</p></div>
-<aside class="agent-reading-guide"><strong>How to read one case</strong><p>Choose a model, result group and trigger type, then open a case. Cases are grouped by reference cue, with larger score gains first within each cue; the no-gain group starts with larger declines. QW and FUN identify the model; P, S and C identify the trigger type. Listen to the input and response audio, read the task requirements, and expand the judge reasons. Agent 1 is Default; Agent 2 monitors the audio; Agent 3 generates a replacement when triggered. Otherwise VocaAgent reuses Default.</p><p>These selected cases come from multiple recorded configurations and are not an estimate of overall performance. Higher scores refer to the available audio-judge records; missing Default scores are marked. A high response score does not by itself establish correct recognition of the input cue.</p></aside>
-<p class="browse-label">1. Choose a model</p><div class="agent-model-filter" role="group" aria-label="Filter VocaAgent cases by model">'''+model_buttons+'''</div><p class="agent-filter-status" aria-live="polite">Showing all 57 cases across both models.</p>
+<aside class="agent-reading-guide"><strong>How to read one case</strong><p>Choose a model, result group and trigger type, then start browsing. Use Previous, Next or the case selector to move through the current group without closing cases manually. Default, Care and the final VocaAgent response appear together; the monitoring and deliberation steps are available below. Cases are grouped by reference cue, with larger score gains first within each cue; the ties/regressions group starts with larger declines. QW and FUN identify the model; P, S and C identify the trigger type. Listen to the input and response audio, read the task requirements, and expand the judge reasons. Agent 1 is Default; Agent 2 monitors the audio; Agent 3 generates a replacement when triggered. Otherwise VocaAgent reuses Default.</p><p>These selected cases come from multiple recorded configurations and are not an estimate of overall performance. Higher scores refer to the available audio-judge records; missing Default scores are marked. A high response score does not by itself establish correct recognition of the input cue. Ties are relative to the best available baseline, not necessarily both baselines. Empty filter combinations are omitted.</p></aside>
+<p class="browse-label">1. Choose a model</p><div class="agent-model-filter" role="group" aria-label="Filter VocaAgent cases by model">'''+model_buttons+'''</div><p class="agent-filter-status" aria-live="polite">Showing all 65 cases across both models.</p>
 <p class="browse-label">2. Choose a result group</p><nav class="agent-outcome-tabs" aria-label="VocaAgent case result groups">'''+''.join(nav_items)+'</nav>'+''.join(blocks)+'\n</section>\n<!-- AGENT_CASES:END -->'
     content, pages = split_cases(content, 'voca-agent')
+    kept_audio = {f'{n:02d}_{s["sample_id"]}' for _, s, n, _ in chosen}
+    audio_root = PAGE / 'static/audio/voca-agent'
+    if audio_root.exists():
+        for old_audio in audio_root.iterdir():
+            if old_audio.is_dir() and old_audio.name not in kept_audio:
+                shutil.rmtree(old_audio)
+
     p = PAGE / 'index.html'
     text = p.read_text(); start = text.index('<!-- AGENT_CASES:BEGIN'); end = text.index('<!-- AGENT_CASES:END -->', start) + len('<!-- AGENT_CASES:END -->')
     p.write_text(text[:start] + content + text[end:])
