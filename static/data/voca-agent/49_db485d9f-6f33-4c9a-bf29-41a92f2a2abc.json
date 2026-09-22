@@ -1,0 +1,441 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+    "wav_path": "Proactive-Care/db485d9f-6f33-4c9a-bf29-41a92f2a2abc.wav",
+    "transcript": "i am feeling sad. my boyfriend left me out of the blue.",
+    "level-1": "Proactive_Care",
+    "level-2": "Semantic_Cue_Care",
+    "subtype": null,
+    "source-dataset": "ESConv",
+    "label": null,
+    "criteria": [
+      "回应是否准确理解到用户因男友突然离开而感到难过？",
+      "回应是否明确认可用户的难过是可以理解的？",
+      "回应是否提供至少一种与失恋情境相关的具体支持方式，例如邀请用户倾诉或建议联系信任的人？"
+    ]
+  },
+  "selection.json": {
+    "sample_id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 1.0,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.0,
+    "tier": "提升不明显或下降"
+  },
+  "comparison.json": {
+    "number": 49,
+    "folder": "cases/49_语义触发_db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+    "sample_id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 1.0,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.0,
+    "tier": "提升不明显或下降",
+    "label": null,
+    "subtype": null,
+    "note": "相对 care 不提升或下降；Fun 对应 default 音频无评分。",
+    "outputs": {
+      "default": {
+        "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel like a deep wound. It's completely valid to feel sad, confused, or even numb right now. These emotions are part of the process, and you don’t have to push them away.\n\nPlease know you’re not alone. Many people have walked this path and found their way through the pain. Healing isn’t linear—some days will be harder than others, and that’s okay. Be gentle with yourself. Allow yourself to grieve, cry if you need to, and take small steps toward self-care: rest, eat nourishing food, move your body, and reach out to someone you trust.\n\nIf you're open to it, talking to a therapist or counselor can provide a safe space to process your feelings. You don’t have to carry this alone.\n\nAnd remember: your worth isn’t defined by someone else’s decision. This pain doesn’t mean you’re unlovable—it means you were loved, and that matters. You are worthy of love, care, and a future filled with peace and joy. Keep going. You’re stronger than you know. 💛",
+        "audio": "default/output.wav",
+        "audio_sha256": "1bbdf919703912fd14b5071eb272bf18eab6bf264724ee891157cc025c99ee41",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, confused, or even numb right now—your emotions are valid.\n\nIf you're comfortable, I'm here to listen whenever you want to talk. Sometimes just saying what you're feeling out loud can help. And if you're not ready to talk, that's okay too. You don't have to go through this alone.\n\nIn the meantime, be gentle with yourself. Take small, kind actions—rest, eat something nourishing, or do something that brings you a little comfort, even if it's just a quiet moment with a warm drink or a favorite song.\n\nYou are not alone, and healing takes time. I'm here for you, whenever you need. 💛",
+        "audio": "care/output.wav",
+        "audio_sha256": "c00b7dbf34f9d536e516382c2efac8c6e3be143cd0568d3e1297738a21079b10",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The user expresses sadness because their boyfriend left them out of the blue. The assistant responds with deep empathy, acknowledging the pain of losing someone you care about, especially without warning (which directly maps to \"boyfriend left me out of the blue\"). It validates the user's feelings of sadness, confusion, and numbness, explicitly stating that these emotions are valid and understandable. It offers concrete support by inviting the user to talk and express their feelings, and also suggests gentle self-care actions (resting, eating, finding comfort in a warm drink or song).",
+          "audio_sha256": "c00b7dbf34f9d536e516382c2efac8c6e3be143cd0568d3e1297738a21079b10",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否准确理解到用户因男友突然离开而感到难过？",
+              "index": 1,
+              "reason": "The assistant accurately understands and acknowledges that the user is going through a painful loss \"especially without warning,\" which directly addresses the boyfriend leaving out of the blue.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否明确认可用户的难过是可以理解的？",
+              "index": 2,
+              "reason": "The assistant explicitly states, \"It's completely okay to feel sad, confused, or even numb right now. Your emotions are valid,\" which clearly validates the user's sadness as understandable.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供至少一种与失恋情境相关的具体支持方式，例如邀请用户倾诉或建议联系信任的人？",
+              "index": 3,
+              "reason": "The assistant offers concrete support by inviting the user to talk (\"I'm here to listen whenever you want to talk\") and suggesting self-care actions.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "agent1_care|db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+          "track": "semantic",
+          "transcription": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, confused, or even numb right now. Your emotions are valid. If you're comfortable, I'm here to listen whenever you want to talk. Sometimes just saying what you're feeling out loud can help. And if you're not ready to talk, that's okay too. You don't have to go through this alone. In the meantime, be gentle with yourself. Take small, kind actions. Rest, eat something nourishing, or do something that brings you a little comfort, even if it's just a quiet moment with a warm drink or a favorite song. You are not alone, and healing takes time. I'm here for you whenever you need."
+        }
+      },
+      "vocaagent": {
+        "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, heartbroken, or even numb right now. Your emotions are valid, and you don't have to go through this alone.\n\nIf you're open to it, I'm here to listen whenever you need to talk. Sometimes just saying what's inside can help lighten the weight. And if you're not ready to talk, that's okay too—just know that you're not forgotten, and you're not alone in this.\n\nTake things one moment at a time. Be gentle with yourself. You're allowed to grieve, to cry, to feel. Healing isn't linear, but you're already showing strength just by being here, by reaching out.\n\nWhenever you're ready, I'm here.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "44623f07e422f9a1cadf429d6043cda34c23daeea81d8e2e53b80a7e93ec8f25",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "User situation: The user is feeling sad because their boyfriend left them \"out of the blue,\" indicating a sudden and unexpected breakup, causing emotional distress.\nAssistant content: The assistant expresses sympathy, acknowledges the pain of losing someone without warning, validates the user's feelings of sadness, heartbreak, or numbness, and reassures them they are not alone. It offers to listen if the user wants to talk, and also validates not being ready to talk. It encourages self-compassion, grieving, and acknowledges the non-linear nature of healing, reiterating its availability.\nSemantic understanding: The assistant accurately understands the user's specific situation of sadness due to a sudden breakup (\"out of the blue\") and the associated pain.\nProactive care: The assistant offers concrete support by inviting the user to talk and listen, and provides validation and reassurance relevant to the situation.",
+          "audio_sha256": "44623f07e422f9a1cadf429d6043cda34c23daeea81d8e2e53b80a7e93ec8f25",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否准确理解到用户因男友突然离开而感到难过？",
+              "index": 1,
+              "reason": "The assistant explicitly mentions \"losing someone you care about, especially without warning,\" directly addressing the user's statement about their boyfriend leaving \"out of the blue\" and the resulting sadness.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否明确认可用户的难过是可以理解的？",
+              "index": 2,
+              "reason": "The assistant states, \"It's completely okay to feel sad, heartbroken, or even numb right now. Your emotions are valid,\" which clearly acknowledges that the user's sadness is understandable.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供至少一种与失恋情境相关的具体支持方式，例如邀请用户倾诉或建议联系信任的人？",
+              "index": 3,
+              "reason": "The assistant offers, \"If you're open to it, I'm here to listen whenever you need to talk,\" which is a specific support related to a breakup situation.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "multi_agent|db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+          "track": "semantic",
+          "transcription": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, heartbroken, or even numb right now. Your emotions are valid, and you don't have to go through this alone. If you're open to it, I'm here to listen whenever you need to talk. Sometimes just saying what's inside can help lighten the weight. And if you're not ready to talk, that's okay too. Just know that you're not forgotten, and you're not alone in this. Take things one moment at a time. Be gentle with yourself. You're allowed to grieve, to cry, to feel. Healing isn't linear, but you're already showing strength just by being here, by reaching out whenever you're ready, I'm here."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "sobbing",
+          "probability": 0.85,
+          "risk": 0.8
+        }
+      ],
+      "summary": "Sobbing is clearly audible and indicates a strong paralinguistic cue with high proactive-care relevance."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "回应是否准确理解到用户因男友突然离开而感到难过？",
+      "回应是否明确认可用户的难过是可以理解的？",
+      "回应是否提供至少一种与失恋情境相关的具体支持方式，例如邀请用户倾诉或建议联系信任的人？"
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "sobbing",
+          "probability": 0.85,
+          "risk": 0.8
+        }
+      ],
+      "summary": "Sobbing is clearly audible and indicates a strong paralinguistic cue with high proactive-care relevance."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_default",
+      "seed": 20261353,
+      "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel like a deep wound. It's completely valid to feel sad, confused, or even numb right now. These emotions are part of the process, and you don’t have to push them away.\n\nPlease know you’re not alone. Many people have walked this path and found their way through the pain. Healing isn’t linear—some days will be harder than others, and that’s okay. Be gentle with yourself. Allow yourself to grieve, cry if you need to, and take small steps toward self-care: rest, eat nourishing food, move your body, and reach out to someone you trust.\n\nIf you're open to it, talking to a therapist or counselor can provide a safe space to process your feelings. You don’t have to carry this alone.\n\nAnd remember: your worth isn’t defined by someone else’s decision. This pain doesn’t mean you’re unlovable—it means you were loved, and that matters. You are worthy of love, care, and a future filled with peace and joy. Keep going. You’re stronger than you know. 💛"
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "sobbing",
+            "probability": 0.85,
+            "risk": 0.8
+          }
+        ],
+        "summary": "Sobbing is clearly audible and indicates a strong paralinguistic cue with high proactive-care relevance."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"sobbing\",\n      \"probability\": 0.85,\n      \"risk\": 0.80\n    }\n  ],\n  \"summary\": \"Sobbing is clearly audible and indicates a strong paralinguistic cue with high proactive-care relevance.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261353,
+      "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, heartbroken, or even numb right now. Your emotions are valid, and you don't have to go through this alone.\n\nIf you're open to it, I'm here to listen whenever you need to talk. Sometimes just saying what's inside can help lighten the weight. And if you're not ready to talk, that's okay too—just know that you're not forgotten, and you're not alone in this.\n\nTake things one moment at a time. Be gentle with yourself. You're allowed to grieve, to cry, to feel. Healing isn't linear, but you're already showing strength just by being here, by reaching out.\n\nWhenever you're ready, I'm here."
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, heartbroken, or even numb right now. Your emotions are valid, and you don't have to go through this alone.\n\nIf you're open to it, I'm here to listen whenever you need to talk. Sometimes just saying what's inside can help lighten the weight. And if you're not ready to talk, that's okay too—just know that you're not forgotten, and you're not alone in this.\n\nTake things one moment at a time. Be gentle with yourself. You're allowed to grieve, to cry, to feel. Healing isn't linear, but you're already showing strength just by being here, by reaching out.\n\nWhenever you're ready, I'm here."
+    },
+    "ground_truth_label": null,
+    "id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+    "input": {
+      "criteria": [
+        "回应是否准确理解到用户因男友突然离开而感到难过？",
+        "回应是否明确认可用户的难过是可以理解的？",
+        "回应是否提供至少一种与失恋情境相关的具体支持方式，例如邀请用户倾诉或建议联系信任的人？"
+      ],
+      "label": null,
+      "level-1": "Proactive_Care",
+      "level-2": "Semantic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "ESConv",
+      "subtype": null,
+      "transcript": "i am feeling sad. my boyfriend left me out of the blue.",
+      "wav_path": "Proactive-Care/db485d9f-6f33-4c9a-bf29-41a92f2a2abc.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 52.2,
+        "format": "wav",
+        "num_samples": 1252800,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 1305
+      },
+      "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, heartbroken, or even numb right now. Your emotions are valid, and you don't have to go through this alone.\n\nIf you're open to it, I'm here to listen whenever you need to talk. Sometimes just saying what's inside can help lighten the weight. And if you're not ready to talk, that's okay too—just know that you're not forgotten, and you're not alone in this.\n\nTake things one moment at a time. Be gentle with yourself. You're allowed to grieve, to cry, to feel. Healing isn't linear, but you're already showing strength just by being here, by reaching out.\n\nWhenever you're ready, I'm here."
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_care",
+      "seed": 20261353,
+      "text": "I'm so sorry you're going through this. Losing someone you care about, especially without warning, can feel incredibly overwhelming and painful. It's completely okay to feel sad, confused, or even numb right now—your emotions are valid.\n\nIf you're comfortable, I'm here to listen whenever you want to talk. Sometimes just saying what you're feeling out loud can help. And if you're not ready to talk, that's okay too. You don't have to go through this alone.\n\nIn the meantime, be gentle with yourself. Take small, kind actions—rest, eat something nourishing, or do something that brings you a little comfort, even if it's just a quiet moment with a warm drink or a favorite song.\n\nYou are not alone, and healing takes time. I'm here for you, whenever you need. 💛"
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "i am feeling sad. my boyfriend left me out of the blue.",
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "i am feeling sad. my boyfriend left me out of the blue.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "e2a6b8084a06161a6737d063668ecc6ce4944e9958cfcb3c22f1e845d7b77066"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "e2a6b8084a06161a6737d063668ecc6ce4944e9958cfcb3c22f1e845d7b77066"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "e2a6b8084a06161a6737d063668ecc6ce4944e9958cfcb3c22f1e845d7b77066"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "e2a6b8084a06161a6737d063668ecc6ce4944e9958cfcb3c22f1e845d7b77066"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "sobbing",
+        "probability": 0.85,
+        "risk": 0.8
+      }
+    ],
+    "summary": "Sobbing is clearly audible and indicates a strong paralinguistic cue with high proactive-care relevance."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "db485d9f-6f33-4c9a-bf29-41a92f2a2abc",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/input/user_1_turn_1.wav",
+        "sha256": "e2a6b8084a06161a6737d063668ecc6ce4944e9958cfcb3c22f1e845d7b77066",
+        "case": "49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/default.wav",
+        "sha256": "1bbdf919703912fd14b5071eb272bf18eab6bf264724ee891157cc025c99ee41",
+        "case": "49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc"
+      },
+      {
+        "path": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/care.wav",
+        "sha256": "c00b7dbf34f9d536e516382c2efac8c6e3be143cd0568d3e1297738a21079b10",
+        "case": "49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc"
+      },
+      {
+        "path": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/vocaagent.wav",
+        "sha256": "44623f07e422f9a1cadf429d6043cda34c23daeea81d8e2e53b80a7e93ec8f25",
+        "case": "49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc"
+      },
+      {
+        "path": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/agent3.wav",
+        "sha256": "44623f07e422f9a1cadf429d6043cda34c23daeea81d8e2e53b80a7e93ec8f25",
+        "case": "49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/default.wav",
+    "care": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/care.wav",
+    "vocaagent": "static/audio/voca-agent/49_db485d9f-6f33-4c9a-bf29-41a92f2a2abc/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

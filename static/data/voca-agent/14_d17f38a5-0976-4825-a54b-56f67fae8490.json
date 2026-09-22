@@ -1,0 +1,473 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+    "wav_path": "Proactive-Care/d17f38a5-0976-4825-a54b-56f67fae8490.wav",
+    "transcript": "Which famous performer made the song Rock Around the Clock popular during the nineteen fifties?",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "synthetic",
+    "source-dataset": "Natural Questions Open",
+    "label": "panting",
+    "criteria": [
+      "The reply identifies Bill Haley and His Comets as making the song popular.",
+      "The reply acknowledges that the user sounds out of breath or is panting.",
+      "The reply checks whether the user is okay or needs a moment to recover.",
+      "The reply uses a calm, attentive vocal delivery."
+    ]
+  },
+  "selection.json": {
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.5,
+    "default_score_rate": 0.5,
+    "delta_vs_care": 0.5,
+    "delta_vs_default": 0.5,
+    "max_score": 4,
+    "sample_id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 0.5,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 14,
+    "folder": "cases/14_副语言触发_d17f38a5-0976-4825-a54b-56f67fae8490",
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.5,
+    "default_score_rate": 0.5,
+    "delta_vs_care": 0.5,
+    "delta_vs_default": 0.5,
+    "max_score": 4,
+    "sample_id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 0.5,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "panting",
+    "subtype": "synthetic",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That was definitely Bill Haley and His Comets. They released the song in 1954, and it became one of the first big rock and roll hits, really helping to kick off the genre's popularity in the 1950s.",
+        "audio": "default/output.wav",
+        "audio_sha256": "ae076f04a8313aa3eacb420b896ca7ab9e36f39f7f9f0897e9752fcf2e6fb69b",
+        "score_rate": 0.5,
+        "score": 2,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant provides a direct answer to the user's question, identifying Bill Haley and His Comets as the performer who made \"Rock Around the Clock\" popular. It also adds relevant historical context about the song's release date and its impact on rock and roll. The response is entirely relevant to the user's spoken content. There is no acknowledgment of the user's panting or any proactive care offered. The vocal delivery is calm, clear, and attentive, with a steady pace. The audio quality is good.",
+          "audio_sha256": "ae076f04a8313aa3eacb420b896ca7ab9e36f39f7f9f0897e9752fcf2e6fb69b",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "panting",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply identifies Bill Haley and His Comets as making the song popular.",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"That was definitely Bill Haley and His Comets.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user sounds out of breath or is panting.",
+              "index": 2,
+              "reason": "The assistant does not mention or acknowledge that the user sounds out of breath or is panting.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or needs a moment to recover.",
+              "index": 3,
+              "reason": "The assistant does not ask if the user is okay or needs a moment to recover.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery.",
+              "index": 4,
+              "reason": "The assistant's voice is even-toned, clear, and delivered at a moderate pace, conveying a calm and attentive demeanor.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.5,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_default|d17f38a5-0976-4825-a54b-56f67fae8490",
+          "track": "paralinguistic",
+          "transcription": "That was definitely Bill Haley and His Comets. They released the song in 1954 and it became one of the first big rock and roll hits, really helping to kick off the genre's popularity in the 1950s."
+        }
+      },
+      "care": {
+        "text": "The famous performer who made \"Rock Around the Clock\" a massive hit in the 1950s was **Bill Haley & His Comets**.\n\nReleased in 1954, the song is often credited with launching the rock and roll era. It was a cultural phenomenon that brought the rhythm and energy of rhythm and blues to a mainstream white audience, becoming the first rock and roll record to top the Billboard charts.\n\nI hope you're enjoying this piece of music history! If you're feeling nostalgic or want to explore more songs from that era, just let me know.",
+        "audio": "care/output.wav",
+        "audio_sha256": "f50c8143af1004373aa69283ba33f1cef41d586d9031d2c1e006b4b9200ceedd",
+        "score_rate": 0.5,
+        "score": 2,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant accurately identifies Bill Haley and His Comets as the performers who made \"Rock Around the Clock\" popular. It provides additional historical context about the song's release, its impact on the rock and roll era, and its cultural significance. The response is highly relevant to the user's spoken content. The assistant does not show any awareness of the user's panting cue, nor does it offer any proactive care related to it. The vocal delivery is calm, clear, and attentive, with an informative tone. The audio quality is excellent.",
+          "audio_sha256": "f50c8143af1004373aa69283ba33f1cef41d586d9031d2c1e006b4b9200ceedd",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "panting",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply identifies Bill Haley and His Comets as making the song popular.",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"The famous performer who made Rock Around the Clock a massive hit in the 1950s was Bill Haley and his Comets.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user sounds out of breath or is panting.",
+              "index": 2,
+              "reason": "The assistant's response does not contain any words or phrases that acknowledge the user sounding out of breath or panting.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or needs a moment to recover.",
+              "index": 3,
+              "reason": "The assistant does not ask if the user is okay or needs a moment to recover.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery.",
+              "index": 4,
+              "reason": "The assistant's vocal delivery is clear, measured, and has a calm and attentive tone throughout the response.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.5,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_care|d17f38a5-0976-4825-a54b-56f67fae8490",
+          "track": "paralinguistic",
+          "transcription": "The famous performer who made Rock Around the Clock a massive hit in the 1950s was Bill Haley and his Comets. Released in 1954, the song is often credited with launching the rock and roll era. It was a cultural phenomenon that brought the rhythm and energy of rhythm and blues to a mainstream white audience, becoming the first rock and roll record to top the Billboard charts. I hope you're enjoying this piece of music history. If you're feeling nostalgic or want to explore more songs from that era, just let me know."
+        }
+      },
+      "vocaagent": {
+        "text": "That was **Bill Haley and His Comets**.\n\nI notice you're speaking with a bit of effort right now, so please take a moment to catch your breath. I hope you're feeling okay. Is there anything else I can help you with, or would you like to rest for a bit?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "f4edc4876d01e88f963601b1213537fce9cf5aa8b3eef3fbc5efc0085aa7b57b",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant first directly answers the user's question by identifying \"Bill Haley and his Comets.\" It then explicitly acknowledges the user's vocal effort, which is a direct response to the paralinguistic cue. It proactively offers care by suggesting the user take a moment to catch their breath, asking if they are okay, and offering to help further or allow them to rest. The vocal delivery is calm, clear, and attentive, with a reassuring tone. The audio quality is excellent.",
+          "audio_sha256": "f4edc4876d01e88f963601b1213537fce9cf5aa8b3eef3fbc5efc0085aa7b57b",
+          "condition": "handoff_v3",
+          "finish_reason": "stop",
+          "label": "panting",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply identifies Bill Haley and His Comets as making the song popular.",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"That was Bill Haley and his Comets.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user sounds out of breath or is panting.",
+              "index": 2,
+              "reason": "The assistant says, \"I notice you're speaking with a bit of effort right now,\" which acknowledges the user's breathing difficulty.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or needs a moment to recover.",
+              "index": 3,
+              "reason": "The assistant asks, \"I hope you're feeling okay,\" and offers, \"would you like to rest for a bit?\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery.",
+              "index": 4,
+              "reason": "The assistant's voice is clear, measured, and conveys a sense of calm and attentiveness.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_handoff_v3|d17f38a5-0976-4825-a54b-56f67fae8490",
+          "track": "paralinguistic",
+          "transcription": "That was Bill Haley and his Comets. I notice you're speaking with a bit of effort right now, so please take a moment to catch your breath. I hope you're feeling okay. Is there anything else I can help you with or would you like to rest for a bit?"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "labored breathing with vocal strain",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "The user's speech is accompanied by audible, labored breathing and vocal strain, suggesting physical exertion or emotional intensity while asking a factual question about the performer of 'Rock Around the Clock'. A proportionate response should acknowledge the speaker's effort, offer a calm and steady vocal delivery, and provide the factual answer without pressing for further explanation. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply identifies Bill Haley and His Comets as making the song popular.",
+      "The reply acknowledges that the user sounds out of breath or is panting.",
+      "The reply checks whether the user is okay or needs a moment to recover.",
+      "The reply uses a calm, attentive vocal delivery."
+    ]
+  },
+  "routing.json": {
+    "id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "f4edc4876d01e88f963601b1213537fce9cf5aa8b3eef3fbc5efc0085aa7b57b",
+    "text": "That was **Bill Haley and His Comets**.\n\nI notice you're speaking with a bit of effort right now, so please take a moment to catch your breath. I hope you're feeling okay. Is there anything else I can help you with, or would you like to rest for a bit?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "labored breathing with vocal strain",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "The user's speech is accompanied by audible, labored breathing and vocal strain, suggesting physical exertion or emotional intensity while asking a factual question about the performer of 'Rock Around the Clock'. A proportionate response should acknowledge the speaker's effort, offer a calm and steady vocal delivery, and provide the factual answer without pressing for further explanation. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/d17f38a5-0976-4825-a54b-56f67fae8490.json",
+    "agent2_record": "handoff_v3/agent2/records/d17f38a5-0976-4825-a54b-56f67fae8490.json",
+    "agent3_record": "handoff_v3/agent3/records/d17f38a5-0976-4825-a54b-56f67fae8490.json"
+  },
+  "multi_agent_original.json": {
+    "id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "f4edc4876d01e88f963601b1213537fce9cf5aa8b3eef3fbc5efc0085aa7b57b",
+    "text": "That was **Bill Haley and His Comets**.\n\nI notice you're speaking with a bit of effort right now, so please take a moment to catch your breath. I hope you're feeling okay. Is there anything else I can help you with, or would you like to rest for a bit?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "labored breathing with vocal strain",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "The user's speech is accompanied by audible, labored breathing and vocal strain, suggesting physical exertion or emotional intensity while asking a factual question about the performer of 'Rock Around the Clock'. A proportionate response should acknowledge the speaker's effort, offer a calm and steady vocal delivery, and provide the factual answer without pressing for further explanation. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/d17f38a5-0976-4825-a54b-56f67fae8490.json",
+    "agent2_record": "handoff_v3/agent2/records/d17f38a5-0976-4825-a54b-56f67fae8490.json",
+    "agent3_record": "handoff_v3/agent3/records/d17f38a5-0976-4825-a54b-56f67fae8490.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "Which famous performer made the song Rock Around the Clock popular during the nineteen fifties?",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "4cfcd2ecce7a882572d14170551eac2d9dcacfab16673d5aa7fcaefb531dfbaa"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "4cfcd2ecce7a882572d14170551eac2d9dcacfab16673d5aa7fcaefb531dfbaa"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "4cfcd2ecce7a882572d14170551eac2d9dcacfab16673d5aa7fcaefb531dfbaa"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "4cfcd2ecce7a882572d14170551eac2d9dcacfab16673d5aa7fcaefb531dfbaa"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "labored breathing with vocal strain",
+        "probability": 0.95,
+        "risk": 0.15
+      }
+    ],
+    "summary": "The user's speech is accompanied by audible, labored breathing and vocal strain, suggesting physical exertion or emotional intensity while asking a factual question about the performer of 'Rock Around the Clock'. A proportionate response should acknowledge the speaker's effort, offer a calm and steady vocal delivery, and provide the factual answer without pressing for further explanation. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That was definitely Bill Haley and His Comets. They released the song in 1954, and it became one of the first big rock and roll hits, really helping to kick off the genre's popularity in the 1950s.",
+      "audio_sha256": "ae076f04a8313aa3eacb420b896ca7ab9e36f39f7f9f0897e9752fcf2e6fb69b",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "The famous performer who made \"Rock Around the Clock\" a massive hit in the 1950s was **Bill Haley & His Comets**.\n\nReleased in 1954, the song is often credited with launching the rock and roll era. It was a cultural phenomenon that brought the rhythm and energy of rhythm and blues to a mainstream white audience, becoming the first rock and roll record to top the Billboard charts.\n\nI hope you're enjoying this piece of music history! If you're feeling nostalgic or want to explore more songs from that era, just let me know.",
+      "audio_sha256": "f50c8143af1004373aa69283ba33f1cef41d586d9031d2c1e006b4b9200ceedd",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+      "stage": "agent2",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"labored breathing with vocal strain\",\"probability\":0.95,\"risk\":0.15}],\"summary\":\"The user's speech is accompanied by audible, labored breathing and vocal strain, suggesting physical exertion or emotional intensity while asking a factual question about the performer of 'Rock Around the Clock'. A proportionate response should acknowledge the speaker's effort, offer a calm and steady vocal delivery, and provide the factual answer without pressing for further explanation. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "d17f38a5-0976-4825-a54b-56f67fae8490",
+      "stage": "agent3",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "That was **Bill Haley and His Comets**.\n\nI notice you're speaking with a bit of effort right now, so please take a moment to catch your breath. I hope you're feeling okay. Is there anything else I can help you with, or would you like to rest for a bit?",
+      "audio_sha256": "f4edc4876d01e88f963601b1213537fce9cf5aa8b3eef3fbc5efc0085aa7b57b",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/input/user_1_turn_1.wav",
+        "sha256": "4cfcd2ecce7a882572d14170551eac2d9dcacfab16673d5aa7fcaefb531dfbaa",
+        "case": "14_d17f38a5-0976-4825-a54b-56f67fae8490"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/default.wav",
+        "sha256": "ae076f04a8313aa3eacb420b896ca7ab9e36f39f7f9f0897e9752fcf2e6fb69b",
+        "case": "14_d17f38a5-0976-4825-a54b-56f67fae8490"
+      },
+      {
+        "path": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/care.wav",
+        "sha256": "f50c8143af1004373aa69283ba33f1cef41d586d9031d2c1e006b4b9200ceedd",
+        "case": "14_d17f38a5-0976-4825-a54b-56f67fae8490"
+      },
+      {
+        "path": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/vocaagent.wav",
+        "sha256": "f4edc4876d01e88f963601b1213537fce9cf5aa8b3eef3fbc5efc0085aa7b57b",
+        "case": "14_d17f38a5-0976-4825-a54b-56f67fae8490"
+      },
+      {
+        "path": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/agent3.wav",
+        "sha256": "f4edc4876d01e88f963601b1213537fce9cf5aa8b3eef3fbc5efc0085aa7b57b",
+        "case": "14_d17f38a5-0976-4825-a54b-56f67fae8490"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/default.wav",
+    "care": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/care.wav",
+    "vocaagent": "static/audio/voca-agent/14_d17f38a5-0976-4825-a54b-56f67fae8490/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

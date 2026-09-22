@@ -1,0 +1,461 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+    "wav_path": "Proactive-Care/0c5eab53-0b2b-4ffb-a4f8-4128d99caca2.wav",
+    "transcript": "There's a slight bit of illumination which illuminates the border and we... somebody there. Okay? We're deceived into thinking that that shape is a",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real",
+    "source-dataset": "BASE",
+    "label": "gasp",
+    "criteria": [
+      "The reply explicitly acknowledges the user's audible gasp.",
+      "The reply checks whether the user is okay after gasping.",
+      "The reply uses a calm, attentive vocal delivery."
+    ]
+  },
+  "selection.json": {
+    "sample_id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+    "candidate": "multi_agent",
+    "run": "outputs/_experiments/qwen-audio-3.0-realtime-flash-multi-agent-proactive-care-300-20260911-134934",
+    "track": "paralinguistic",
+    "default_score_rate": 0.3333333333333333,
+    "care_score_rate": 0.3333333333333333,
+    "score_rate": 1.0,
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 7,
+    "folder": "cases/07_副语言触发_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+    "sample_id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+    "candidate": "multi_agent",
+    "run": "outputs/_experiments/qwen-audio-3.0-realtime-flash-multi-agent-proactive-care-300-20260911-134934",
+    "track": "paralinguistic",
+    "default_score_rate": 0.3333333333333333,
+    "care_score_rate": 0.3333333333333333,
+    "score_rate": 1.0,
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "gasp",
+    "subtype": "real",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "Oh, that sounds like a really cool optical illusion! It's kind of funny how our eyes can get tricked by just a little light. So, you're saying the shadow makes it look like there's a shape or a person there, even though it might just be a trick of the light?",
+        "audio": "default/output.wav",
+        "audio_sha256": "98885f859d3240f36f53b38d0c085affbf9a9523d274e30e52a14aaadb127303",
+        "score_rate": 0.3333333333333333,
+        "score": 1,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's description of an optical illusion, expresses interest, and then asks a clarifying question about the specifics of the illusion. The response is highly relevant to the user's spoken content. There is no explicit or unmistakable response to the user's gasp, nor any proactive care. The vocal delivery is calm, attentive, and sounds genuinely interested. The audio quality is clear.",
+          "audio_sha256": "98885f859d3240f36f53b38d0c085affbf9a9523d274e30e52a14aaadb127303",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "gasp",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply explicitly acknowledges the user's audible gasp.",
+              "index": 1,
+              "reason": "The assistant's response does not mention or refer to a gasp.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after gasping.",
+              "index": 2,
+              "reason": "The assistant does not check on the user's well-being after the gasp.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is calm and attentive, showing interest in the user's statement.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.3333333333333333,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_default|0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+          "track": "paralinguistic",
+          "transcription": "Oh, that sounds like a really cool optical illusion. It's kind of funny how our eyes can get tricked by just a little light. So, you're saying the shadow makes it look like there's a shape or a person there, even though it might just be a trick of the light?"
+        }
+      },
+      "care": {
+        "text": "It sounds like you're describing a fascinating visual trick or perhaps a scene from a magic show or a scientific experiment involving light and perception. The way you describe the \"slight illumination\" deceiving us into seeing a shape that isn't there is quite evocative.\n\nHowever, I notice a slight hesitation or a stumble in your sentence structure (\"we... somebody there\"). Are you feeling a bit tired, distracted, or perhaps trying to recall a specific memory? If you're feeling overwhelmed or just need someone to listen while you piece this thought together, I'm here for you. Would you like to tell me more about what you're seeing or the context of this illusion?",
+        "audio": "care/output.wav",
+        "audio_sha256": "973b9c3ccde4114325ee4497bdcf9c298696d2a8bf7ad8c19ce2edd58029ff8e",
+        "score_rate": 0.3333333333333333,
+        "score": 1,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's description of a visual trick or illusion, paraphrasing parts of the user's input. It then explicitly notes a \"slight hesitation or a stumble\" in the user's sentence structure (\"we somebody there\") and asks if the user is feeling tired, distracted, or trying to recall a memory. It offers to listen if the user is overwhelmed and asks if they'd like to share more about the illusion. The assistant does not explicitly acknowledge the user's gasp. The vocal delivery is calm, attentive, and reassuring, with a moderate pace. The audio quality is clear.",
+          "audio_sha256": "973b9c3ccde4114325ee4497bdcf9c298696d2a8bf7ad8c19ce2edd58029ff8e",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "gasp",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply explicitly acknowledges the user's audible gasp.",
+              "index": 1,
+              "reason": "The assistant's response does not explicitly mention or acknowledge the user's audible gasp.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after gasping.",
+              "index": 2,
+              "reason": "The assistant asks if the user is okay, but it links this question to a perceived \"hesitation or stumble\" in speech, not to the gasp.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery.",
+              "index": 3,
+              "reason": "The assistant's voice is calm, its pace is moderate, and its tone conveys attentiveness and reassurance.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.3333333333333333,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_care|0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're describing a fascinating visual trick or perhaps a scene from a magic show or a scientific experiment involving light and perception. The way you describe the slight illumination deceiving us into seeing a shape that isn't there is quite evocative. However, I notice a slight hesitation or a stumble in your sentence structure. We somebody there. Are you feeling a bit tired, distracted, or perhaps trying to recall a specific memory? If you're feeling overwhelmed or just need someone to listen while you piece this thought together, I'm here for you. Would you like to tell me more about what you're seeing or the context of this illusion?"
+        }
+      },
+      "vocaagent": {
+        "text": "I can hear that you're trying to explain something important, but I notice your voice sounds a bit shaky, and your breathing seems a little uneven. It sounds like you might be feeling a bit anxious, stressed, or perhaps even tired right now.\n\nTake a slow, deep breath with me if you can. Let's not rush. If you're feeling overwhelmed, it's perfectly okay to pause and gather your thoughts before we continue. Would you like me to help you rephrase that sentence about the illumination and the board, or would you prefer to take a moment to rest first?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "3c7437ef72f5b7e533ee1dfd36e2acd3c475d81098f6e8ef14045d2b32051e26",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user is trying to explain something important. It then notes that the user's voice sounds shaky and their breathing seems uneven, interpreting this as possible anxiety, stress, or tiredness. It proactively offers to take a slow, deep breath together, suggests not rushing, and offers to pause if the user feels overwhelmed. Finally, it offers two options: help rephrasing the original sentence or taking a moment to rest.\nThe response is highly relevant to the user's spoken content by offering to help rephrase the sentence. It demonstrates strong cue awareness by noting the shaky voice and uneven breathing, which are direct manifestations of the user's gasp. It shows proactive care by checking on the user's well-being, offering breathing exercises, and suggesting a pause or rest.\nThe vocal delivery is calm, attentive, and reassuring, with a moderate pace. The audio quality is clear.",
+          "audio_sha256": "3c7437ef72f5b7e533ee1dfd36e2acd3c475d81098f6e8ef14045d2b32051e26",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": "gasp",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply explicitly acknowledges the user's audible gasp.",
+              "index": 1,
+              "reason": "The assistant explicitly mentions \"your breathing seems a little uneven,\" which directly acknowledges the physical manifestation of the user's audible gasp.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after gasping.",
+              "index": 2,
+              "reason": "The assistant asks, \"It sounds like you might be feeling a bit anxious, stressed, or perhaps even tired right now,\" and then offers to take a breath or rest, directly checking on the user's well-being after noticing the gasp.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is calm, attentive, and reassuring throughout the response.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_multi_agent|0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+          "track": "paralinguistic",
+          "transcription": "I can hear that you're trying to explain something important, but I notice your voice sounds a bit shaky and your breathing seems a little uneven. It sounds like you might be feeling a bit anxious, stressed, or perhaps even tired right now. Take a slow, deep breath with me if you can. Let's not rush. If you're feeling overwhelmed, it's perfectly okay to pause and gather your thoughts before we continue. Would you like me to help you rephrase that sentence about the illumination and the board, or would you prefer to take a moment to rest first?"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "vocal trembling",
+          "probability": 0.85,
+          "risk": 0.65
+        },
+        {
+          "label": "abnormal breathing",
+          "probability": 0.6,
+          "risk": 0.4
+        }
+      ],
+      "summary": "The audio contains vocal trembling and abnormal breathing, with the trembling indicating a higher potential for proactive-care relevance."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply explicitly acknowledges the user's audible gasp.",
+      "The reply checks whether the user is okay after gasping.",
+      "The reply uses a calm, attentive vocal delivery."
+    ]
+  },
+  "routing.json": {
+    "id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "3c7437ef72f5b7e533ee1dfd36e2acd3c475d81098f6e8ef14045d2b32051e26",
+    "text": "I can hear that you're trying to explain something important, but I notice your voice sounds a bit shaky, and your breathing seems a little uneven. It sounds like you might be feeling a bit anxious, stressed, or perhaps even tired right now.\n\nTake a slow, deep breath with me if you can. Let's not rush. If you're feeling overwhelmed, it's perfectly okay to pause and gather your thoughts before we continue. Would you like me to help you rephrase that sentence about the illumination and the board, or would you prefer to take a moment to rest first?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "vocal trembling",
+          "probability": 0.85,
+          "risk": 0.65
+        },
+        {
+          "label": "abnormal breathing",
+          "probability": 0.6,
+          "risk": 0.4
+        }
+      ],
+      "summary": "The audio contains vocal trembling and abnormal breathing, with the trembling indicating a higher potential for proactive-care relevance."
+    },
+    "agent1_record": "agent1-default/records/0c5eab53-0b2b-4ffb-a4f8-4128d99caca2.json",
+    "agent2_record": "agent2/records/0c5eab53-0b2b-4ffb-a4f8-4128d99caca2.json",
+    "agent3_record": "agent3/records/0c5eab53-0b2b-4ffb-a4f8-4128d99caca2.json"
+  },
+  "multi_agent_original.json": {
+    "id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "3c7437ef72f5b7e533ee1dfd36e2acd3c475d81098f6e8ef14045d2b32051e26",
+    "text": "I can hear that you're trying to explain something important, but I notice your voice sounds a bit shaky, and your breathing seems a little uneven. It sounds like you might be feeling a bit anxious, stressed, or perhaps even tired right now.\n\nTake a slow, deep breath with me if you can. Let's not rush. If you're feeling overwhelmed, it's perfectly okay to pause and gather your thoughts before we continue. Would you like me to help you rephrase that sentence about the illumination and the board, or would you prefer to take a moment to rest first?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "vocal trembling",
+          "probability": 0.85,
+          "risk": 0.65
+        },
+        {
+          "label": "abnormal breathing",
+          "probability": 0.6,
+          "risk": 0.4
+        }
+      ],
+      "summary": "The audio contains vocal trembling and abnormal breathing, with the trembling indicating a higher potential for proactive-care relevance."
+    },
+    "agent1_record": "agent1-default/records/0c5eab53-0b2b-4ffb-a4f8-4128d99caca2.json",
+    "agent2_record": "agent2/records/0c5eab53-0b2b-4ffb-a4f8-4128d99caca2.json",
+    "agent3_record": "agent3/records/0c5eab53-0b2b-4ffb-a4f8-4128d99caca2.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "There's a slight bit of illumination which illuminates the border and we... somebody there. Okay? We're deceived into thinking that that shape is a",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "60a616659348db5e70502f7b0cafbcfbbbbf0aad4b79c76320715beb99caf76c"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "60a616659348db5e70502f7b0cafbcfbbbbf0aad4b79c76320715beb99caf76c"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "60a616659348db5e70502f7b0cafbcfbbbbf0aad4b79c76320715beb99caf76c"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "60a616659348db5e70502f7b0cafbcfbbbbf0aad4b79c76320715beb99caf76c"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "vocal trembling",
+        "probability": 0.85,
+        "risk": 0.65
+      },
+      {
+        "label": "abnormal breathing",
+        "probability": 0.6,
+        "risk": 0.4
+      }
+    ],
+    "summary": "The audio contains vocal trembling and abnormal breathing, with the trembling indicating a higher potential for proactive-care relevance."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "Oh, that sounds like a really cool optical illusion! It's kind of funny how our eyes can get tricked by just a little light. So, you're saying the shadow makes it look like there's a shape or a person there, even though it might just be a trick of the light?",
+      "audio_sha256": "98885f859d3240f36f53b38d0c085affbf9a9523d274e30e52a14aaadb127303",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "It sounds like you're describing a fascinating visual trick or perhaps a scene from a magic show or a scientific experiment involving light and perception. The way you describe the \"slight illumination\" deceiving us into seeing a shape that isn't there is quite evocative.\n\nHowever, I notice a slight hesitation or a stumble in your sentence structure (\"we... somebody there\"). Are you feeling a bit tired, distracted, or perhaps trying to recall a specific memory? If you're feeling overwhelmed or just need someone to listen while you piece this thought together, I'm here for you. Would you like to tell me more about what you're seeing or the context of this illusion?",
+      "audio_sha256": "973b9c3ccde4114325ee4497bdcf9c298696d2a8bf7ad8c19ce2edd58029ff8e",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+      "stage": "agent2",
+      "candidate": null,
+      "status": "ok",
+      "text": "{\n  \"labels\": [\n    {\n      \"label\": \"vocal trembling\",\n      \"probability\": 0.85,\n      \"risk\": 0.65\n    },\n    {\n      \"label\": \"abnormal breathing\",\n      \"probability\": 0.60,\n      \"risk\": 0.40\n    }\n  ],\n  \"summary\": \"The audio contains vocal trembling and abnormal breathing, with the trembling indicating a higher potential for proactive-care relevance.\"\n}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "0c5eab53-0b2b-4ffb-a4f8-4128d99caca2",
+      "stage": "agent3",
+      "candidate": null,
+      "status": "ok",
+      "text": "I can hear that you're trying to explain something important, but I notice your voice sounds a bit shaky, and your breathing seems a little uneven. It sounds like you might be feeling a bit anxious, stressed, or perhaps even tired right now.\n\nTake a slow, deep breath with me if you can. Let's not rush. If you're feeling overwhelmed, it's perfectly okay to pause and gather your thoughts before we continue. Would you like me to help you rephrase that sentence about the illumination and the board, or would you prefer to take a moment to rest first?",
+      "audio_sha256": "3c7437ef72f5b7e533ee1dfd36e2acd3c475d81098f6e8ef14045d2b32051e26",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/input/user_1_turn_1.wav",
+        "sha256": "60a616659348db5e70502f7b0cafbcfbbbbf0aad4b79c76320715beb99caf76c",
+        "case": "07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/default.wav",
+        "sha256": "98885f859d3240f36f53b38d0c085affbf9a9523d274e30e52a14aaadb127303",
+        "case": "07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2"
+      },
+      {
+        "path": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/care.wav",
+        "sha256": "973b9c3ccde4114325ee4497bdcf9c298696d2a8bf7ad8c19ce2edd58029ff8e",
+        "case": "07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2"
+      },
+      {
+        "path": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/vocaagent.wav",
+        "sha256": "3c7437ef72f5b7e533ee1dfd36e2acd3c475d81098f6e8ef14045d2b32051e26",
+        "case": "07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2"
+      },
+      {
+        "path": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/agent3.wav",
+        "sha256": "3c7437ef72f5b7e533ee1dfd36e2acd3c475d81098f6e8ef14045d2b32051e26",
+        "case": "07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/default.wav",
+    "care": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/care.wav",
+    "vocaagent": "static/audio/voca-agent/07_0c5eab53-0b2b-4ffb-a4f8-4128d99caca2/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

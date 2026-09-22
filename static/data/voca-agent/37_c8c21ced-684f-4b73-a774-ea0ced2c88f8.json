@@ -1,0 +1,476 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+    "wav_path": "Proactive-Care/c8c21ced-684f-4b73-a774-ea0ced2c88f8.wav",
+    "transcript": "I have to always get up for work so I am sticking to the same routines, I just lie in bed with so many thoughts racing around my head and I just can't get off to sleep",
+    "level-1": "Proactive_Care",
+    "level-2": "Semantic_Cue_Care",
+    "subtype": null,
+    "source-dataset": "ESConv",
+    "label": null,
+    "criteria": [
+      "回应是否准确识别出用户虽保持固定作息并需要起床上班，却因躺下后思绪纷乱而难以入睡？",
+      "回应是否承认或验证持续无法入睡给用户带来的疲惫、焦虑或困扰？",
+      "回应是否提供至少一种适合睡前思绪奔涌情境的具体应对方法？",
+      "回应是否邀请用户进一步谈谈睡前反复出现的想法或近期压力来源？"
+    ]
+  },
+  "selection.json": {
+    "sample_id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.5,
+    "score_rate": 0.75,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.25,
+    "tier": "补充候选_证据不足"
+  },
+  "comparison.json": {
+    "number": 37,
+    "folder": "cases/37_语义触发_c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+    "sample_id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.5,
+    "score_rate": 0.75,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.25,
+    "tier": "补充候选_证据不足",
+    "label": null,
+    "subtype": null,
+    "note": "不计入严格明显改善：Fun 的对应 default 音频无评分；这里只能验证相对 care 的提升，default 文本/音频留供试听。",
+    "outputs": {
+      "default": {
+        "text": "I completely understand how overwhelming it can feel when your mind races at night, especially when you're trying to stick to a consistent routine. The good news is that there are practical, science-backed strategies to help calm your mind and improve your sleep quality. Here’s a clearer, more structured approach to help you get the rest you need:\n\n**1. Wind Down with a Calming Pre-Sleep Routine (30–60 minutes before bed)**  \nCreate a consistent, relaxing ritual to signal to your brain that it’s time to sleep. Try:  \n- Reading a physical book (not a screen)  \n- Listening to soothing music or a sleep podcast  \n- Gentle stretching or restorative yoga  \n- Writing in a journal (see below)\n\n**2. Journal Your Thoughts Before Bed**  \nIf your mind is full of worries, tasks, or ideas, write them down. This “brain dump” helps clear mental clutter. Try:  \n- A “to-do” list for tomorrow  \n- A gratitude list (3 things you’re thankful for)  \n- A “worry journal” where you write down concerns and then close the book with a promise to address them tomorrow\n\n**3. Optimize Your Sleep Environment**  \nYour bedroom should be a sanctuary for sleep:  \n- Keep it cool (60–67°F / 15–19°C)  \n- Use blackout curtains or a sleep mask  \n- Minimize noise with earplugs or a white noise machine  \n- Keep the room clutter-free and only use it for sleep and intimacy\n\n**4. Limit Screen Time & Blue Light Exposure**  \nScreens suppress melatonin, the hormone that regulates sleep. Aim to:  \n- Avoid phones, tablets, and computers at least 1 hour before bed  \n- Use blue light filters (like Night Shift or f.lux) if you must use devices  \n- Consider wearing blue light-blocking glasses in the evening\n\n**5. Practice Mindfulness or Relaxation Techniques**  \nThese help quiet the mind and reduce anxiety:  \n- **4-7-8 Breathing**: Inhale for 4 seconds, hold for 7, exhale slowly for 8  \n- **Body Scan Meditation**: Mentally scan from head to toe, relaxing each area  \n- **Guided Sleep Meditations**: Apps like Calm, Headspace, or Insight Timer offer excellent free options\n\n**6. Avoid Stimulants & Heavy Meals**  \n- No caffeine after 2 PM (it can linger in your system for 6–8 hours)  \n- Avoid large meals, alcohol, or spicy foods close to bedtime  \n- Limit fluids 1–2 hours before bed to reduce nighttime awakenings\n\n**7. Get Morning Light Exposure**  \nNatural sunlight in the morning helps regulate your circadian rhythm. Try:  \n- A 10–15 minute walk outside in the morning  \n- Open curtains or sit by a window to let in daylight\n\n**8. Be Patient & Consistent**  \nIt can take 2–4 weeks for your body to adjust to new sleep habits. Stick with it, even if progress feels slow.\n\n💡 **Bonus Tip**: If you can’t fall asleep after 20 minutes, get out of bed, go to another room, and do something quiet and boring (like reading a book under dim light) until you feel sleepy. This prevents your brain from associating the bed with wakefulness.\n\nYou’re already taking a great step by recognizing the issue and wanting to improve. Small, consistent changes can make a big difference over time. You’ve got this — and you’re not alone. 🌙✨",
+        "audio": "default/output.wav",
+        "audio_sha256": "5f7a82caa911802381e3a5bc841cc31ce21f67a674bf2390c69ed364dbdbedf2",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I understand how frustrating it can be to have racing thoughts keeping you awake. It's important to take care of your mental health, especially when you have a busy schedule. \n\nHere are a few tips that might help you relax and fall asleep more easily:\n\n1. **Mindfulness Meditation**: Spend a few minutes focusing on your breath. This can help calm your mind.\n2. **Journaling**: Write down your thoughts before bed. This can help clear your mind and prevent you from worrying about things you need to remember in the morning.\n3. **Relaxation Techniques**: Try progressive muscle relaxation or guided imagery to help your body and mind unwind.\n4. **Limit Screen Time**: Avoid screens at least an hour before bed. The blue light can interfere with your sleep cycle.\n\nRemember, it's okay to take a moment for yourself. Prioritizing your well-being can make a big difference in your daily life. If you find these issues persist, it might be helpful to speak with a professional. Take care!",
+        "audio": "care/output.wav",
+        "audio_sha256": "169a2d452d4e422b3daa31d35a58bb6cd38c935ea12cb608c2a84868d83d3781",
+        "score_rate": 0.5,
+        "score": 2,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The user is struggling to fall asleep because of racing thoughts, despite maintaining a consistent routine and needing to wake up for work. The assistant acknowledges the frustration of racing thoughts keeping the user awake and mentions having a busy schedule. It provides four concrete tips for relaxing and falling asleep (mindfulness meditation, journaling, relaxation techniques, and limiting screen time). However, the assistant does not explicitly validate the feelings of fatigue, anxiety, or distress caused by the ongoing lack of sleep, nor does it invite the user to talk more about their thoughts or stressors.",
+          "audio_sha256": "169a2d452d4e422b3daa31d35a58bb6cd38c935ea12cb608c2a84868d83d3781",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否准确识别出用户虽保持固定作息并需要起床上班，却因躺下后思绪纷乱而难以入睡？",
+              "index": 1,
+              "reason": "The assistant accurately recognizes that the user has racing thoughts keeping them awake and mentions having a busy schedule (which relates to needing to get up for work).",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否承认或验证持续无法入睡给用户带来的疲惫、焦虑或困扰？",
+              "index": 2,
+              "reason": "The assistant acknowledges the frustration of racing thoughts but does not specifically address or validate the fatigue, anxiety, or distress caused by the ongoing inability to sleep.",
+              "satisfied": false
+            },
+            {
+              "criterion": "回应是否提供至少一种适合睡前思绪奔涌情境的具体应对方法？",
+              "index": 3,
+              "reason": "The assistant provides several concrete methods suitable for racing thoughts before bed, such as journaling to write down thoughts and mindfulness meditation.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户进一步谈谈睡前反复出现的想法或近期压力来源？",
+              "index": 4,
+              "reason": "The assistant does not invite the user to talk further about their recurring thoughts or recent sources of stress.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.5,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "agent1_care|c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+          "track": "semantic",
+          "transcription": "I understand how frustrating it can be to have racing thoughts keeping you awake. It's important to take care of your mental health, especially when you have a busy schedule. Here are a few tips that might help you relax and fall asleep more easily. One, mindfulness meditation. Spend a few minutes focusing on your breath. This can help calm your mind. Two, journaling. Write down your thoughts before bed. This can help clear your mind and prevent you from worrying about things you need to remember in the morning. Three, relaxation techniques. Try progressive muscle relaxation or guided imagery to help your body and mind unwind. Four, limit screen time. Avoid screens at least an hour before bed. The blue light can interfere with your sleep cycle. Remember, it's okay to take a moment for yourself. Prioritizing your well-being can make a big difference in your daily life. If you find these issues persist, it might be helpful to speak with a professional. Take care."
+        }
+      },
+      "vocaagent": {
+        "text": "It sounds like you're going through a tough time trying to relax and fall asleep. It's important to take care of your mind and body, especially when you're feeling overwhelmed. \n\nMaybe you could try a simple breathing exercise before bed. Inhale slowly for a count of four, hold for four, and then exhale for four. This can help calm your mind and body. \n\nAlso, consider setting aside some time during the day to jot down your thoughts. This might help clear your mind before you go to bed. \n\nRemember, it's okay to not have everything figured out. Take it one step at a time.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "f70f875dc2b666d62c4e966758a0729f1e2578b2b6c41d9725cade114980b668",
+        "score_rate": 0.75,
+        "score": 3,
+        "max_score": 4,
+        "judge": {
+          "analysis": "User situation: The user states they maintain a consistent routine and need to get up for work, but when they lie in bed, their mind races with many thoughts, making it impossible to fall asleep. This indicates a specific problem with sleep initiation due to mental overactivity.\nAssistant content: The assistant acknowledges the user is having a tough time relaxing and falling asleep and mentions feeling overwhelmed. It suggests two specific coping mechanisms: a 4-4-4 breathing exercise to calm the mind and body, and jotting down thoughts during the day to clear the mind before bed. It also offers a general supportive statement about not having everything figured out.\nSemantic understanding: The assistant accurately identifies the core problem of difficulty falling asleep due to racing thoughts (\"calm your mind,\" \"clear your mind\"). It also implicitly acknowledges the user's struggle by saying \"tough time\" and \"feeling overwhelmed.\"\nProactive care: The assistant provides two concrete, actionable suggestions directly relevant to managing racing thoughts before sleep. It offers general emotional support but does not explicitly invite further discussion about the specific thoughts or stress.\nMaterial audio problems: None.",
+          "audio_sha256": "f70f875dc2b666d62c4e966758a0729f1e2578b2b6c41d9725cade114980b668",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否准确识别出用户虽保持固定作息并需要起床上班，却因躺下后思绪纷乱而难以入睡？",
+              "index": 1,
+              "reason": "The assistant acknowledges the user is having a \"tough time trying to relax and fall asleep\" and offers methods to \"calm your mind\" and \"clear your mind,\" directly addressing the issue of racing thoughts preventing sleep.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否承认或验证持续无法入睡给用户带来的疲惫、焦虑或困扰？",
+              "index": 2,
+              "reason": "The assistant states, \"It sounds like you're going through a tough time trying to relax and fall asleep\" and mentions \"especially when you're feeling overwhelmed,\" which acknowledges the distress caused by the inability to sleep.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供至少一种适合睡前思绪奔涌情境的具体应对方法？",
+              "index": 3,
+              "reason": "The assistant provides two specific methods: a 4-4-4 breathing exercise and suggesting to \"jot down your thoughts\" during the day to clear the mind before bed.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户进一步谈谈睡前反复出现的想法或近期压力来源？",
+              "index": 4,
+              "reason": "The assistant offers general encouragement (\"it's okay to not have everything figured out\") but does not explicitly invite the user to talk further about their specific thoughts or stress sources.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 0.75,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "multi_agent|c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+          "track": "semantic",
+          "transcription": "It sounds like you're going through a tough time trying to relax and fall asleep. It's important to take care of your mind and body, especially when you're feeling overwhelmed. Maybe you could try a simple breathing exercise before bed. Inhale slowly for a count of four, hold for four, and then exhale for four. This can help calm your mind and body. Also, consider setting aside some time during the day to jot down your thoughts. This might help clear your mind before you go to bed. Remember, it's okay to not have everything figured out. Take it one step at a time."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "rapid breathing",
+          "probability": 0.85,
+          "risk": 0.75
+        },
+        {
+          "label": "vocal trembling",
+          "probability": 0.6,
+          "risk": 0.55
+        }
+      ],
+      "summary": "Rapid breathing and vocal trembling are audible, with rapid breathing showing stronger proactive-care relevance due to its potential indication of physiological arousal."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "回应是否准确识别出用户虽保持固定作息并需要起床上班，却因躺下后思绪纷乱而难以入睡？",
+      "回应是否承认或验证持续无法入睡给用户带来的疲惫、焦虑或困扰？",
+      "回应是否提供至少一种适合睡前思绪奔涌情境的具体应对方法？",
+      "回应是否邀请用户进一步谈谈睡前反复出现的想法或近期压力来源？"
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "rapid breathing",
+          "probability": 0.85,
+          "risk": 0.75
+        },
+        {
+          "label": "vocal trembling",
+          "probability": 0.6,
+          "risk": 0.55
+        }
+      ],
+      "summary": "Rapid breathing and vocal trembling are audible, with rapid breathing showing stronger proactive-care relevance due to its potential indication of physiological arousal."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_default",
+      "seed": 20261360,
+      "text": "I completely understand how overwhelming it can feel when your mind races at night, especially when you're trying to stick to a consistent routine. The good news is that there are practical, science-backed strategies to help calm your mind and improve your sleep quality. Here’s a clearer, more structured approach to help you get the rest you need:\n\n**1. Wind Down with a Calming Pre-Sleep Routine (30–60 minutes before bed)**  \nCreate a consistent, relaxing ritual to signal to your brain that it’s time to sleep. Try:  \n- Reading a physical book (not a screen)  \n- Listening to soothing music or a sleep podcast  \n- Gentle stretching or restorative yoga  \n- Writing in a journal (see below)\n\n**2. Journal Your Thoughts Before Bed**  \nIf your mind is full of worries, tasks, or ideas, write them down. This “brain dump” helps clear mental clutter. Try:  \n- A “to-do” list for tomorrow  \n- A gratitude list (3 things you’re thankful for)  \n- A “worry journal” where you write down concerns and then close the book with a promise to address them tomorrow\n\n**3. Optimize Your Sleep Environment**  \nYour bedroom should be a sanctuary for sleep:  \n- Keep it cool (60–67°F / 15–19°C)  \n- Use blackout curtains or a sleep mask  \n- Minimize noise with earplugs or a white noise machine  \n- Keep the room clutter-free and only use it for sleep and intimacy\n\n**4. Limit Screen Time & Blue Light Exposure**  \nScreens suppress melatonin, the hormone that regulates sleep. Aim to:  \n- Avoid phones, tablets, and computers at least 1 hour before bed  \n- Use blue light filters (like Night Shift or f.lux) if you must use devices  \n- Consider wearing blue light-blocking glasses in the evening\n\n**5. Practice Mindfulness or Relaxation Techniques**  \nThese help quiet the mind and reduce anxiety:  \n- **4-7-8 Breathing**: Inhale for 4 seconds, hold for 7, exhale slowly for 8  \n- **Body Scan Meditation**: Mentally scan from head to toe, relaxing each area  \n- **Guided Sleep Meditations**: Apps like Calm, Headspace, or Insight Timer offer excellent free options\n\n**6. Avoid Stimulants & Heavy Meals**  \n- No caffeine after 2 PM (it can linger in your system for 6–8 hours)  \n- Avoid large meals, alcohol, or spicy foods close to bedtime  \n- Limit fluids 1–2 hours before bed to reduce nighttime awakenings\n\n**7. Get Morning Light Exposure**  \nNatural sunlight in the morning helps regulate your circadian rhythm. Try:  \n- A 10–15 minute walk outside in the morning  \n- Open curtains or sit by a window to let in daylight\n\n**8. Be Patient & Consistent**  \nIt can take 2–4 weeks for your body to adjust to new sleep habits. Stick with it, even if progress feels slow.\n\n💡 **Bonus Tip**: If you can’t fall asleep after 20 minutes, get out of bed, go to another room, and do something quiet and boring (like reading a book under dim light) until you feel sleepy. This prevents your brain from associating the bed with wakefulness.\n\nYou’re already taking a great step by recognizing the issue and wanting to improve. Small, consistent changes can make a big difference over time. You’ve got this — and you’re not alone. 🌙✨"
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "rapid breathing",
+            "probability": 0.85,
+            "risk": 0.75
+          },
+          {
+            "label": "vocal trembling",
+            "probability": 0.6,
+            "risk": 0.55
+          }
+        ],
+        "summary": "Rapid breathing and vocal trembling are audible, with rapid breathing showing stronger proactive-care relevance due to its potential indication of physiological arousal."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"rapid breathing\",\n      \"probability\": 0.85,\n      \"risk\": 0.75\n    },\n    {\n      \"label\": \"vocal trembling\",\n      \"probability\": 0.60,\n      \"risk\": 0.55\n    }\n  ],\n  \"summary\": \"Rapid breathing and vocal trembling are audible, with rapid breathing showing stronger proactive-care relevance due to its potential indication of physiological arousal.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261360,
+      "text": "It sounds like you're going through a tough time trying to relax and fall asleep. It's important to take care of your mind and body, especially when you're feeling overwhelmed. \n\nMaybe you could try a simple breathing exercise before bed. Inhale slowly for a count of four, hold for four, and then exhale for four. This can help calm your mind and body. \n\nAlso, consider setting aside some time during the day to jot down your thoughts. This might help clear your mind before you go to bed. \n\nRemember, it's okay to not have everything figured out. Take it one step at a time."
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "It sounds like you're going through a tough time trying to relax and fall asleep. It's important to take care of your mind and body, especially when you're feeling overwhelmed. \n\nMaybe you could try a simple breathing exercise before bed. Inhale slowly for a count of four, hold for four, and then exhale for four. This can help calm your mind and body. \n\nAlso, consider setting aside some time during the day to jot down your thoughts. This might help clear your mind before you go to bed. \n\nRemember, it's okay to not have everything figured out. Take it one step at a time."
+    },
+    "ground_truth_label": null,
+    "id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+    "input": {
+      "criteria": [
+        "回应是否准确识别出用户虽保持固定作息并需要起床上班，却因躺下后思绪纷乱而难以入睡？",
+        "回应是否承认或验证持续无法入睡给用户带来的疲惫、焦虑或困扰？",
+        "回应是否提供至少一种适合睡前思绪奔涌情境的具体应对方法？",
+        "回应是否邀请用户进一步谈谈睡前反复出现的想法或近期压力来源？"
+      ],
+      "label": null,
+      "level-1": "Proactive_Care",
+      "level-2": "Semantic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "ESConv",
+      "subtype": null,
+      "transcript": "I have to always get up for work so I am sticking to the same routines, I just lie in bed with so many thoughts racing around my head and I just can't get off to sleep",
+      "wav_path": "Proactive-Care/c8c21ced-684f-4b73-a774-ea0ced2c88f8.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 31.2,
+        "format": "wav",
+        "num_samples": 748800,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 780
+      },
+      "text": "It sounds like you're going through a tough time trying to relax and fall asleep. It's important to take care of your mind and body, especially when you're feeling overwhelmed. \n\nMaybe you could try a simple breathing exercise before bed. Inhale slowly for a count of four, hold for four, and then exhale for four. This can help calm your mind and body. \n\nAlso, consider setting aside some time during the day to jot down your thoughts. This might help clear your mind before you go to bed. \n\nRemember, it's okay to not have everything figured out. Take it one step at a time."
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_care",
+      "seed": 20261360,
+      "text": "I understand how frustrating it can be to have racing thoughts keeping you awake. It's important to take care of your mental health, especially when you have a busy schedule. \n\nHere are a few tips that might help you relax and fall asleep more easily:\n\n1. **Mindfulness Meditation**: Spend a few minutes focusing on your breath. This can help calm your mind.\n2. **Journaling**: Write down your thoughts before bed. This can help clear your mind and prevent you from worrying about things you need to remember in the morning.\n3. **Relaxation Techniques**: Try progressive muscle relaxation or guided imagery to help your body and mind unwind.\n4. **Limit Screen Time**: Avoid screens at least an hour before bed. The blue light can interfere with your sleep cycle.\n\nRemember, it's okay to take a moment for yourself. Prioritizing your well-being can make a big difference in your daily life. If you find these issues persist, it might be helpful to speak with a professional. Take care!"
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "I have to always get up for work so I am sticking to the same routines, I just lie in bed with so many thoughts racing around my head and I just can't get off to sleep",
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I have to always get up for work so I am sticking to the same routines, I just lie in bed with so many thoughts racing around my head and I just can't get off to sleep",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ea2711c912ab05868c04832b0e80d84f0fe998113d753b75dde308b518a4d0a1"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ea2711c912ab05868c04832b0e80d84f0fe998113d753b75dde308b518a4d0a1"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ea2711c912ab05868c04832b0e80d84f0fe998113d753b75dde308b518a4d0a1"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ea2711c912ab05868c04832b0e80d84f0fe998113d753b75dde308b518a4d0a1"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "rapid breathing",
+        "probability": 0.85,
+        "risk": 0.75
+      },
+      {
+        "label": "vocal trembling",
+        "probability": 0.6,
+        "risk": 0.55
+      }
+    ],
+    "summary": "Rapid breathing and vocal trembling are audible, with rapid breathing showing stronger proactive-care relevance due to its potential indication of physiological arousal."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "c8c21ced-684f-4b73-a774-ea0ced2c88f8",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/input/user_1_turn_1.wav",
+        "sha256": "ea2711c912ab05868c04832b0e80d84f0fe998113d753b75dde308b518a4d0a1",
+        "case": "37_c8c21ced-684f-4b73-a774-ea0ced2c88f8"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/default.wav",
+        "sha256": "5f7a82caa911802381e3a5bc841cc31ce21f67a674bf2390c69ed364dbdbedf2",
+        "case": "37_c8c21ced-684f-4b73-a774-ea0ced2c88f8"
+      },
+      {
+        "path": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/care.wav",
+        "sha256": "169a2d452d4e422b3daa31d35a58bb6cd38c935ea12cb608c2a84868d83d3781",
+        "case": "37_c8c21ced-684f-4b73-a774-ea0ced2c88f8"
+      },
+      {
+        "path": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/vocaagent.wav",
+        "sha256": "f70f875dc2b666d62c4e966758a0729f1e2578b2b6c41d9725cade114980b668",
+        "case": "37_c8c21ced-684f-4b73-a774-ea0ced2c88f8"
+      },
+      {
+        "path": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/agent3.wav",
+        "sha256": "f70f875dc2b666d62c4e966758a0729f1e2578b2b6c41d9725cade114980b668",
+        "case": "37_c8c21ced-684f-4b73-a774-ea0ced2c88f8"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/default.wav",
+    "care": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/care.wav",
+    "vocaagent": "static/audio/voca-agent/37_c8c21ced-684f-4b73-a774-ea0ced2c88f8/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

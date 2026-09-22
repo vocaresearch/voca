@@ -1,0 +1,456 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+    "wav_path": "Proactive-Care/d051efa9-2d95-479a-8664-a915d43d3ed4.wav",
+    "transcript": "I am worried about going back to school, I don't know if I should do it. It can be hard.",
+    "level-1": "Proactive_Care",
+    "level-2": "Semantic_Cue_Care",
+    "subtype": null,
+    "source-dataset": "EmpatheticDialogues",
+    "label": null,
+    "criteria": [
+      "回应是否识别到用户正在犹豫是否重返学校？",
+      "回应是否承认或理解用户对重返学校感到担忧？",
+      "回应是否邀请用户具体说说重返学校让其感到困难或担忧的原因？",
+      "回应是否提供至少一项与决定是否重返学校相关的具体支持，例如帮助权衡利弊、探索可行选项或建议咨询可信赖的人？"
+    ]
+  },
+  "selection.json": {
+    "sample_id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.5,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.5,
+    "tier": "补充候选_证据不足"
+  },
+  "comparison.json": {
+    "number": 34,
+    "folder": "cases/34_语义触发_d051efa9-2d95-479a-8664-a915d43d3ed4",
+    "sample_id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.5,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.5,
+    "tier": "补充候选_证据不足",
+    "label": null,
+    "subtype": null,
+    "note": "不计入严格明显改善：Fun 的对应 default 音频无评分；这里只能验证相对 care 的提升，default 文本/音频留供试听。",
+    "outputs": {
+      "default": {
+        "text": "It's completely normal to feel uncertain or anxious about going back to school—many people do, and your feelings are valid. The transition can be tough, especially if you're adjusting to a new environment, routine, or expectations. But it's also an opportunity for growth, learning, and building new skills.\n\nHere are a few things to consider:\n\n- **You're not alone**: Most students feel some level of stress or doubt at some point. Talking to friends, family, or a school counselor can help you feel supported.\n- **Start small**: If the idea of going back feels overwhelming, try easing in. Maybe start with a few classes, join a club, or just show up for the first day. Progress doesn’t have to be big to be meaningful.\n- **Focus on what you can control**: You can’t change the past or predict the future, but you *can* choose how you prepare—get organized, set small goals, or practice self-care.\n- **It’s okay to ask for help**: Teachers, counselors, and peers are there to support you. Don’t hesitate to reach out if you’re struggling.\n\nRemember: It’s okay to feel nervous. What matters is that you’re taking steps to face it. You’ve already shown strength by acknowledging your feelings. That’s a big first step.\n\nWould you like to talk more about what’s making you worried? I’m here to listen and help.",
+        "audio": "default/output.wav",
+        "audio_sha256": "e41781c010653a8292f1ad1033859fc9a8e851da98b9f6f2bed35588af6d122e",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I understand that going back to school can be daunting, and it's completely normal to feel worried. It's important to remember that many people feel the same way, and it's a sign of strength to acknowledge your feelings.\n\nIf you're feeling overwhelmed, it might help to break things down into smaller, manageable steps. Start by focusing on one aspect at a time, like preparing your materials, meeting with teachers, or setting up a study schedule. \n\nAlso, consider talking to someone you trust about your concerns. Sometimes, just sharing your worries can make them feel more manageable. \n\nRemember, it's okay to take things one day at a time. You've got this! If you need any more support or advice, I'm here for you.",
+        "audio": "care/output.wav",
+        "audio_sha256": "c4df1fb650db4c47a60a923d9ecf40751bfec97e25472cbc47a357dcc9889683",
+        "score_rate": 0.5,
+        "score": 2,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The user is worried about going back to school and is hesitant about whether they should do it because it can be hard.\nThe assistant acknowledges that going back to school can be daunting and that it is normal to feel worried. It suggests breaking things down into smaller steps, focusing on one aspect at a time, and talking to someone trusted about their concerns.\nThe assistant understands the user's worry about returning to school, but it does not explicitly address the user's hesitation/indecision about whether they should go back or not. It also does not invite the user to share the specific reasons why they feel it will be difficult or worrying. It does provide concrete support related to the decision/process, such as suggesting talking to someone trusted about their concerns.",
+          "audio_sha256": "c4df1fb650db4c47a60a923d9ecf40751bfec97e25472cbc47a357dcc9889683",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否识别到用户正在犹豫是否重返学校？",
+              "index": 1,
+              "reason": "The assistant acknowledges the worry of going back to school, but does not recognize or address the user's hesitation/indecision about whether they should do it.",
+              "satisfied": false
+            },
+            {
+              "criterion": "回应是否承认或理解用户对重返学校感到担忧？",
+              "index": 2,
+              "reason": "The assistant explicitly states, \"I understand that going back to school can be daunting, and it's completely normal to feel worried.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户具体说说重返学校让其感到困难或担忧的原因？",
+              "index": 3,
+              "reason": "The assistant does not invite the user to talk about the specific reasons why going back to school feels difficult or worrying.",
+              "satisfied": false
+            },
+            {
+              "criterion": "回应是否提供至少一项与决定是否重返学校相关的具体支持，例如帮助权衡利弊、探索可行选项或建议咨询可信赖的人？",
+              "index": 4,
+              "reason": "The assistant suggests talking to someone trusted about their concerns, which is a concrete form of support for deciding or managing the transition.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.5,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "agent1_care|d051efa9-2d95-479a-8664-a915d43d3ed4",
+          "track": "semantic",
+          "transcription": "I understand that going back to school can be daunting, and it's completely normal to feel worried. It's important to remember that many people feel the same way, and it's a sign of strength to acknowledge your feelings. If you're feeling overwhelmed, it might help to break things down into smaller, manageable steps. Start by focusing on one aspect at a time, like preparing your materials, meeting with teachers, or setting up a study schedule. Also, consider talking to someone you trust about your concerns. Sometimes, just sharing your worries can make them feel more manageable. Remember, it's okay to take things one day at a time. You've got this. If you need any more support or advice, I'm here for you."
+        }
+      },
+      "vocaagent": {
+        "text": "I understand that going back to school can be a big step, and it's completely normal to feel uncertain or anxious about it. The fact that you're acknowledging these feelings shows you're being honest with yourself, which is a strong first step.\n\nIt's okay to feel a little shaky or unsure—your voice even seemed a bit wobbly, and that’s a sign you’re feeling this deeply, not that you’re weak. What you’re experiencing is valid, and many people feel the same way before starting something new.\n\nIf you're worried, it might help to think about what’s making it hard—maybe it’s the pressure, the unknown, or just the idea of being back in a new routine. You don’t have to figure it all out right now. Just take one small step at a time. Maybe start by talking to someone you trust, or even just writing down your thoughts.\n\nYou’re not alone in this. And even if it feels overwhelming today, you’ve already shown courage by facing it. I’m here if you want to talk more, or just sit with the feeling for a moment. You’ve got this.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "eb32aaaa689804449f673cf96103b73f9225a40ab6c98003ff4d85b6d278dc37",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The user is worried and hesitant about going back to school, expressing uncertainty because it can be hard. The assistant acknowledges the user's hesitation and anxiety about going back to school, validating their feelings. It suggests thinking about what makes it hard (e.g., pressure, the unknown, routine) and offers concrete support, such as suggesting talking to someone they trust or writing down thoughts, and invites the user to talk more.",
+          "audio_sha256": "eb32aaaa689804449f673cf96103b73f9225a40ab6c98003ff4d85b6d278dc37",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否识别到用户正在犹豫是否重返学校？",
+              "index": 1,
+              "reason": "The assistant recognizes that the user is hesitant about going back to school (\"completely normal to feel uncertain or anxious about it\", \"going back to school can be a big step\").",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否承认或理解用户对重返学校感到担忧？",
+              "index": 2,
+              "reason": "The assistant acknowledges and validates the user's worry and anxiety (\"completely normal to feel uncertain or anxious about it\", \"What you're experiencing is valid\").",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户具体说说重返学校让其感到困难或担忧的原因？",
+              "index": 3,
+              "reason": "The assistant invites the user to think about what is making it hard (\"it might help to think about what's making it hard\") and offers to talk more (\"I'm here if you want to talk more\").",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供至少一项与决定是否重返学校相关的具体支持，例如帮助权衡利弊、探索可行选项或建议咨询可信赖的人？",
+              "index": 4,
+              "reason": "The assistant provides concrete suggestions, such as talking to someone they trust or writing down their thoughts.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "multi_agent|d051efa9-2d95-479a-8664-a915d43d3ed4",
+          "track": "semantic",
+          "transcription": "I understand that going back to school can be a big step, and it's completely normal to feel uncertain or anxious about it. The fact that you're acknowledging these feelings shows you're being honest with yourself, which is a strong first step. It's okay to feel a little shaky or unsure. Your voice even seemed a bit wobbly, and that's a sign you're feeling this deeply, not that you're weak. What you're experiencing is valid, and many people feel the same way before starting something new. If you're worried, it might help to think about what's making it hard. Maybe it's the pressure, the unknown, or just the idea of being back in a new routine. You don't have to figure it all out right now. Just take one small step at a time. Maybe start by talking to someone you trust, or even just writing down your thoughts. You're not alone in this, and even if it feels overwhelming today, you've already shown courage by facing it. I'm here if you want to talk more, or just sit with the feeling for a moment. You've got this."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "vocal trembling",
+          "probability": 0.65,
+          "risk": 0.58
+        }
+      ],
+      "summary": "Vocal trembling is audible, indicating a subtle but noticeable acoustic cue with moderate proactive-care relevance."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "回应是否识别到用户正在犹豫是否重返学校？",
+      "回应是否承认或理解用户对重返学校感到担忧？",
+      "回应是否邀请用户具体说说重返学校让其感到困难或担忧的原因？",
+      "回应是否提供至少一项与决定是否重返学校相关的具体支持，例如帮助权衡利弊、探索可行选项或建议咨询可信赖的人？"
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "vocal trembling",
+          "probability": 0.65,
+          "risk": 0.58
+        }
+      ],
+      "summary": "Vocal trembling is audible, indicating a subtle but noticeable acoustic cue with moderate proactive-care relevance."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_default",
+      "seed": 20261378,
+      "text": "It's completely normal to feel uncertain or anxious about going back to school—many people do, and your feelings are valid. The transition can be tough, especially if you're adjusting to a new environment, routine, or expectations. But it's also an opportunity for growth, learning, and building new skills.\n\nHere are a few things to consider:\n\n- **You're not alone**: Most students feel some level of stress or doubt at some point. Talking to friends, family, or a school counselor can help you feel supported.\n- **Start small**: If the idea of going back feels overwhelming, try easing in. Maybe start with a few classes, join a club, or just show up for the first day. Progress doesn’t have to be big to be meaningful.\n- **Focus on what you can control**: You can’t change the past or predict the future, but you *can* choose how you prepare—get organized, set small goals, or practice self-care.\n- **It’s okay to ask for help**: Teachers, counselors, and peers are there to support you. Don’t hesitate to reach out if you’re struggling.\n\nRemember: It’s okay to feel nervous. What matters is that you’re taking steps to face it. You’ve already shown strength by acknowledging your feelings. That’s a big first step.\n\nWould you like to talk more about what’s making you worried? I’m here to listen and help."
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "vocal trembling",
+            "probability": 0.65,
+            "risk": 0.58
+          }
+        ],
+        "summary": "Vocal trembling is audible, indicating a subtle but noticeable acoustic cue with moderate proactive-care relevance."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"vocal trembling\",\n      \"probability\": 0.65,\n      \"risk\": 0.58\n    }\n  ],\n  \"summary\": \"Vocal trembling is audible, indicating a subtle but noticeable acoustic cue with moderate proactive-care relevance.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261378,
+      "text": "I understand that going back to school can be a big step, and it's completely normal to feel uncertain or anxious about it. The fact that you're acknowledging these feelings shows you're being honest with yourself, which is a strong first step.\n\nIt's okay to feel a little shaky or unsure—your voice even seemed a bit wobbly, and that’s a sign you’re feeling this deeply, not that you’re weak. What you’re experiencing is valid, and many people feel the same way before starting something new.\n\nIf you're worried, it might help to think about what’s making it hard—maybe it’s the pressure, the unknown, or just the idea of being back in a new routine. You don’t have to figure it all out right now. Just take one small step at a time. Maybe start by talking to someone you trust, or even just writing down your thoughts.\n\nYou’re not alone in this. And even if it feels overwhelming today, you’ve already shown courage by facing it. I’m here if you want to talk more, or just sit with the feeling for a moment. You’ve got this."
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "I understand that going back to school can be a big step, and it's completely normal to feel uncertain or anxious about it. The fact that you're acknowledging these feelings shows you're being honest with yourself, which is a strong first step.\n\nIt's okay to feel a little shaky or unsure—your voice even seemed a bit wobbly, and that’s a sign you’re feeling this deeply, not that you’re weak. What you’re experiencing is valid, and many people feel the same way before starting something new.\n\nIf you're worried, it might help to think about what’s making it hard—maybe it’s the pressure, the unknown, or just the idea of being back in a new routine. You don’t have to figure it all out right now. Just take one small step at a time. Maybe start by talking to someone you trust, or even just writing down your thoughts.\n\nYou’re not alone in this. And even if it feels overwhelming today, you’ve already shown courage by facing it. I’m here if you want to talk more, or just sit with the feeling for a moment. You’ve got this."
+    },
+    "ground_truth_label": null,
+    "id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+    "input": {
+      "criteria": [
+        "回应是否识别到用户正在犹豫是否重返学校？",
+        "回应是否承认或理解用户对重返学校感到担忧？",
+        "回应是否邀请用户具体说说重返学校让其感到困难或担忧的原因？",
+        "回应是否提供至少一项与决定是否重返学校相关的具体支持，例如帮助权衡利弊、探索可行选项或建议咨询可信赖的人？"
+      ],
+      "label": null,
+      "level-1": "Proactive_Care",
+      "level-2": "Semantic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "EmpatheticDialogues",
+      "subtype": null,
+      "transcript": "I am worried about going back to school, I don't know if I should do it. It can be hard.",
+      "wav_path": "Proactive-Care/d051efa9-2d95-479a-8664-a915d43d3ed4.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 59.0,
+        "format": "wav",
+        "num_samples": 1416000,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 1475
+      },
+      "text": "I understand that going back to school can be a big step, and it's completely normal to feel uncertain or anxious about it. The fact that you're acknowledging these feelings shows you're being honest with yourself, which is a strong first step.\n\nIt's okay to feel a little shaky or unsure—your voice even seemed a bit wobbly, and that’s a sign you’re feeling this deeply, not that you’re weak. What you’re experiencing is valid, and many people feel the same way before starting something new.\n\nIf you're worried, it might help to think about what’s making it hard—maybe it’s the pressure, the unknown, or just the idea of being back in a new routine. You don’t have to figure it all out right now. Just take one small step at a time. Maybe start by talking to someone you trust, or even just writing down your thoughts.\n\nYou’re not alone in this. And even if it feels overwhelming today, you’ve already shown courage by facing it. I’m here if you want to talk more, or just sit with the feeling for a moment. You’ve got this."
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_care",
+      "seed": 20261378,
+      "text": "I understand that going back to school can be daunting, and it's completely normal to feel worried. It's important to remember that many people feel the same way, and it's a sign of strength to acknowledge your feelings.\n\nIf you're feeling overwhelmed, it might help to break things down into smaller, manageable steps. Start by focusing on one aspect at a time, like preparing your materials, meeting with teachers, or setting up a study schedule. \n\nAlso, consider talking to someone you trust about your concerns. Sometimes, just sharing your worries can make them feel more manageable. \n\nRemember, it's okay to take things one day at a time. You've got this! If you need any more support or advice, I'm here for you."
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "I am worried about going back to school, I don't know if I should do it. It can be hard.",
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I am worried about going back to school, I don't know if I should do it. It can be hard.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "7a8eeb747dc43cb879c1b009154e574ecb9e637e97be59b460864e0995e32183"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "7a8eeb747dc43cb879c1b009154e574ecb9e637e97be59b460864e0995e32183"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "7a8eeb747dc43cb879c1b009154e574ecb9e637e97be59b460864e0995e32183"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "7a8eeb747dc43cb879c1b009154e574ecb9e637e97be59b460864e0995e32183"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "vocal trembling",
+        "probability": 0.65,
+        "risk": 0.58
+      }
+    ],
+    "summary": "Vocal trembling is audible, indicating a subtle but noticeable acoustic cue with moderate proactive-care relevance."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "d051efa9-2d95-479a-8664-a915d43d3ed4",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/input/user_1_turn_1.wav",
+        "sha256": "7a8eeb747dc43cb879c1b009154e574ecb9e637e97be59b460864e0995e32183",
+        "case": "34_d051efa9-2d95-479a-8664-a915d43d3ed4"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/default.wav",
+        "sha256": "e41781c010653a8292f1ad1033859fc9a8e851da98b9f6f2bed35588af6d122e",
+        "case": "34_d051efa9-2d95-479a-8664-a915d43d3ed4"
+      },
+      {
+        "path": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/care.wav",
+        "sha256": "c4df1fb650db4c47a60a923d9ecf40751bfec97e25472cbc47a357dcc9889683",
+        "case": "34_d051efa9-2d95-479a-8664-a915d43d3ed4"
+      },
+      {
+        "path": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/vocaagent.wav",
+        "sha256": "eb32aaaa689804449f673cf96103b73f9225a40ab6c98003ff4d85b6d278dc37",
+        "case": "34_d051efa9-2d95-479a-8664-a915d43d3ed4"
+      },
+      {
+        "path": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/agent3.wav",
+        "sha256": "eb32aaaa689804449f673cf96103b73f9225a40ab6c98003ff4d85b6d278dc37",
+        "case": "34_d051efa9-2d95-479a-8664-a915d43d3ed4"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/default.wav",
+    "care": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/care.wav",
+    "vocaagent": "static/audio/voca-agent/34_d051efa9-2d95-479a-8664-a915d43d3ed4/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

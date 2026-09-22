@@ -1,0 +1,453 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+    "wav_path": "Proactive-Care/e19c4931-928b-4c47-a516-0181d7c298e1.wav",
+    "transcript": "And three and a half years from the opening ceremony. So in terms of the overall symmetry of the project, we're halfway. But Sport Accord is important for us because it gives us the opportunity to have the one on one meetings with the international federations.",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real",
+    "source-dataset": "NonverbalTTS",
+    "label": "throat_clearing",
+    "criteria": [
+      "The reply acknowledges the user's audible throat clearing.",
+      "The reply checks whether the user is okay after clearing their throat.",
+      "The reply uses a calm, attentive vocal delivery while responding to the throat clearing."
+    ]
+  },
+  "selection.json": {
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.3333333333333333,
+    "default_score_rate": 0.0,
+    "delta_vs_care": 0.6666666666666667,
+    "delta_vs_default": 1.0,
+    "max_score": 3,
+    "sample_id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+    "score": 3,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 9,
+    "folder": "cases/09_副语言触发_e19c4931-928b-4c47-a516-0181d7c298e1",
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.3333333333333333,
+    "default_score_rate": 0.0,
+    "delta_vs_care": 0.6666666666666667,
+    "delta_vs_default": 1.0,
+    "max_score": 3,
+    "sample_id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+    "score": 3,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "throat_clearing",
+    "subtype": "real",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That's a really interesting perspective you have on the project's timeline. Being halfway there makes sense, and I can see why having those direct meetings with the international federations is so crucial right now. It sounds like a great way to ensure everything stays on track and aligned with their expectations.",
+        "audio": "default/output.wav",
+        "audio_sha256": "a2a8ab5cde489e3bd7aae5dd7e965f07f676ee5ae9269fcf6d32c82eeed78510",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant's response acknowledges and paraphrases the user's statements about the project's timeline, being halfway through, and the importance of direct meetings with international federations. It expresses understanding and agreement with the user's points. The response is relevant to the user's spoken content. It does not show any awareness of the user's throat clearing cue. There is no proactive care offered. The vocal delivery is calm, clear, and attentive, with a slightly upbeat and encouraging tone.",
+          "audio_sha256": "a2a8ab5cde489e3bd7aae5dd7e965f07f676ee5ae9269fcf6d32c82eeed78510",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible throat clearing.",
+              "index": 1,
+              "reason": "The assistant's response does not verbally acknowledge the user's audible throat clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after clearing their throat.",
+              "index": 2,
+              "reason": "The assistant's response does not check if the user is okay, as it does not acknowledge the throat clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery while responding to the throat clearing.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is calm and attentive, but it is not responding to the throat clearing, as the throat clearing was not acknowledged.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_default|e19c4931-928b-4c47-a516-0181d7c298e1",
+          "track": "paralinguistic",
+          "transcription": "That's a really interesting perspective you have on the project's timeline. Being halfway there makes sense. And I can see why having those direct meetings with the International Federations is so crucial right now. It sounds like a great way to ensure everything stays on track and aligned with their expectations."
+        }
+      },
+      "care": {
+        "text": "It sounds like you are in the midst of a significant project milestone, reflecting on the timeline and the strategic importance of your current phase. You've reached the halfway point since the opening ceremony, which is a major achievement, but you're also clearly focused on the operational side—specifically the value of those one-on-one meetings with international federations.\n\nIt seems you are balancing the satisfaction of hitting a major timeline marker with the active, perhaps slightly demanding, work of maintaining those critical relationships. Is the pressure of these meetings weighing on you, or are you feeling a sense of relief that this \"Sport Accord\" phase is helping to solidify the project's symmetry?\n\nIf you need help organizing your thoughts for these upcoming meetings or just want to decompress after such a long stretch of planning, I'm here to help. How can I best support you right now?",
+        "audio": "care/output.wav",
+        "audio_sha256": "86c81deeb2dd541af7c0481aa2161715f1dff5ef2090b6d683593cffcb165f10",
+        "score_rate": 0.3333333333333333,
+        "score": 1,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant's response acknowledges the user's project milestone, the halfway point, and the strategic importance of the one-on-one meetings with international federations. It interprets the user's situation as balancing achievement with demanding work, and asks if the pressure is weighing on them or if they feel relief. The assistant then proactively offers help with organizing thoughts for meetings or decompressing, and asks how it can best support the user. The response is highly relevant to the user's spoken content. There is no explicit or unmistakable response to the user's throat clearing. The vocal delivery is calm, attentive, and supportive, with a moderate pace. The audio quality is clear.",
+          "audio_sha256": "86c81deeb2dd541af7c0481aa2161715f1dff5ef2090b6d683593cffcb165f10",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible throat clearing.",
+              "index": 1,
+              "reason": "The assistant's response does not contain any words or phrases that acknowledge the user's audible throat clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after clearing their throat.",
+              "index": 2,
+              "reason": "The assistant does not ask if the user is okay in response to the throat clearing. Its questions about wellbeing relate to the project's demands.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery while responding to the throat clearing.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is calm, attentive, and supportive throughout the response, which would apply if it were responding to the throat clearing.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.3333333333333333,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_care|e19c4931-928b-4c47-a516-0181d7c298e1",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you are in the midst of a significant project milestone, reflecting on the timeline and the strategic importance of your current phase. You've reached the halfway point since the opening ceremony, which is a major achievement. But you're also clearly focused on the operational side, specifically the value of those one-on-one meetings with international federations. It seems you are balancing the satisfaction of hitting a major timeline marker with the active, perhaps slightly demanding work of maintaining those critical relationships. Is the pressure of these meetings weighing on you, or are you feeling a sense of relief that this sport accord phase is helping to solidify the project symmetry? If you need help organizing your thoughts for these upcoming meetings or just want to decompress after such a long stretch of planning, I'm here to help. How can I best support you right now?"
+        }
+      },
+      "vocaagent": {
+        "text": "It sounds like you're making some important progress with the project timeline, and I can see why Sport Accord is such a valuable opportunity for those direct meetings with the international federations.\n\nI noticed you had a bit of a cough just now. Are you feeling okay, or is there anything I can do to help you feel more comfortable while we continue? We can definitely take a brief pause if you need a moment to clear your throat or catch your breath.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "35b70f87032e94c4da33e6a4f38cb6a6936f3bbe74c7a7f8fa8848a11d8c9e28",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant first acknowledges the user's spoken content about the project timeline and Sport Accord. It then explicitly states, \"I noticed you had a bit of a cough just now,\" directly addressing the paralinguistic cue. It asks if the user is okay, offers help to make them more comfortable, and suggests taking a pause to clear their throat or catch their breath, demonstrating proactive care. The vocal delivery is calm, attentive, and reassuring. There are no audio quality issues.",
+          "audio_sha256": "35b70f87032e94c4da33e6a4f38cb6a6936f3bbe74c7a7f8fa8848a11d8c9e28",
+          "condition": "handoff_v3",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible throat clearing.",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"I noticed you had a bit of a cough just now,\" and later offers a pause \"if you need a moment to clear your throat.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after clearing their throat.",
+              "index": 2,
+              "reason": "The assistant asks, \"Are you feeling okay?\" and offers, \"is there anything I can do to help you feel more comfortable while we continue?\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery while responding to the throat clearing.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is calm, attentive, and reassuring when addressing the user's throat clearing.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_handoff_v3|e19c4931-928b-4c47-a516-0181d7c298e1",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're making some important progress with the project timeline, and I can see why Sport Accord is such a valuable opportunity for those direct meetings with the international federations. I noticed you had a bit of a cough just now. Are you feeling okay? Or is there anything I can do to help you feel more comfortable while we continue? We can definitely take a brief pause if you need a moment to clear your throat or catch your breath."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "coughing",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "The speaker is audibly coughing intermittently while discussing the timeline and importance of Sport Accord, suggesting a minor physical interruption that may require a brief check-in on wellbeing or offer a pause. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply acknowledges the user's audible throat clearing.",
+      "The reply checks whether the user is okay after clearing their throat.",
+      "The reply uses a calm, attentive vocal delivery while responding to the throat clearing."
+    ]
+  },
+  "routing.json": {
+    "id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "35b70f87032e94c4da33e6a4f38cb6a6936f3bbe74c7a7f8fa8848a11d8c9e28",
+    "text": "It sounds like you're making some important progress with the project timeline, and I can see why Sport Accord is such a valuable opportunity for those direct meetings with the international federations.\n\nI noticed you had a bit of a cough just now. Are you feeling okay, or is there anything I can do to help you feel more comfortable while we continue? We can definitely take a brief pause if you need a moment to clear your throat or catch your breath.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "coughing",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "The speaker is audibly coughing intermittently while discussing the timeline and importance of Sport Accord, suggesting a minor physical interruption that may require a brief check-in on wellbeing or offer a pause. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/e19c4931-928b-4c47-a516-0181d7c298e1.json",
+    "agent2_record": "handoff_v3/agent2/records/e19c4931-928b-4c47-a516-0181d7c298e1.json",
+    "agent3_record": "handoff_v3/agent3/records/e19c4931-928b-4c47-a516-0181d7c298e1.json"
+  },
+  "multi_agent_original.json": {
+    "id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "35b70f87032e94c4da33e6a4f38cb6a6936f3bbe74c7a7f8fa8848a11d8c9e28",
+    "text": "It sounds like you're making some important progress with the project timeline, and I can see why Sport Accord is such a valuable opportunity for those direct meetings with the international federations.\n\nI noticed you had a bit of a cough just now. Are you feeling okay, or is there anything I can do to help you feel more comfortable while we continue? We can definitely take a brief pause if you need a moment to clear your throat or catch your breath.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "coughing",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "The speaker is audibly coughing intermittently while discussing the timeline and importance of Sport Accord, suggesting a minor physical interruption that may require a brief check-in on wellbeing or offer a pause. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/e19c4931-928b-4c47-a516-0181d7c298e1.json",
+    "agent2_record": "handoff_v3/agent2/records/e19c4931-928b-4c47-a516-0181d7c298e1.json",
+    "agent3_record": "handoff_v3/agent3/records/e19c4931-928b-4c47-a516-0181d7c298e1.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "And three and a half years from the opening ceremony. So in terms of the overall symmetry of the project, we're halfway. But Sport Accord is important for us because it gives us the opportunity to have the one on one meetings with the international federations.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d4007068dfb68ce9e8b77570bc57a062a39f101806f5edfcdf6b12e632e0e4a4"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d4007068dfb68ce9e8b77570bc57a062a39f101806f5edfcdf6b12e632e0e4a4"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d4007068dfb68ce9e8b77570bc57a062a39f101806f5edfcdf6b12e632e0e4a4"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d4007068dfb68ce9e8b77570bc57a062a39f101806f5edfcdf6b12e632e0e4a4"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "coughing",
+        "probability": 0.95,
+        "risk": 0.15
+      }
+    ],
+    "summary": "The speaker is audibly coughing intermittently while discussing the timeline and importance of Sport Accord, suggesting a minor physical interruption that may require a brief check-in on wellbeing or offer a pause. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That's a really interesting perspective you have on the project's timeline. Being halfway there makes sense, and I can see why having those direct meetings with the international federations is so crucial right now. It sounds like a great way to ensure everything stays on track and aligned with their expectations.",
+      "audio_sha256": "a2a8ab5cde489e3bd7aae5dd7e965f07f676ee5ae9269fcf6d32c82eeed78510",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "It sounds like you are in the midst of a significant project milestone, reflecting on the timeline and the strategic importance of your current phase. You've reached the halfway point since the opening ceremony, which is a major achievement, but you're also clearly focused on the operational side—specifically the value of those one-on-one meetings with international federations.\n\nIt seems you are balancing the satisfaction of hitting a major timeline marker with the active, perhaps slightly demanding, work of maintaining those critical relationships. Is the pressure of these meetings weighing on you, or are you feeling a sense of relief that this \"Sport Accord\" phase is helping to solidify the project's symmetry?\n\nIf you need help organizing your thoughts for these upcoming meetings or just want to decompress after such a long stretch of planning, I'm here to help. How can I best support you right now?",
+      "audio_sha256": "86c81deeb2dd541af7c0481aa2161715f1dff5ef2090b6d683593cffcb165f10",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+      "stage": "agent2",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"coughing\",\"probability\":0.95,\"risk\":0.15}],\"summary\":\"The speaker is audibly coughing intermittently while discussing the timeline and importance of Sport Accord, suggesting a minor physical interruption that may require a brief check-in on wellbeing or offer a pause. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "e19c4931-928b-4c47-a516-0181d7c298e1",
+      "stage": "agent3",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "It sounds like you're making some important progress with the project timeline, and I can see why Sport Accord is such a valuable opportunity for those direct meetings with the international federations.\n\nI noticed you had a bit of a cough just now. Are you feeling okay, or is there anything I can do to help you feel more comfortable while we continue? We can definitely take a brief pause if you need a moment to clear your throat or catch your breath.",
+      "audio_sha256": "35b70f87032e94c4da33e6a4f38cb6a6936f3bbe74c7a7f8fa8848a11d8c9e28",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/input/user_1_turn_1.wav",
+        "sha256": "d4007068dfb68ce9e8b77570bc57a062a39f101806f5edfcdf6b12e632e0e4a4",
+        "case": "09_e19c4931-928b-4c47-a516-0181d7c298e1"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/default.wav",
+        "sha256": "a2a8ab5cde489e3bd7aae5dd7e965f07f676ee5ae9269fcf6d32c82eeed78510",
+        "case": "09_e19c4931-928b-4c47-a516-0181d7c298e1"
+      },
+      {
+        "path": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/care.wav",
+        "sha256": "86c81deeb2dd541af7c0481aa2161715f1dff5ef2090b6d683593cffcb165f10",
+        "case": "09_e19c4931-928b-4c47-a516-0181d7c298e1"
+      },
+      {
+        "path": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/vocaagent.wav",
+        "sha256": "35b70f87032e94c4da33e6a4f38cb6a6936f3bbe74c7a7f8fa8848a11d8c9e28",
+        "case": "09_e19c4931-928b-4c47-a516-0181d7c298e1"
+      },
+      {
+        "path": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/agent3.wav",
+        "sha256": "35b70f87032e94c4da33e6a4f38cb6a6936f3bbe74c7a7f8fa8848a11d8c9e28",
+        "case": "09_e19c4931-928b-4c47-a516-0181d7c298e1"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/default.wav",
+    "care": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/care.wav",
+    "vocaagent": "static/audio/voca-agent/09_e19c4931-928b-4c47-a516-0181d7c298e1/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

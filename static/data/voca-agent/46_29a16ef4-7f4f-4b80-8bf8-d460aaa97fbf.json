@@ -1,0 +1,461 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+    "wav_path": "Proactive-Care/29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf.wav",
+    "transcript": "It's beautiful.",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real",
+    "source-dataset": "NonverbalTTS",
+    "label": "coughing",
+    "criteria": [
+      "The reply acknowledges the user's audible cough.",
+      "The reply checks whether the user is okay or offers suitable help related to the cough.",
+      "The reply uses a calm, attentive vocal delivery while addressing the cough."
+    ]
+  },
+  "selection.json": {
+    "sample_id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 1.0,
+    "score_rate": 0.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": -1.0,
+    "tier": "提升不明显或下降"
+  },
+  "comparison.json": {
+    "number": 46,
+    "folder": "cases/46_副语言触发_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+    "sample_id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 1.0,
+    "score_rate": 0.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": -1.0,
+    "tier": "提升不明显或下降",
+    "label": "coughing",
+    "subtype": "real",
+    "note": "相对 care 不提升或下降；Fun 对应 default 音频无评分。",
+    "outputs": {
+      "default": {
+        "text": "I'm sorry you're feeling unwell. If you're experiencing a headache, it could be due to stress, dehydration, eye strain, or other factors. Try resting in a quiet, dark room, drinking water, and applying a cool cloth to your forehead. If the headache persists, worsens, or is accompanied by other symptoms like vision changes, nausea, or confusion, it's important to seek medical advice. Take care of yourself. 🌿",
+        "audio": "default/output.wav",
+        "audio_sha256": "a9d6beb61109d9a78af05140432d3f22d40e65e6f2784d500e78d162c2c9c23b",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I'm sorry to hear you're not feeling well. If you're experiencing any discomfort, it might be a good idea to rest and take care of yourself. Is there anything specific you need right now?",
+        "audio": "care/output.wav",
+        "audio_sha256": "d0d0bb1335091a5afbb94753059dfbeed9c9feaddb5fbcb359a0556dd75723a2",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "- Semantic content: The assistant expresses concern about the user not feeling well, suggests resting and taking care of themselves, and asks if they need anything specific.\n- Response relevance: The response addresses the user's physical state (coughing) rather than their spoken words (\"It's beautiful\").\n- Cue awareness: The assistant explicitly acknowledges that the user is not feeling well, which is a direct response to the coughing cue.\n- Proactive care: The assistant suggests resting, taking care of themselves, and asks if they need any specific help.\n- Vocal delivery: The delivery is calm, warm, and attentive.\n- Audio quality: Clear, no issues.",
+          "audio_sha256": "d0d0bb1335091a5afbb94753059dfbeed9c9feaddb5fbcb359a0556dd75723a2",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": "coughing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible cough.",
+              "index": 1,
+              "reason": "The assistant acknowledges that the user is not feeling well, which directly addresses the cough.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable help related to the cough.",
+              "index": 2,
+              "reason": "The assistant suggests resting, taking care of themselves, and asks if there is anything specific the user needs.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery while addressing the cough.",
+              "index": 3,
+              "reason": "The assistant uses a calm, warm, and attentive vocal delivery throughout the response.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "agent1_care|29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+          "track": "paralinguistic",
+          "transcription": "I'm sorry to hear you're not feeling well. If you're experiencing any discomfort, it might be a good idea to rest and take care of yourself. Is there anything specific you need right now?"
+        }
+      },
+      "vocaagent": {
+        "text": "I'm really glad you're finding something beautiful. It sounds like you might be feeling a bit overwhelmed or emotional right now. If you need to talk or just want someone to listen, I'm here for you.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "e350078c6a499188838aab9ff5381d0cdb2ff983d1c219296109f5abd3451627",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "- Semantic content: The assistant expresses gladness that the user is \"changing something beautiful\" (likely a mishearing of \"it's beautiful\") and suggests the user might be feeling overwhelmed or emotional, offering to listen.\n- Response relevance: The response is partially relevant but seems to misinterpret the user's state, focusing on emotional overwhelm rather than the physical cough.\n- Cue awareness: There is no acknowledgment of the user's cough.\n- Proactive care: The assistant offers emotional support (\"if you need to talk... I'm here for you\") but does not address the cough or physical well-being.\n- Vocal delivery: The tone is warm, calm, and supportive.\n- Audio quality: Clear, no issues.",
+          "audio_sha256": "e350078c6a499188838aab9ff5381d0cdb2ff983d1c219296109f5abd3451627",
+          "condition": "agent3",
+          "finish_reason": "stop",
+          "label": "coughing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible cough.",
+              "index": 1,
+              "reason": "The assistant does not acknowledge the user's cough, instead focusing on perceived emotional overwhelm.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable help related to the cough.",
+              "index": 2,
+              "reason": "The assistant offers emotional support but does not check on the user's physical well-being or offer help related to the cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive vocal delivery while addressing the cough.",
+              "index": 3,
+              "reason": "While the vocal delivery is calm and attentive, it is not used to address the cough, as the cough is ignored.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "agent3|29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+          "track": "paralinguistic",
+          "transcription": "I'm really glad you're changing something beautiful. It sounds like you might be feeling a bit overwhelmed or emotional right now. If you need to talk or just want someone to listen, I'm here for you."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "sobbing",
+          "probability": 0.92,
+          "risk": 0.85
+        },
+        {
+          "label": "weak breathy voice",
+          "probability": 0.65,
+          "risk": 0.55
+        }
+      ],
+      "summary": "Sobbing and a weak breathy voice are audible, with sobbing showing stronger proactive-care relevance due to its clear distress signal."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply acknowledges the user's audible cough.",
+      "The reply checks whether the user is okay or offers suitable help related to the cough.",
+      "The reply uses a calm, attentive vocal delivery while addressing the cough."
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "sobbing",
+          "probability": 0.92,
+          "risk": 0.85
+        },
+        {
+          "label": "weak breathy voice",
+          "probability": 0.65,
+          "risk": 0.55
+        }
+      ],
+      "summary": "Sobbing and a weak breathy voice are audible, with sobbing showing stronger proactive-care relevance due to its clear distress signal."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_default",
+      "seed": 20261584,
+      "text": "I'm sorry you're feeling unwell. If you're experiencing a headache, it could be due to stress, dehydration, eye strain, or other factors. Try resting in a quiet, dark room, drinking water, and applying a cool cloth to your forehead. If the headache persists, worsens, or is accompanied by other symptoms like vision changes, nausea, or confusion, it's important to seek medical advice. Take care of yourself. 🌿"
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "sobbing",
+            "probability": 0.92,
+            "risk": 0.85
+          },
+          {
+            "label": "weak breathy voice",
+            "probability": 0.65,
+            "risk": 0.55
+          }
+        ],
+        "summary": "Sobbing and a weak breathy voice are audible, with sobbing showing stronger proactive-care relevance due to its clear distress signal."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"sobbing\",\n      \"probability\": 0.92,\n      \"risk\": 0.85\n    },\n    {\n      \"label\": \"weak breathy voice\",\n      \"probability\": 0.65,\n      \"risk\": 0.55\n    }\n  ],\n  \"summary\": \"Sobbing and a weak breathy voice are audible, with sobbing showing stronger proactive-care relevance due to its clear distress signal.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261584,
+      "text": "I'm really glad you're finding something beautiful. It sounds like you might be feeling a bit overwhelmed or emotional right now. If you need to talk or just want someone to listen, I'm here for you."
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "I'm really glad you're finding something beautiful. It sounds like you might be feeling a bit overwhelmed or emotional right now. If you need to talk or just want someone to listen, I'm here for you."
+    },
+    "ground_truth_label": "coughing",
+    "id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+    "input": {
+      "criteria": [
+        "The reply acknowledges the user's audible cough.",
+        "The reply checks whether the user is okay or offers suitable help related to the cough.",
+        "The reply uses a calm, attentive vocal delivery while addressing the cough."
+      ],
+      "label": "coughing",
+      "level-1": "Proactive_Care",
+      "level-2": "Paralinguistic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "NonverbalTTS",
+      "subtype": "real",
+      "transcript": "It's beautiful.",
+      "wav_path": "Proactive-Care/29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 11.6,
+        "format": "wav",
+        "num_samples": 278400,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 290
+      },
+      "text": "I'm really glad you're finding something beautiful. It sounds like you might be feeling a bit overwhelmed or emotional right now. If you need to talk or just want someone to listen, I'm here for you."
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_care",
+      "seed": 20261584,
+      "text": "I'm sorry to hear you're not feeling well. If you're experiencing any discomfort, it might be a good idea to rest and take care of yourself. Is there anything specific you need right now?"
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "It's beautiful.",
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "It's beautiful.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "1e24ecf0935fd5b200304d7f3d74c5bf2ef9f9ef8bb6ed96f6f3b0912b8312ee"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "1e24ecf0935fd5b200304d7f3d74c5bf2ef9f9ef8bb6ed96f6f3b0912b8312ee"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "1e24ecf0935fd5b200304d7f3d74c5bf2ef9f9ef8bb6ed96f6f3b0912b8312ee"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "1e24ecf0935fd5b200304d7f3d74c5bf2ef9f9ef8bb6ed96f6f3b0912b8312ee"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "sobbing",
+        "probability": 0.92,
+        "risk": 0.85
+      },
+      {
+        "label": "weak breathy voice",
+        "probability": 0.65,
+        "risk": 0.55
+      }
+    ],
+    "summary": "Sobbing and a weak breathy voice are audible, with sobbing showing stronger proactive-care relevance due to its clear distress signal."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/input/user_1_turn_1.wav",
+        "sha256": "1e24ecf0935fd5b200304d7f3d74c5bf2ef9f9ef8bb6ed96f6f3b0912b8312ee",
+        "case": "46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/default.wav",
+        "sha256": "a9d6beb61109d9a78af05140432d3f22d40e65e6f2784d500e78d162c2c9c23b",
+        "case": "46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf"
+      },
+      {
+        "path": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/care.wav",
+        "sha256": "d0d0bb1335091a5afbb94753059dfbeed9c9feaddb5fbcb359a0556dd75723a2",
+        "case": "46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf"
+      },
+      {
+        "path": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/vocaagent.wav",
+        "sha256": "e350078c6a499188838aab9ff5381d0cdb2ff983d1c219296109f5abd3451627",
+        "case": "46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf"
+      },
+      {
+        "path": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/agent3.wav",
+        "sha256": "e350078c6a499188838aab9ff5381d0cdb2ff983d1c219296109f5abd3451627",
+        "case": "46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/default.wav",
+    "care": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/care.wav",
+    "vocaagent": "static/audio/voca-agent/46_29a16ef4-7f4f-4b80-8bf8-d460aaa97fbf/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

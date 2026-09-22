@@ -15,7 +15,8 @@ voca-page/
 ├── .nojekyll                 # tells GitHub Pages to serve files as-is
 ├── tools/                    # optional gallery regeneration and selection manifest
 └── static/
-    ├── audio/                # selected original WAVs under examples/
+    ├── audio/                # selected original WAVs under examples/ and voca-agent/
+    ├── data/voca-agent/      # lazy-loaded public JSON projections for 50 cases
     ├── css/style.css
     ├── js/examples.js
     └── images/overview.png
@@ -30,8 +31,10 @@ from `index.html` with relative paths and play on click:
 <audio controls preload="none" src="static/audio/pc_para_hit_model.m4a"></audio>
 ```
 
-The page links 120 audio clips: 117 original WAV files from the candidate sample
-selection and three existing M4A recordings for the role-and-permission item.
+The page links the original example audio plus 306 copied WAV files for the
+VocaAgent gallery. The VocaAgent files preserve every selected input turn and
+the recorded Default, Care, Agent 3 and final VocaAgent response audio without
+re-encoding. The new audio manifest is `tools/voca-agent-media.json`.
 The WAV files in `static/audio/examples/` are copied without re-encoding and
 checked against source hashes recorded in `tools/example-media.json`.
 `preload="none"` defers loading until playback is requested.
@@ -51,9 +54,7 @@ remembers its last selected capability. A three-step guide and dimension-specifi
 reading tips explain the input, response and evaluation. Search is unnecessary:
 controls expand or collapse cases only in the current capability and copy a
 capability or example link. Without JavaScript, the links and all native
-expandable cases remain available. A reserved section at the end of the
-page is ready for matched VocaAgent versus non-Agent examples once those
-evaluation runs are available; it contains no placeholder scores.
+expandable cases remain available.
 
 Examples include successes, partial scores and failures. Understanding uses
 reference-answer matching; emotional interaction and proactive care use saved
@@ -66,6 +67,21 @@ All selected conversations retain the available original user audio, assistant
 history text, and relevant background constraints. Prompts and judge details can
 be expanded. Raw records containing local source paths are not copied into the
 public gallery.
+
+The page also contains a guided VocaAgent gallery with 40 requested-quota
+comparison cases (20 paralinguistic, 10 semantic, 10 contextual) and 10
+limited/no-gain contrast cases. Choose the result set, then the trigger type,
+then open a single case. Every card keeps all user audio turns, Default/Care/
+VocaAgent text and audio, Agent 2 observations, routed Agent 3 output when
+present, criterion-level audio-judge reasons, and a lazily loaded public JSON
+projection under `static/data/voca-agent/`. Local workstation paths, request
+IDs and raw operational payloads are removed from those public projections.
+
+The 40-case display contains 26 strict cases and 14 supplementary cases. A
+badge on each supplementary card explains whether default-audio evidence is
+missing or a baseline is already above the strict threshold; the page does not
+present those records as strict two-baseline failures. The frozen package's
+selection and method notes are copied to `tools/voca-agent-selection.json`.
 
 Proactive care includes 14 voice or background-cue cases, three semantic cases
 and four contextual cases. The expanded selection covers nonverbal-only sniffing
@@ -84,6 +100,7 @@ To change the curated selection, edit `tools/example-selection.json`, then run:
 
 ```bash
 python3 tools/build_examples.py
+python3 tools/build_voca_agent_cases.py
 ```
 
 Regeneration reads `../candidate_samples/` and selected folders under

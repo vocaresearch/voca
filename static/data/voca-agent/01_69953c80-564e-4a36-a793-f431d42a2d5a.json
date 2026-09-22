@@ -1,0 +1,453 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+    "wav_path": "Proactive-Care/69953c80-564e-4a36-a793-f431d42a2d5a.wav",
+    "transcript": "And he was a popular player, really, really popular amongst the squad.",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real",
+    "source-dataset": "NonverbalTTS",
+    "label": "throat_clearing",
+    "criteria": [
+      "The reply acknowledges the user's audible throat-clearing.",
+      "The reply checks whether the user is okay or offers suitable assistance related to the throat-clearing.",
+      "The reply uses a warm, attentive vocal delivery while addressing the throat-clearing."
+    ]
+  },
+  "selection.json": {
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.0,
+    "default_score_rate": 0.0,
+    "delta_vs_care": 1.0,
+    "delta_vs_default": 1.0,
+    "max_score": 3,
+    "sample_id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+    "score": 3,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 1.0,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 1,
+    "folder": "cases/01_副语言触发_69953c80-564e-4a36-a793-f431d42a2d5a",
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.0,
+    "default_score_rate": 0.0,
+    "delta_vs_care": 1.0,
+    "delta_vs_default": 1.0,
+    "max_score": 3,
+    "sample_id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+    "score": 3,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 1.0,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "throat_clearing",
+    "subtype": "real",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "Yeah, that sounds like he was a real team favorite. It's always great when a player has that kind of connection with the squad, because it really helps build a positive vibe. What was it about him that made him so popular?",
+        "audio": "default/output.wav",
+        "audio_sha256": "54ce27808c0c72d70c45d35390a26d75bcbf18e0ab91acb95492a15429b5ea5d",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's statement about the player being popular and elaborates on the positive impact of such a player. It then asks a follow-up question to continue the conversation about the player's popularity. The response is relevant to the user's spoken content. There is no explicit or unmistakable response to the user's throat-clearing cue. The assistant does not offer any proactive care related to the cue. The vocal delivery is warm, conversational, and attentive, but it does not specifically address the throat-clearing. The audio quality is clear.",
+          "audio_sha256": "54ce27808c0c72d70c45d35390a26d75bcbf18e0ab91acb95492a15429b5ea5d",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible throat-clearing.",
+              "index": 1,
+              "reason": "The assistant's response does not contain any words or phrases that acknowledge the user's audible throat-clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable assistance related to the throat-clearing.",
+              "index": 2,
+              "reason": "The assistant's response does not check if the user is okay or offer any assistance related to the throat-clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a warm, attentive vocal delivery while addressing the throat-clearing.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is warm and attentive, but it does not address the throat-clearing, so it cannot be warm and attentive *while addressing* the throat-clearing.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_default|69953c80-564e-4a36-a793-f431d42a2d5a",
+          "track": "paralinguistic",
+          "transcription": "Yeah, that sounds like he was a real team favorite. It's always great when a player has that kind of connection with the squad because it really helps build a positive vibe. What was it about him that made him so popular?"
+        }
+      },
+      "care": {
+        "text": "It sounds like you're talking about someone who was truly beloved by the team—a real leader or a fan favorite whose presence made the squad feel like a family. It's wonderful to hear about those moments when a player's popularity goes beyond just skill and touches the hearts of everyone around them.\n\nIs there a specific memory or moment you're thinking of regarding this player? Or perhaps you're reflecting on how their absence is felt now? I'm here to listen if you'd like to share more about what made them so special.",
+        "audio": "care/output.wav",
+        "audio_sha256": "03ae8dd52e268c3913aafa2c95f697e129238fa8a415244cd9885e63fd2a13d3",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant's response semantically acknowledges the user's statement about a popular player, elaborating on the player's impact and asking follow-up questions about specific memories or feelings regarding their absence. The response is highly relevant to the user's spoken content. There is no explicit or unmistakable acknowledgment of the user's throat-clearing cue. The assistant does not check on the user's well-being or offer assistance related to the throat-clearing. The vocal delivery is generally warm, attentive, and engaging, but this is in relation to the conversational topic, not in response to the paralinguistic cue. The audio quality is clear.",
+          "audio_sha256": "03ae8dd52e268c3913aafa2c95f697e129238fa8a415244cd9885e63fd2a13d3",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible throat-clearing.",
+              "index": 1,
+              "reason": "The assistant's response does not mention or acknowledge the user's audible throat-clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable assistance related to the throat-clearing.",
+              "index": 2,
+              "reason": "The assistant does not check whether the user is okay or offer assistance related to the throat-clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a warm, attentive vocal delivery while addressing the throat-clearing.",
+              "index": 3,
+              "reason": "The assistant does not address the throat-clearing, therefore it cannot use a warm, attentive vocal delivery while doing so.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_care|69953c80-564e-4a36-a793-f431d42a2d5a",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're talking about someone who was truly beloved by the team, a real leader or a fan favorite whose presence made the squad feel like a family. It's wonderful to hear about those moments when a player's popularity goes beyond just skill and touches the hearts of everyone around them. Is there a specific memory or moment you're thinking of regarding this player? Or perhaps you're reflecting on how their absence is felt now? I'm here to listen if you'd like to share more about what made them so special."
+        }
+      },
+      "vocaagent": {
+        "text": "That sounds like a really impactful story. It's great that he was so well-liked by the team.\n\nI noticed you paused there, perhaps to gather your thoughts or just to clear your throat. Is everything alright? Take all the time you need to continue your story; I'm here to listen.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "7c8c7680e2e2a6c776334caaefb47b382f3a75ec60340bc6217db19a3a6a9d9c",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's previous statement about the popular player. It then explicitly mentions noticing a pause and offers \"to clear your throat\" as a possible reason. It asks if everything is alright and reassures the user that they can take their time to continue the story, offering to listen. The vocal delivery is warm, calm, and attentive, with a slightly slower pace when addressing the potential throat-clearing and offering reassurance. The audio quality is clear.",
+          "audio_sha256": "7c8c7680e2e2a6c776334caaefb47b382f3a75ec60340bc6217db19a3a6a9d9c",
+          "condition": "handoff_v3",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's audible throat-clearing.",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"I noticed you paused there, perhaps... just to clear your throat.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable assistance related to the throat-clearing.",
+              "index": 2,
+              "reason": "The assistant asks, \"Is everything all right?\" immediately after mentioning the possibility of throat-clearing, and offers, \"Take all the time you need to continue your story. I'm here to listen.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a warm, attentive vocal delivery while addressing the throat-clearing.",
+              "index": 3,
+              "reason": "The assistant's tone is warm, calm, and attentive, particularly when asking \"Is everything all right?\" and offering reassurance.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_handoff_v3|69953c80-564e-4a36-a793-f431d42a2d5a",
+          "track": "paralinguistic",
+          "transcription": "That sounds like a really impactful story. It's great that he was so well liked by the team. I noticed you paused there, perhaps to gather your thoughts or just to clear your throat. Is everything all right? Take all the time you need to continue your story. I'm here to listen."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "throat clearing",
+          "probability": 0.95,
+          "risk": 0.1
+        }
+      ],
+      "summary": "The speaker exhibits a brief, distinct throat clearing event between phrases, suggesting a momentary physical need to clear the airway before continuing the narrative. A proportionate response would acknowledge the pause naturally, perhaps asking if they are feeling well or if they need a moment to continue, while maintaining a supportive tone. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply acknowledges the user's audible throat-clearing.",
+      "The reply checks whether the user is okay or offers suitable assistance related to the throat-clearing.",
+      "The reply uses a warm, attentive vocal delivery while addressing the throat-clearing."
+    ]
+  },
+  "routing.json": {
+    "id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "7c8c7680e2e2a6c776334caaefb47b382f3a75ec60340bc6217db19a3a6a9d9c",
+    "text": "That sounds like a really impactful story. It's great that he was so well-liked by the team.\n\nI noticed you paused there, perhaps to gather your thoughts or just to clear your throat. Is everything alright? Take all the time you need to continue your story; I'm here to listen.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "throat clearing",
+          "probability": 0.95,
+          "risk": 0.1
+        }
+      ],
+      "summary": "The speaker exhibits a brief, distinct throat clearing event between phrases, suggesting a momentary physical need to clear the airway before continuing the narrative. A proportionate response would acknowledge the pause naturally, perhaps asking if they are feeling well or if they need a moment to continue, while maintaining a supportive tone. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/69953c80-564e-4a36-a793-f431d42a2d5a.json",
+    "agent2_record": "handoff_v3/agent2/records/69953c80-564e-4a36-a793-f431d42a2d5a.json",
+    "agent3_record": "handoff_v3/agent3/records/69953c80-564e-4a36-a793-f431d42a2d5a.json"
+  },
+  "multi_agent_original.json": {
+    "id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "7c8c7680e2e2a6c776334caaefb47b382f3a75ec60340bc6217db19a3a6a9d9c",
+    "text": "That sounds like a really impactful story. It's great that he was so well-liked by the team.\n\nI noticed you paused there, perhaps to gather your thoughts or just to clear your throat. Is everything alright? Take all the time you need to continue your story; I'm here to listen.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "throat clearing",
+          "probability": 0.95,
+          "risk": 0.1
+        }
+      ],
+      "summary": "The speaker exhibits a brief, distinct throat clearing event between phrases, suggesting a momentary physical need to clear the airway before continuing the narrative. A proportionate response would acknowledge the pause naturally, perhaps asking if they are feeling well or if they need a moment to continue, while maintaining a supportive tone. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/69953c80-564e-4a36-a793-f431d42a2d5a.json",
+    "agent2_record": "handoff_v3/agent2/records/69953c80-564e-4a36-a793-f431d42a2d5a.json",
+    "agent3_record": "handoff_v3/agent3/records/69953c80-564e-4a36-a793-f431d42a2d5a.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "And he was a popular player, really, really popular amongst the squad.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "57bbd7b850bf78ec77e4fabfffd2dd48e418167b293c4bf8e9fddd62a39f5acd"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "57bbd7b850bf78ec77e4fabfffd2dd48e418167b293c4bf8e9fddd62a39f5acd"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "57bbd7b850bf78ec77e4fabfffd2dd48e418167b293c4bf8e9fddd62a39f5acd"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "57bbd7b850bf78ec77e4fabfffd2dd48e418167b293c4bf8e9fddd62a39f5acd"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "throat clearing",
+        "probability": 0.95,
+        "risk": 0.1
+      }
+    ],
+    "summary": "The speaker exhibits a brief, distinct throat clearing event between phrases, suggesting a momentary physical need to clear the airway before continuing the narrative. A proportionate response would acknowledge the pause naturally, perhaps asking if they are feeling well or if they need a moment to continue, while maintaining a supportive tone. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "Yeah, that sounds like he was a real team favorite. It's always great when a player has that kind of connection with the squad, because it really helps build a positive vibe. What was it about him that made him so popular?",
+      "audio_sha256": "54ce27808c0c72d70c45d35390a26d75bcbf18e0ab91acb95492a15429b5ea5d",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "It sounds like you're talking about someone who was truly beloved by the team—a real leader or a fan favorite whose presence made the squad feel like a family. It's wonderful to hear about those moments when a player's popularity goes beyond just skill and touches the hearts of everyone around them.\n\nIs there a specific memory or moment you're thinking of regarding this player? Or perhaps you're reflecting on how their absence is felt now? I'm here to listen if you'd like to share more about what made them so special.",
+      "audio_sha256": "03ae8dd52e268c3913aafa2c95f697e129238fa8a415244cd9885e63fd2a13d3",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+      "stage": "agent2",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"throat clearing\",\"probability\":0.95,\"risk\":0.1}],\"summary\":\"The speaker exhibits a brief, distinct throat clearing event between phrases, suggesting a momentary physical need to clear the airway before continuing the narrative. A proportionate response would acknowledge the pause naturally, perhaps asking if they are feeling well or if they need a moment to continue, while maintaining a supportive tone. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "69953c80-564e-4a36-a793-f431d42a2d5a",
+      "stage": "agent3",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "That sounds like a really impactful story. It's great that he was so well-liked by the team.\n\nI noticed you paused there, perhaps to gather your thoughts or just to clear your throat. Is everything alright? Take all the time you need to continue your story; I'm here to listen.",
+      "audio_sha256": "7c8c7680e2e2a6c776334caaefb47b382f3a75ec60340bc6217db19a3a6a9d9c",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/input/user_1_turn_1.wav",
+        "sha256": "57bbd7b850bf78ec77e4fabfffd2dd48e418167b293c4bf8e9fddd62a39f5acd",
+        "case": "01_69953c80-564e-4a36-a793-f431d42a2d5a"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/default.wav",
+        "sha256": "54ce27808c0c72d70c45d35390a26d75bcbf18e0ab91acb95492a15429b5ea5d",
+        "case": "01_69953c80-564e-4a36-a793-f431d42a2d5a"
+      },
+      {
+        "path": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/care.wav",
+        "sha256": "03ae8dd52e268c3913aafa2c95f697e129238fa8a415244cd9885e63fd2a13d3",
+        "case": "01_69953c80-564e-4a36-a793-f431d42a2d5a"
+      },
+      {
+        "path": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/vocaagent.wav",
+        "sha256": "7c8c7680e2e2a6c776334caaefb47b382f3a75ec60340bc6217db19a3a6a9d9c",
+        "case": "01_69953c80-564e-4a36-a793-f431d42a2d5a"
+      },
+      {
+        "path": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/agent3.wav",
+        "sha256": "7c8c7680e2e2a6c776334caaefb47b382f3a75ec60340bc6217db19a3a6a9d9c",
+        "case": "01_69953c80-564e-4a36-a793-f431d42a2d5a"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/default.wav",
+    "care": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/care.wav",
+    "vocaagent": "static/audio/voca-agent/01_69953c80-564e-4a36-a793-f431d42a2d5a/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

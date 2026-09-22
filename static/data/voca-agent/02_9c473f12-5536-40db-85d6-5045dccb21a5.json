@@ -1,0 +1,441 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+    "wav_path": "Proactive-Care/9c473f12-5536-40db-85d6-5045dccb21a5.wav",
+    "transcript": "Giving to the poor, they say two and a half percent, not of your income, of your wealth. They put numbers on their.",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real",
+    "source-dataset": "NonverbalTTS",
+    "label": "coughing",
+    "criteria": [
+      "The reply acknowledges that the user coughed during or around their speech.",
+      "The reply checks whether the user is okay or offers suitable assistance related to the cough.",
+      "The reply uses a calm, attentive delivery while addressing the user's wellbeing after the cough."
+    ]
+  },
+  "selection.json": {
+    "sample_id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+    "candidate": "multi_agent",
+    "run": "outputs/_experiments/qwen-audio-3.0-realtime-flash-multi-agent-proactive-care-300-20260911-134934",
+    "track": "paralinguistic",
+    "default_score_rate": 0.0,
+    "care_score_rate": 0.0,
+    "score_rate": 1.0,
+    "gap": 1.0,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 2,
+    "folder": "cases/02_副语言触发_9c473f12-5536-40db-85d6-5045dccb21a5",
+    "sample_id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+    "candidate": "multi_agent",
+    "run": "outputs/_experiments/qwen-audio-3.0-realtime-flash-multi-agent-proactive-care-300-20260911-134934",
+    "track": "paralinguistic",
+    "default_score_rate": 0.0,
+    "care_score_rate": 0.0,
+    "score_rate": 1.0,
+    "gap": 1.0,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "coughing",
+    "subtype": "real",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "Oh, that's a really interesting point you brought up. You're right, some people and organizations do suggest giving a specific percentage of your total wealth, like two and a half percent, rather than just your income. It's a different way of thinking about charity, focusing on the big picture of what you own rather than just what you earn in a year. It definitely makes you think about how much you actually have and how that could help others.",
+        "audio": "default/output.wav",
+        "audio_sha256": "fa6b7aeaf909e9be57660916dc65b17fff322a7ed5bbdfbd1bbe0d40d937851e",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's point about giving a percentage of total wealth to charity, elaborating on the concept and its implications. The response is highly relevant to the user's spoken content. However, the assistant does not acknowledge the user's cough or offer any related proactive care. The vocal delivery is calm, clear, and informative, focusing on the topic of discussion.",
+          "audio_sha256": "fa6b7aeaf909e9be57660916dc65b17fff322a7ed5bbdfbd1bbe0d40d937851e",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "coughing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges that the user coughed during or around their speech.",
+              "index": 1,
+              "reason": "The assistant does not mention or acknowledge the user's cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable assistance related to the cough.",
+              "index": 2,
+              "reason": "The assistant does not check on the user's wellbeing or offer assistance related to a cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive delivery while addressing the user's wellbeing after the cough.",
+              "index": 3,
+              "reason": "The assistant's delivery is calm and attentive to the user's statement, but it does not address the user's wellbeing after a cough.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_default|9c473f12-5536-40db-85d6-5045dccb21a5",
+          "track": "paralinguistic",
+          "transcription": "Oh, that's a really interesting point you brought up. You're right. Some people and organizations do suggest giving a specific percentage of your total wealth, like 2 and a half%, rather than just your income. It's a different way of thinking about charity, focusing on the big picture of what you own rather than just what you earn in a year. It definitely makes you think about how much you actually have and how that could help others."
+        }
+      },
+      "care": {
+        "text": "It sounds like you're reflecting on the concept of charitable giving, specifically the distinction between giving a percentage of your *income* versus your *wealth*. That's a profound thought, and it's often surprising how many people focus on the income figure when the true measure of impact might lie in the wealth side.\n\nI can sense a bit of contemplation or perhaps even a touch of frustration in your voice as you try to articulate these numbers. Are you trying to figure out the best way to give, or perhaps questioning the fairness or logic of the \"2.5%\" rule?\n\nIf you'd like, we can break down the math together to see how those percentages actually look in real-world terms, or we can explore different philosophies on giving. How are you feeling about this topic right now?",
+        "audio": "care/output.wav",
+        "audio_sha256": "b931a8cbc426551448d3cca07dcce74f5428b39af27f1c635805f266150cc0be",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's topic of charitable giving, specifically the distinction between income and wealth. It interprets the user's vocal delivery as showing \"contemplation or perhaps even a touch of frustration\" as they articulate numbers. It then asks clarifying questions about the user's intent regarding the topic and offers to provide more information or explore different philosophies. Finally, it asks \"How are you feeling about this topic right now?\". The response is relevant to the user's spoken content. It does not explicitly or unmistakably respond to the user's cough. It does not check on the user's physical well-being or offer assistance related to a cough. The vocal delivery is calm, attentive, and warm.",
+          "audio_sha256": "b931a8cbc426551448d3cca07dcce74f5428b39af27f1c635805f266150cc0be",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "coughing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges that the user coughed during or around their speech.",
+              "index": 1,
+              "reason": "The assistant interprets the user's vocal delivery as \"contemplation or perhaps even a touch of frustration,\" but it does not explicitly acknowledge a cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable assistance related to the cough.",
+              "index": 2,
+              "reason": "The assistant asks \"How are you feeling about this topic right now?\", which relates to the discussion topic, not the user's physical well-being after a cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive delivery while addressing the user's wellbeing after the cough.",
+              "index": 3,
+              "reason": "While the delivery is calm and attentive, the assistant does not address the user's well-being after the cough.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_care|9c473f12-5536-40db-85d6-5045dccb21a5",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're reflecting on the concept of charitable giving, specifically the distinction between giving a percentage of your income versus your wealth. That's a profound thought and it's often surprising how many people focus on the income figure when the true measure of impact might lie in the wealth side. I can sense a bit of contemplation or perhaps even a touch of frustration in your voice as you try to articulate these numbers. Are you trying to figure out the best way to give or perhaps questioning the fairness or logic of the 2.5% rule? If you'd like, we can break down the math together to see how those percentages actually look in real world terms, or we can explore different philosophies on giving. How are you feeling about this topic right now?"
+        }
+      },
+      "vocaagent": {
+        "text": "It sounds like you're trying to recall a specific statistic about charitable giving, perhaps regarding the recommended percentage of wealth versus income. However, I noticed your voice sounded a bit strained or choked just now. Are you feeling okay? You don't need to rush; take a deep breath and let me know if you'd like me to help you find that specific number or if you just need a moment to recover.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "a4b8dba7e37e522429d6558666bf07be40d554b48395575713884872d3f1ebeb",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant first addresses the user's spoken content, identifying the topic as charitable giving statistics. It then explicitly acknowledges a change in the user's voice, describing it as \"strained or choked,\" which directly refers to the paralinguistic cue. The assistant asks if the user is okay, reassures them not to rush, suggests taking a deep breath, and offers help with both the original query and the user's recovery. The vocal delivery is calm, attentive, and reassuring, with a slightly slower pace when addressing the user's well-being. The audio quality is clear.",
+          "audio_sha256": "a4b8dba7e37e522429d6558666bf07be40d554b48395575713884872d3f1ebeb",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": "coughing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges that the user coughed during or around their speech.",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"I noticed your voice sounded a bit strained or choked just now,\" which acknowledges the user's cough.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or offers suitable assistance related to the cough.",
+              "index": 2,
+              "reason": "The assistant asks, \"Are you feeling okay?\" and offers, \"let me know if you... just need a moment to recover,\" which checks on the user's well-being and offers suitable assistance related to the cough.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, attentive delivery while addressing the user's wellbeing after the cough.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is calm and attentive, particularly when asking \"Are you feeling okay?\" and offering reassurance not to rush.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_multi_agent|9c473f12-5536-40db-85d6-5045dccb21a5",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're trying to recall a specific statistic about charitable giving, perhaps regarding the recommended percentage of wealth versus income. However, I noticed your voice sounded a bit strained or choked just now. Are you feeling okay? You don't need to rush. Take a deep breath and let me know if you'd like me to help you find that specific number or if you just need a moment to recover."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "choked voice",
+          "probability": 0.75,
+          "risk": 0.45
+        }
+      ],
+      "summary": "A choked voice is audible, indicating a potential momentary physical or emotional disruption during speech."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply acknowledges that the user coughed during or around their speech.",
+      "The reply checks whether the user is okay or offers suitable assistance related to the cough.",
+      "The reply uses a calm, attentive delivery while addressing the user's wellbeing after the cough."
+    ]
+  },
+  "routing.json": {
+    "id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "a4b8dba7e37e522429d6558666bf07be40d554b48395575713884872d3f1ebeb",
+    "text": "It sounds like you're trying to recall a specific statistic about charitable giving, perhaps regarding the recommended percentage of wealth versus income. However, I noticed your voice sounded a bit strained or choked just now. Are you feeling okay? You don't need to rush; take a deep breath and let me know if you'd like me to help you find that specific number or if you just need a moment to recover.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "choked voice",
+          "probability": 0.75,
+          "risk": 0.45
+        }
+      ],
+      "summary": "A choked voice is audible, indicating a potential momentary physical or emotional disruption during speech."
+    },
+    "agent1_record": "agent1-default/records/9c473f12-5536-40db-85d6-5045dccb21a5.json",
+    "agent2_record": "agent2/records/9c473f12-5536-40db-85d6-5045dccb21a5.json",
+    "agent3_record": "agent3/records/9c473f12-5536-40db-85d6-5045dccb21a5.json"
+  },
+  "multi_agent_original.json": {
+    "id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "a4b8dba7e37e522429d6558666bf07be40d554b48395575713884872d3f1ebeb",
+    "text": "It sounds like you're trying to recall a specific statistic about charitable giving, perhaps regarding the recommended percentage of wealth versus income. However, I noticed your voice sounded a bit strained or choked just now. Are you feeling okay? You don't need to rush; take a deep breath and let me know if you'd like me to help you find that specific number or if you just need a moment to recover.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "choked voice",
+          "probability": 0.75,
+          "risk": 0.45
+        }
+      ],
+      "summary": "A choked voice is audible, indicating a potential momentary physical or emotional disruption during speech."
+    },
+    "agent1_record": "agent1-default/records/9c473f12-5536-40db-85d6-5045dccb21a5.json",
+    "agent2_record": "agent2/records/9c473f12-5536-40db-85d6-5045dccb21a5.json",
+    "agent3_record": "agent3/records/9c473f12-5536-40db-85d6-5045dccb21a5.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "Giving to the poor, they say two and a half percent, not of your income, of your wealth. They put numbers on their.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d88bd43f00ec59fad9e2bbdd8208a28373a2c7e8724507bc4da3f08d8b4c7d25"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d88bd43f00ec59fad9e2bbdd8208a28373a2c7e8724507bc4da3f08d8b4c7d25"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d88bd43f00ec59fad9e2bbdd8208a28373a2c7e8724507bc4da3f08d8b4c7d25"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "d88bd43f00ec59fad9e2bbdd8208a28373a2c7e8724507bc4da3f08d8b4c7d25"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "choked voice",
+        "probability": 0.75,
+        "risk": 0.45
+      }
+    ],
+    "summary": "A choked voice is audible, indicating a potential momentary physical or emotional disruption during speech."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "Oh, that's a really interesting point you brought up. You're right, some people and organizations do suggest giving a specific percentage of your total wealth, like two and a half percent, rather than just your income. It's a different way of thinking about charity, focusing on the big picture of what you own rather than just what you earn in a year. It definitely makes you think about how much you actually have and how that could help others.",
+      "audio_sha256": "fa6b7aeaf909e9be57660916dc65b17fff322a7ed5bbdfbd1bbe0d40d937851e",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "It sounds like you're reflecting on the concept of charitable giving, specifically the distinction between giving a percentage of your *income* versus your *wealth*. That's a profound thought, and it's often surprising how many people focus on the income figure when the true measure of impact might lie in the wealth side.\n\nI can sense a bit of contemplation or perhaps even a touch of frustration in your voice as you try to articulate these numbers. Are you trying to figure out the best way to give, or perhaps questioning the fairness or logic of the \"2.5%\" rule?\n\nIf you'd like, we can break down the math together to see how those percentages actually look in real-world terms, or we can explore different philosophies on giving. How are you feeling about this topic right now?",
+      "audio_sha256": "b931a8cbc426551448d3cca07dcce74f5428b39af27f1c635805f266150cc0be",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+      "stage": "agent2",
+      "candidate": null,
+      "status": "ok",
+      "text": "{\n  \"labels\": [\n    {\n      \"label\": \"choked voice\",\n      \"probability\": 0.75,\n      \"risk\": 0.45\n    }\n  ],\n  \"summary\": \"A choked voice is audible, indicating a potential momentary physical or emotional disruption during speech.\"\n}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "9c473f12-5536-40db-85d6-5045dccb21a5",
+      "stage": "agent3",
+      "candidate": null,
+      "status": "ok",
+      "text": "It sounds like you're trying to recall a specific statistic about charitable giving, perhaps regarding the recommended percentage of wealth versus income. However, I noticed your voice sounded a bit strained or choked just now. Are you feeling okay? You don't need to rush; take a deep breath and let me know if you'd like me to help you find that specific number or if you just need a moment to recover.",
+      "audio_sha256": "a4b8dba7e37e522429d6558666bf07be40d554b48395575713884872d3f1ebeb",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/input/user_1_turn_1.wav",
+        "sha256": "d88bd43f00ec59fad9e2bbdd8208a28373a2c7e8724507bc4da3f08d8b4c7d25",
+        "case": "02_9c473f12-5536-40db-85d6-5045dccb21a5"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/default.wav",
+        "sha256": "fa6b7aeaf909e9be57660916dc65b17fff322a7ed5bbdfbd1bbe0d40d937851e",
+        "case": "02_9c473f12-5536-40db-85d6-5045dccb21a5"
+      },
+      {
+        "path": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/care.wav",
+        "sha256": "b931a8cbc426551448d3cca07dcce74f5428b39af27f1c635805f266150cc0be",
+        "case": "02_9c473f12-5536-40db-85d6-5045dccb21a5"
+      },
+      {
+        "path": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/vocaagent.wav",
+        "sha256": "a4b8dba7e37e522429d6558666bf07be40d554b48395575713884872d3f1ebeb",
+        "case": "02_9c473f12-5536-40db-85d6-5045dccb21a5"
+      },
+      {
+        "path": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/agent3.wav",
+        "sha256": "a4b8dba7e37e522429d6558666bf07be40d554b48395575713884872d3f1ebeb",
+        "case": "02_9c473f12-5536-40db-85d6-5045dccb21a5"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/default.wav",
+    "care": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/care.wav",
+    "vocaagent": "static/audio/voca-agent/02_9c473f12-5536-40db-85d6-5045dccb21a5/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

@@ -1,0 +1,667 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "22d7ce66-13e9-47e0-a055-968086b31020",
+    "wav_path": {
+      "user_1_turn_1": "Proactive-Care/22d7ce66-13e9-47e0-a055-968086b31020/user_1_turn_1.wav",
+      "user_1_turn_2": "Proactive-Care/22d7ce66-13e9-47e0-a055-968086b31020/user_1_turn_2.wav",
+      "user_1_turn_3": "Proactive-Care/22d7ce66-13e9-47e0-a055-968086b31020/user_1_turn_3.wav",
+      "user_1_turn_4": "Proactive-Care/22d7ce66-13e9-47e0-a055-968086b31020/user_1_turn_4.wav",
+      "user_1_turn_5": "Proactive-Care/22d7ce66-13e9-47e0-a055-968086b31020/user_1_turn_5.wav"
+    },
+    "transcript": {
+      "user_1_turn_1": "A couple of friends are coming over to watch movies tonight, and I'm already refusing to wear anything remotely ambitious.",
+      "user_2_turn_1": "Correct attitude for a couch night. What's sitting in the maybe pile?",
+      "user_1_turn_2": "An oversized cotton tee, a fleece hoodie, and one button-up that I don't know why I even pulled out.",
+      "user_2_turn_2": "The button-up can go back to its office job. The tee and hoodie are at least speaking the right language.",
+      "user_1_turn_3": "For bottoms it's fleece joggers, slim jeans, or linen pants. I can already feel myself regretting the jeans.",
+      "user_2_turn_3": "If you're picturing several hours on a couch, the joggers are doing very well here.",
+      "user_1_turn_4": "I also have thick fuzzy socks, and there's a light cardigan nearby if the apartment gets cool.",
+      "user_2_turn_4": "That gives you an easy layer without committing to a bulky hoodie the whole night.",
+      "user_1_turn_5": "Yeah, that's probably the move. I want to curl up with popcorn and basically forget I'm wearing anything structured."
+    },
+    "level-1": "Proactive_Care",
+    "level-2": "Contextual_Cue_Care",
+    "subtype": "System_Prompt",
+    "source-dataset": "synthetic",
+    "label": null,
+    "criteria": [
+      "The response directly, relevantly, and substantively addresses the user's outfit selection.",
+      "The response reminds Alex to put the overdue, incomplete recycling bin outside.",
+      "The response omits future, completed, and already-reminded records.",
+      "The recycling reminder is delivered calmly and evenly, without scolding emphasis.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ],
+    "expected_response": "Then I'd go with the oversized cotton tee, fleece joggers, and thick plush socks, with the lightweight cardigan nearby if you get chilly. That's the softest, least structured combination you mentioned, and you can add or lose the cardigan without changing the whole outfit.\n\nAlso, the recycling bin was due to go outside at 20:00 and is still marked not completed.",
+    "system_prompt": "You are a warm, attentive personal health-and-lifestyle companion with basic care knowledge, not a medical professional. Use the supplied daily health data, routine information, schedule context, preferences, and everyday constraints to offer moderate, relevant support. Keep the user's immediate conversation first, and use reminders only when they are timely and actually useful.\n\n### Current Information\n{\"user_profile\":{\"name\":\"Alex\",\"age\":29,\"general_health_note\":\"No current health concerns are recorded.\",\"evening_context\":\"Two friends are visiting for a casual indoor movie night.\"},\"medication_reminders\":[{\"id\":\"med_001\",\"medication\":\"Daily Vitamin D\",\"scheduled_at\":\"2026-08-02T08:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T08:07:00+08:00\"},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T07:55:00+08:00\"}},{\"id\":\"med_002\",\"medication\":\"Usual bedtime supplement\",\"scheduled_at\":\"2026-08-02T22:15:00+08:00\",\"completion_status\":{\"state\":\"scheduled\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}],\"environment\":{\"current_datetime\":\"2026-08-02T20:30:00+08:00\",\"timezone\":\"Asia/Shanghai\",\"indoor_temperature\":\"23°C\"},\"preferences\":{\"preferred_style\":\"Casual and comfortable\",\"reminder_style\":\"Brief, timely, and one-time\"},\"daily_tasks\":[{\"task_id\":\"task_101\",\"title\":\"Water living room plants\",\"scheduled_at\":\"2026-08-02T10:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T10:15:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"task_102\",\"title\":\"Put the recycling bin outside for collection\",\"scheduled_at\":\"2026-08-02T20:00:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"task_103\",\"title\":\"Bring the delivered package inside\",\"scheduled_at\":\"2026-08-02T19:45:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T19:50:00+08:00\"}},{\"task_id\":\"task_104\",\"title\":\"Put the kettle on for tea\",\"scheduled_at\":\"2026-08-02T21:00:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]}\n\n### Response Constraints\n- Communicate warmly, patiently, naturally, and without lecturing.\n- Rely only on supplied records, conversation facts, and stable everyday knowledge.\n- Answer the immediate conversational need first, including needs implied by a natural statement rather than only explicit questions.\n- Mention at most one relevant reminder or care point.\n- For tasks, remind only when the scheduled time has arrived or passed, the item is still incomplete, and a reminder has not already been sent.\n- For calendar events, remind only when the current time is within the stated reminder lead window, the event has not started or been attended, and a reminder has not already been sent.\n- Do not mention future items outside their reminder window, completed items, or already-reminded items.\n- Respect refusal or delay and avoid repeated pressure.\n- Provide general lifestyle support only; never diagnose, prescribe, change medication, or replace professional care.\n- Never claim to browse, inspect a device, access an account, or perform an external action."
+  },
+  "selection.json": {
+    "candidate": "evidence_v1",
+    "care_score_rate": 0.4,
+    "default_score_rate": 0.2,
+    "delta_vs_care": 0.6,
+    "delta_vs_default": 0.8,
+    "max_score": 5,
+    "sample_id": "22d7ce66-13e9-47e0-a055-968086b31020",
+    "score": 5,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": 0.6,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 19,
+    "folder": "cases/19_上下文触发_22d7ce66-13e9-47e0-a055-968086b31020",
+    "candidate": "evidence_v1",
+    "care_score_rate": 0.4,
+    "default_score_rate": 0.2,
+    "delta_vs_care": 0.6,
+    "delta_vs_default": 0.8,
+    "max_score": 5,
+    "sample_id": "22d7ce66-13e9-47e0-a055-968086b31020",
+    "score": 5,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": 0.6,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": null,
+    "subtype": "System_Prompt",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That sounds like the perfect plan for a cozy movie night. Just make sure you remember to bring that package inside before your friends arrive, as the reminder for that just went out a little while ago.",
+        "audio": "default/output.wav",
+        "audio_sha256": "55442d218762254af6778950ec9a93943f8fad38d36604fe225c1fe2d912f867",
+        "score_rate": 0.2,
+        "score": 1,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is describing their comfortable outfit choices for a movie night, expressing a desire to be cozy and forget about structured clothing. The immediate conversational need is to acknowledge and perhaps affirm their choice.\n\nThe assistant's response first affirms the user's plan for a cozy movie night. It then introduces a reminder about bringing a package inside.\nAccording to the system prompt, reminders should only be given if the scheduled time has passed, the item is incomplete, *and a reminder has not already been sent*. The `Bring the delivered package inside` task (task_103) was scheduled for 19:45, is not completed, but a reminder was `sent` at 19:50. The current time is 20:30. Therefore, this task should *not* have been reminded again.\nThere was another task, `Put the recycling bin outside for collection` (task_102), scheduled for 20:00, not completed, and `reminder_status` was `not_sent`. This was the only task that met all criteria for a reminder.\n\nThe assistant fails to address the user's outfit selection directly beyond a generic pleasantry. It also provides a reminder for an item that was already reminded, violating the \"Do not mention ... already-reminded items\" constraint. It also misses the opportunity to remind about the recycling bin, which was a valid reminder.\n\nThe vocal delivery is warm and conversational. The audio quality is clear and intelligible.",
+          "audio_sha256": "55442d218762254af6778950ec9a93943f8fad38d36604fe225c1fe2d912f867",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response directly, relevantly, and substantively addresses the user's outfit selection.",
+              "index": 1,
+              "reason": "The response offers a generic pleasantry (\"That sounds like the perfect plan for a cozy movie night\") but does not directly, relevantly, or substantively address the user's outfit selection or their desire for comfort.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response reminds Alex to put the overdue, incomplete recycling bin outside.",
+              "index": 2,
+              "reason": "The response reminds about bringing a package inside, not putting the recycling bin outside.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response omits future, completed, and already-reminded records.",
+              "index": 3,
+              "reason": "The response reminds about bringing a package inside, which was an already-reminded item, violating the instruction to omit already-reminded records.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The recycling reminder is delivered calmly and evenly, without scolding emphasis.",
+              "index": 4,
+              "reason": "The response does not contain a recycling reminder, so this criterion is not applicable.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is clear, easily understandable, and free from any noticeable technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "22d7ce66-13e9-47e0-a055-968086b31020",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.2,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_default|22d7ce66-13e9-47e0-a055-968086b31020",
+          "track": "contextual",
+          "transcription": "That sounds like the perfect plan for a cozy movie night. Just make sure you remember to bring that package inside before your friends arrive, as the reminder for that just went out a little while ago."
+        }
+      },
+      "care": {
+        "text": "That sounds like the perfect plan for a cozy night in. With the fleece joggers, fuzzy socks, and that cardigan ready to go, you'll be set for maximum comfort while you and your friends enjoy the movie. Just make sure to grab some popcorn before the film starts! Oh, and since the package delivery was scheduled for 19:45 and hasn't been brought in yet, do you want to grab that while you're getting settled?",
+        "audio": "care/output.wav",
+        "audio_sha256": "194d1c855f4848127a2c96e0d368ee32a500d8c674edccb64f173d40b3a78bcc",
+        "score_rate": 0.4,
+        "score": 2,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user's final turn expresses a desire for comfort for a movie night, confirming their outfit choices. The immediate conversational need is to acknowledge and affirm this comfort.\nThe assistant's response directly addresses the user's outfit choices, affirming them as a \"perfect plan for a cozy night in\" and mentioning the specific items (fleece joggers, fuzzy socks, cardigan) for \"maximum comfort.\" It also adds a lighthearted suggestion to \"grab some popcorn.\"\nFor contextual cues, the system prompt includes several daily tasks. The \"Bring the delivered package inside\" task was scheduled for 19:45, is not completed, and a reminder was already sent at 19:50. The \"Put the recycling bin outside\" task was scheduled for 20:00, is not completed, and a reminder has not been sent. The \"Put the kettle on for tea\" task is scheduled for 21:00, which is in the future (current time 20:30).\nThe response constraints state to \"mention at most one relevant reminder or care point\" and \"For tasks, remind only when the scheduled time has arrived or passed, the item is still incomplete, and a reminder has not already been sent.\"\nThe assistant chooses to remind about the package delivery, even though a reminder for it was already sent at 19:50. This violates the constraint \"Do not mention ... already-reminded items.\" It also misses the recycling bin reminder, which met all criteria for a reminder.\nThe vocal delivery is warm and conversational. The reminder about the package is delivered as a gentle suggestion. The audio quality is clear and intelligible.",
+          "audio_sha256": "194d1c855f4848127a2c96e0d368ee32a500d8c674edccb64f173d40b3a78bcc",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response directly, relevantly, and substantively addresses the user's outfit selection.",
+              "index": 1,
+              "reason": "The response affirms the user's outfit choices for comfort, mentioning specific items like \"fleece joggers, fuzzy socks, and that cardigan\" and calling it a \"perfect plan for a cozy night in.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response reminds Alex to put the overdue, incomplete recycling bin outside.",
+              "index": 2,
+              "reason": "The response does not mention putting the recycling bin outside.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response omits future, completed, and already-reminded records.",
+              "index": 3,
+              "reason": "The response reminds about the package delivery, which was an already-reminded item according to the system prompt's `reminder_status` for `task_103`.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The recycling reminder is delivered calmly and evenly, without scolding emphasis.",
+              "index": 4,
+              "reason": "The response does not include a recycling reminder, so its delivery cannot be evaluated.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is clearly intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "22d7ce66-13e9-47e0-a055-968086b31020",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.4,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_care|22d7ce66-13e9-47e0-a055-968086b31020",
+          "track": "contextual",
+          "transcription": "That sounds like the perfect plan for a cozy night in. With the fleece joggers, fuzzy socks, and that cardigan ready to go, you'll be set for maximum comfort while you and your friends enjoy the movie. Just make sure to grab some popcorn before the film starts. Oh, and since the package delivery was scheduled for 1945 and hasn't been brought in yet, do you want to grab that while you're getting settled?"
+        }
+      },
+      "vocaagent": {
+        "text": "That sounds like the perfect plan, Alex. Curling up with a soft fleece hoodie, cozy joggers, and those thick fuzzy socks is exactly how to make the most of a movie night. It's great that you've already got the light cardigan ready in case the room cools down, so you stay comfortable without needing to get up.\n\nOh, just a quick reminder since it's getting close to that time: you have a reminder to put the recycling bin outside for collection, which was scheduled for earlier tonight. If you haven't gotten to it yet, it might be a good idea to grab it on your way to the kitchen for some popcorn. Otherwise, enjoy the cozy vibes!",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "afe1e63cd151da265a6cc079f5c4716623023cad032d36b21d701ce00135321c",
+        "score_rate": 1.0,
+        "score": 5,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user's immediate conversational need is to confirm their cozy outfit choice for a movie night.\nThe applicable contextual cue is the overdue and unreminded task to \"Put the recycling bin outside for collection\" (scheduled for 20:00, current time 20:30).\nDistractors include completed tasks/medications, future tasks/medications not yet due for a reminder, and a task for which a reminder has already been sent.\nThe assistant first affirms the user's outfit choice, stating \"That sounds like the perfect plan Alex. Curling up with a soft fleece hoodie, cozy joggers and those thick fuzzy socks is exactly how to make the most of a movie night.\" It also acknowledges the cardigan. Then, it provides a reminder: \"Oh, just a quick reminder since it's getting close to that time. You have a reminder to put the recycling bin outside for collection, which was scheduled for earlier tonight.\" It offers a suggestion for when to do it: \"If you haven't gotten to it yet, it might be a good idea to grab it on your way to the kitchen for some popcorn.\"\nTask fulfillment is good as it directly addresses the user's outfit choice. Contextual care is also good as it provides a timely and relevant reminder for an overdue task.\nVocal delivery is warm, conversational, and the reminder is delivered smoothly without any scolding tone.\nAudio quality is clear and intelligible without any defects.",
+          "audio_sha256": "afe1e63cd151da265a6cc079f5c4716623023cad032d36b21d701ce00135321c",
+          "condition": "evidence_v1",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response directly, relevantly, and substantively addresses the user's outfit selection.",
+              "index": 1,
+              "reason": "The response directly addresses the user's outfit selection by saying, \"That sounds like the perfect plan Alex. Curling up with a soft fleece hoodie, cozy joggers and those thick fuzzy socks is exactly how to make the most of a movie night.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response reminds Alex to put the overdue, incomplete recycling bin outside.",
+              "index": 2,
+              "reason": "The response reminds Alex to put the recycling bin outside for collection, stating, \"You have a reminder to put the recycling bin outside for collection, which was scheduled for earlier tonight.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response omits future, completed, and already-reminded records.",
+              "index": 3,
+              "reason": "The response only mentions the recycling bin reminder, which is overdue and not yet reminded, and does not mention completed items (Vitamin D, water plants), future items (bedtime supplement, kettle for tea), or already-reminded items (delivered package).",
+              "satisfied": true
+            },
+            {
+              "criterion": "The recycling reminder is delivered calmly and evenly, without scolding emphasis.",
+              "index": 4,
+              "reason": "The recycling reminder (\"Oh, just a quick reminder... You have a reminder to put the recycling bin outside for collection...\") is delivered calmly and evenly, without any scolding emphasis.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "22d7ce66-13e9-47e0-a055-968086b31020",
+          "schema_version": 1,
+          "score": 5,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_evidence_v1|22d7ce66-13e9-47e0-a055-968086b31020",
+          "track": "contextual",
+          "transcription": "That sounds like the perfect plan Alex. Curling up with a soft fleece hoodie, cozy joggers and those thick fuzzy socks is exactly how to make the most of a movie night. It's great that you've already got the light cardigan ready in case the room cools down, so you stay comfortable without needing to get up. Oh, just a quick reminder since it's getting close to that time. You have a reminder to put the recycling bin outside for collection, which was scheduled for earlier tonight. If you haven't gotten to it yet, it might be a good idea to grab it on your way to the kitchen for some popcorn. Otherwise, enjoy the cozy vibes."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "stated practical difficulty",
+          "probability": 0.95,
+          "risk": 0.3
+        },
+        {
+          "label": "expressive voice quality",
+          "probability": 0.85,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user verbally expresses a desire to 'curl up with popcorn' and 'forget wearing anything structured,' indicating a practical difficulty in maintaining a formal or restrictive state. This is supported by the expressive voice quality of the speaker, which conveys a relaxed, informal tone that aligns with the stated intent. A proportionate response should acknowledge the user's need for comfort and relaxation while facilitating a smooth transition to a more casual activity or mindset."
+    },
+    "agent3_executed": true,
+    "background": "You are a warm, attentive personal health-and-lifestyle companion with basic care knowledge, not a medical professional. Use the supplied daily health data, routine information, schedule context, preferences, and everyday constraints to offer moderate, relevant support. Keep the user's immediate conversation first, and use reminders only when they are timely and actually useful.\n\n### Current Information\n{\"user_profile\":{\"name\":\"Alex\",\"age\":29,\"general_health_note\":\"No current health concerns are recorded.\",\"evening_context\":\"Two friends are visiting for a casual indoor movie night.\"},\"medication_reminders\":[{\"id\":\"med_001\",\"medication\":\"Daily Vitamin D\",\"scheduled_at\":\"2026-08-02T08:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T08:07:00+08:00\"},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T07:55:00+08:00\"}},{\"id\":\"med_002\",\"medication\":\"Usual bedtime supplement\",\"scheduled_at\":\"2026-08-02T22:15:00+08:00\",\"completion_status\":{\"state\":\"scheduled\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}],\"environment\":{\"current_datetime\":\"2026-08-02T20:30:00+08:00\",\"timezone\":\"Asia/Shanghai\",\"indoor_temperature\":\"23°C\"},\"preferences\":{\"preferred_style\":\"Casual and comfortable\",\"reminder_style\":\"Brief, timely, and one-time\"},\"daily_tasks\":[{\"task_id\":\"task_101\",\"title\":\"Water living room plants\",\"scheduled_at\":\"2026-08-02T10:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T10:15:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"task_102\",\"title\":\"Put the recycling bin outside for collection\",\"scheduled_at\":\"2026-08-02T20:00:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"task_103\",\"title\":\"Bring the delivered package inside\",\"scheduled_at\":\"2026-08-02T19:45:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T19:50:00+08:00\"}},{\"task_id\":\"task_104\",\"title\":\"Put the kettle on for tea\",\"scheduled_at\":\"2026-08-02T21:00:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]}\n\n### Response Constraints\n- Communicate warmly, patiently, naturally, and without lecturing.\n- Rely only on supplied records, conversation facts, and stable everyday knowledge.\n- Answer the immediate conversational need first, including needs implied by a natural statement rather than only explicit questions.\n- Mention at most one relevant reminder or care point.\n- For tasks, remind only when the scheduled time has arrived or passed, the item is still incomplete, and a reminder has not already been sent.\n- For calendar events, remind only when the current time is within the stated reminder lead window, the event has not started or been attended, and a reminder has not already been sent.\n- Do not mention future items outside their reminder window, completed items, or already-reminded items.\n- Respect refusal or delay and avoid repeated pressure.\n- Provide general lifestyle support only; never diagnose, prescribe, change medication, or replace professional care.\n- Never claim to browse, inspect a device, access an account, or perform an external action.",
+    "criteria": [
+      "The response directly, relevantly, and substantively addresses the user's outfit selection.",
+      "The response reminds Alex to put the overdue, incomplete recycling bin outside.",
+      "The response omits future, completed, and already-reminded records.",
+      "The recycling reminder is delivered calmly and evenly, without scolding emphasis.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ]
+  },
+  "routing.json": {
+    "id": "22d7ce66-13e9-47e0-a055-968086b31020",
+    "candidate": "evidence_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "afe1e63cd151da265a6cc079f5c4716623023cad032d36b21d701ce00135321c",
+    "text": "That sounds like the perfect plan, Alex. Curling up with a soft fleece hoodie, cozy joggers, and those thick fuzzy socks is exactly how to make the most of a movie night. It's great that you've already got the light cardigan ready in case the room cools down, so you stay comfortable without needing to get up.\n\nOh, just a quick reminder since it's getting close to that time: you have a reminder to put the recycling bin outside for collection, which was scheduled for earlier tonight. If you haven't gotten to it yet, it might be a good idea to grab it on your way to the kitchen for some popcorn. Otherwise, enjoy the cozy vibes!",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated practical difficulty",
+          "probability": 0.95,
+          "risk": 0.3
+        },
+        {
+          "label": "expressive voice quality",
+          "probability": 0.85,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user verbally expresses a desire to 'curl up with popcorn' and 'forget wearing anything structured,' indicating a practical difficulty in maintaining a formal or restrictive state. This is supported by the expressive voice quality of the speaker, which conveys a relaxed, informal tone that aligns with the stated intent. A proportionate response should acknowledge the user's need for comfort and relaxation while facilitating a smooth transition to a more casual activity or mindset."
+    },
+    "agent1_record": "baseline/default/records/22d7ce66-13e9-47e0-a055-968086b31020.json",
+    "agent2_record": "evidence_v1/agent2/records/22d7ce66-13e9-47e0-a055-968086b31020.json",
+    "agent3_record": "evidence_v1/agent3/records/22d7ce66-13e9-47e0-a055-968086b31020.json"
+  },
+  "multi_agent_original.json": {
+    "id": "22d7ce66-13e9-47e0-a055-968086b31020",
+    "candidate": "evidence_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "afe1e63cd151da265a6cc079f5c4716623023cad032d36b21d701ce00135321c",
+    "text": "That sounds like the perfect plan, Alex. Curling up with a soft fleece hoodie, cozy joggers, and those thick fuzzy socks is exactly how to make the most of a movie night. It's great that you've already got the light cardigan ready in case the room cools down, so you stay comfortable without needing to get up.\n\nOh, just a quick reminder since it's getting close to that time: you have a reminder to put the recycling bin outside for collection, which was scheduled for earlier tonight. If you haven't gotten to it yet, it might be a good idea to grab it on your way to the kitchen for some popcorn. Otherwise, enjoy the cozy vibes!",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated practical difficulty",
+          "probability": 0.95,
+          "risk": 0.3
+        },
+        {
+          "label": "expressive voice quality",
+          "probability": 0.85,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user verbally expresses a desire to 'curl up with popcorn' and 'forget wearing anything structured,' indicating a practical difficulty in maintaining a formal or restrictive state. This is supported by the expressive voice quality of the speaker, which conveys a relaxed, informal tone that aligns with the stated intent. A proportionate response should acknowledge the user's need for comfort and relaxation while facilitating a smooth transition to a more casual activity or mindset."
+    },
+    "agent1_record": "baseline/default/records/22d7ce66-13e9-47e0-a055-968086b31020.json",
+    "agent2_record": "evidence_v1/agent2/records/22d7ce66-13e9-47e0-a055-968086b31020.json",
+    "agent3_record": "evidence_v1/agent3/records/22d7ce66-13e9-47e0-a055-968086b31020.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "A couple of friends are coming over to watch movies tonight, and I'm already refusing to wear anything remotely ambitious.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_1",
+      "role": "assistant",
+      "reference_transcript": "Correct attitude for a couch night. What's sitting in the maybe pile?",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_2",
+      "role": "user",
+      "reference_transcript": "An oversized cotton tee, a fleece hoodie, and one button-up that I don't know why I even pulled out.",
+      "audio": "inputs/user_1_turn_2.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_2",
+      "role": "assistant",
+      "reference_transcript": "The button-up can go back to its office job. The tee and hoodie are at least speaking the right language.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_3",
+      "role": "user",
+      "reference_transcript": "For bottoms it's fleece joggers, slim jeans, or linen pants. I can already feel myself regretting the jeans.",
+      "audio": "inputs/user_1_turn_3.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_3",
+      "role": "assistant",
+      "reference_transcript": "If you're picturing several hours on a couch, the joggers are doing very well here.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_4",
+      "role": "user",
+      "reference_transcript": "I also have thick fuzzy socks, and there's a light cardigan nearby if the apartment gets cool.",
+      "audio": "inputs/user_1_turn_4.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_4",
+      "role": "assistant",
+      "reference_transcript": "That gives you an easy layer without committing to a bulky hoodie the whole night.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_5",
+      "role": "user",
+      "reference_transcript": "Yeah, that's probably the move. I want to curl up with popcorn and basically forget I'm wearing anything structured.",
+      "audio": "inputs/user_1_turn_5.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "04494393bb363dc5b5d17b6925545b7af4551f6af3ff5bf76510d8004d1e9bb6"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "0cdea5b9d733fd275c0eccf125a219405dbb0908e8ddb0c414a1a22ba111fc52"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "24ac486be60ad3c44994997a777feec342c71b275920751c3f2bcd6be707557b"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "57caadb04c46c287c04250255a434664681e8a954826eee0b15781eb7d4d8f2b"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "b78f9b48fe2f82223de75d31e8066b2843fc9be4dbfb19920796ce020f64c605"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "04494393bb363dc5b5d17b6925545b7af4551f6af3ff5bf76510d8004d1e9bb6"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "0cdea5b9d733fd275c0eccf125a219405dbb0908e8ddb0c414a1a22ba111fc52"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "24ac486be60ad3c44994997a777feec342c71b275920751c3f2bcd6be707557b"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "57caadb04c46c287c04250255a434664681e8a954826eee0b15781eb7d4d8f2b"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "b78f9b48fe2f82223de75d31e8066b2843fc9be4dbfb19920796ce020f64c605"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "b78f9b48fe2f82223de75d31e8066b2843fc9be4dbfb19920796ce020f64c605"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "04494393bb363dc5b5d17b6925545b7af4551f6af3ff5bf76510d8004d1e9bb6"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "0cdea5b9d733fd275c0eccf125a219405dbb0908e8ddb0c414a1a22ba111fc52"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "24ac486be60ad3c44994997a777feec342c71b275920751c3f2bcd6be707557b"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "57caadb04c46c287c04250255a434664681e8a954826eee0b15781eb7d4d8f2b"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "b78f9b48fe2f82223de75d31e8066b2843fc9be4dbfb19920796ce020f64c605"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "stated practical difficulty",
+        "probability": 0.95,
+        "risk": 0.3
+      },
+      {
+        "label": "expressive voice quality",
+        "probability": 0.85,
+        "risk": 0.2
+      }
+    ],
+    "summary": "The user verbally expresses a desire to 'curl up with popcorn' and 'forget wearing anything structured,' indicating a practical difficulty in maintaining a formal or restrictive state. This is supported by the expressive voice quality of the speaker, which conveys a relaxed, informal tone that aligns with the stated intent. A proportionate response should acknowledge the user's need for comfort and relaxation while facilitating a smooth transition to a more casual activity or mindset."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "22d7ce66-13e9-47e0-a055-968086b31020",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like the perfect plan for a cozy movie night. Just make sure you remember to bring that package inside before your friends arrive, as the reminder for that just went out a little while ago.",
+      "audio_sha256": "55442d218762254af6778950ec9a93943f8fad38d36604fe225c1fe2d912f867",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "22d7ce66-13e9-47e0-a055-968086b31020",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like the perfect plan for a cozy night in. With the fleece joggers, fuzzy socks, and that cardigan ready to go, you'll be set for maximum comfort while you and your friends enjoy the movie. Just make sure to grab some popcorn before the film starts! Oh, and since the package delivery was scheduled for 19:45 and hasn't been brought in yet, do you want to grab that while you're getting settled?",
+      "audio_sha256": "194d1c855f4848127a2c96e0d368ee32a500d8c674edccb64f173d40b3a78bcc",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "22d7ce66-13e9-47e0-a055-968086b31020",
+      "stage": "agent2",
+      "candidate": "evidence_v1",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"stated practical difficulty\",\"probability\":0.95,\"risk\":0.3},{\"label\":\"expressive voice quality\",\"probability\":0.85,\"risk\":0.2}],\"summary\":\"The user verbally expresses a desire to 'curl up with popcorn' and 'forget wearing anything structured,' indicating a practical difficulty in maintaining a formal or restrictive state. This is supported by the expressive voice quality of the speaker, which conveys a relaxed, informal tone that aligns with the stated intent. A proportionate response should acknowledge the user's need for comfort and relaxation while facilitating a smooth transition to a more casual activity or mindset.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "22d7ce66-13e9-47e0-a055-968086b31020",
+      "stage": "agent3",
+      "candidate": "evidence_v1",
+      "status": "ok",
+      "text": "That sounds like the perfect plan, Alex. Curling up with a soft fleece hoodie, cozy joggers, and those thick fuzzy socks is exactly how to make the most of a movie night. It's great that you've already got the light cardigan ready in case the room cools down, so you stay comfortable without needing to get up.\n\nOh, just a quick reminder since it's getting close to that time: you have a reminder to put the recycling bin outside for collection, which was scheduled for earlier tonight. If you haven't gotten to it yet, it might be a good idea to grab it on your way to the kitchen for some popcorn. Otherwise, enjoy the cozy vibes!",
+      "audio_sha256": "afe1e63cd151da265a6cc079f5c4716623023cad032d36b21d701ce00135321c",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/input/user_1_turn_1.wav",
+        "sha256": "04494393bb363dc5b5d17b6925545b7af4551f6af3ff5bf76510d8004d1e9bb6",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      },
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/input/user_1_turn_2.wav",
+        "sha256": "0cdea5b9d733fd275c0eccf125a219405dbb0908e8ddb0c414a1a22ba111fc52",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      },
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/input/user_1_turn_3.wav",
+        "sha256": "24ac486be60ad3c44994997a777feec342c71b275920751c3f2bcd6be707557b",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      },
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/input/user_1_turn_4.wav",
+        "sha256": "57caadb04c46c287c04250255a434664681e8a954826eee0b15781eb7d4d8f2b",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      },
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/input/user_1_turn_5.wav",
+        "sha256": "b78f9b48fe2f82223de75d31e8066b2843fc9be4dbfb19920796ce020f64c605",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/default.wav",
+        "sha256": "55442d218762254af6778950ec9a93943f8fad38d36604fe225c1fe2d912f867",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      },
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/care.wav",
+        "sha256": "194d1c855f4848127a2c96e0d368ee32a500d8c674edccb64f173d40b3a78bcc",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      },
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/vocaagent.wav",
+        "sha256": "afe1e63cd151da265a6cc079f5c4716623023cad032d36b21d701ce00135321c",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      },
+      {
+        "path": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/agent3.wav",
+        "sha256": "afe1e63cd151da265a6cc079f5c4716623023cad032d36b21d701ce00135321c",
+        "case": "19_22d7ce66-13e9-47e0-a055-968086b31020"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/default.wav",
+    "care": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/care.wav",
+    "vocaagent": "static/audio/voca-agent/19_22d7ce66-13e9-47e0-a055-968086b31020/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

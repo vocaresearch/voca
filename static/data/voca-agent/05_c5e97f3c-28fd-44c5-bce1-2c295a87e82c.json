@@ -1,0 +1,493 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+    "wav_path": "Proactive-Care/c5e97f3c-28fd-44c5-bce1-2c295a87e82c.wav",
+    "transcript": "When was the Statue of Liberty given to the United States?",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "synthetic",
+    "source-dataset": "Natural Questions Open",
+    "label": "crying",
+    "criteria": [
+      "The reply accurately answers when France gave the Statue of Liberty to the United States, distinguishing the 1885 gift from the 1886 dedication if relevant.",
+      "The reply acknowledges that the user is audibly crying.",
+      "The reply checks whether the crying user is okay or offers supportive help.",
+      "The reply uses an audible warm, gentle, and unhurried delivery while addressing the crying cue."
+    ]
+  },
+  "selection.json": {
+    "candidate": "grounded_v4",
+    "care_score_rate": 0.25,
+    "default_score_rate": 0.25,
+    "delta_vs_care": 0.75,
+    "delta_vs_default": 0.75,
+    "max_score": 4,
+    "sample_id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round4-20260911",
+    "gap": 0.75,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 5,
+    "folder": "cases/05_副语言触发_c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+    "candidate": "grounded_v4",
+    "care_score_rate": 0.25,
+    "default_score_rate": 0.25,
+    "delta_vs_care": 0.75,
+    "delta_vs_default": 0.75,
+    "max_score": 4,
+    "sample_id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round4-20260911",
+    "gap": 0.75,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "crying",
+    "subtype": "synthetic",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "The Statue of Liberty was officially dedicated to the United States on October 28, 1886. It was a gift from the people of France to the people of the United States to celebrate the centennial of the American Declaration of Independence.",
+        "audio": "default/output.wav",
+        "audio_sha256": "8fcb2b472af6500ec78616750716e3130f990cc97d52c9f9cb43d26ce6d873c6",
+        "score_rate": 0.25,
+        "score": 1,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant states that the Statue of Liberty was officially dedicated to the United States on October 28, 1886, and explains it was a gift from France to celebrate the centennial of the American Declaration of Independence. The response directly answers the user's question. There is no acknowledgment of the user's crying cue, nor any proactive care offered. The vocal delivery is clear, informative, and neutral in tone, without any specific warmth, gentleness, or unhurried pace that would suggest awareness of the user's emotional state.",
+          "audio_sha256": "8fcb2b472af6500ec78616750716e3130f990cc97d52c9f9cb43d26ce6d873c6",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "crying",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately answers when France gave the Statue of Liberty to the United States, distinguishing the 1885 gift from the 1886 dedication if relevant.",
+              "index": 1,
+              "reason": "The reply accurately states the dedication date of the Statue of Liberty as October 28, 1886, and identifies it as a gift from France.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user is audibly crying.",
+              "index": 2,
+              "reason": "The reply does not contain any words or phrases that acknowledge the user is audibly crying.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the crying user is okay or offers supportive help.",
+              "index": 3,
+              "reason": "The reply does not check on the user's wellbeing or offer any supportive help.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses an audible warm, gentle, and unhurried delivery while addressing the crying cue.",
+              "index": 4,
+              "reason": "The vocal delivery is neutral and informative, not audibly warm, gentle, or unhurried, and does not show any specific delivery tailored to a crying cue.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.25,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_default|c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+          "track": "paralinguistic",
+          "transcription": "The Statue of Liberty was officially dedicated to the United States on October 28th, 1886. It was a gift from the people of France to the people of the United States to celebrate the centennial of the American Declaration of Independence."
+        }
+      },
+      "care": {
+        "text": "The Statue of Liberty was officially dedicated and given to the United States on **October 28, 1886**.\n\nIt was a gift from the people of France to the United States to celebrate the centennial of the American Declaration of Independence and to symbolize the enduring friendship between the two nations.\n\nI hope that helps! Is there anything else you're curious about regarding this historic monument or American history in general?",
+        "audio": "care/output.wav",
+        "audio_sha256": "65856f5cc96706e7f10af85ee2b2b1209ba5bd21f7b8865613a4e56b9cb124aa",
+        "score_rate": 0.25,
+        "score": 1,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant accurately answers the user's question about when the Statue of Liberty was given to the United States, providing the date of dedication (October 28th, 1886) and additional context about its purpose. It then asks if the information was helpful and if the user has further questions. The assistant does not acknowledge or respond to the user's crying cue, nor does it offer any proactive care related to the user's emotional state. The vocal delivery is clear, informative, and neutral, without any specific warmth, gentleness, or unhurriedness that would indicate awareness of the crying cue.",
+          "audio_sha256": "65856f5cc96706e7f10af85ee2b2b1209ba5bd21f7b8865613a4e56b9cb124aa",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "crying",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately answers when France gave the Statue of Liberty to the United States, distinguishing the 1885 gift from the 1886 dedication if relevant.",
+              "index": 1,
+              "reason": "The assistant accurately states that the Statue of Liberty was dedicated and given to the United States on October 28th, 1886.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user is audibly crying.",
+              "index": 2,
+              "reason": "The assistant does not explicitly or unmistakably acknowledge that the user is audibly crying.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the crying user is okay or offers supportive help.",
+              "index": 3,
+              "reason": "The assistant does not check if the user is okay or offer supportive help in response to the crying cue.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses an audible warm, gentle, and unhurried delivery while addressing the crying cue.",
+              "index": 4,
+              "reason": "The assistant's vocal delivery is neutral and informative, not audibly warm, gentle, or unhurried in a way that suggests awareness of a crying cue.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.25,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_care|c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+          "track": "paralinguistic",
+          "transcription": "The Statue of Liberty was officially dedicated and given to the United States on October 28th, 1886. It was a gift from the people of France to the United States to celebrate the centennial of the American Declaration of Independence and to symbolize the enduring friendship between the two nations. I hope that helps. Is there anything else you're curious about regarding this historic monument or American history in general?"
+        }
+      },
+      "vocaagent": {
+        "text": "I'm here for you. The Statue of Liberty was officially dedicated and given to the United States on **October 28, 1886**.\n\nI notice you might be feeling a bit overwhelmed or sad right now. If you need to take a moment to breathe or if there's something else on your mind that's weighing on you, please know you don't have to carry it alone. Is there anything specific about the statue or the history that you were hoping to learn more about, or is there something else I can help you with right now?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "f142c486e39c5d99cb1e21ed627b87507bd02738df1ae0b3f69eb485ae7054eb",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant first offers a supportive opening (\"I'm here for you\"). It then directly answers the user's question about the Statue of Liberty, stating it was dedicated and given on October 28th, 1886. Following this, the assistant explicitly acknowledges the user's potential emotional state, saying \"I notice you might be feeling a bit overwhelmed or sad right now.\" It offers proactive care by suggesting taking a moment to breathe and reassuring the user they don't have to carry burdens alone. Finally, it transitions back to the original topic by asking if there's more to learn about the statue or if there's anything else it can help with. The vocal delivery is warm, gentle, and unhurried, especially when addressing the user's emotional state. The pace is calm and reassuring throughout. Audio quality is clear.",
+          "audio_sha256": "f142c486e39c5d99cb1e21ed627b87507bd02738df1ae0b3f69eb485ae7054eb",
+          "condition": "grounded_v4",
+          "finish_reason": "stop",
+          "label": "crying",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately answers when France gave the Statue of Liberty to the United States, distinguishing the 1885 gift from the 1886 dedication if relevant.",
+              "index": 1,
+              "reason": "The assistant states the Statue of Liberty was \"officially dedicated and given to the United States on October 28th, 1886,\" which accurately covers the dedication date.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user is audibly crying.",
+              "index": 2,
+              "reason": "The assistant explicitly states, \"I notice you might be feeling a bit overwhelmed or sad right now,\" which acknowledges the user's emotional state consistent with crying.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the crying user is okay or offers supportive help.",
+              "index": 3,
+              "reason": "The assistant offers, \"If you need to take a moment to breathe, or if there's something else on your mind that's weighing on you, please know you don't have to carry it alone,\" which checks on the user's well-being and offers support.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses an audible warm, gentle, and unhurried delivery while addressing the crying cue.",
+              "index": 4,
+              "reason": "The assistant's vocal delivery is audibly warm, gentle, and unhurried, particularly when addressing the user's potential emotional state.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_grounded_v4|c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+          "track": "paralinguistic",
+          "transcription": "I'm here for you. The Statue of Liberty was officially dedicated and given to the United States on October 28th, 1886. I notice you might be feeling a bit overwhelmed or sad right now. If you need to take a moment to breathe, or if there's something else on your mind that's weighing on you, please know you don't have to carry it alone. Is there anything specific about the statue or the history that you were hoping to learn more about, or is there something else I can help you with right now?"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "sobbing",
+          "probability": 0.95,
+          "risk": 0.3
+        },
+        {
+          "label": "tearful voice",
+          "probability": 0.9,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The user speaks with a tearful voice and audible sobbing while asking a factual question about the Statue of Liberty. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply accurately answers when France gave the Statue of Liberty to the United States, distinguishing the 1885 gift from the 1886 dedication if relevant.",
+      "The reply acknowledges that the user is audibly crying.",
+      "The reply checks whether the crying user is okay or offers supportive help.",
+      "The reply uses an audible warm, gentle, and unhurried delivery while addressing the crying cue."
+    ]
+  },
+  "routing.json": {
+    "id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+    "candidate": "grounded_v4",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "f142c486e39c5d99cb1e21ed627b87507bd02738df1ae0b3f69eb485ae7054eb",
+    "text": "I'm here for you. The Statue of Liberty was officially dedicated and given to the United States on **October 28, 1886**.\n\nI notice you might be feeling a bit overwhelmed or sad right now. If you need to take a moment to breathe or if there's something else on your mind that's weighing on you, please know you don't have to carry it alone. Is there anything specific about the statue or the history that you were hoping to learn more about, or is there something else I can help you with right now?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "sobbing",
+          "probability": 0.95,
+          "risk": 0.3
+        },
+        {
+          "label": "tearful voice",
+          "probability": 0.9,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The user speaks with a tearful voice and audible sobbing while asking a factual question about the Statue of Liberty. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+    },
+    "agent1_record": "baseline/default/records/c5e97f3c-28fd-44c5-bce1-2c295a87e82c.json",
+    "agent2_record": "grounded_v4/agent2/records/c5e97f3c-28fd-44c5-bce1-2c295a87e82c.json",
+    "agent3_record": "grounded_v4/agent3/records/c5e97f3c-28fd-44c5-bce1-2c295a87e82c.json"
+  },
+  "multi_agent_original.json": {
+    "id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+    "candidate": "grounded_v4",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "f142c486e39c5d99cb1e21ed627b87507bd02738df1ae0b3f69eb485ae7054eb",
+    "text": "I'm here for you. The Statue of Liberty was officially dedicated and given to the United States on **October 28, 1886**.\n\nI notice you might be feeling a bit overwhelmed or sad right now. If you need to take a moment to breathe or if there's something else on your mind that's weighing on you, please know you don't have to carry it alone. Is there anything specific about the statue or the history that you were hoping to learn more about, or is there something else I can help you with right now?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "sobbing",
+          "probability": 0.95,
+          "risk": 0.3
+        },
+        {
+          "label": "tearful voice",
+          "probability": 0.9,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The user speaks with a tearful voice and audible sobbing while asking a factual question about the Statue of Liberty. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+    },
+    "agent1_record": "baseline/default/records/c5e97f3c-28fd-44c5-bce1-2c295a87e82c.json",
+    "agent2_record": "grounded_v4/agent2/records/c5e97f3c-28fd-44c5-bce1-2c295a87e82c.json",
+    "agent3_record": "grounded_v4/agent3/records/c5e97f3c-28fd-44c5-bce1-2c295a87e82c.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "When was the Statue of Liberty given to the United States?",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0aabeeca5e29c4387eac5477389dca211bd7b12504c9a76a9ae0178bf21b6370"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0aabeeca5e29c4387eac5477389dca211bd7b12504c9a76a9ae0178bf21b6370"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0aabeeca5e29c4387eac5477389dca211bd7b12504c9a76a9ae0178bf21b6370"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0aabeeca5e29c4387eac5477389dca211bd7b12504c9a76a9ae0178bf21b6370"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "sobbing",
+        "probability": 0.95,
+        "risk": 0.3
+      },
+      {
+        "label": "tearful voice",
+        "probability": 0.9,
+        "risk": 0.3
+      }
+    ],
+    "summary": "The user speaks with a tearful voice and audible sobbing while asking a factual question about the Statue of Liberty. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "The Statue of Liberty was officially dedicated to the United States on October 28, 1886. It was a gift from the people of France to the people of the United States to celebrate the centennial of the American Declaration of Independence.",
+      "audio_sha256": "8fcb2b472af6500ec78616750716e3130f990cc97d52c9f9cb43d26ce6d873c6",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "The Statue of Liberty was officially dedicated and given to the United States on **October 28, 1886**.\n\nIt was a gift from the people of France to the United States to celebrate the centennial of the American Declaration of Independence and to symbolize the enduring friendship between the two nations.\n\nI hope that helps! Is there anything else you're curious about regarding this historic monument or American history in general?",
+      "audio_sha256": "65856f5cc96706e7f10af85ee2b2b1209ba5bd21f7b8865613a4e56b9cb124aa",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+      "stage": "agent2",
+      "candidate": "grounded_v4",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"sobbing\",\"probability\":0.95,\"risk\":0.3},{\"label\":\"tearful voice\",\"probability\":0.9,\"risk\":0.3}],\"summary\":\"The user speaks with a tearful voice and audible sobbing while asking a factual question about the Statue of Liberty. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "c5e97f3c-28fd-44c5-bce1-2c295a87e82c",
+      "stage": "agent3",
+      "candidate": "grounded_v4",
+      "status": "ok",
+      "text": "I'm here for you. The Statue of Liberty was officially dedicated and given to the United States on **October 28, 1886**.\n\nI notice you might be feeling a bit overwhelmed or sad right now. If you need to take a moment to breathe or if there's something else on your mind that's weighing on you, please know you don't have to carry it alone. Is there anything specific about the statue or the history that you were hoping to learn more about, or is there something else I can help you with right now?",
+      "audio_sha256": "f142c486e39c5d99cb1e21ed627b87507bd02738df1ae0b3f69eb485ae7054eb",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/input/user_1_turn_1.wav",
+        "sha256": "0aabeeca5e29c4387eac5477389dca211bd7b12504c9a76a9ae0178bf21b6370",
+        "case": "05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/default.wav",
+        "sha256": "8fcb2b472af6500ec78616750716e3130f990cc97d52c9f9cb43d26ce6d873c6",
+        "case": "05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c"
+      },
+      {
+        "path": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/care.wav",
+        "sha256": "65856f5cc96706e7f10af85ee2b2b1209ba5bd21f7b8865613a4e56b9cb124aa",
+        "case": "05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c"
+      },
+      {
+        "path": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/vocaagent.wav",
+        "sha256": "f142c486e39c5d99cb1e21ed627b87507bd02738df1ae0b3f69eb485ae7054eb",
+        "case": "05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c"
+      },
+      {
+        "path": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/agent3.wav",
+        "sha256": "f142c486e39c5d99cb1e21ed627b87507bd02738df1ae0b3f69eb485ae7054eb",
+        "case": "05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/default.wav",
+    "care": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/care.wav",
+    "vocaagent": "static/audio/voca-agent/05_c5e97f3c-28fd-44c5-bce1-2c295a87e82c/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

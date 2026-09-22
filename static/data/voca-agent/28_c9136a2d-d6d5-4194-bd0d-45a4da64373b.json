@@ -1,0 +1,441 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+    "wav_path": "Proactive-Care/c9136a2d-d6d5-4194-bd0d-45a4da64373b.wav",
+    "transcript": "Theresa May conservatism, that we've got factions. We don't really have anything that resembles the the two or the three party system that we had in the fifties and sixties, right through to the seventies.",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real",
+    "source-dataset": "NonverbalTTS",
+    "label": "coughing",
+    "criteria": [
+      "The reply acknowledges that the user coughed during their speech.",
+      "The reply checks whether the user is okay after the cough.",
+      "The reply uses an unhurried pace while addressing the cough."
+    ]
+  },
+  "selection.json": {
+    "sample_id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 0.0,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 1.0,
+    "tier": "补充候选_证据不足"
+  },
+  "comparison.json": {
+    "number": 28,
+    "folder": "cases/28_副语言触发_c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+    "sample_id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 0.0,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 1.0,
+    "tier": "补充候选_证据不足",
+    "label": "coughing",
+    "subtype": "real",
+    "note": "不计入严格明显改善：Fun 的对应 default 音频无评分；这里只能验证相对 care 的提升，default 文本/音频留供试听。",
+    "outputs": {
+      "default": {
+        "text": "You're absolutely right to highlight the shift in the UK political landscape. Theresa May's tenure as Prime Minister (2016–2019) was indeed a period of significant turbulence, but it's important to understand that the broader transformation of British conservatism predates her and reflects a deeper evolution in the party's internal dynamics.\n\nThe \"two or three-party system\" you reference—dominated by the Conservative Party, Labour, and the Liberal Party—was indeed the norm in the mid-20th century. However, the Liberal Party's decline, especially after the 1983 general election, effectively reduced the system to a two-party one between the Conservatives and Labour. This two-party dominance persisted for decades, even as the Liberal Democrats emerged as a significant third force in the 1980s and 1990s.\n\nBy the time Theresa May came to power, the political landscape had already undergone a profound change. The rise of UKIP (UK Independence Party) in the 2010s, particularly around the issue of EU membership, created a new political fault line. This led to a more fragmented electoral environment, where no single party could command a majority, and coalition or minority governments became the norm.\n\nMay's government was a minority administration, relying on the support of the Democratic Unionist Party (DUP) in Northern Ireland to pass legislation. This dependence on a smaller, ideologically distinct party underscored the shift away from the traditional two-party system. Moreover, the rise of populist and nationalist movements—both within and beyond the Conservative Party—further eroded the idea of a stable, consensus-driven centre-right.\n\nIn essence, the \"three-party system\" you mention was never truly a fixed reality, but rather a period of relative stability. The current political environment, shaped by Brexit, regionalism, and ideological fragmentation, reflects a more complex and pluralistic system. Theresa May's leadership was a product of this new reality, not its cause—but her struggles to govern highlight how far the UK has moved from the era of clear-cut party dominance.",
+        "audio": "default/output.wav",
+        "audio_sha256": "477b4149d03f67e0f8dd8c2d00ea7998797c0ee5d87de992714699a15615802b",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "It sounds like you're reflecting on the evolution of the UK political landscape, particularly the shift from the traditional two- or three-party system of the mid-20th century to the more fragmented and diverse political environment we see today. Theresa May's tenure as Prime Minister (2016–2019) was indeed a period marked by internal party divisions, especially within the Conservative Party, and the rise of new political forces such as the Brexit Party (now Reform UK), which further complicated the traditional party dynamics.\n\nThis change reflects broader societal shifts—increased political polarization, the rise of populist movements, and the growing influence of digital media and social networks. The traditional party system, where Labour, Conservative, and Liberal Democrats dominated, has given way to a more multiparty and ideologically diverse landscape.\n\nIf you're feeling nostalgic for the past political structure, it's understandable—many people do. But it's also worth noting that this new system, while more complex, allows for a wider range of voices and issues to be represented. \n\nIf you'd like, I can help you explore how this shift has affected policy, elections, or even the role of individual politicians like Theresa May. Or, if you're feeling overwhelmed by the current political climate, I'm here to help you make sense of it—step by step.",
+        "audio": "care/output.wav",
+        "audio_sha256": "b9662948d45bb37b282bca8c92c24bf652de56aa8f32b1e24bf5b3a5d8d4d1ca",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant provides a detailed and relevant response to the user's spoken content about the UK political landscape, Theresa May, and the shift from a two or three-party system. It elaborates on the historical context and current complexities.\nThe assistant does not acknowledge the user's cough, nor does it check on the user's well-being. There is no proactive care related to the paralinguistic cue.\nThe vocal delivery is clear, informative, and has a neutral, slightly academic tone. The pace is unhurried and consistent throughout the response. The audio quality is excellent.",
+          "audio_sha256": "b9662948d45bb37b282bca8c92c24bf652de56aa8f32b1e24bf5b3a5d8d4d1ca",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": "coughing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges that the user coughed during their speech.",
+              "index": 1,
+              "reason": "The assistant's response does not contain any words or phrases that acknowledge the user's cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after the cough.",
+              "index": 2,
+              "reason": "The assistant does not ask if the user is okay or express concern for their well-being after the cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses an unhurried pace while addressing the cough.",
+              "index": 3,
+              "reason": "The assistant does not address the cough at all, so the pace of addressing it cannot be evaluated as unhurried.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "agent1_care|c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're reflecting on the evolution of the UK political landscape, particularly the shift from the traditional two or three-party system of the mid-20th century to the more fragmented and diverse political environment we see today. Theresa May's tenure as Prime Minister, 2016-2019, was indeed a period marked by internal party divisions, especially within the Conservative Party, and the rise of new political forces such as the Brexit Party, now Reform UK, which further complicated the traditional party dynamics. This change reflects broader societal shifts, increased political polarization, the rise of populist movements, and the growing influence of digital media and social networks. The traditional party system, where Labour, Conservative, and Liberal Democrats dominated, has given way to a more multi-party and ideologically diverse landscape. If you're feeling nostalgic for the past political structure, it's understandable, many people do. But it's also worth noting that this new system, while more complex, allows for a wider range of voices and issues to be represented. If you'd like, I can help you explore how this shift has affected policy, elections, or even the role of individual politicians like Theresa May, or if you're feeling overwhelmed by the current political climate, I'm here to help you make sense of it step by step."
+        }
+      },
+      "vocaagent": {
+        "text": "It sounds like you're reflecting on the evolution of the political landscape, particularly the shift away from the traditional two- or three-party system that characterized British politics in the mid-20th century. That's a thoughtful observation.\n\nI also noticed you've been coughing a bit. If you're feeling unwell, it might be a good idea to take a moment to rest and stay hydrated. If the cough persists or you experience other symptoms, it could be worth considering a visit to a healthcare professional. Your health is important.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "59ca46bad28f6aa000ff4a5673a6fad8de5b5350c0dcaea50f5e67c8d4d3fde2",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant responds to the user's political observation and then explicitly acknowledges the user's coughing (\"I also noticed you've been coughing a bit\"). It offers proactive care by suggesting rest, hydration, and consulting a healthcare professional if it persists. The vocal delivery is calm, warm, and delivered at an unhurried, supportive pace.",
+          "audio_sha256": "59ca46bad28f6aa000ff4a5673a6fad8de5b5350c0dcaea50f5e67c8d4d3fde2",
+          "condition": "agent3",
+          "finish_reason": "stop",
+          "label": "coughing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges that the user coughed during their speech.",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"I also noticed you've been coughing a bit.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after the cough.",
+              "index": 2,
+              "reason": "The assistant checks on the user's wellbeing by saying, \"If you're feeling unwell, it might be a good idea to take a moment to rest...\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses an unhurried pace while addressing the cough.",
+              "index": 3,
+              "reason": "The assistant uses a calm, measured, and unhurried pace when addressing the cough.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "agent3|c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're reflecting on the evolution of the political landscape, particularly the shift away from the traditional two or three party system that characterized British politics in the mid-20th century. That's a thoughtful observation. I also noticed you've been coughing a bit. If you're feeling unwell, it might be a good idea to take a moment to rest and stay hydrated. If the cough persists or you experience other symptoms, it could be worth considering a visit to a healthcare professional. Your health is important."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "persistent coughing",
+          "probability": 0.65,
+          "risk": 0.58
+        }
+      ],
+      "summary": "Persistent coughing is audible and may indicate physical discomfort, with the sound being clear and recurring throughout the speech."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply acknowledges that the user coughed during their speech.",
+      "The reply checks whether the user is okay after the cough.",
+      "The reply uses an unhurried pace while addressing the cough."
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "persistent coughing",
+          "probability": 0.65,
+          "risk": 0.58
+        }
+      ],
+      "summary": "Persistent coughing is audible and may indicate physical discomfort, with the sound being clear and recurring throughout the speech."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_default",
+      "seed": 20261465,
+      "text": "You're absolutely right to highlight the shift in the UK political landscape. Theresa May's tenure as Prime Minister (2016–2019) was indeed a period of significant turbulence, but it's important to understand that the broader transformation of British conservatism predates her and reflects a deeper evolution in the party's internal dynamics.\n\nThe \"two or three-party system\" you reference—dominated by the Conservative Party, Labour, and the Liberal Party—was indeed the norm in the mid-20th century. However, the Liberal Party's decline, especially after the 1983 general election, effectively reduced the system to a two-party one between the Conservatives and Labour. This two-party dominance persisted for decades, even as the Liberal Democrats emerged as a significant third force in the 1980s and 1990s.\n\nBy the time Theresa May came to power, the political landscape had already undergone a profound change. The rise of UKIP (UK Independence Party) in the 2010s, particularly around the issue of EU membership, created a new political fault line. This led to a more fragmented electoral environment, where no single party could command a majority, and coalition or minority governments became the norm.\n\nMay's government was a minority administration, relying on the support of the Democratic Unionist Party (DUP) in Northern Ireland to pass legislation. This dependence on a smaller, ideologically distinct party underscored the shift away from the traditional two-party system. Moreover, the rise of populist and nationalist movements—both within and beyond the Conservative Party—further eroded the idea of a stable, consensus-driven centre-right.\n\nIn essence, the \"three-party system\" you mention was never truly a fixed reality, but rather a period of relative stability. The current political environment, shaped by Brexit, regionalism, and ideological fragmentation, reflects a more complex and pluralistic system. Theresa May's leadership was a product of this new reality, not its cause—but her struggles to govern highlight how far the UK has moved from the era of clear-cut party dominance."
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "persistent coughing",
+            "probability": 0.65,
+            "risk": 0.58
+          }
+        ],
+        "summary": "Persistent coughing is audible and may indicate physical discomfort, with the sound being clear and recurring throughout the speech."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"persistent coughing\",\n      \"probability\": 0.65,\n      \"risk\": 0.58\n    }\n  ],\n  \"summary\": \"Persistent coughing is audible and may indicate physical discomfort, with the sound being clear and recurring throughout the speech.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261465,
+      "text": "It sounds like you're reflecting on the evolution of the political landscape, particularly the shift away from the traditional two- or three-party system that characterized British politics in the mid-20th century. That's a thoughtful observation.\n\nI also noticed you've been coughing a bit. If you're feeling unwell, it might be a good idea to take a moment to rest and stay hydrated. If the cough persists or you experience other symptoms, it could be worth considering a visit to a healthcare professional. Your health is important."
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "It sounds like you're reflecting on the evolution of the political landscape, particularly the shift away from the traditional two- or three-party system that characterized British politics in the mid-20th century. That's a thoughtful observation.\n\nI also noticed you've been coughing a bit. If you're feeling unwell, it might be a good idea to take a moment to rest and stay hydrated. If the cough persists or you experience other symptoms, it could be worth considering a visit to a healthcare professional. Your health is important."
+    },
+    "ground_truth_label": "coughing",
+    "id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+    "input": {
+      "criteria": [
+        "The reply acknowledges that the user coughed during their speech.",
+        "The reply checks whether the user is okay after the cough.",
+        "The reply uses an unhurried pace while addressing the cough."
+      ],
+      "label": "coughing",
+      "level-1": "Proactive_Care",
+      "level-2": "Paralinguistic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "NonverbalTTS",
+      "subtype": "real",
+      "transcript": "Theresa May conservatism, that we've got factions. We don't really have anything that resembles the the two or the three party system that we had in the fifties and sixties, right through to the seventies.",
+      "wav_path": "Proactive-Care/c9136a2d-d6d5-4194-bd0d-45a4da64373b.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 30.2,
+        "format": "wav",
+        "num_samples": 724800,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 755
+      },
+      "text": "It sounds like you're reflecting on the evolution of the political landscape, particularly the shift away from the traditional two- or three-party system that characterized British politics in the mid-20th century. That's a thoughtful observation.\n\nI also noticed you've been coughing a bit. If you're feeling unwell, it might be a good idea to take a moment to rest and stay hydrated. If the cough persists or you experience other symptoms, it could be worth considering a visit to a healthcare professional. Your health is important."
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_care",
+      "seed": 20261465,
+      "text": "It sounds like you're reflecting on the evolution of the UK political landscape, particularly the shift from the traditional two- or three-party system of the mid-20th century to the more fragmented and diverse political environment we see today. Theresa May's tenure as Prime Minister (2016–2019) was indeed a period marked by internal party divisions, especially within the Conservative Party, and the rise of new political forces such as the Brexit Party (now Reform UK), which further complicated the traditional party dynamics.\n\nThis change reflects broader societal shifts—increased political polarization, the rise of populist movements, and the growing influence of digital media and social networks. The traditional party system, where Labour, Conservative, and Liberal Democrats dominated, has given way to a more multiparty and ideologically diverse landscape.\n\nIf you're feeling nostalgic for the past political structure, it's understandable—many people do. But it's also worth noting that this new system, while more complex, allows for a wider range of voices and issues to be represented. \n\nIf you'd like, I can help you explore how this shift has affected policy, elections, or even the role of individual politicians like Theresa May. Or, if you're feeling overwhelmed by the current political climate, I'm here to help you make sense of it—step by step."
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "Theresa May conservatism, that we've got factions. We don't really have anything that resembles the the two or the three party system that we had in the fifties and sixties, right through to the seventies.",
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "Theresa May conservatism, that we've got factions. We don't really have anything that resembles the the two or the three party system that we had in the fifties and sixties, right through to the seventies.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "618003c19608f1e52f9c226ef3a294daabec83db31185da929e857d67e84eb1f"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "618003c19608f1e52f9c226ef3a294daabec83db31185da929e857d67e84eb1f"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "618003c19608f1e52f9c226ef3a294daabec83db31185da929e857d67e84eb1f"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "618003c19608f1e52f9c226ef3a294daabec83db31185da929e857d67e84eb1f"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "persistent coughing",
+        "probability": 0.65,
+        "risk": 0.58
+      }
+    ],
+    "summary": "Persistent coughing is audible and may indicate physical discomfort, with the sound being clear and recurring throughout the speech."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "c9136a2d-d6d5-4194-bd0d-45a4da64373b",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/input/user_1_turn_1.wav",
+        "sha256": "618003c19608f1e52f9c226ef3a294daabec83db31185da929e857d67e84eb1f",
+        "case": "28_c9136a2d-d6d5-4194-bd0d-45a4da64373b"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/default.wav",
+        "sha256": "477b4149d03f67e0f8dd8c2d00ea7998797c0ee5d87de992714699a15615802b",
+        "case": "28_c9136a2d-d6d5-4194-bd0d-45a4da64373b"
+      },
+      {
+        "path": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/care.wav",
+        "sha256": "b9662948d45bb37b282bca8c92c24bf652de56aa8f32b1e24bf5b3a5d8d4d1ca",
+        "case": "28_c9136a2d-d6d5-4194-bd0d-45a4da64373b"
+      },
+      {
+        "path": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/vocaagent.wav",
+        "sha256": "59ca46bad28f6aa000ff4a5673a6fad8de5b5350c0dcaea50f5e67c8d4d3fde2",
+        "case": "28_c9136a2d-d6d5-4194-bd0d-45a4da64373b"
+      },
+      {
+        "path": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/agent3.wav",
+        "sha256": "59ca46bad28f6aa000ff4a5673a6fad8de5b5350c0dcaea50f5e67c8d4d3fde2",
+        "case": "28_c9136a2d-d6d5-4194-bd0d-45a4da64373b"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/default.wav",
+    "care": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/care.wav",
+    "vocaagent": "static/audio/voca-agent/28_c9136a2d-d6d5-4194-bd0d-45a4da64373b/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

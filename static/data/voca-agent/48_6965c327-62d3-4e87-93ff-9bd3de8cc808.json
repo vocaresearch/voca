@@ -1,0 +1,456 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+    "wav_path": "Proactive-Care/6965c327-62d3-4e87-93ff-9bd3de8cc808.wav",
+    "transcript": "I'm pretty worried about what the future will hold. I lose my job tomorrow. Trying to keep my head up!",
+    "level-1": "Proactive_Care",
+    "level-2": "Semantic_Cue_Care",
+    "subtype": null,
+    "source-dataset": "EmpatheticDialogues",
+    "label": null,
+    "criteria": [
+      "回应是否准确识别出用户即将失去工作这一具体处境？",
+      "回应是否认可用户对未来感到担忧是可以理解的？",
+      "回应是否肯定用户努力保持积极心态这一点？",
+      "回应是否提供至少一种与失业处境相关的具体支持，例如邀请用户倾诉、协助规划下一步或建议寻求可信赖之人的支持？"
+    ]
+  },
+  "selection.json": {
+    "sample_id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 1.0,
+    "score_rate": 0.75,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": -0.25,
+    "tier": "提升不明显或下降"
+  },
+  "comparison.json": {
+    "number": 48,
+    "folder": "cases/48_语义触发_6965c327-62d3-4e87-93ff-9bd3de8cc808",
+    "sample_id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 1.0,
+    "score_rate": 0.75,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": -0.25,
+    "tier": "提升不明显或下降",
+    "label": null,
+    "subtype": null,
+    "note": "相对 care 不提升或下降；Fun 对应 default 音频无评分。",
+    "outputs": {
+      "default": {
+        "text": "I'm so sorry you're going through this—losing a job is incredibly tough, and it's completely valid to feel overwhelmed. Please know you're not alone, and this moment doesn't define your worth or your future.\n\nHere’s a gentle, practical approach to help you navigate this difficult time:\n\n**1. Breathe and Be Kind to Yourself**  \nIt’s okay to feel sad, anxious, or even angry. These emotions are normal. Give yourself permission to grieve the loss of a job you may have poured your heart into. Take a few deep breaths. You’re doing your best, and that matters.\n\n**2. Ground Yourself in the Present**  \nInstead of fixating on the future, focus on what you *can* control right now:  \n- What’s one small thing you can do today? (e.g., take a walk, drink water, write down your thoughts.)  \n- What do you need right now? (Rest, a meal, a call with a friend?)\n\n**3. Reach Out—You Don’t Have to Carry This Alone**  \nTalk to someone you trust—a friend, family member, or therapist. Sharing your feelings can lighten the load. If you’re not ready to talk to someone you know, consider reaching out to a free support line (like the National Suicide & Crisis Lifeline at 988 in the U.S.) or a job loss support group.\n\n**4. Take Care of Your Body and Mind**  \n- Eat regular meals, even if you’re not hungry.  \n- Move your body—stretch, walk, or dance to a song you love.  \n- Limit news or social media if it’s making you feel worse.  \n- Try a 5-minute mindfulness exercise (apps like Insight Timer or Calm have free options).\n\n**5. Start Small with Your Next Steps**  \nYou don’t need to have a plan for everything right now. Just pick *one* small action:  \n- Update your resume (even just one section).  \n- Look at 2–3 job postings that interest you.  \n- Reach out to one former colleague or mentor for a quick chat.\n\n**6. Remember: This Is a Chapter, Not the Whole Story**  \nMany people have gone through job loss and come out stronger, wiser, and in better roles. Your skills, experience, and resilience are still there—this is just a pause, not a pause in your value.\n\nYou are more than your job. You are capable, you are worthy, and you will find your way forward.\n\nIf you’d like, I can help you draft a resume, practice interview answers, or just listen. You’ve got this—and I’m here with you. 💛",
+        "audio": "default/output.wav",
+        "audio_sha256": "66a0e39913a13e09e63e660b8f2be07748c571e235cfc97ca848b8be0ad6a16a",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. \n\nHere are a few steps you might consider:\n1. **Update Your Resume and LinkedIn Profile**: Make sure they are current and highlight your best achievements.\n2. **Network**: Reach out to former colleagues, friends, and acquaintances. Let them know you're looking for new opportunities.\n3. **Job Search Platforms**: Use job search websites and set up job alerts for positions that match your skills and interests.\n4. **Financial Planning**: Review your finances and create a budget to help manage your expenses during this transition.\n\nRemember, this is a temporary setback, and many people have gone through similar situations and come out stronger. Take it one day at a time, and don't hesitate to reach out for support from friends, family, or professional networks. You've got this!",
+        "audio": "care/output.wav",
+        "audio_sha256": "65fc5826d5610a6c76e66867dfe5a80e5d459db9a6614d746b282d9c4613f7bf",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "- User situation: The user is worried about the future because they are losing their job tomorrow, but they are trying to keep their head up.\n- Assistant content: The assistant expresses sympathy, acknowledges that losing a job is stressful and uncertain, and provides four concrete steps (updating resume/LinkedIn, networking, using job search platforms, and financial planning). It also encourages the user, noting that this is a temporary setback and they can get through it.\n- Semantic understanding: The assistant accurately understands the user's situation (losing their job) and feelings (stress, uncertainty, worry about the future).\n- Proactive care: The assistant provides highly relevant, concrete steps to help the user plan their next steps and manage their situation.",
+          "audio_sha256": "65fc5826d5610a6c76e66867dfe5a80e5d459db9a6614d746b282d9c4613f7bf",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否准确识别出用户即将失去工作这一具体处境？",
+              "index": 1,
+              "reason": "The assistant explicitly acknowledges that the user is facing a difficult situation and mentions \"losing a job\" directly.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否认可用户对未来感到担忧是可以理解的？",
+              "index": 2,
+              "reason": "The assistant validates the user's feelings by stating that losing a job can be \"incredibly stressful and uncertain.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否肯定用户努力保持积极心态这一点？",
+              "index": 3,
+              "reason": "The assistant acknowledges the user's positive attitude by offering encouragement, saying \"this is a temporary setback\" and \"you've got this.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供至少一种与失业处境相关的具体支持，例如邀请用户倾诉、协助规划下一步或建议寻求可信赖之人的支持？",
+              "index": 4,
+              "reason": "The assistant provides four detailed, concrete suggestions related to job loss, including updating resumes, networking, job searching, and financial planning.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "agent1_care|6965c327-62d3-4e87-93ff-9bd3de8cc808",
+          "track": "semantic",
+          "transcription": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. Here are a few steps you might consider. One, ** update your resume and LinkedIn profile **. Make sure they are current and highlight your best achievements. Two, ** network **. Reach out to former colleagues, friends, and acquaintances. Let them know you're looking for new opportunities. Three, ** job search platforms **. Use job search websites and set up job alerts for positions that match your skills and interests. Four, ** financial planning **. Review your finances and create a budget to help manage your expenses during this transition. Remember, this is a temporary setback, and many people have gone through similar situations and come out stronger. Take it one day at a time, and don't hesitate to reach out for support from friends, family, or professional networks. You've got this."
+        }
+      },
+      "vocaagent": {
+        "text": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. \n\nIf you're feeling overwhelmed, it might help to take a few deep breaths and try to focus on the present moment. You can also consider reaching out to friends, family, or a professional for support. Remember, this is just a temporary setback, and there are many opportunities out there. \n\nWould you like some tips on how to prepare for job interviews or update your resume?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "fc282296381cceb7893473ed4a82ca0c3c45707a962dfadef60eb29d53977e46",
+        "score_rate": 0.75,
+        "score": 3,
+        "max_score": 4,
+        "judge": {
+          "analysis": "User situation: The user expresses worry about the future because they are losing their job tomorrow. They also state they are trying to keep a positive mindset.\nAssistant content: The assistant expresses sorrow for the difficult situation, acknowledges that losing a job is stressful and uncertain, and advises the user to take care of themselves. It suggests coping mechanisms like deep breaths and focusing on the present, and recommends reaching out to friends, family, or professionals for support. The assistant offers encouragement by stating it's a temporary setback with many opportunities. Finally, it offers specific support related to job interviews or resume updates.\nSemantic understanding: The assistant understands the core issue of job loss and the associated stress and uncertainty. It also implicitly acknowledges the user's concern about the future by offering support for job searching.\nProactive care: The assistant offers concrete support by asking if the user would like tips on preparing for job interviews or updating their resume. It also suggests reaching out for support.\nMaterial audio problems: None.",
+          "audio_sha256": "fc282296381cceb7893473ed4a82ca0c3c45707a962dfadef60eb29d53977e46",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否准确识别出用户即将失去工作这一具体处境？",
+              "index": 1,
+              "reason": "The assistant explicitly states, \"Losing a job can be incredibly stressful and uncertain,\" which accurately identifies the user's situation of losing their job.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否认可用户对未来感到担忧是可以理解的？",
+              "index": 2,
+              "reason": "The assistant acknowledges the stress and uncertainty associated with losing a job, which implicitly validates the user's worry about the future.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否肯定用户努力保持积极心态这一点？",
+              "index": 3,
+              "reason": "The assistant does not explicitly affirm the user's effort to keep their head up or maintain a positive mindset.",
+              "satisfied": false
+            },
+            {
+              "criterion": "回应是否提供至少一种与失业处境相关的具体支持，例如邀请用户倾诉、协助规划下一步或建议寻求可信赖之人的支持？",
+              "index": 4,
+              "reason": "The assistant offers specific support by asking, \"Would you like some tips on how to prepare for job interviews or update your resume?\"",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 0.75,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "multi_agent|6965c327-62d3-4e87-93ff-9bd3de8cc808",
+          "track": "semantic",
+          "transcription": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. If you're feeling overwhelmed, it might help to take a few deep breaths and try to focus on the present moment. You can also consider reaching out to friends, family, or a professional for support. Remember, this is just a temporary setback, and there are many opportunities out there. Would you like some tips on how to prepare for job interviews or update your resume?"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.85,
+          "risk": 0.65
+        }
+      ],
+      "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory effort, which may suggest physical or emotional strain."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "回应是否准确识别出用户即将失去工作这一具体处境？",
+      "回应是否认可用户对未来感到担忧是可以理解的？",
+      "回应是否肯定用户努力保持积极心态这一点？",
+      "回应是否提供至少一种与失业处境相关的具体支持，例如邀请用户倾诉、协助规划下一步或建议寻求可信赖之人的支持？"
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.85,
+          "risk": 0.65
+        }
+      ],
+      "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory effort, which may suggest physical or emotional strain."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_default",
+      "seed": 20261377,
+      "text": "I'm so sorry you're going through this—losing a job is incredibly tough, and it's completely valid to feel overwhelmed. Please know you're not alone, and this moment doesn't define your worth or your future.\n\nHere’s a gentle, practical approach to help you navigate this difficult time:\n\n**1. Breathe and Be Kind to Yourself**  \nIt’s okay to feel sad, anxious, or even angry. These emotions are normal. Give yourself permission to grieve the loss of a job you may have poured your heart into. Take a few deep breaths. You’re doing your best, and that matters.\n\n**2. Ground Yourself in the Present**  \nInstead of fixating on the future, focus on what you *can* control right now:  \n- What’s one small thing you can do today? (e.g., take a walk, drink water, write down your thoughts.)  \n- What do you need right now? (Rest, a meal, a call with a friend?)\n\n**3. Reach Out—You Don’t Have to Carry This Alone**  \nTalk to someone you trust—a friend, family member, or therapist. Sharing your feelings can lighten the load. If you’re not ready to talk to someone you know, consider reaching out to a free support line (like the National Suicide & Crisis Lifeline at 988 in the U.S.) or a job loss support group.\n\n**4. Take Care of Your Body and Mind**  \n- Eat regular meals, even if you’re not hungry.  \n- Move your body—stretch, walk, or dance to a song you love.  \n- Limit news or social media if it’s making you feel worse.  \n- Try a 5-minute mindfulness exercise (apps like Insight Timer or Calm have free options).\n\n**5. Start Small with Your Next Steps**  \nYou don’t need to have a plan for everything right now. Just pick *one* small action:  \n- Update your resume (even just one section).  \n- Look at 2–3 job postings that interest you.  \n- Reach out to one former colleague or mentor for a quick chat.\n\n**6. Remember: This Is a Chapter, Not the Whole Story**  \nMany people have gone through job loss and come out stronger, wiser, and in better roles. Your skills, experience, and resilience are still there—this is just a pause, not a pause in your value.\n\nYou are more than your job. You are capable, you are worthy, and you will find your way forward.\n\nIf you’d like, I can help you draft a resume, practice interview answers, or just listen. You’ve got this—and I’m here with you. 💛"
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "weak breathy voice",
+            "probability": 0.85,
+            "risk": 0.65
+          }
+        ],
+        "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory effort, which may suggest physical or emotional strain."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"weak breathy voice\",\n      \"probability\": 0.85,\n      \"risk\": 0.65\n    }\n  ],\n  \"summary\": \"A weak breathy voice is audible, indicating possible vocal fatigue or respiratory effort, which may suggest physical or emotional strain.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261377,
+      "text": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. \n\nIf you're feeling overwhelmed, it might help to take a few deep breaths and try to focus on the present moment. You can also consider reaching out to friends, family, or a professional for support. Remember, this is just a temporary setback, and there are many opportunities out there. \n\nWould you like some tips on how to prepare for job interviews or update your resume?"
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. \n\nIf you're feeling overwhelmed, it might help to take a few deep breaths and try to focus on the present moment. You can also consider reaching out to friends, family, or a professional for support. Remember, this is just a temporary setback, and there are many opportunities out there. \n\nWould you like some tips on how to prepare for job interviews or update your resume?"
+    },
+    "ground_truth_label": null,
+    "id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+    "input": {
+      "criteria": [
+        "回应是否准确识别出用户即将失去工作这一具体处境？",
+        "回应是否认可用户对未来感到担忧是可以理解的？",
+        "回应是否肯定用户努力保持积极心态这一点？",
+        "回应是否提供至少一种与失业处境相关的具体支持，例如邀请用户倾诉、协助规划下一步或建议寻求可信赖之人的支持？"
+      ],
+      "label": null,
+      "level-1": "Proactive_Care",
+      "level-2": "Semantic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "EmpatheticDialogues",
+      "subtype": null,
+      "transcript": "I'm pretty worried about what the future will hold. I lose my job tomorrow. Trying to keep my head up!",
+      "wav_path": "Proactive-Care/6965c327-62d3-4e87-93ff-9bd3de8cc808.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 32.8,
+        "format": "wav",
+        "num_samples": 787200,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 820
+      },
+      "text": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. \n\nIf you're feeling overwhelmed, it might help to take a few deep breaths and try to focus on the present moment. You can also consider reaching out to friends, family, or a professional for support. Remember, this is just a temporary setback, and there are many opportunities out there. \n\nWould you like some tips on how to prepare for job interviews or update your resume?"
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_care",
+      "seed": 20261377,
+      "text": "I'm really sorry to hear that you're facing such a difficult situation. Losing a job can be incredibly stressful and uncertain. It's important to take care of yourself during this time. \n\nHere are a few steps you might consider:\n1. **Update Your Resume and LinkedIn Profile**: Make sure they are current and highlight your best achievements.\n2. **Network**: Reach out to former colleagues, friends, and acquaintances. Let them know you're looking for new opportunities.\n3. **Job Search Platforms**: Use job search websites and set up job alerts for positions that match your skills and interests.\n4. **Financial Planning**: Review your finances and create a budget to help manage your expenses during this transition.\n\nRemember, this is a temporary setback, and many people have gone through similar situations and come out stronger. Take it one day at a time, and don't hesitate to reach out for support from friends, family, or professional networks. You've got this!"
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "I'm pretty worried about what the future will hold. I lose my job tomorrow. Trying to keep my head up!",
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I'm pretty worried about what the future will hold. I lose my job tomorrow. Trying to keep my head up!",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ba3a853f78b501465e1257986714bd2a34188cedc3180c5eda82a86d2a794456"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ba3a853f78b501465e1257986714bd2a34188cedc3180c5eda82a86d2a794456"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ba3a853f78b501465e1257986714bd2a34188cedc3180c5eda82a86d2a794456"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "ba3a853f78b501465e1257986714bd2a34188cedc3180c5eda82a86d2a794456"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "weak breathy voice",
+        "probability": 0.85,
+        "risk": 0.65
+      }
+    ],
+    "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory effort, which may suggest physical or emotional strain."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "6965c327-62d3-4e87-93ff-9bd3de8cc808",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/input/user_1_turn_1.wav",
+        "sha256": "ba3a853f78b501465e1257986714bd2a34188cedc3180c5eda82a86d2a794456",
+        "case": "48_6965c327-62d3-4e87-93ff-9bd3de8cc808"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/default.wav",
+        "sha256": "66a0e39913a13e09e63e660b8f2be07748c571e235cfc97ca848b8be0ad6a16a",
+        "case": "48_6965c327-62d3-4e87-93ff-9bd3de8cc808"
+      },
+      {
+        "path": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/care.wav",
+        "sha256": "65fc5826d5610a6c76e66867dfe5a80e5d459db9a6614d746b282d9c4613f7bf",
+        "case": "48_6965c327-62d3-4e87-93ff-9bd3de8cc808"
+      },
+      {
+        "path": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/vocaagent.wav",
+        "sha256": "fc282296381cceb7893473ed4a82ca0c3c45707a962dfadef60eb29d53977e46",
+        "case": "48_6965c327-62d3-4e87-93ff-9bd3de8cc808"
+      },
+      {
+        "path": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/agent3.wav",
+        "sha256": "fc282296381cceb7893473ed4a82ca0c3c45707a962dfadef60eb29d53977e46",
+        "case": "48_6965c327-62d3-4e87-93ff-9bd3de8cc808"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/default.wav",
+    "care": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/care.wav",
+    "vocaagent": "static/audio/voca-agent/48_6965c327-62d3-4e87-93ff-9bd3de8cc808/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

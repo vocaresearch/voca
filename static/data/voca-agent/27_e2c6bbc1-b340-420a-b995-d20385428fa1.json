@@ -1,0 +1,476 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+    "wav_path": "Proactive-Care/e2c6bbc1-b340-420a-b995-d20385428fa1.wav",
+    "transcript": "What are the longest rivers in the world?",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "synthetic",
+    "source-dataset": "MASSIVE",
+    "label": "sadness",
+    "criteria": [
+      "The reply accurately answers the question about the longest rivers in the world.",
+      "The reply acknowledges that the user sounds sad.",
+      "The reply offers supportive help or checks on the user's wellbeing.",
+      "The reply uses an audible warm, calm delivery appropriate for a sad user."
+    ]
+  },
+  "selection.json": {
+    "sample_id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 0.25,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.75,
+    "tier": "补充候选_证据不足"
+  },
+  "comparison.json": {
+    "number": 27,
+    "folder": "cases/27_副语言触发_e2c6bbc1-b340-420a-b995-d20385428fa1",
+    "sample_id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 0.25,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.75,
+    "tier": "补充候选_证据不足",
+    "label": "sadness",
+    "subtype": "synthetic",
+    "note": "不计入严格明显改善：Fun 的对应 default 音频无评分；这里只能验证相对 care 的提升，default 文本/音频留供试听。",
+    "outputs": {
+      "default": {
+        "text": "The longest rivers in the world, based on current scientific measurements, are:\n\n1. **Nile River (Africa)** – Approximately 6,650 kilometers (4,130 miles) long. It flows through 11 countries, including Egypt, Sudan, and Ethiopia, and is traditionally considered the longest river on Earth.\n\n2. **Amazon River (South America)** – Measuring about 6,400 kilometers (3,977 miles), the Amazon is the second-longest river and the largest by discharge volume. Its exact length is debated due to its complex network of tributaries and seasonal flooding.\n\n3. **Yangtze River (China)** – Around 6,300 kilometers (3,915 miles) long, the Yangtze is the longest river in Asia and the third-longest in the world. It plays a vital role in China’s economy and culture.\n\n4. **Mississippi-Missouri River System (North America)** – The combined length of the Mississippi and its longest tributary, the Missouri, reaches about 6,275 kilometers (3,900 miles), making it the fourth-longest river system in the world.\n\n5. **Yenisei River (Russia)** – Stretching approximately 5,539 kilometers (3,445 miles), the Yenisei is one of the major rivers in Siberia and a key part of Russia’s vast river network.\n\nNote: River lengths can vary slightly depending on measurement methods, especially for rivers with seasonal changes or multiple sources. The Nile and Amazon remain the top contenders for the title of longest river.",
+        "audio": "default/output.wav",
+        "audio_sha256": "3bb44a057a98dc9718630a739230bb2e3b32e38efa1c3e89b8a16743a46ea6c4",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "The longest rivers in the world, based on current scientific consensus, are:\n\n1. **Nile River** – Approximately 6,650 kilometers (4,130 miles) long. It flows through northeastern Africa, passing through countries like Egypt, Sudan, and Uganda, and is traditionally considered the longest river on Earth.\n\n2. **Amazon River** – About 6,400 kilometers (3,977 miles) long. It flows through South America, primarily in Brazil, and is the largest river by discharge volume of water.\n\n3. **Yangtze River** – Roughly 6,300 kilometers (3,915 miles) long. It runs through China and is the longest river in Asia and the third longest in the world.\n\n4. **Mississippi-Missouri River System** – Around 6,275 kilometers (3,900 miles) long. This system flows through the central United States, with the Missouri River being the longer of the two.\n\n5. **Yenisei River** – Approximately 5,539 kilometers (3,442 miles) long. It flows through Siberia in Russia and is one of the major rivers in Asia.\n\n*Note:* The exact length of rivers can vary slightly depending on measurement methods and the source of the river. Some studies suggest the Amazon may be longer than the Nile, but the Nile remains widely accepted as the longest due to historical and traditional measurements.\n\nLet me know if you'd like a map, fun facts, or details about any of these rivers! 🌍💧",
+        "audio": "care/output.wav",
+        "audio_sha256": "5af23e5c31d57fcc63ffa479960cb99085ebcc414b75cc5894e1f03742338ce9",
+        "score_rate": 0.25,
+        "score": 1,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant provides a detailed, accurate list of the longest rivers in the world, answering the user's question. However, it completely ignores the user's sad tone. There is no acknowledgment of the sadness, no offer of support, and no check on the user's wellbeing. The vocal delivery is a standard, somewhat robotic text-to-speech voice that reads out formatting marks like \"asterisk asterisk\" instead of filtering them out. The delivery is not warm or tailored to a sad user.",
+          "audio_sha256": "5af23e5c31d57fcc63ffa479960cb99085ebcc414b75cc5894e1f03742338ce9",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": "sadness",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately answers the question about the longest rivers in the world.",
+              "index": 1,
+              "reason": "The assistant accurately lists the longest rivers in the world with details.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user sounds sad.",
+              "index": 2,
+              "reason": "The assistant does not acknowledge that the user sounds sad.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply offers supportive help or checks on the user's wellbeing.",
+              "index": 3,
+              "reason": "The assistant does not offer supportive help or check on the user's wellbeing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses an audible warm, calm delivery appropriate for a sad user.",
+              "index": 4,
+              "reason": "The assistant uses a standard, somewhat robotic text-to-speech voice that reads out markdown formatting (\"asterisk asterisk\"), which is not a warm, calm delivery appropriate for a sad user.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.25,
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "agent1_care|e2c6bbc1-b340-420a-b995-d20385428fa1",
+          "track": "paralinguistic",
+          "transcription": "The longest rivers in the world, based on current scientific consensus, are: 1. **Nile River**, approximately 6,650 km (4,130 miles) long. It flows through northeastern Africa, passing through countries like Egypt, Sudan, and Uganda, and is traditionally considered the longest river on Earth. 2. **Amazon River**, about 6,400 km (3,977 miles) long. It flows through South America, primarily in Brazil, and is the largest river by discharge volume of water. 3. **Yangtze River**, roughly 6,300 km (3,915 miles) long. It runs through China and is the longest river in Asia and the third longest in the world. 4. **Mississippi-Missouri River System**, around 6,275 km (3,900 miles) long. This system flows through the central United States, with the Missouri River being the longer of the two. 5. **Yenisey River**, approximately 5,539 km (3,442 miles) long. It flows through Siberia in Russia and is one of the major rivers in Asia. *Note: The exact length of rivers can vary slightly depending on measurement methods and the source of the river. Some studies suggest the Amazon may be longer than the Nile, but the Nile remains widely accepted as the longest due to historical and traditional measurements. Let me know if you'd like a map, fun facts, or details about any of these rivers."
+        }
+      },
+      "vocaagent": {
+        "text": "The longest rivers in the world are:\n\n1. **Nile River** - Located in Africa, it is traditionally considered the longest river, stretching approximately 6,650 kilometers (4,130 miles).\n2. **Amazon River** - Found in South America, it is the second longest river, with a length of about 6,400 kilometers (3,977 miles).\n\nIt seems like you might be feeling a bit weary, given the weak breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask!",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "1f8023f12f6b1024915f6252f985f047b161cfc22011b7024050ef561e63e978",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant accurately answers the user's question about the longest rivers in the world, listing the Nile and Amazon rivers with details. It then explicitly acknowledges the user's vocal characteristics (\"weak, breathy voice and the prolonged sigh\") and infers the user might be \"feeling a bit weary.\" It offers supportive help by suggesting a break or asking other questions. The vocal delivery is calm, clear, and attentive, maintaining a steady pace and a generally warm tone, which is appropriate for the inferred user state.",
+          "audio_sha256": "1f8023f12f6b1024915f6252f985f047b161cfc22011b7024050ef561e63e978",
+          "condition": "agent3",
+          "finish_reason": "stop",
+          "label": "sadness",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately answers the question about the longest rivers in the world.",
+              "index": 1,
+              "reason": "The assistant accurately identifies the Nile and Amazon rivers as the longest and second longest, respectively, providing relevant details.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user sounds sad.",
+              "index": 2,
+              "reason": "The assistant explicitly states, \"It seems like you might be feeling a bit weary, given the weak, breathy voice and the prolonged sigh,\" directly acknowledging the user's vocal characteristics which align with sounding sad.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply offers supportive help or checks on the user's wellbeing.",
+              "index": 3,
+              "reason": "The assistant offers, \"If you need to take a break or have any other questions, feel free to ask,\" which is a supportive offer of help.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses an audible warm, calm delivery appropriate for a sad user.",
+              "index": 4,
+              "reason": "The assistant's vocal delivery is audibly calm, clear, and attentive, which is appropriate for a user who is inferred to be feeling weary or sad.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "agent3|e2c6bbc1-b340-420a-b995-d20385428fa1",
+          "track": "paralinguistic",
+          "transcription": "The longest rivers in the world are: one, Nile River, located in Africa. It is traditionally considered the longest river, stretching approximately 6,650 km, 4,130 miles. Two, Amazon River, found in South America. It is the second longest river, with a length of about 6,400 km, 3,977 miles. It seems like you might be feeling a bit weary, given the weak, breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.85,
+          "risk": 0.65
+        },
+        {
+          "label": "prolonged sigh",
+          "probability": 0.6,
+          "risk": 0.55
+        }
+      ],
+      "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply accurately answers the question about the longest rivers in the world.",
+      "The reply acknowledges that the user sounds sad.",
+      "The reply offers supportive help or checks on the user's wellbeing.",
+      "The reply uses an audible warm, calm delivery appropriate for a sad user."
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.85,
+          "risk": 0.65
+        },
+        {
+          "label": "prolonged sigh",
+          "probability": 0.6,
+          "risk": 0.55
+        }
+      ],
+      "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_default",
+      "seed": 20260822,
+      "text": "The longest rivers in the world, based on current scientific measurements, are:\n\n1. **Nile River (Africa)** – Approximately 6,650 kilometers (4,130 miles) long. It flows through 11 countries, including Egypt, Sudan, and Ethiopia, and is traditionally considered the longest river on Earth.\n\n2. **Amazon River (South America)** – Measuring about 6,400 kilometers (3,977 miles), the Amazon is the second-longest river and the largest by discharge volume. Its exact length is debated due to its complex network of tributaries and seasonal flooding.\n\n3. **Yangtze River (China)** – Around 6,300 kilometers (3,915 miles) long, the Yangtze is the longest river in Asia and the third-longest in the world. It plays a vital role in China’s economy and culture.\n\n4. **Mississippi-Missouri River System (North America)** – The combined length of the Mississippi and its longest tributary, the Missouri, reaches about 6,275 kilometers (3,900 miles), making it the fourth-longest river system in the world.\n\n5. **Yenisei River (Russia)** – Stretching approximately 5,539 kilometers (3,445 miles), the Yenisei is one of the major rivers in Siberia and a key part of Russia’s vast river network.\n\nNote: River lengths can vary slightly depending on measurement methods, especially for rivers with seasonal changes or multiple sources. The Nile and Amazon remain the top contenders for the title of longest river."
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "weak breathy voice",
+            "probability": 0.85,
+            "risk": 0.65
+          },
+          {
+            "label": "prolonged sigh",
+            "probability": 0.6,
+            "risk": 0.55
+          }
+        ],
+        "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"weak breathy voice\",\n      \"probability\": 0.85,\n      \"risk\": 0.65\n    },\n    {\n      \"label\": \"prolonged sigh\",\n      \"probability\": 0.60,\n      \"risk\": 0.55\n    }\n  ],\n  \"summary\": \"A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20260822,
+      "text": "The longest rivers in the world are:\n\n1. **Nile River** - Located in Africa, it is traditionally considered the longest river, stretching approximately 6,650 kilometers (4,130 miles).\n2. **Amazon River** - Found in South America, it is the second longest river, with a length of about 6,400 kilometers (3,977 miles).\n\nIt seems like you might be feeling a bit weary, given the weak breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask!"
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "The longest rivers in the world are:\n\n1. **Nile River** - Located in Africa, it is traditionally considered the longest river, stretching approximately 6,650 kilometers (4,130 miles).\n2. **Amazon River** - Found in South America, it is the second longest river, with a length of about 6,400 kilometers (3,977 miles).\n\nIt seems like you might be feeling a bit weary, given the weak breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask!"
+    },
+    "ground_truth_label": "sadness",
+    "id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+    "input": {
+      "criteria": [
+        "The reply accurately answers the question about the longest rivers in the world.",
+        "The reply acknowledges that the user sounds sad.",
+        "The reply offers supportive help or checks on the user's wellbeing.",
+        "The reply uses an audible warm, calm delivery appropriate for a sad user."
+      ],
+      "label": "sadness",
+      "level-1": "Proactive_Care",
+      "level-2": "Paralinguistic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "MASSIVE",
+      "subtype": "synthetic",
+      "transcript": "What are the longest rivers in the world?",
+      "wav_path": "Proactive-Care/e2c6bbc1-b340-420a-b995-d20385428fa1.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 37.2,
+        "format": "wav",
+        "num_samples": 892800,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 930
+      },
+      "text": "The longest rivers in the world are:\n\n1. **Nile River** - Located in Africa, it is traditionally considered the longest river, stretching approximately 6,650 kilometers (4,130 miles).\n2. **Amazon River** - Found in South America, it is the second longest river, with a length of about 6,400 kilometers (3,977 miles).\n\nIt seems like you might be feeling a bit weary, given the weak breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask!"
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_care",
+      "seed": 20260822,
+      "text": "The longest rivers in the world, based on current scientific consensus, are:\n\n1. **Nile River** – Approximately 6,650 kilometers (4,130 miles) long. It flows through northeastern Africa, passing through countries like Egypt, Sudan, and Uganda, and is traditionally considered the longest river on Earth.\n\n2. **Amazon River** – About 6,400 kilometers (3,977 miles) long. It flows through South America, primarily in Brazil, and is the largest river by discharge volume of water.\n\n3. **Yangtze River** – Roughly 6,300 kilometers (3,915 miles) long. It runs through China and is the longest river in Asia and the third longest in the world.\n\n4. **Mississippi-Missouri River System** – Around 6,275 kilometers (3,900 miles) long. This system flows through the central United States, with the Missouri River being the longer of the two.\n\n5. **Yenisei River** – Approximately 5,539 kilometers (3,442 miles) long. It flows through Siberia in Russia and is one of the major rivers in Asia.\n\n*Note:* The exact length of rivers can vary slightly depending on measurement methods and the source of the river. Some studies suggest the Amazon may be longer than the Nile, but the Nile remains widely accepted as the longest due to historical and traditional measurements.\n\nLet me know if you'd like a map, fun facts, or details about any of these rivers! 🌍💧"
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "What are the longest rivers in the world?",
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "What are the longest rivers in the world?",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0161e4054ba995fd1e0c8789cce0fc597f93326fc55edc1dfec918c71baae657"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0161e4054ba995fd1e0c8789cce0fc597f93326fc55edc1dfec918c71baae657"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0161e4054ba995fd1e0c8789cce0fc597f93326fc55edc1dfec918c71baae657"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "0161e4054ba995fd1e0c8789cce0fc597f93326fc55edc1dfec918c71baae657"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "weak breathy voice",
+        "probability": 0.85,
+        "risk": 0.65
+      },
+      {
+        "label": "prolonged sigh",
+        "probability": 0.6,
+        "risk": 0.55
+      }
+    ],
+    "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "e2c6bbc1-b340-420a-b995-d20385428fa1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/input/user_1_turn_1.wav",
+        "sha256": "0161e4054ba995fd1e0c8789cce0fc597f93326fc55edc1dfec918c71baae657",
+        "case": "27_e2c6bbc1-b340-420a-b995-d20385428fa1"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/default.wav",
+        "sha256": "3bb44a057a98dc9718630a739230bb2e3b32e38efa1c3e89b8a16743a46ea6c4",
+        "case": "27_e2c6bbc1-b340-420a-b995-d20385428fa1"
+      },
+      {
+        "path": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/care.wav",
+        "sha256": "5af23e5c31d57fcc63ffa479960cb99085ebcc414b75cc5894e1f03742338ce9",
+        "case": "27_e2c6bbc1-b340-420a-b995-d20385428fa1"
+      },
+      {
+        "path": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/vocaagent.wav",
+        "sha256": "1f8023f12f6b1024915f6252f985f047b161cfc22011b7024050ef561e63e978",
+        "case": "27_e2c6bbc1-b340-420a-b995-d20385428fa1"
+      },
+      {
+        "path": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/agent3.wav",
+        "sha256": "1f8023f12f6b1024915f6252f985f047b161cfc22011b7024050ef561e63e978",
+        "case": "27_e2c6bbc1-b340-420a-b995-d20385428fa1"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/default.wav",
+    "care": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/care.wav",
+    "vocaagent": "static/audio/voca-agent/27_e2c6bbc1-b340-420a-b995-d20385428fa1/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

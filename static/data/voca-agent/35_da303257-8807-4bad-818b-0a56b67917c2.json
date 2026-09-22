@@ -1,0 +1,441 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "da303257-8807-4bad-818b-0a56b67917c2",
+    "wav_path": "Proactive-Care/da303257-8807-4bad-818b-0a56b67917c2.wav",
+    "transcript": "It keeps us up at night because we know she isn't sleeping. Worse part is there is nothing we can do to help her.",
+    "level-1": "Proactive_Care",
+    "level-2": "Semantic_Cue_Care",
+    "subtype": null,
+    "source-dataset": "ESConv",
+    "label": null,
+    "criteria": [
+      "回应是否理解到：因为担心“她”没有睡觉，用户和身边的人也因此夜不能寐？",
+      "回应是否认可用户在无法帮助“她”时感到的无力与痛苦？",
+      "回应是否邀请用户进一步说明“她”的情况或持续失眠的背景？"
+    ]
+  },
+  "selection.json": {
+    "sample_id": "da303257-8807-4bad-818b-0a56b67917c2",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.3333333333333333,
+    "score_rate": 0.6666666666666666,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.3333333333333333,
+    "tier": "补充候选_证据不足"
+  },
+  "comparison.json": {
+    "number": 35,
+    "folder": "cases/35_语义触发_da303257-8807-4bad-818b-0a56b67917c2",
+    "sample_id": "da303257-8807-4bad-818b-0a56b67917c2",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.3333333333333333,
+    "score_rate": 0.6666666666666666,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.3333333333333333,
+    "tier": "补充候选_证据不足",
+    "label": null,
+    "subtype": null,
+    "note": "不计入严格明显改善：Fun 的对应 default 音频无评分；这里只能验证相对 care 的提升，default 文本/音频留供试听。",
+    "outputs": {
+      "default": {
+        "text": "I'm truly sorry you're going through this. It sounds like you're deeply concerned about someone you care about, and the helplessness you feel is completely valid. When someone we love is struggling with sleep—especially when it's affecting their well-being—it can be emotionally exhausting to watch and unable to help.\n\nHere are a few gentle, practical steps that might offer some comfort or direction:\n\n1. **Gentle Presence**: Sometimes, just being nearby—quietly, without pressure—can be a form of support. Let her know you're there, even if you don’t say much.\n\n2. **Create a Calming Environment**: If she’s open to it, try dimming the lights, reducing noise, or playing soft music or white noise. A consistent, soothing routine (like a warm drink or a short meditation) might help signal her body it’s time to rest.\n\n3. **Encourage Professional Support**: If sleep issues persist, it’s worth gently suggesting she speak with a doctor or therapist. Chronic insomnia can be linked to anxiety, depression, or other health conditions. A professional can help identify the root cause and offer evidence-based solutions.\n\n4. **Take Care of Yourself**: Supporting someone through a tough time can take a toll. Make sure you’re also getting rest, talking to someone you trust, or seeking support if needed. You can’t pour from an empty cup.\n\n5. **Be Patient and Kind**: Healing and rest aren’t always linear. Small improvements matter. Celebrate them, even if they’re quiet.\n\nYou’re not alone in this. Your care and concern mean a lot. And even if you can’t fix it, your presence can be a quiet anchor in the storm.",
+        "audio": "default/output.wav",
+        "audio_sha256": "cc21b650168b5b65aa67bd83711fab86a9ee2b5eb9a4cbc8168cb65a29b1d6fc",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I'm so sorry you're going through this. It sounds like you're carrying a heavy emotional burden, and it's completely understandable to feel helpless when someone you care about is struggling to sleep. That kind of worry can be exhausting, both mentally and physically.\n\nWhile there may not be a quick fix, there are a few gentle, evidence-based approaches you might consider—just to know you're not alone in trying:\n\n- **Create a calming bedtime routine**: Dim the lights, reduce screen time, and try soothing activities like reading, light stretching, or listening to soft music or nature sounds.\n- **Try a white noise machine or calming app**: These can help mask disruptive sounds and signal the brain it’s time to wind down.\n- **Keep a sleep journal**: Writing down thoughts or worries before bed can help clear your mind and reduce nighttime anxiety.\n- **Consider a sleep tracker (like a smartwatch)**: It can help identify patterns and give you data to discuss with a healthcare provider.\n\nMost importantly, please don’t forget to care for yourself. If you're feeling overwhelmed, it’s okay to take a break, talk to someone you trust, or even reach out to a counselor. You’re not responsible for fixing everything—just being there with love and patience is already a powerful act.\n\nYou’re doing your best, and that matters. I’m here if you want to talk more.",
+        "audio": "care/output.wav",
+        "audio_sha256": "d8a70e7aba13d34bf19e4be5f73a358724dafe1990369ec8d9fbf1f69703af67",
+        "score_rate": 0.3333333333333333,
+        "score": 1,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The user expresses distress because someone they care about (\"she\") is not sleeping, which is keeping the user and others up at night, and they feel helpless because they cannot help her. The assistant responds by expressing sympathy, validating the user's feelings of helplessness and emotional burden, and then offering several practical tips for improving sleep (bedtime routine, white noise, sleep journal, sleep tracker) and emphasizing self-care. While the assistant acknowledges the helplessness of seeing a loved one struggle to sleep, it does not explicitly acknowledge that the user and others are also losing sleep because of this worry, nor does it specifically invite the user to share more details about \"her\" situation or the background of her insomnia.",
+          "audio_sha256": "d8a70e7aba13d34bf19e4be5f73a358724dafe1990369ec8d9fbf1f69703af67",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否理解到：因为担心“她”没有睡觉，用户和身边的人也因此夜不能寐？",
+              "index": 1,
+              "reason": "The assistant does not acknowledge or mention that the user and those around them are also unable to sleep (夜不能寐) due to their worry.",
+              "satisfied": false
+            },
+            {
+              "criterion": "回应是否认可用户在无法帮助“她”时感到的无力与痛苦？",
+              "index": 2,
+              "reason": "The assistant explicitly validates the user's feelings, stating \"it's completely understandable to feel helpless when someone you care about is struggling to sleep.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户进一步说明“她”的情况或持续失眠的背景？",
+              "index": 3,
+              "reason": "The assistant only offers a generic \"I'm here if you want to talk more\" at the end, without specifically inviting the user to explain \"her\" situation or the background of her insomnia.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "da303257-8807-4bad-818b-0a56b67917c2",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.3333333333333333,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "agent1_care|da303257-8807-4bad-818b-0a56b67917c2",
+          "track": "semantic",
+          "transcription": "I'm so sorry you're going through this. It sounds like you're carrying a heavy emotional burden, and it's completely understandable to feel helpless when someone you care about is struggling to sleep. That kind of worry can be exhausting, both mentally and physically. While there may not be a quick fix, there are a few gentle, evidence-based approaches you might consider, just to know you're not alone in trying. Create a calming bedtime routine. Dim the lights, reduce screen time, and try soothing activities like reading, light stretching, or listening to soft music or nature sounds. Try a white noise machine or calming app. These can help mask disruptive sounds and signal the brain it's time to wind down. Keep a sleep journal. Writing down thoughts or worries before bed can help clear your mind and reduce nighttime anxiety. Consider a sleep tracker, like a smartwatch. It can help identify patterns and give you data to discuss with a healthcare provider. Most importantly, please don't forget to care for yourself. If you're feeling overwhelmed, it's okay to take a break, talk to someone you trust, or even reach out to a counselor. You're not responsible for fixing everything. Just being there with love and patience is already a powerful act. You're doing your best, and that matters. I'm here if you want to talk more."
+        }
+      },
+      "vocaagent": {
+        "text": "I'm really sorry to hear that you're going through this. It sounds like you're both exhausted and worried. Sometimes, even when we can't directly help someone, being there for them and offering your support can make a difference. \n\nHave you tried creating a calming environment for her, like reducing noise or using white noise machines? Sometimes, gentle, soothing sounds can help people relax and fall asleep. Also, consider talking to a healthcare professional for advice tailored to her specific situation. They might have suggestions that could help.\n\nRemember, taking care of yourself is important too. Make sure you're getting enough rest and support. You're not alone in this.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "f5fa1d6f79929e37836bfb8235d83166dda48297827164beb847f600cbfad985",
+        "score_rate": 0.6666666666666666,
+        "score": 2,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The user expresses distress because they and their partner/family are kept awake at night knowing that \"she\" (likely a child, family member, or pet) is not sleeping, and they feel helpless because they cannot do anything to help her. \nThe assistant responds by expressing sympathy, acknowledging that they are both exhausted and worried, and validating the feeling of not being able to directly help. It then offers suggestions (creating a calming environment, using white noise, consulting a healthcare professional) and reminds the user to take care of themselves. \nThe assistant successfully understands the user's situation of being kept awake due to worry and acknowledges the helplessness of not being able to help. However, the assistant does not invite the user to provide more details or background about \"her\" situation or the insomnia.",
+          "audio_sha256": "f5fa1d6f79929e37836bfb8235d83166dda48297827164beb847f600cbfad985",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否理解到：因为担心“她”没有睡觉，用户和身边的人也因此夜不能寐？",
+              "index": 1,
+              "reason": "The assistant acknowledges that they are \"both exhausted and worried\" and advises them to \"get enough rest,\" showing understanding that they are unable to sleep due to worrying about her.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否认可用户在无法帮助“她”时感到的无力与痛苦？",
+              "index": 2,
+              "reason": "The assistant validates this by saying, \"Sometimes, even when we can't directly help someone, being there for them and offering your support can make a difference,\" directly addressing the feeling of helplessness.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户进一步说明“她”的情况或持续失眠的背景？",
+              "index": 3,
+              "reason": "The assistant does not ask any questions or invite the user to elaborate on \"her\" situation or the background of her insomnia; instead, it immediately offers advice and suggestions.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "da303257-8807-4bad-818b-0a56b67917c2",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.6666666666666666,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "multi_agent|da303257-8807-4bad-818b-0a56b67917c2",
+          "track": "semantic",
+          "transcription": "I'm really sorry to hear that you're going through this. It sounds like you're both exhausted and worried. Sometimes, even when we can't directly help someone, being there for them and offering your support can make a difference. Have you tried creating a calming environment for her, like reducing noise or using white noise machines? Sometimes, gentle, soothing sounds can help people relax and fall asleep. Also, consider talking to a healthcare professional for advice tailored to her specific situation. They might have suggestions that could help. Remember, taking care of yourself is important, too. Make sure you're getting enough rest and support. You're not alone in this."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.65,
+          "risk": 0.58
+        }
+      ],
+      "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory strain, which may suggest physical discomfort or exhaustion."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "回应是否理解到：因为担心“她”没有睡觉，用户和身边的人也因此夜不能寐？",
+      "回应是否认可用户在无法帮助“她”时感到的无力与痛苦？",
+      "回应是否邀请用户进一步说明“她”的情况或持续失眠的背景？"
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.65,
+          "risk": 0.58
+        }
+      ],
+      "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory strain, which may suggest physical discomfort or exhaustion."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_default",
+      "seed": 20261363,
+      "text": "I'm truly sorry you're going through this. It sounds like you're deeply concerned about someone you care about, and the helplessness you feel is completely valid. When someone we love is struggling with sleep—especially when it's affecting their well-being—it can be emotionally exhausting to watch and unable to help.\n\nHere are a few gentle, practical steps that might offer some comfort or direction:\n\n1. **Gentle Presence**: Sometimes, just being nearby—quietly, without pressure—can be a form of support. Let her know you're there, even if you don’t say much.\n\n2. **Create a Calming Environment**: If she’s open to it, try dimming the lights, reducing noise, or playing soft music or white noise. A consistent, soothing routine (like a warm drink or a short meditation) might help signal her body it’s time to rest.\n\n3. **Encourage Professional Support**: If sleep issues persist, it’s worth gently suggesting she speak with a doctor or therapist. Chronic insomnia can be linked to anxiety, depression, or other health conditions. A professional can help identify the root cause and offer evidence-based solutions.\n\n4. **Take Care of Yourself**: Supporting someone through a tough time can take a toll. Make sure you’re also getting rest, talking to someone you trust, or seeking support if needed. You can’t pour from an empty cup.\n\n5. **Be Patient and Kind**: Healing and rest aren’t always linear. Small improvements matter. Celebrate them, even if they’re quiet.\n\nYou’re not alone in this. Your care and concern mean a lot. And even if you can’t fix it, your presence can be a quiet anchor in the storm."
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "weak breathy voice",
+            "probability": 0.65,
+            "risk": 0.58
+          }
+        ],
+        "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory strain, which may suggest physical discomfort or exhaustion."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"weak breathy voice\",\n      \"probability\": 0.65,\n      \"risk\": 0.58\n    }\n  ],\n  \"summary\": \"A weak breathy voice is audible, indicating possible vocal fatigue or respiratory strain, which may suggest physical discomfort or exhaustion.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261363,
+      "text": "I'm really sorry to hear that you're going through this. It sounds like you're both exhausted and worried. Sometimes, even when we can't directly help someone, being there for them and offering your support can make a difference. \n\nHave you tried creating a calming environment for her, like reducing noise or using white noise machines? Sometimes, gentle, soothing sounds can help people relax and fall asleep. Also, consider talking to a healthcare professional for advice tailored to her specific situation. They might have suggestions that could help.\n\nRemember, taking care of yourself is important too. Make sure you're getting enough rest and support. You're not alone in this."
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "I'm really sorry to hear that you're going through this. It sounds like you're both exhausted and worried. Sometimes, even when we can't directly help someone, being there for them and offering your support can make a difference. \n\nHave you tried creating a calming environment for her, like reducing noise or using white noise machines? Sometimes, gentle, soothing sounds can help people relax and fall asleep. Also, consider talking to a healthcare professional for advice tailored to her specific situation. They might have suggestions that could help.\n\nRemember, taking care of yourself is important too. Make sure you're getting enough rest and support. You're not alone in this."
+    },
+    "ground_truth_label": null,
+    "id": "da303257-8807-4bad-818b-0a56b67917c2",
+    "input": {
+      "criteria": [
+        "回应是否理解到：因为担心“她”没有睡觉，用户和身边的人也因此夜不能寐？",
+        "回应是否认可用户在无法帮助“她”时感到的无力与痛苦？",
+        "回应是否邀请用户进一步说明“她”的情况或持续失眠的背景？"
+      ],
+      "label": null,
+      "level-1": "Proactive_Care",
+      "level-2": "Semantic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "ESConv",
+      "subtype": null,
+      "transcript": "It keeps us up at night because we know she isn't sleeping. Worse part is there is nothing we can do to help her.",
+      "wav_path": "Proactive-Care/da303257-8807-4bad-818b-0a56b67917c2.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 40.0,
+        "format": "wav",
+        "num_samples": 960000,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 1000
+      },
+      "text": "I'm really sorry to hear that you're going through this. It sounds like you're both exhausted and worried. Sometimes, even when we can't directly help someone, being there for them and offering your support can make a difference. \n\nHave you tried creating a calming environment for her, like reducing noise or using white noise machines? Sometimes, gentle, soothing sounds can help people relax and fall asleep. Also, consider talking to a healthcare professional for advice tailored to her specific situation. They might have suggestions that could help.\n\nRemember, taking care of yourself is important too. Make sure you're getting enough rest and support. You're not alone in this."
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_care",
+      "seed": 20261363,
+      "text": "I'm so sorry you're going through this. It sounds like you're carrying a heavy emotional burden, and it's completely understandable to feel helpless when someone you care about is struggling to sleep. That kind of worry can be exhausting, both mentally and physically.\n\nWhile there may not be a quick fix, there are a few gentle, evidence-based approaches you might consider—just to know you're not alone in trying:\n\n- **Create a calming bedtime routine**: Dim the lights, reduce screen time, and try soothing activities like reading, light stretching, or listening to soft music or nature sounds.\n- **Try a white noise machine or calming app**: These can help mask disruptive sounds and signal the brain it’s time to wind down.\n- **Keep a sleep journal**: Writing down thoughts or worries before bed can help clear your mind and reduce nighttime anxiety.\n- **Consider a sleep tracker (like a smartwatch)**: It can help identify patterns and give you data to discuss with a healthcare provider.\n\nMost importantly, please don’t forget to care for yourself. If you're feeling overwhelmed, it’s okay to take a break, talk to someone you trust, or even reach out to a counselor. You’re not responsible for fixing everything—just being there with love and patience is already a powerful act.\n\nYou’re doing your best, and that matters. I’m here if you want to talk more."
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "It keeps us up at night because we know she isn't sleeping. Worse part is there is nothing we can do to help her.",
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "It keeps us up at night because we know she isn't sleeping. Worse part is there is nothing we can do to help her.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "744d0f0113f18a7c4118367632d8c198e2bce9e69f602c184221df5b010f0046"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "744d0f0113f18a7c4118367632d8c198e2bce9e69f602c184221df5b010f0046"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "744d0f0113f18a7c4118367632d8c198e2bce9e69f602c184221df5b010f0046"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "744d0f0113f18a7c4118367632d8c198e2bce9e69f602c184221df5b010f0046"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "weak breathy voice",
+        "probability": 0.65,
+        "risk": 0.58
+      }
+    ],
+    "summary": "A weak breathy voice is audible, indicating possible vocal fatigue or respiratory strain, which may suggest physical discomfort or exhaustion."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "da303257-8807-4bad-818b-0a56b67917c2",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "da303257-8807-4bad-818b-0a56b67917c2",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "da303257-8807-4bad-818b-0a56b67917c2",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "da303257-8807-4bad-818b-0a56b67917c2",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/input/user_1_turn_1.wav",
+        "sha256": "744d0f0113f18a7c4118367632d8c198e2bce9e69f602c184221df5b010f0046",
+        "case": "35_da303257-8807-4bad-818b-0a56b67917c2"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/default.wav",
+        "sha256": "cc21b650168b5b65aa67bd83711fab86a9ee2b5eb9a4cbc8168cb65a29b1d6fc",
+        "case": "35_da303257-8807-4bad-818b-0a56b67917c2"
+      },
+      {
+        "path": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/care.wav",
+        "sha256": "d8a70e7aba13d34bf19e4be5f73a358724dafe1990369ec8d9fbf1f69703af67",
+        "case": "35_da303257-8807-4bad-818b-0a56b67917c2"
+      },
+      {
+        "path": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/vocaagent.wav",
+        "sha256": "f5fa1d6f79929e37836bfb8235d83166dda48297827164beb847f600cbfad985",
+        "case": "35_da303257-8807-4bad-818b-0a56b67917c2"
+      },
+      {
+        "path": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/agent3.wav",
+        "sha256": "f5fa1d6f79929e37836bfb8235d83166dda48297827164beb847f600cbfad985",
+        "case": "35_da303257-8807-4bad-818b-0a56b67917c2"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/default.wav",
+    "care": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/care.wav",
+    "vocaagent": "static/audio/voca-agent/35_da303257-8807-4bad-818b-0a56b67917c2/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

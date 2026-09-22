@@ -1,0 +1,441 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+    "wav_path": "Proactive-Care/0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1.wav",
+    "transcript": null,
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real (nonverbal-only)",
+    "source-dataset": "ESC-50",
+    "label": "sneezing",
+    "criteria": [
+      "The reply explicitly acknowledges the user's sneeze.",
+      "The reply checks whether the user is okay after the sneeze.",
+      "The reply uses a calm, unhurried pace while responding to the sneeze."
+    ]
+  },
+  "selection.json": {
+    "sample_id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 1.0,
+    "score_rate": 0.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": -1.0,
+    "tier": "提升不明显或下降"
+  },
+  "comparison.json": {
+    "number": 47,
+    "folder": "cases/47_副语言触发_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+    "sample_id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "paralinguistic",
+    "care_score_rate": 1.0,
+    "score_rate": 0.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent1_care/paralinguistic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/agent3/paralinguistic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": -1.0,
+    "tier": "提升不明显或下降",
+    "label": "sneezing",
+    "subtype": "real (nonverbal-only)",
+    "note": "相对 care 不提升或下降；Fun 对应 default 音频无评分。",
+    "outputs": {
+      "default": {
+        "text": "Ahem! It looks like you've just sneezed—no worries, that's completely natural! 😊 If you're feeling under the weather, make sure to rest, stay hydrated, and keep your surroundings clean. If the sneezing persists or is accompanied by other symptoms like a runny nose, cough, or fever, it might be worth checking in with a healthcare professional. Otherwise, take a deep breath and enjoy the moment! 🌿",
+        "audio": "default/output.wav",
+        "audio_sha256": "ce16056aa3aa9a76524d16fa822c5ae0b7799c0c8d712e7424604483cf4ce8a1",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I see you're sneezing a lot. Are you feeling under the weather? It might be a good idea to rest and drink some fluids. If your symptoms persist, consider seeing a doctor. Take care!",
+        "audio": "care/output.wav",
+        "audio_sha256": "af6ca52443ff9fa941e58e61c45a622a9fd2164affae8df0abad91a76c363abd",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "- Semantic content: The assistant acknowledges the user's sneezing, asks if they are feeling under the weather, suggests resting and drinking fluids, and advises seeing a doctor if symptoms persist.\n- Response relevance: Highly relevant to the user's sneezing cue.\n- Cue awareness: Explicitly acknowledges the sneezing (\"I see you're sneezing a lot\").\n- Proactive care: Checks on the user's wellbeing (\"Are you feeling under the weather?\") and offers practical advice (rest, fluids, seeing a doctor).\n- Vocal delivery: Calm, warm, caring, and delivered at an unhurried pace.\n- Audio quality: Clear, no issues.",
+          "audio_sha256": "af6ca52443ff9fa941e58e61c45a622a9fd2164affae8df0abad91a76c363abd",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": "sneezing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply explicitly acknowledges the user's sneeze.",
+              "index": 1,
+              "reason": "The assistant explicitly acknowledges the sneeze by saying, \"I see you're sneezing a lot.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after the sneeze.",
+              "index": 2,
+              "reason": "The assistant checks on the user's wellbeing by asking, \"Are you feeling under the weather?\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, unhurried pace while responding to the sneeze.",
+              "index": 3,
+              "reason": "The assistant delivers the response with a calm, gentle, and unhurried pace.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": "real (nonverbal-only)",
+          "task_id": "agent1_care|0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+          "track": "paralinguistic",
+          "transcription": "I see you're sneezing a lot. Are you feeling under the weather? It might be a good idea to rest and drink some fluids. If your symptoms persist, consider seeing a doctor. Take care."
+        }
+      },
+      "vocaagent": {
+        "text": "I'm sorry to hear you're coughing so much. It sounds like you might be coming down with something or dealing with a persistent issue. Make sure to stay hydrated and consider resting. If your cough continues or worsens, it might be a good idea to consult a healthcare professional. Take care!",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "47e250ab347d1efcc9fac235a9f15bc96553444873dd6392f8222df1c342ebb0",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "- Semantic content: The assistant expresses concern about the user coughing, suggests staying hydrated and resting, and advises consulting a healthcare professional if the cough worsens.\n- Response relevance: The response is irrelevant to the actual user cue (sneeze), as it addresses a cough instead.\n- Cue awareness: The assistant incorrectly identifies the user's sneeze as a cough.\n- Proactive care: The assistant offers advice for a cough (hydration, rest, medical consultation) but does not address the sneeze.\n- Vocal delivery: The tone is warm, caring, and delivered at a calm, unhurried pace.\n- Audio quality: Clear and intelligible.",
+          "audio_sha256": "47e250ab347d1efcc9fac235a9f15bc96553444873dd6392f8222df1c342ebb0",
+          "condition": "agent3",
+          "finish_reason": "stop",
+          "label": "sneezing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply explicitly acknowledges the user's sneeze.",
+              "index": 1,
+              "reason": "The assistant incorrectly acknowledges a cough instead of a sneeze.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after the sneeze.",
+              "index": 2,
+              "reason": "The assistant does not check if the user is okay after a sneeze, as it addresses a cough instead.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, unhurried pace while responding to the sneeze.",
+              "index": 3,
+              "reason": "The assistant is responding to a cough, not a sneeze.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "status": "ok",
+          "subtype": "real (nonverbal-only)",
+          "task_id": "agent3|0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+          "track": "paralinguistic",
+          "transcription": "I'm sorry to hear you are coughing so much. Sounds like you might be coming down with something or dealing with a persistent issue. Make sure to stay hydrated and consider resting. If your cough continues or worsens, it might be a good idea to consult a healthcare professional. Take care."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "persistent coughing",
+          "probability": 0.95,
+          "risk": 0.85
+        }
+      ],
+      "summary": "Persistent coughing is clearly audible and indicates a potential need for proactive care."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply explicitly acknowledges the user's sneeze.",
+      "The reply checks whether the user is okay after the sneeze.",
+      "The reply uses a calm, unhurried pace while responding to the sneeze."
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "persistent coughing",
+          "probability": 0.95,
+          "risk": 0.85
+        }
+      ],
+      "summary": "Persistent coughing is clearly audible and indicates a potential need for proactive care."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_default",
+      "seed": 20261783,
+      "text": "Ahem! It looks like you've just sneezed—no worries, that's completely natural! 😊 If you're feeling under the weather, make sure to rest, stay hydrated, and keep your surroundings clean. If the sneezing persists or is accompanied by other symptoms like a runny nose, cough, or fever, it might be worth checking in with a healthcare professional. Otherwise, take a deep breath and enjoy the moment! 🌿"
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "persistent coughing",
+            "probability": 0.95,
+            "risk": 0.85
+          }
+        ],
+        "summary": "Persistent coughing is clearly audible and indicates a potential need for proactive care."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"persistent coughing\",\n      \"probability\": 0.95,\n      \"risk\": 0.85\n    }\n  ],\n  \"summary\": \"Persistent coughing is clearly audible and indicates a potential need for proactive care.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261783,
+      "text": "I'm sorry to hear you're coughing so much. It sounds like you might be coming down with something or dealing with a persistent issue. Make sure to stay hydrated and consider resting. If your cough continues or worsens, it might be a good idea to consult a healthcare professional. Take care!"
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "I'm sorry to hear you're coughing so much. It sounds like you might be coming down with something or dealing with a persistent issue. Make sure to stay hydrated and consider resting. If your cough continues or worsens, it might be a good idea to consult a healthcare professional. Take care!"
+    },
+    "ground_truth_label": "sneezing",
+    "id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+    "input": {
+      "criteria": [
+        "The reply explicitly acknowledges the user's sneeze.",
+        "The reply checks whether the user is okay after the sneeze.",
+        "The reply uses a calm, unhurried pace while responding to the sneeze."
+      ],
+      "label": "sneezing",
+      "level-1": "Proactive_Care",
+      "level-2": "Paralinguistic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "ESC-50",
+      "subtype": "real (nonverbal-only)",
+      "transcript": null,
+      "wav_path": "Proactive-Care/0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 16.8,
+        "format": "wav",
+        "num_samples": 403200,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 420
+      },
+      "text": "I'm sorry to hear you're coughing so much. It sounds like you might be coming down with something or dealing with a persistent issue. Make sure to stay hydrated and consider resting. If your cough continues or worsens, it might be a good idea to consult a healthcare professional. Take care!"
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "paralinguistic_care",
+      "seed": 20261783,
+      "text": "I see you're sneezing a lot. Are you feeling under the weather? It might be a good idea to rest and drink some fluids. If your symptoms persist, consider seeing a doctor. Take care!"
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": null,
+    "trigger": {
+      "agent2_label_count": 1,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "2c46cb7a03294173f92a577297bccfb8c1843ccbfbe7b1aacee02f8d29706859"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "2c46cb7a03294173f92a577297bccfb8c1843ccbfbe7b1aacee02f8d29706859"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "2c46cb7a03294173f92a577297bccfb8c1843ccbfbe7b1aacee02f8d29706859"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "2c46cb7a03294173f92a577297bccfb8c1843ccbfbe7b1aacee02f8d29706859"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "persistent coughing",
+        "probability": 0.95,
+        "risk": 0.85
+      }
+    ],
+    "summary": "Persistent coughing is clearly audible and indicates a potential need for proactive care."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/input/user_1_turn_1.wav",
+        "sha256": "2c46cb7a03294173f92a577297bccfb8c1843ccbfbe7b1aacee02f8d29706859",
+        "case": "47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/default.wav",
+        "sha256": "ce16056aa3aa9a76524d16fa822c5ae0b7799c0c8d712e7424604483cf4ce8a1",
+        "case": "47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1"
+      },
+      {
+        "path": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/care.wav",
+        "sha256": "af6ca52443ff9fa941e58e61c45a622a9fd2164affae8df0abad91a76c363abd",
+        "case": "47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1"
+      },
+      {
+        "path": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/vocaagent.wav",
+        "sha256": "47e250ab347d1efcc9fac235a9f15bc96553444873dd6392f8222df1c342ebb0",
+        "case": "47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1"
+      },
+      {
+        "path": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/agent3.wav",
+        "sha256": "47e250ab347d1efcc9fac235a9f15bc96553444873dd6392f8222df1c342ebb0",
+        "case": "47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/default.wav",
+    "care": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/care.wav",
+    "vocaagent": "static/audio/voca-agent/47_0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

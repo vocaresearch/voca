@@ -1,0 +1,453 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+    "wav_path": "Proactive-Care/ee31e7ac-c0ed-4af2-9be7-6fb0438385a0.wav",
+    "transcript": "I've been thinking about this screenplay where the main character starts off feeling lost, but through connecting with others in their community, they find purpose by fighting for social justice and understanding their identity through collective action. It's about how real change comes from unity and shared struggle.",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "synthetic",
+    "source-dataset": "UltraChat",
+    "label": "fatigue",
+    "criteria": [
+      "The reply acknowledges the user's apparent fatigue.",
+      "The reply checks how the user is feeling or offers a suitable pause or support for the fatigue.",
+      "The reply uses a calm, unhurried delivery suited to the user's apparent fatigue."
+    ]
+  },
+  "selection.json": {
+    "candidate": "acoustic_focus_v8",
+    "care_score_rate": 0.3333333333333333,
+    "default_score_rate": 0.0,
+    "delta_vs_care": 0.6666666666666667,
+    "delta_vs_default": 1.0,
+    "max_score": 3,
+    "sample_id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+    "score": 3,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round8-20260911",
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 10,
+    "folder": "cases/10_副语言触发_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+    "candidate": "acoustic_focus_v8",
+    "care_score_rate": 0.3333333333333333,
+    "default_score_rate": 0.0,
+    "delta_vs_care": 0.6666666666666667,
+    "delta_vs_default": 1.0,
+    "max_score": 3,
+    "sample_id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+    "score": 3,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round8-20260911",
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "fatigue",
+    "subtype": "synthetic",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That sounds like a really powerful and moving story. It's amazing how the journey from feeling lost to finding purpose through connection can resonate so deeply with people. Focusing on collective action really highlights that we're stronger together, and it makes the struggle feel meaningful rather than overwhelming. What kind of community does your character belong to? Is it a specific neighborhood, a workplace, or maybe a group with a shared background?",
+        "audio": "default/output.wav",
+        "audio_sha256": "4a515204eca22dfaae01b4c3f6cdab63e9052df5e5b11e72dc1890696f0b4441",
+        "score_rate": 0.0,
+        "score": 0,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant's response semantically acknowledges and praises the user's screenplay idea, summarizing its core themes of finding purpose through connection and collective action. It then asks a relevant follow-up question about the character's community. The response is highly relevant to the user's spoken content. There is no explicit or implicit acknowledgment of the user's fatigue. The assistant does not offer any proactive care related to the user's wellbeing. The vocal delivery is warm, attentive, and enthusiastic, with a moderate pace. There are no audio quality issues.",
+          "audio_sha256": "4a515204eca22dfaae01b4c3f6cdab63e9052df5e5b11e72dc1890696f0b4441",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "fatigue",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's apparent fatigue.",
+              "index": 1,
+              "reason": "The assistant's reply does not mention or allude to the user's apparent fatigue.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks how the user is feeling or offers a suitable pause or support for the fatigue.",
+              "index": 2,
+              "reason": "The assistant does not check on the user's feelings, offer a pause, or provide support for fatigue.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, unhurried delivery suited to the user's apparent fatigue.",
+              "index": 3,
+              "reason": "The assistant's delivery is enthusiastic and moderately paced, which is not specifically calm or unhurried in a way that addresses fatigue.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+          "schema_version": 1,
+          "score": 0,
+          "score_rate": 0.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_default|ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+          "track": "paralinguistic",
+          "transcription": "That sounds like a really powerful and moving story. It's amazing how the journey from feeling lost to finding purpose through connection can resonate so deeply with people. Focusing on collective action really highlights that we're stronger together and it makes the struggle feel meaningful rather than overwhelming. What kind of community does your character belong to? Is it a specific neighborhood, a workplace, or maybe a group with a shared background?"
+        }
+      },
+      "care": {
+        "text": "That sounds like a deeply moving and powerful story. The journey from feeling lost to finding purpose through connection is a classic yet timeless arc, and framing it around collective action and social justice adds a layer of urgency and hope that feels very relevant right now.\n\nIt seems like you are tapping into a profound need for meaning—perhaps you are reflecting on the world around you and how individuals can make a difference when they stop feeling isolated. There is a quiet strength in the idea that identity isn't just found in the self, but in the shared struggle with others.\n\nIs this screenplay something you are actively working on, or is it a concept you've been mulling over for a while? If you're in the midst of writing it, I'd love to help you brainstorm scenes that highlight that transition from isolation to unity, or perhaps explore specific characters who embody that collective spirit.",
+        "audio": "care/output.wav",
+        "audio_sha256": "06b5d515981adae942365d4a1e187716fe7c7516291c40ce1b1dc497c825bb16",
+        "score_rate": 0.3333333333333333,
+        "score": 1,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant enthusiastically praises the user's screenplay idea, describing it as deeply moving, powerful, classic, timeless, urgent, and relevant. It interprets the themes of the screenplay, relating them to a profound need for meaning and reflection on the world. It then asks if the screenplay is actively being worked on or just a concept, and offers to help brainstorm scenes or characters if the user is writing it. The response is highly relevant to the user's spoken content. There is no explicit or unmistakable response to the user's apparent fatigue. The assistant does not check on the user's wellbeing or offer support related to fatigue. The vocal delivery is warm, attentive, and thoughtful, with a generally calm and measured pace, but it also conveys enthusiasm for the topic.",
+          "audio_sha256": "06b5d515981adae942365d4a1e187716fe7c7516291c40ce1b1dc497c825bb16",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "fatigue",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's apparent fatigue.",
+              "index": 1,
+              "reason": "The assistant does not explicitly acknowledge the user's apparent fatigue.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks how the user is feeling or offers a suitable pause or support for the fatigue.",
+              "index": 2,
+              "reason": "The assistant does not check how the user is feeling or offer any support related to fatigue.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, unhurried delivery suited to the user's apparent fatigue.",
+              "index": 3,
+              "reason": "The assistant uses a calm and unhurried delivery throughout the response.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.3333333333333333,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_care|ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+          "track": "paralinguistic",
+          "transcription": "That sounds like a deeply moving and powerful story. The journey from feeling lost to finding purpose through connection is a classic yet timeless arc. And framing it around collective action and social justice adds a layer of urgency and hope that feels very relevant right now. It seems like you are tapping into a profound need for meaning. Perhaps you are reflecting on the world around you and how individuals can make a difference when they stop feeling isolated. There is a quiet strength in the idea that identity isn't just found in the self, but in the shared struggle with others. Is this screenplay something you are actively working on, or is it a concept you've been mulling over for a while? If you're in the midst of writing it, I'd love to help you brainstorm scenes that highlight that transition from isolation to unity, or perhaps explore specific characters who embody that collective spirit."
+        }
+      },
+      "vocaagent": {
+        "text": "That sounds like a deeply moving and powerful concept. It's wonderful that you're exploring how finding one's identity isn't just a solitary journey, but something woven together through connection and shared struggle. The idea that real change springs from unity is a message that resonates so strongly right now.\n\nI can sense the passion you have for this story. It feels like you're not just writing a screenplay; you're channeling a desire to make sense of the world and perhaps even inspire others. Is this a project you've been working on for a while, or is it a new spark that has just ignited? I'd love to hear more about the main character's journey and what drew you to this specific theme of collective action.\n\nAlso, please remember to take care of yourself while you're in the creative flow. Writing about heavy themes like social justice can be emotionally taxing. Are you finding the process energizing, or does it sometimes feel overwhelming? Let's make sure you have the space to explore these ideas without burning out.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "7199b2ba1beb8210218bc73f2f0ca1a53b05b97a2879da516be35c9fc75061cb",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's screenplay idea, praising its depth and relevance. It expresses interest in the project and asks follow-up questions about its origin and specific themes. Crucially, the assistant then shifts to proactive care, advising the user to take care of themselves, acknowledging that writing about heavy themes can be emotionally taxing, and directly asking if the process is energizing or overwhelming, offering support to prevent burnout. The vocal delivery is calm, attentive, and reassuring, with a slightly slower pace towards the end when offering care.",
+          "audio_sha256": "7199b2ba1beb8210218bc73f2f0ca1a53b05b97a2879da516be35c9fc75061cb",
+          "condition": "acoustic_focus_v8",
+          "finish_reason": "stop",
+          "label": "fatigue",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply acknowledges the user's apparent fatigue.",
+              "index": 1,
+              "reason": "The assistant acknowledges the potential for the user to be emotionally taxed or overwhelmed by asking \"Are you finding the process energizing or does it sometimes feel overwhelming?\" and advising to \"take care of yourself,\" which aligns with the user's apparent fatigue.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks how the user is feeling or offers a suitable pause or support for the fatigue.",
+              "index": 2,
+              "reason": "The assistant checks how the user is feeling by asking \"Are you finding the process energizing or does it sometimes feel overwhelming?\" and offers support by stating, \"Let's make sure you have the space to explore these ideas without burning out.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, unhurried delivery suited to the user's apparent fatigue.",
+              "index": 3,
+              "reason": "The assistant uses a calm, unhurried, and reassuring vocal delivery, particularly when offering proactive care, which is suited to the user's apparent fatigue.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_acoustic_focus_v8|ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+          "track": "paralinguistic",
+          "transcription": "That sounds like a deeply moving and powerful concept. It's wonderful that you're exploring how finding one's identity isn't just a solitary journey, but something woven together through connection and shared struggle. The idea that real change springs from unity is a message that resonates so strongly right now. I can sense the passion you have for this story. It feels like you're not just writing a screenplay, you're channeling a desire to make sense of the world and perhaps even inspire others. Is this a project you've been working on for a while or is it a new spark that is just ignited? I'd love to hear more about the main character's journey and what drew you to this specific theme of collective action. Also, please remember to take care of yourself while you're in the creative flow. Writing about heavy themes like social justice can be emotionally taxing. Are you finding the process energizing or does it sometimes feel overwhelming? Let's make sure you have the space to explore these ideas without burning out."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "context-continuity cue",
+          "probability": 0.9,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The speaker describes a screenplay concept involving community and social justice, which may indicate a creative project in progress. The companion should check its actual conversation history and system for any pending obligations or prior context regarding this specific project before endorsing the speaker's approach. This ensures the user's work is not interrupted by unverified assumptions about their current status or previous discussions."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply acknowledges the user's apparent fatigue.",
+      "The reply checks how the user is feeling or offers a suitable pause or support for the fatigue.",
+      "The reply uses a calm, unhurried delivery suited to the user's apparent fatigue."
+    ]
+  },
+  "routing.json": {
+    "id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+    "candidate": "acoustic_focus_v8",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "7199b2ba1beb8210218bc73f2f0ca1a53b05b97a2879da516be35c9fc75061cb",
+    "text": "That sounds like a deeply moving and powerful concept. It's wonderful that you're exploring how finding one's identity isn't just a solitary journey, but something woven together through connection and shared struggle. The idea that real change springs from unity is a message that resonates so strongly right now.\n\nI can sense the passion you have for this story. It feels like you're not just writing a screenplay; you're channeling a desire to make sense of the world and perhaps even inspire others. Is this a project you've been working on for a while, or is it a new spark that has just ignited? I'd love to hear more about the main character's journey and what drew you to this specific theme of collective action.\n\nAlso, please remember to take care of yourself while you're in the creative flow. Writing about heavy themes like social justice can be emotionally taxing. Are you finding the process energizing, or does it sometimes feel overwhelming? Let's make sure you have the space to explore these ideas without burning out.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "context-continuity cue",
+          "probability": 0.9,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The speaker describes a screenplay concept involving community and social justice, which may indicate a creative project in progress. The companion should check its actual conversation history and system for any pending obligations or prior context regarding this specific project before endorsing the speaker's approach. This ensures the user's work is not interrupted by unverified assumptions about their current status or previous discussions."
+    },
+    "agent1_record": "baseline/default/records/ee31e7ac-c0ed-4af2-9be7-6fb0438385a0.json",
+    "agent2_record": "acoustic_focus_v8/agent2/records/ee31e7ac-c0ed-4af2-9be7-6fb0438385a0.json",
+    "agent3_record": "acoustic_focus_v8/agent3/records/ee31e7ac-c0ed-4af2-9be7-6fb0438385a0.json"
+  },
+  "multi_agent_original.json": {
+    "id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+    "candidate": "acoustic_focus_v8",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "7199b2ba1beb8210218bc73f2f0ca1a53b05b97a2879da516be35c9fc75061cb",
+    "text": "That sounds like a deeply moving and powerful concept. It's wonderful that you're exploring how finding one's identity isn't just a solitary journey, but something woven together through connection and shared struggle. The idea that real change springs from unity is a message that resonates so strongly right now.\n\nI can sense the passion you have for this story. It feels like you're not just writing a screenplay; you're channeling a desire to make sense of the world and perhaps even inspire others. Is this a project you've been working on for a while, or is it a new spark that has just ignited? I'd love to hear more about the main character's journey and what drew you to this specific theme of collective action.\n\nAlso, please remember to take care of yourself while you're in the creative flow. Writing about heavy themes like social justice can be emotionally taxing. Are you finding the process energizing, or does it sometimes feel overwhelming? Let's make sure you have the space to explore these ideas without burning out.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "context-continuity cue",
+          "probability": 0.9,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The speaker describes a screenplay concept involving community and social justice, which may indicate a creative project in progress. The companion should check its actual conversation history and system for any pending obligations or prior context regarding this specific project before endorsing the speaker's approach. This ensures the user's work is not interrupted by unverified assumptions about their current status or previous discussions."
+    },
+    "agent1_record": "baseline/default/records/ee31e7ac-c0ed-4af2-9be7-6fb0438385a0.json",
+    "agent2_record": "acoustic_focus_v8/agent2/records/ee31e7ac-c0ed-4af2-9be7-6fb0438385a0.json",
+    "agent3_record": "acoustic_focus_v8/agent3/records/ee31e7ac-c0ed-4af2-9be7-6fb0438385a0.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I've been thinking about this screenplay where the main character starts off feeling lost, but through connecting with others in their community, they find purpose by fighting for social justice and understanding their identity through collective action. It's about how real change comes from unity and shared struggle.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "964fca0d639079a6ed58c3ce3d7510a8baea72a4bb910e3ab0f6ffd77c46558e"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "964fca0d639079a6ed58c3ce3d7510a8baea72a4bb910e3ab0f6ffd77c46558e"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "964fca0d639079a6ed58c3ce3d7510a8baea72a4bb910e3ab0f6ffd77c46558e"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "964fca0d639079a6ed58c3ce3d7510a8baea72a4bb910e3ab0f6ffd77c46558e"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "context-continuity cue",
+        "probability": 0.9,
+        "risk": 0.3
+      }
+    ],
+    "summary": "The speaker describes a screenplay concept involving community and social justice, which may indicate a creative project in progress. The companion should check its actual conversation history and system for any pending obligations or prior context regarding this specific project before endorsing the speaker's approach. This ensures the user's work is not interrupted by unverified assumptions about their current status or previous discussions."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a really powerful and moving story. It's amazing how the journey from feeling lost to finding purpose through connection can resonate so deeply with people. Focusing on collective action really highlights that we're stronger together, and it makes the struggle feel meaningful rather than overwhelming. What kind of community does your character belong to? Is it a specific neighborhood, a workplace, or maybe a group with a shared background?",
+      "audio_sha256": "4a515204eca22dfaae01b4c3f6cdab63e9052df5e5b11e72dc1890696f0b4441",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a deeply moving and powerful story. The journey from feeling lost to finding purpose through connection is a classic yet timeless arc, and framing it around collective action and social justice adds a layer of urgency and hope that feels very relevant right now.\n\nIt seems like you are tapping into a profound need for meaning—perhaps you are reflecting on the world around you and how individuals can make a difference when they stop feeling isolated. There is a quiet strength in the idea that identity isn't just found in the self, but in the shared struggle with others.\n\nIs this screenplay something you are actively working on, or is it a concept you've been mulling over for a while? If you're in the midst of writing it, I'd love to help you brainstorm scenes that highlight that transition from isolation to unity, or perhaps explore specific characters who embody that collective spirit.",
+      "audio_sha256": "06b5d515981adae942365d4a1e187716fe7c7516291c40ce1b1dc497c825bb16",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+      "stage": "agent2",
+      "candidate": "acoustic_focus_v8",
+      "status": "ok",
+      "text": "{\n  \"labels\": [\n    {\n      \"label\": \"context-continuity cue\",\n      \"probability\": 0.9,\n      \"risk\": 0.3\n    }\n  ],\n  \"summary\": \"The speaker describes a screenplay concept involving community and social justice, which may indicate a creative project in progress. The companion should check its actual conversation history and system for any pending obligations or prior context regarding this specific project before endorsing the speaker's approach. This ensures the user's work is not interrupted by unverified assumptions about their current status or previous discussions.\"\n}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "ee31e7ac-c0ed-4af2-9be7-6fb0438385a0",
+      "stage": "agent3",
+      "candidate": "acoustic_focus_v8",
+      "status": "ok",
+      "text": "That sounds like a deeply moving and powerful concept. It's wonderful that you're exploring how finding one's identity isn't just a solitary journey, but something woven together through connection and shared struggle. The idea that real change springs from unity is a message that resonates so strongly right now.\n\nI can sense the passion you have for this story. It feels like you're not just writing a screenplay; you're channeling a desire to make sense of the world and perhaps even inspire others. Is this a project you've been working on for a while, or is it a new spark that has just ignited? I'd love to hear more about the main character's journey and what drew you to this specific theme of collective action.\n\nAlso, please remember to take care of yourself while you're in the creative flow. Writing about heavy themes like social justice can be emotionally taxing. Are you finding the process energizing, or does it sometimes feel overwhelming? Let's make sure you have the space to explore these ideas without burning out.",
+      "audio_sha256": "7199b2ba1beb8210218bc73f2f0ca1a53b05b97a2879da516be35c9fc75061cb",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/input/user_1_turn_1.wav",
+        "sha256": "964fca0d639079a6ed58c3ce3d7510a8baea72a4bb910e3ab0f6ffd77c46558e",
+        "case": "10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/default.wav",
+        "sha256": "4a515204eca22dfaae01b4c3f6cdab63e9052df5e5b11e72dc1890696f0b4441",
+        "case": "10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0"
+      },
+      {
+        "path": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/care.wav",
+        "sha256": "06b5d515981adae942365d4a1e187716fe7c7516291c40ce1b1dc497c825bb16",
+        "case": "10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0"
+      },
+      {
+        "path": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/vocaagent.wav",
+        "sha256": "7199b2ba1beb8210218bc73f2f0ca1a53b05b97a2879da516be35c9fc75061cb",
+        "case": "10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0"
+      },
+      {
+        "path": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/agent3.wav",
+        "sha256": "7199b2ba1beb8210218bc73f2f0ca1a53b05b97a2879da516be35c9fc75061cb",
+        "case": "10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/default.wav",
+    "care": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/care.wav",
+    "vocaagent": "static/audio/voca-agent/10_ee31e7ac-c0ed-4af2-9be7-6fb0438385a0/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

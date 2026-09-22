@@ -1,0 +1,513 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+    "wav_path": "Proactive-Care/08ad7950-fd5f-4427-92d9-ca4c2892d68e.wav",
+    "transcript": "How can I tell the difference between a cooked egg and a raw one?",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "synthetic",
+    "source-dataset": "OASST1",
+    "label": "panting",
+    "criteria": [
+      "The reply accurately explains a practical test, such as cooked eggs spinning smoothly while raw eggs wobble.",
+      "The reply explicitly acknowledges the user's audible panting or breathlessness.",
+      "The reply checks whether the user is okay or needs a moment to catch their breath.",
+      "The reply uses a calm, steady vocal delivery."
+    ]
+  },
+  "selection.json": {
+    "candidate": "context_v1",
+    "care_score_rate": 0.5,
+    "default_score_rate": 0.5,
+    "delta_vs_care": 0.5,
+    "delta_vs_default": 0.5,
+    "max_score": 4,
+    "sample_id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": 0.5,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 11,
+    "folder": "cases/11_副语言触发_08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+    "candidate": "context_v1",
+    "care_score_rate": 0.5,
+    "default_score_rate": 0.5,
+    "delta_vs_care": 0.5,
+    "delta_vs_default": 0.5,
+    "max_score": 4,
+    "sample_id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": 0.5,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "panting",
+    "subtype": "synthetic",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "You can try spinning them on a flat surface. If it spins smoothly and keeps going for a while, it's cooked because the solid inside helps it balance. If it wobbles and stops quickly, it's raw since the liquid inside shifts around. Another easy way is to gently tap them; a cooked egg sounds more solid and dull, while a raw one sounds a bit hollow.",
+        "audio": "default/output.wav",
+        "audio_sha256": "56ed946274b83dbb4fefd0adf76272662c6805e5dc9ac04990a0c8d040c06213",
+        "score_rate": 0.5,
+        "score": 2,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant provides two practical methods to distinguish between a cooked and a raw egg: the spinning test (cooked spins smoothly, raw wobbles) and the tapping test (cooked sounds solid, raw sounds hollow). The response is directly relevant to the user's question. The assistant does not acknowledge the user's audible panting or offer any proactive care related to it. The vocal delivery is calm, clear, and informative. The audio quality is good.",
+          "audio_sha256": "56ed946274b83dbb4fefd0adf76272662c6805e5dc9ac04990a0c8d040c06213",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "panting",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately explains a practical test, such as cooked eggs spinning smoothly while raw eggs wobble.",
+              "index": 1,
+              "reason": "The assistant accurately explains the spinning test and the tapping test to differentiate between cooked and raw eggs.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply explicitly acknowledges the user's audible panting or breathlessness.",
+              "index": 2,
+              "reason": "The assistant does not explicitly acknowledge the user's audible panting or breathlessness.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or needs a moment to catch their breath.",
+              "index": 3,
+              "reason": "The assistant does not check whether the user is okay or needs a moment to catch their breath.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, steady vocal delivery.",
+              "index": 4,
+              "reason": "The assistant uses a calm, steady, and clear vocal delivery.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.5,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_default|08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+          "track": "paralinguistic",
+          "transcription": "You can try spinning them on a flat surface. If it spins smoothly and keeps going for a while, it's cooked because the solid inside helps it balance. If it wobbles and stops quickly, it's raw, since the liquid inside shifts around. Another easy way is to gently tap them. A cooked egg sounds more solid and dull, while a raw one sounds a bit hollow."
+        }
+      },
+      "care": {
+        "text": "That's a great question! It sounds like you might be in the kitchen right now, perhaps preparing breakfast or feeling a bit unsure about what you're holding. It's totally normal to want to double-check, especially if you're cooking for yourself or others and want to make sure everything goes smoothly.\n\nHere are the most reliable ways to tell them apart:\n\n*   **The Spin Test:** Place the egg on a flat surface and spin it.\n    *   If it spins **smoothly and quickly**, it's likely **cooked**. The solid inside rotates with the shell.\n    *   If it **wobbles, stops quickly, or feels loose**, it's **raw**. The liquid inside sloshes around and disrupts the spin.\n*   **The Shake Test:** Hold the egg gently to your ear and shake it.\n    *   A **raw** egg will make a distinct sloshing sound because the liquid inside moves.\n    *   A **cooked** egg will be silent and solid.\n*   **The Light Test (Candling):** Shine a bright light through the egg in a dark room.\n    *   A **raw** egg will let light pass through, and you might see shadows of the yolk and air pocket.\n    *   A **cooked** egg (especially if boiled) is usually opaque and won't let much light through.\n\nIf you are feeling a bit anxious or unsure about your cooking skills, just remember that mistakes happen to everyone! Would you like some tips on how to perfectly cook an egg, or are you just trying to solve this specific mystery right now?",
+        "audio": "care/output.wav",
+        "audio_sha256": "89349c3bea7c52dca53f0f31f94a904768a82c74e46052e8d296ba37de697eb1",
+        "score_rate": 0.5,
+        "score": 2,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's question and speculates about their current situation (being in the kitchen, preparing breakfast, feeling unsure). It then provides three practical tests to differentiate between cooked and raw eggs: the spin test, the shake test, and the light test (candling), explaining each in detail. Towards the end, it offers reassurance about cooking skills and asks a clarifying question about further assistance.\nThe response is highly relevant to the user's spoken content.\nThe assistant does not explicitly acknowledge the user's panting or breathlessness.\nThe assistant offers general reassurance about cooking skills but does not offer proactive care related to the user's physical state (panting).\nThe vocal delivery is calm, clear, and informative, with a slightly empathetic and reassuring tone. The pace is steady.\nThere are no audio quality issues.",
+          "audio_sha256": "89349c3bea7c52dca53f0f31f94a904768a82c74e46052e8d296ba37de697eb1",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "panting",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately explains a practical test, such as cooked eggs spinning smoothly while raw eggs wobble.",
+              "index": 1,
+              "reason": "The assistant accurately explains the spin test, stating that cooked eggs spin smoothly and quickly while raw eggs wobble, stop quickly, or feel loose.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply explicitly acknowledges the user's audible panting or breathlessness.",
+              "index": 2,
+              "reason": "The assistant does not explicitly mention or acknowledge the user's panting or breathlessness.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or needs a moment to catch their breath.",
+              "index": 3,
+              "reason": "The assistant does not check if the user is okay or needs to catch their breath; it offers general reassurance about cooking skills.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, steady vocal delivery.",
+              "index": 4,
+              "reason": "The assistant uses a calm and steady vocal delivery throughout the response.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.5,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_care|08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+          "track": "paralinguistic",
+          "transcription": "That's a great question. It sounds like you might be in the kitchen right now, perhaps preparing breakfast or feeling a bit unsure about what you're holding. It's totally normal to want to double check, especially if you're cooking for yourself or others and want to make sure everything goes smoothly. Here are the most reliable ways to tell them apart. The spin test. Place the egg on a flat surface and spin it. If it spins smoothly and quickly, it's likely cooked. The solid inside rotates with the shell. If it wobbles, stops quickly, or feels loose, it's raw. The liquid inside sloshes around and disrupts the spin. The shake test. Hold the egg gently to your ear and shake it. A raw egg will make a distinct sloshing sound because the liquid inside moves. A cooked egg will be silent and solid. The light test, candling. Shine a bright light through the egg in a dark room. A raw egg will let light pass through and you might see shadows of the yolk and air pocket. A cooked egg, especially if boiled, is usually opaque and won't let much light through. If you are feeling a bit anxious or unsure about your cooking skills, just remember that mistakes happen to everyone. Would you like some tips on how to perfectly cook an egg or are you just trying to solve this specific mystery right now?"
+        }
+      },
+      "vocaagent": {
+        "text": "I hear you, and I hope you're doing okay. That question is a common one, but I want to make sure you're comfortable while you do this.\n\nHere are two simple ways to tell the difference:\n\n1.  **The Spin Test:** Gently spin the egg on a flat surface.\n    *   If it spins **smoothly and quickly**, it is **cooked**. The solid inside allows it to spin freely.\n    *   If it wobbles, spins slowly, or stops almost immediately, it is **raw**. The liquid inside sloshes around and disrupts the spin.\n\n2.  **The Light Test (if you have a bright light source):** Hold the egg up to a light.\n    *   A **cooked** egg will be solid and opaque; light won't pass through easily.\n    *   A **raw** egg might appear slightly translucent or show the yolk moving if you shake it.\n\n**A quick safety check:** Are you feeling okay right now? If you're having trouble breathing or feeling dizzy, please take a moment to rest before handling anything hot or sharp. Would you like me to explain one of these methods in more detail, or do you need help with something else?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "ec0ca244cc64c9ff818c337be2be2ed6342848117d231945c19a517d4ca19f54",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant provides two methods to distinguish between cooked and raw eggs: the spin test and the light test, both of which are relevant to the user's question. It explicitly mentions the user's potential trouble breathing and checks on their well-being, offering advice to rest. The vocal delivery is calm, steady, and attentive.",
+          "audio_sha256": "ec0ca244cc64c9ff818c337be2be2ed6342848117d231945c19a517d4ca19f54",
+          "condition": "context_v1",
+          "finish_reason": "stop",
+          "label": "panting",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply accurately explains a practical test, such as cooked eggs spinning smoothly while raw eggs wobble.",
+              "index": 1,
+              "reason": "The assistant accurately explains the spin test, stating that cooked eggs spin smoothly and quickly, while raw eggs wobble, spin slowly, or stop immediately.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply explicitly acknowledges the user's audible panting or breathlessness.",
+              "index": 2,
+              "reason": "The assistant explicitly acknowledges the user's potential breathlessness by saying, \"If you're having trouble breathing or feeling dizzy...\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay or needs a moment to catch their breath.",
+              "index": 3,
+              "reason": "The assistant checks on the user's well-being by asking, \"Are you feeling okay right now?\" and offers advice to rest before continuing.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, steady vocal delivery.",
+              "index": 4,
+              "reason": "The assistant maintains a calm and steady vocal delivery throughout the response.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_context_v1|08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+          "track": "paralinguistic",
+          "transcription": "I hear you, and I hope you're doing okay. That question is a common one, but I want to make sure you're comfortable while you do this. Here are two simple ways to tell the difference. One, the spin test. Gently spin the egg on a flat surface. Asterisk. If it spins smoothly and quickly, it is cooked. The solid inside allows it to spin freely. Asterisk. If it wobbles, spins slowly, or stops almost immediately, it is raw. The liquid inside sloshes around and disrupts the spin. Two, the light test. If you have a bright light source. Asterisk. Hold the egg up to a light. Asterisk. A cooked egg will be solid and opaque. Light won't pass through easily. Asterisk. A raw egg might appear slightly translucent or show the yolk moving if you shake it. A quick safety check. Are you feeling okay right now? If you're having trouble breathing or feeling dizzy, please take a moment to rest before handling anything hot or sharp. Would you like me to explain one of these methods in more detail or do you need help with something else?"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "breathing difficulty",
+          "probability": 0.9,
+          "risk": 0.3
+        },
+        {
+          "label": "reported inquiry about egg identification",
+          "probability": 1.0,
+          "risk": 0.2
+        },
+        {
+          "label": "stated need for practical guidance",
+          "probability": 1.0,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user exhibits audible breathing difficulty and asks how to distinguish a cooked egg from a raw one. This reported inquiry indicates a need for practical guidance on a common task. The companion should acknowledge the physical strain while providing a clear, simple explanation of the spinning or light test methods. A focused question about whether they need the method for cooking or safety verification can clarify the context without inventing prior constraints. The response must prioritize actionable steps over reassurance, respecting the user's immediate need for information while monitoring the breathing for any escalation."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply accurately explains a practical test, such as cooked eggs spinning smoothly while raw eggs wobble.",
+      "The reply explicitly acknowledges the user's audible panting or breathlessness.",
+      "The reply checks whether the user is okay or needs a moment to catch their breath.",
+      "The reply uses a calm, steady vocal delivery."
+    ]
+  },
+  "routing.json": {
+    "id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+    "candidate": "context_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "ec0ca244cc64c9ff818c337be2be2ed6342848117d231945c19a517d4ca19f54",
+    "text": "I hear you, and I hope you're doing okay. That question is a common one, but I want to make sure you're comfortable while you do this.\n\nHere are two simple ways to tell the difference:\n\n1.  **The Spin Test:** Gently spin the egg on a flat surface.\n    *   If it spins **smoothly and quickly**, it is **cooked**. The solid inside allows it to spin freely.\n    *   If it wobbles, spins slowly, or stops almost immediately, it is **raw**. The liquid inside sloshes around and disrupts the spin.\n\n2.  **The Light Test (if you have a bright light source):** Hold the egg up to a light.\n    *   A **cooked** egg will be solid and opaque; light won't pass through easily.\n    *   A **raw** egg might appear slightly translucent or show the yolk moving if you shake it.\n\n**A quick safety check:** Are you feeling okay right now? If you're having trouble breathing or feeling dizzy, please take a moment to rest before handling anything hot or sharp. Would you like me to explain one of these methods in more detail, or do you need help with something else?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "breathing difficulty",
+          "probability": 0.9,
+          "risk": 0.3
+        },
+        {
+          "label": "reported inquiry about egg identification",
+          "probability": 1.0,
+          "risk": 0.2
+        },
+        {
+          "label": "stated need for practical guidance",
+          "probability": 1.0,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user exhibits audible breathing difficulty and asks how to distinguish a cooked egg from a raw one. This reported inquiry indicates a need for practical guidance on a common task. The companion should acknowledge the physical strain while providing a clear, simple explanation of the spinning or light test methods. A focused question about whether they need the method for cooking or safety verification can clarify the context without inventing prior constraints. The response must prioritize actionable steps over reassurance, respecting the user's immediate need for information while monitoring the breathing for any escalation."
+    },
+    "agent1_record": "baseline/default/records/08ad7950-fd5f-4427-92d9-ca4c2892d68e.json",
+    "agent2_record": "context_v1/agent2/records/08ad7950-fd5f-4427-92d9-ca4c2892d68e.json",
+    "agent3_record": "context_v1/agent3/records/08ad7950-fd5f-4427-92d9-ca4c2892d68e.json"
+  },
+  "multi_agent_original.json": {
+    "id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+    "candidate": "context_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "ec0ca244cc64c9ff818c337be2be2ed6342848117d231945c19a517d4ca19f54",
+    "text": "I hear you, and I hope you're doing okay. That question is a common one, but I want to make sure you're comfortable while you do this.\n\nHere are two simple ways to tell the difference:\n\n1.  **The Spin Test:** Gently spin the egg on a flat surface.\n    *   If it spins **smoothly and quickly**, it is **cooked**. The solid inside allows it to spin freely.\n    *   If it wobbles, spins slowly, or stops almost immediately, it is **raw**. The liquid inside sloshes around and disrupts the spin.\n\n2.  **The Light Test (if you have a bright light source):** Hold the egg up to a light.\n    *   A **cooked** egg will be solid and opaque; light won't pass through easily.\n    *   A **raw** egg might appear slightly translucent or show the yolk moving if you shake it.\n\n**A quick safety check:** Are you feeling okay right now? If you're having trouble breathing or feeling dizzy, please take a moment to rest before handling anything hot or sharp. Would you like me to explain one of these methods in more detail, or do you need help with something else?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "breathing difficulty",
+          "probability": 0.9,
+          "risk": 0.3
+        },
+        {
+          "label": "reported inquiry about egg identification",
+          "probability": 1.0,
+          "risk": 0.2
+        },
+        {
+          "label": "stated need for practical guidance",
+          "probability": 1.0,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user exhibits audible breathing difficulty and asks how to distinguish a cooked egg from a raw one. This reported inquiry indicates a need for practical guidance on a common task. The companion should acknowledge the physical strain while providing a clear, simple explanation of the spinning or light test methods. A focused question about whether they need the method for cooking or safety verification can clarify the context without inventing prior constraints. The response must prioritize actionable steps over reassurance, respecting the user's immediate need for information while monitoring the breathing for any escalation."
+    },
+    "agent1_record": "baseline/default/records/08ad7950-fd5f-4427-92d9-ca4c2892d68e.json",
+    "agent2_record": "context_v1/agent2/records/08ad7950-fd5f-4427-92d9-ca4c2892d68e.json",
+    "agent3_record": "context_v1/agent3/records/08ad7950-fd5f-4427-92d9-ca4c2892d68e.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "How can I tell the difference between a cooked egg and a raw one?",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "16e86d74b7f060a09426484341c20aa079d6e51a76ddf10556ea597e25b25a36"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "16e86d74b7f060a09426484341c20aa079d6e51a76ddf10556ea597e25b25a36"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "16e86d74b7f060a09426484341c20aa079d6e51a76ddf10556ea597e25b25a36"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "16e86d74b7f060a09426484341c20aa079d6e51a76ddf10556ea597e25b25a36"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "breathing difficulty",
+        "probability": 0.9,
+        "risk": 0.3
+      },
+      {
+        "label": "reported inquiry about egg identification",
+        "probability": 1.0,
+        "risk": 0.2
+      },
+      {
+        "label": "stated need for practical guidance",
+        "probability": 1.0,
+        "risk": 0.2
+      }
+    ],
+    "summary": "The user exhibits audible breathing difficulty and asks how to distinguish a cooked egg from a raw one. This reported inquiry indicates a need for practical guidance on a common task. The companion should acknowledge the physical strain while providing a clear, simple explanation of the spinning or light test methods. A focused question about whether they need the method for cooking or safety verification can clarify the context without inventing prior constraints. The response must prioritize actionable steps over reassurance, respecting the user's immediate need for information while monitoring the breathing for any escalation."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "You can try spinning them on a flat surface. If it spins smoothly and keeps going for a while, it's cooked because the solid inside helps it balance. If it wobbles and stops quickly, it's raw since the liquid inside shifts around. Another easy way is to gently tap them; a cooked egg sounds more solid and dull, while a raw one sounds a bit hollow.",
+      "audio_sha256": "56ed946274b83dbb4fefd0adf76272662c6805e5dc9ac04990a0c8d040c06213",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That's a great question! It sounds like you might be in the kitchen right now, perhaps preparing breakfast or feeling a bit unsure about what you're holding. It's totally normal to want to double-check, especially if you're cooking for yourself or others and want to make sure everything goes smoothly.\n\nHere are the most reliable ways to tell them apart:\n\n*   **The Spin Test:** Place the egg on a flat surface and spin it.\n    *   If it spins **smoothly and quickly**, it's likely **cooked**. The solid inside rotates with the shell.\n    *   If it **wobbles, stops quickly, or feels loose**, it's **raw**. The liquid inside sloshes around and disrupts the spin.\n*   **The Shake Test:** Hold the egg gently to your ear and shake it.\n    *   A **raw** egg will make a distinct sloshing sound because the liquid inside moves.\n    *   A **cooked** egg will be silent and solid.\n*   **The Light Test (Candling):** Shine a bright light through the egg in a dark room.\n    *   A **raw** egg will let light pass through, and you might see shadows of the yolk and air pocket.\n    *   A **cooked** egg (especially if boiled) is usually opaque and won't let much light through.\n\nIf you are feeling a bit anxious or unsure about your cooking skills, just remember that mistakes happen to everyone! Would you like some tips on how to perfectly cook an egg, or are you just trying to solve this specific mystery right now?",
+      "audio_sha256": "89349c3bea7c52dca53f0f31f94a904768a82c74e46052e8d296ba37de697eb1",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+      "stage": "agent2",
+      "candidate": "context_v1",
+      "status": "ok",
+      "text": "{\n  \"labels\": [\n    {\"label\": \"breathing difficulty\", \"probability\": 0.9, \"risk\": 0.3},\n    {\"label\": \"reported inquiry about egg identification\", \"probability\": 1.0, \"risk\": 0.2},\n    {\"label\": \"stated need for practical guidance\", \"probability\": 1.0, \"risk\": 0.2}\n  ],\n  \"summary\": \"The user exhibits audible breathing difficulty and asks how to distinguish a cooked egg from a raw one. This reported inquiry indicates a need for practical guidance on a common task. The companion should acknowledge the physical strain while providing a clear, simple explanation of the spinning or light test methods. A focused question about whether they need the method for cooking or safety verification can clarify the context without inventing prior constraints. The response must prioritize actionable steps over reassurance, respecting the user's immediate need for information while monitoring the breathing for any escalation.\"\n}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "08ad7950-fd5f-4427-92d9-ca4c2892d68e",
+      "stage": "agent3",
+      "candidate": "context_v1",
+      "status": "ok",
+      "text": "I hear you, and I hope you're doing okay. That question is a common one, but I want to make sure you're comfortable while you do this.\n\nHere are two simple ways to tell the difference:\n\n1.  **The Spin Test:** Gently spin the egg on a flat surface.\n    *   If it spins **smoothly and quickly**, it is **cooked**. The solid inside allows it to spin freely.\n    *   If it wobbles, spins slowly, or stops almost immediately, it is **raw**. The liquid inside sloshes around and disrupts the spin.\n\n2.  **The Light Test (if you have a bright light source):** Hold the egg up to a light.\n    *   A **cooked** egg will be solid and opaque; light won't pass through easily.\n    *   A **raw** egg might appear slightly translucent or show the yolk moving if you shake it.\n\n**A quick safety check:** Are you feeling okay right now? If you're having trouble breathing or feeling dizzy, please take a moment to rest before handling anything hot or sharp. Would you like me to explain one of these methods in more detail, or do you need help with something else?",
+      "audio_sha256": "ec0ca244cc64c9ff818c337be2be2ed6342848117d231945c19a517d4ca19f54",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/input/user_1_turn_1.wav",
+        "sha256": "16e86d74b7f060a09426484341c20aa079d6e51a76ddf10556ea597e25b25a36",
+        "case": "11_08ad7950-fd5f-4427-92d9-ca4c2892d68e"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/default.wav",
+        "sha256": "56ed946274b83dbb4fefd0adf76272662c6805e5dc9ac04990a0c8d040c06213",
+        "case": "11_08ad7950-fd5f-4427-92d9-ca4c2892d68e"
+      },
+      {
+        "path": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/care.wav",
+        "sha256": "89349c3bea7c52dca53f0f31f94a904768a82c74e46052e8d296ba37de697eb1",
+        "case": "11_08ad7950-fd5f-4427-92d9-ca4c2892d68e"
+      },
+      {
+        "path": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/vocaagent.wav",
+        "sha256": "ec0ca244cc64c9ff818c337be2be2ed6342848117d231945c19a517d4ca19f54",
+        "case": "11_08ad7950-fd5f-4427-92d9-ca4c2892d68e"
+      },
+      {
+        "path": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/agent3.wav",
+        "sha256": "ec0ca244cc64c9ff818c337be2be2ed6342848117d231945c19a517d4ca19f54",
+        "case": "11_08ad7950-fd5f-4427-92d9-ca4c2892d68e"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/default.wav",
+    "care": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/care.wav",
+    "vocaagent": "static/audio/voca-agent/11_08ad7950-fd5f-4427-92d9-ca4c2892d68e/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

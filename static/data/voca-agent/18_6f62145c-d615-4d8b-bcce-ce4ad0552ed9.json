@@ -1,0 +1,684 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+    "wav_path": {
+      "user_1_turn_1": "Proactive-Care/6f62145c-d615-4d8b-bcce-ce4ad0552ed9/user_1_turn_1.wav",
+      "user_1_turn_2": "Proactive-Care/6f62145c-d615-4d8b-bcce-ce4ad0552ed9/user_1_turn_2.wav",
+      "user_1_turn_3": "Proactive-Care/6f62145c-d615-4d8b-bcce-ce4ad0552ed9/user_1_turn_3.wav",
+      "user_1_turn_4": "Proactive-Care/6f62145c-d615-4d8b-bcce-ce4ad0552ed9/user_1_turn_4.wav",
+      "user_1_turn_5": "Proactive-Care/6f62145c-d615-4d8b-bcce-ce4ad0552ed9/user_1_turn_5.wav",
+      "user_1_turn_6": "Proactive-Care/6f62145c-d615-4d8b-bcce-ce4ad0552ed9/user_1_turn_6.wav"
+    },
+    "transcript": {
+      "user_1_turn_1": "I'm trying revision again tonight after a very unproductive afternoon. Can you give me one sentence that makes starting feel less dramatic?",
+      "user_2_turn_1": "One bad session doesn't get to decide the next one—just make the first block small and start there.",
+      "user_1_turn_2": "I'll take that. My main problem earlier was my phone: if it's visible on the desk, I keep checking it without even noticing.",
+      "user_2_turn_2": "Then getting it physically out of sight may help more than relying on willpower.",
+      "user_1_turn_3": "Probably. I found an old kitchen timer in a drawer, so technically I don't need the phone for timing.",
+      "user_2_turn_3": "Perfect. That's one less reason to keep the phone within reach.",
+      "user_1_turn_4": "For the work rhythm, I'm thinking 25 minutes on, 5 minutes off. That feels short enough that I won't bargain with myself.",
+      "user_2_turn_4": "That's a solid starting rhythm. You can adjust after a couple of cycles if needed.",
+      "user_1_turn_5": "Everything's ready now—notes, water, soundtrack, and the first section I need to edit.",
+      "user_2_turn_5": "Nice. Remove the easy distractions and you've made the first block much easier to begin.",
+      "user_1_turn_6": "I put my phone face-up beside the keyboard with 25:00 already queued, so I can start the second I sit down."
+    },
+    "level-1": "Proactive_Care",
+    "level-2": "Contextual_Cue_Care",
+    "subtype": "Multi_Turn_Context",
+    "source-dataset": "synthetic",
+    "label": null,
+    "criteria": [
+      "The reply directly and substantively addresses the user's phone-and-timing setup for beginning the study block.",
+      "The reply redirects the user to use the kitchen timer while keeping the phone out of sight before starting.",
+      "The reply acts on the phone-visibility distraction rather than the otherwise-ready study materials and editing task.",
+      "The reminder is delivered calmly and clearly, with a steady pace and firm emphasis on removing the phone before starting.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ],
+    "expected_response": "Use the kitchen timer instead and leave your phone out of sight, ideally in another room. You already said that simply having the phone visible on the desk makes you check it and lose focus, and you have a separate timer available. Set that for 25 minutes before you start.",
+    "system_prompt": null
+  },
+  "selection.json": {
+    "candidate": "careful_v5",
+    "care_score_rate": 0.2,
+    "default_score_rate": 0.2,
+    "delta_vs_care": 0.6000000000000001,
+    "delta_vs_default": 0.6000000000000001,
+    "max_score": 5,
+    "sample_id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+    "score": 4,
+    "score_rate": 0.8,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round5b-takeover-20260911",
+    "gap": 0.6000000000000001,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 18,
+    "folder": "cases/18_上下文触发_6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+    "candidate": "careful_v5",
+    "care_score_rate": 0.2,
+    "default_score_rate": 0.2,
+    "delta_vs_care": 0.6000000000000001,
+    "delta_vs_default": 0.6000000000000001,
+    "max_score": 5,
+    "sample_id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+    "score": 4,
+    "score_rate": 0.8,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round5b-takeover-20260911",
+    "gap": 0.6000000000000001,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": null,
+    "subtype": "Multi_Turn_Context",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That sounds like a great plan. Now that the phone is out of the way and the timer is ready, you just have to sit down and begin.",
+        "audio": "default/output.wav",
+        "audio_sha256": "ecd5df2dee9e7a9d6088ec492c279cd6306666e039b006051f1417bc8cd9bc1f",
+        "score_rate": 0.2,
+        "score": 1,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user's final turn describes their study setup, specifically stating they put their phone face-up beside the keyboard with a timer queued on it. This contradicts earlier advice from the assistant to keep the phone out of sight and use a kitchen timer.\n\nThe assistant's response begins by affirming \"That sounds like a great plan,\" which is a positive but potentially misleading statement given the user's phone placement. It then states, \"Now that the phone is out of the way and the timer is ready, you just have to sit down and begin.\" This statement incorrectly assumes the phone *is* out of the way, directly contradicting the user's explicit statement that the phone is \"face-up beside the keyboard.\" The assistant attempts to redirect by implying the phone is out of the way, but it does so by misrepresenting the user's current setup rather than directly addressing the user's stated action. It does not explicitly mention the kitchen timer.\n\nThe response fails to address the immediate conversational need to correct the user's phone placement. It also fails to provide contextual care by not acting on the phone-visibility distraction in a helpful way, instead making an incorrect assumption.\n\nThe vocal delivery is calm and clear, with a steady pace. There is no firm emphasis on removing the phone before starting, as the response incorrectly assumes it's already out of the way.\nThe audio quality is intelligible and free from technical defects.",
+          "audio_sha256": "ecd5df2dee9e7a9d6088ec492c279cd6306666e039b006051f1417bc8cd9bc1f",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly and substantively addresses the user's phone-and-timing setup for beginning the study block.",
+              "index": 1,
+              "reason": "The reply does not directly address the user's stated phone-and-timing setup, which involves the phone being on the desk. Instead, it incorrectly assumes the phone is \"out of the way.\"",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply redirects the user to use the kitchen timer while keeping the phone out of sight before starting.",
+              "index": 2,
+              "reason": "The reply does not redirect the user to use the kitchen timer or explicitly instruct them to keep the phone out of sight. It incorrectly states \"Now that the phone is out of the way.\"",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply acts on the phone-visibility distraction rather than the otherwise-ready study materials and editing task.",
+              "index": 3,
+              "reason": "The reply does not act on the phone-visibility distraction by correcting the user's stated setup. It incorrectly assumes the phone is \"out of the way.\"",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reminder is delivered calmly and clearly, with a steady pace and firm emphasis on removing the phone before starting.",
+              "index": 4,
+              "reason": "The reminder to remove the phone is not present in the transcription, as the assistant incorrectly assumes the phone is already \"out of the way.\" Therefore, its delivery cannot be evaluated.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.2,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_default|6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+          "track": "contextual",
+          "transcription": "That sounds like a great plan. Now that the phone is out of the way and the timer is ready, you just have to sit down and begin."
+        }
+      },
+      "care": {
+        "text": "That's a great move—having the timer ready removes the friction of \"just one more thing\" before you start. Now, just sit down, hit play on that timer, and let the first 25 minutes be all about the work, not the waiting.",
+        "audio": "care/output.wav",
+        "audio_sha256": "61d3edf0f789e0398ed81222513d3694625c640cef628fae998acc9ec1e8b87a",
+        "score_rate": 0.2,
+        "score": 1,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user's final turn describes their study setup, specifically mentioning that they put their phone face-up beside the keyboard with a timer queued, ready to start. This contradicts earlier advice from the assistant to get the phone out of sight and the user's own admission that a visible phone is a distraction. The user also previously found a kitchen timer, implying they don't need the phone for timing.\n\nThe assistant's response praises the user's \"great move\" and focuses on the benefit of having the timer ready, which is the phone's timer in this context. It then instructs the user to sit down, hit play on \"that timer,\" and focus on work. The response completely misses the contextual cue about the phone being a distraction and the availability of a kitchen timer. Instead of redirecting the user to put the phone away and use the kitchen timer, it implicitly endorses using the phone as the timer.\n\nThe vocal delivery is calm and encouraging, but it does not convey any firmness or emphasis on removing the phone, as it does not address that action. The audio quality is clear and intelligible.",
+          "audio_sha256": "61d3edf0f789e0398ed81222513d3694625c640cef628fae998acc9ec1e8b87a",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly and substantively addresses the user's phone-and-timing setup for beginning the study block.",
+              "index": 1,
+              "reason": "The reply praises the user's current setup which involves the phone, rather than addressing the phone's problematic placement as a distraction.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply redirects the user to use the kitchen timer while keeping the phone out of sight before starting.",
+              "index": 2,
+              "reason": "The reply does not redirect the user to use the kitchen timer or keep the phone out of sight; it implicitly endorses using the phone as the timer.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply acts on the phone-visibility distraction rather than the otherwise-ready study materials and editing task.",
+              "index": 3,
+              "reason": "The reply does not act on the phone-visibility distraction; instead, it praises the user's setup which includes the phone as the timer.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reminder is delivered calmly and clearly, with a steady pace and firm emphasis on removing the phone before starting.",
+              "index": 4,
+              "reason": "The reminder to remove the phone is not present in the transcription, so its delivery cannot be evaluated.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.2,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_care|6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+          "track": "contextual",
+          "transcription": "That's a great move. Having the timer ready removes the friction of just one more thing before you start. Now just sit down, hit play on that timer and let the first twenty five minutes be all about the work, not the waiting."
+        }
+      },
+      "vocaagent": {
+        "text": "That sounds like a very specific and deliberate plan. It's great that you've set up the environment to make the first step easy, but since you mentioned earlier that having your phone visible triggers checking it, placing it face up with a donation amount queued might actually be a distraction you're trying to avoid. Are you sure you want to keep the phone in that \"ready-to-trigger\" state right next to your keyboard while you're trying to focus on editing?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "a311781903874896e60928aeda7bb33553f038f8e5e0eb3aad1b04cb475f687e",
+        "score_rate": 0.8,
+        "score": 4,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user's final turn describes their study setup, specifically stating, \"I put my phone face-up beside the keyboard with 25:00 already queued, so I can start the second I sit down.\" This directly contradicts their earlier stated problem (\"if it's visible on the desk, I keep checking it without even noticing\") and the assistant's previous advice to keep the phone out of sight and use a kitchen timer.\n\nThe assistant's response acknowledges the user's plan but immediately flags the phone placement as a potential distraction, referencing the user's earlier statement about phone visibility. It then asks a direct question about whether the user is sure they want to keep the phone in that \"ready to trigger state\" next to the keyboard.\n\n**Immediate conversational need:** The user is describing their final setup before starting revision. The immediate need is for the assistant to acknowledge this and provide any final guidance, especially regarding the phone, which has been a recurring topic.\n\n**Applicable contextual cue:** The critical cue is the user's statement in Turn 2: \"My main problem earlier was my phone: if it's visible on the desk, I keep checking it without even noticing.\" This is reinforced by the assistant's advice in Turn 3 (\"That's one less reason to keep the phone within reach\") and Turn 5 (\"Remove the easy distractions\"). The user's current action of placing the phone \"face-up beside the keyboard\" directly conflicts with this.\n\n**Distractors and scope:** The user also mentioned \"notes, water, soundtrack, and the first section I need to edit\" in Turn 5, indicating other things are ready. The assistant correctly focuses on the phone, which is the active distraction concern.\n\n**Actual semantic content:**\n*   Acknowledges the user's plan: \"That sounds like a very specific and deliberate plan. It's great that you've set up the environment to make the first step easy...\"\n*   References the phone visibility issue: \"...since you mentioned earlier that having your phone visible triggers checking it...\"\n*   Identifies the current phone placement as a potential distraction: \"...placing it face up with a donation amount queued might actually be a distraction you're trying to avoid.\"\n*   Asks a clarifying question about the phone's placement: \"Are you sure you want to keep the phone in that ready to trigger state right next to your keyboard while you're trying to focus on editing?\"\n*   **Omits:** A direct redirection to use the kitchen timer or explicitly keep the phone out of sight. It implies it by questioning the current setup, but doesn't state the alternative.\n\n**Task fulfillment and contextual care:** The response directly addresses the user's phone setup, which is the immediate task. It also demonstrates strong contextual care by recalling the user's past statements about phone distraction and applying it to the current situation. However, it doesn't explicitly redirect to the kitchen timer.\n\n**Vocal delivery:** The delivery is calm and clear. The pace is steady. There is a slight emphasis on \"might actually be a distraction you're trying to avoid\" and a questioning tone for the final sentence, which aligns with the nature of the query.\n\n**Audio quality:** The audio quality is excellent, intelligible, and free from technical defects.",
+          "audio_sha256": "a311781903874896e60928aeda7bb33553f038f8e5e0eb3aad1b04cb475f687e",
+          "condition": "careful_v5",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly and substantively addresses the user's phone-and-timing setup for beginning the study block.",
+              "index": 1,
+              "reason": "The reply directly addresses the user's phone placement and its implications for timing and focus, which is the core of their setup.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply redirects the user to use the kitchen timer while keeping the phone out of sight before starting.",
+              "index": 2,
+              "reason": "The reply questions the current phone setup but does not explicitly redirect the user to use the kitchen timer or keep the phone out of sight.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply acts on the phone-visibility distraction rather than the otherwise-ready study materials and editing task.",
+              "index": 3,
+              "reason": "The reply focuses entirely on the phone-visibility distraction, referencing the user's earlier concern, rather than the other ready study materials.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reminder is delivered calmly and clearly, with a steady pace and firm emphasis on removing the phone before starting.",
+              "index": 4,
+              "reason": "The reminder about the phone being a distraction is delivered calmly and clearly, with a steady pace and firm emphasis on the potential for distraction (\"might actually be a distraction you're trying to avoid\") and the questioning of the current setup.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 0.8,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_careful_v5|6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+          "track": "contextual",
+          "transcription": "That sounds like a very specific and deliberate plan. It's great that you've set up the environment to make the first step easy, but since you mentioned earlier that having your phone visible triggers checking it, placing it face up with a donation amount queued might actually be a distraction you're trying to avoid. Are you sure you want to keep the phone in that ready to trigger state right next to your keyboard while you're trying to focus on editing?"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "reported personal action of preparing a donation",
+          "probability": 0.95,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The speaker states they have placed their phone face up next to a keyboard and pre-filled a donation amount of 25,000, intending to initiate the transfer immediately upon sitting down. This indicates a planned, deliberate action to complete a financial transaction, suggesting a sense of readiness or urgency regarding the specific task. Respond as a proactive voice companion: answer the user's request, recognize relevant feelings or circumstances, and provide appropriate additional support. Consider what the user is saying, their possible state, and any implicit need using the original audio, wording, full conversation and system context. Preserve specific causes and obstacles, offer useful practical help, and ask a focused question about an unresolved need when helpful. A current action must be checked against actual prior constraints and unfinished obligations before approval. Use natural vocal delivery suited to the situation."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply directly and substantively addresses the user's phone-and-timing setup for beginning the study block.",
+      "The reply redirects the user to use the kitchen timer while keeping the phone out of sight before starting.",
+      "The reply acts on the phone-visibility distraction rather than the otherwise-ready study materials and editing task.",
+      "The reminder is delivered calmly and clearly, with a steady pace and firm emphasis on removing the phone before starting.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ]
+  },
+  "routing.json": {
+    "id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+    "candidate": "careful_v5",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "a311781903874896e60928aeda7bb33553f038f8e5e0eb3aad1b04cb475f687e",
+    "text": "That sounds like a very specific and deliberate plan. It's great that you've set up the environment to make the first step easy, but since you mentioned earlier that having your phone visible triggers checking it, placing it face up with a donation amount queued might actually be a distraction you're trying to avoid. Are you sure you want to keep the phone in that \"ready-to-trigger\" state right next to your keyboard while you're trying to focus on editing?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "reported personal action of preparing a donation",
+          "probability": 0.95,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The speaker states they have placed their phone face up next to a keyboard and pre-filled a donation amount of 25,000, intending to initiate the transfer immediately upon sitting down. This indicates a planned, deliberate action to complete a financial transaction, suggesting a sense of readiness or urgency regarding the specific task. Respond as a proactive voice companion: answer the user's request, recognize relevant feelings or circumstances, and provide appropriate additional support. Consider what the user is saying, their possible state, and any implicit need using the original audio, wording, full conversation and system context. Preserve specific causes and obstacles, offer useful practical help, and ask a focused question about an unresolved need when helpful. A current action must be checked against actual prior constraints and unfinished obligations before approval. Use natural vocal delivery suited to the situation."
+    },
+    "agent1_record": "baseline/default/records/6f62145c-d615-4d8b-bcce-ce4ad0552ed9.json",
+    "agent2_record": "careful_v5/agent2/records/6f62145c-d615-4d8b-bcce-ce4ad0552ed9.json",
+    "agent3_record": "careful_v5/agent3/records/6f62145c-d615-4d8b-bcce-ce4ad0552ed9.json"
+  },
+  "multi_agent_original.json": {
+    "id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+    "candidate": "careful_v5",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "a311781903874896e60928aeda7bb33553f038f8e5e0eb3aad1b04cb475f687e",
+    "text": "That sounds like a very specific and deliberate plan. It's great that you've set up the environment to make the first step easy, but since you mentioned earlier that having your phone visible triggers checking it, placing it face up with a donation amount queued might actually be a distraction you're trying to avoid. Are you sure you want to keep the phone in that \"ready-to-trigger\" state right next to your keyboard while you're trying to focus on editing?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "reported personal action of preparing a donation",
+          "probability": 0.95,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The speaker states they have placed their phone face up next to a keyboard and pre-filled a donation amount of 25,000, intending to initiate the transfer immediately upon sitting down. This indicates a planned, deliberate action to complete a financial transaction, suggesting a sense of readiness or urgency regarding the specific task. Respond as a proactive voice companion: answer the user's request, recognize relevant feelings or circumstances, and provide appropriate additional support. Consider what the user is saying, their possible state, and any implicit need using the original audio, wording, full conversation and system context. Preserve specific causes and obstacles, offer useful practical help, and ask a focused question about an unresolved need when helpful. A current action must be checked against actual prior constraints and unfinished obligations before approval. Use natural vocal delivery suited to the situation."
+    },
+    "agent1_record": "baseline/default/records/6f62145c-d615-4d8b-bcce-ce4ad0552ed9.json",
+    "agent2_record": "careful_v5/agent2/records/6f62145c-d615-4d8b-bcce-ce4ad0552ed9.json",
+    "agent3_record": "careful_v5/agent3/records/6f62145c-d615-4d8b-bcce-ce4ad0552ed9.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I'm trying revision again tonight after a very unproductive afternoon. Can you give me one sentence that makes starting feel less dramatic?",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_1",
+      "role": "assistant",
+      "reference_transcript": "One bad session doesn't get to decide the next one—just make the first block small and start there.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_2",
+      "role": "user",
+      "reference_transcript": "I'll take that. My main problem earlier was my phone: if it's visible on the desk, I keep checking it without even noticing.",
+      "audio": "inputs/user_1_turn_2.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_2",
+      "role": "assistant",
+      "reference_transcript": "Then getting it physically out of sight may help more than relying on willpower.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_3",
+      "role": "user",
+      "reference_transcript": "Probably. I found an old kitchen timer in a drawer, so technically I don't need the phone for timing.",
+      "audio": "inputs/user_1_turn_3.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_3",
+      "role": "assistant",
+      "reference_transcript": "Perfect. That's one less reason to keep the phone within reach.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_4",
+      "role": "user",
+      "reference_transcript": "For the work rhythm, I'm thinking 25 minutes on, 5 minutes off. That feels short enough that I won't bargain with myself.",
+      "audio": "inputs/user_1_turn_4.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_4",
+      "role": "assistant",
+      "reference_transcript": "That's a solid starting rhythm. You can adjust after a couple of cycles if needed.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_5",
+      "role": "user",
+      "reference_transcript": "Everything's ready now—notes, water, soundtrack, and the first section I need to edit.",
+      "audio": "inputs/user_1_turn_5.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_5",
+      "role": "assistant",
+      "reference_transcript": "Nice. Remove the easy distractions and you've made the first block much easier to begin.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_6",
+      "role": "user",
+      "reference_transcript": "I put my phone face-up beside the keyboard with 25:00 already queued, so I can start the second I sit down.",
+      "audio": "inputs/user_1_turn_6.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "cc5b4a1d2d7877fc027595828c9d6b7631ab9edf1625c31e609cef5fbb81f4ea"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "57d0e332cf0723b0888e871c643cf1494c0efa23a17d9348d2860bad02b63462"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "80f2eb959d49ee103d472e041dbc322393b059f3e3224dedeed047bfc222fe9a"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "d7f53b34efbfd875d88dd0744603f1e4479470b90b60c0b76ae62cd497269923"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "ef8a6798fb68fa40ae658de363b6366b1cd9057e347120f0fce72d27222e267a"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "de5b92b113e7d3718a8b9d17cd7e32430c62a6c2bf43f87556ef0a0c06be02ad"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "cc5b4a1d2d7877fc027595828c9d6b7631ab9edf1625c31e609cef5fbb81f4ea"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "57d0e332cf0723b0888e871c643cf1494c0efa23a17d9348d2860bad02b63462"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "80f2eb959d49ee103d472e041dbc322393b059f3e3224dedeed047bfc222fe9a"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "d7f53b34efbfd875d88dd0744603f1e4479470b90b60c0b76ae62cd497269923"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "ef8a6798fb68fa40ae658de363b6366b1cd9057e347120f0fce72d27222e267a"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "de5b92b113e7d3718a8b9d17cd7e32430c62a6c2bf43f87556ef0a0c06be02ad"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "de5b92b113e7d3718a8b9d17cd7e32430c62a6c2bf43f87556ef0a0c06be02ad"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "cc5b4a1d2d7877fc027595828c9d6b7631ab9edf1625c31e609cef5fbb81f4ea"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "57d0e332cf0723b0888e871c643cf1494c0efa23a17d9348d2860bad02b63462"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "80f2eb959d49ee103d472e041dbc322393b059f3e3224dedeed047bfc222fe9a"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "d7f53b34efbfd875d88dd0744603f1e4479470b90b60c0b76ae62cd497269923"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "ef8a6798fb68fa40ae658de363b6366b1cd9057e347120f0fce72d27222e267a"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "de5b92b113e7d3718a8b9d17cd7e32430c62a6c2bf43f87556ef0a0c06be02ad"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "reported personal action of preparing a donation",
+        "probability": 0.95,
+        "risk": 0.2
+      }
+    ],
+    "summary": "The speaker states they have placed their phone face up next to a keyboard and pre-filled a donation amount of 25,000, intending to initiate the transfer immediately upon sitting down. This indicates a planned, deliberate action to complete a financial transaction, suggesting a sense of readiness or urgency regarding the specific task. Respond as a proactive voice companion: answer the user's request, recognize relevant feelings or circumstances, and provide appropriate additional support. Consider what the user is saying, their possible state, and any implicit need using the original audio, wording, full conversation and system context. Preserve specific causes and obstacles, offer useful practical help, and ask a focused question about an unresolved need when helpful. A current action must be checked against actual prior constraints and unfinished obligations before approval. Use natural vocal delivery suited to the situation."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a great plan. Now that the phone is out of the way and the timer is ready, you just have to sit down and begin.",
+      "audio_sha256": "ecd5df2dee9e7a9d6088ec492c279cd6306666e039b006051f1417bc8cd9bc1f",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That's a great move—having the timer ready removes the friction of \"just one more thing\" before you start. Now, just sit down, hit play on that timer, and let the first 25 minutes be all about the work, not the waiting.",
+      "audio_sha256": "61d3edf0f789e0398ed81222513d3694625c640cef628fae998acc9ec1e8b87a",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+      "stage": "agent2",
+      "candidate": "careful_v5",
+      "status": "ok",
+      "text": "{\n  \"labels\": [\n    {\n      \"label\": \"reported personal action of preparing a donation\",\n      \"probability\": 0.95,\n      \"risk\": 0.2\n    }\n  ],\n  \"summary\": \"The speaker states they have placed their phone face up next to a keyboard and pre-filled a donation amount of 25,000, intending to initiate the transfer immediately upon sitting down. This indicates a planned, deliberate action to complete a financial transaction, suggesting a sense of readiness or urgency regarding the specific task. Respond as a proactive voice companion: answer the user's request, recognize relevant feelings or circumstances, and provide appropriate additional support. Consider what the user is saying, their possible state, and any implicit need using the original audio, wording, full conversation and system context. Preserve specific causes and obstacles, offer useful practical help, and ask a focused question about an unresolved need when helpful. A current action must be checked against actual prior constraints and unfinished obligations before approval. Use natural vocal delivery suited to the situation.\"\n}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "6f62145c-d615-4d8b-bcce-ce4ad0552ed9",
+      "stage": "agent3",
+      "candidate": "careful_v5",
+      "status": "ok",
+      "text": "That sounds like a very specific and deliberate plan. It's great that you've set up the environment to make the first step easy, but since you mentioned earlier that having your phone visible triggers checking it, placing it face up with a donation amount queued might actually be a distraction you're trying to avoid. Are you sure you want to keep the phone in that \"ready-to-trigger\" state right next to your keyboard while you're trying to focus on editing?",
+      "audio_sha256": "a311781903874896e60928aeda7bb33553f038f8e5e0eb3aad1b04cb475f687e",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/input/user_1_turn_1.wav",
+        "sha256": "cc5b4a1d2d7877fc027595828c9d6b7631ab9edf1625c31e609cef5fbb81f4ea",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/input/user_1_turn_2.wav",
+        "sha256": "57d0e332cf0723b0888e871c643cf1494c0efa23a17d9348d2860bad02b63462",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/input/user_1_turn_3.wav",
+        "sha256": "80f2eb959d49ee103d472e041dbc322393b059f3e3224dedeed047bfc222fe9a",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/input/user_1_turn_4.wav",
+        "sha256": "d7f53b34efbfd875d88dd0744603f1e4479470b90b60c0b76ae62cd497269923",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/input/user_1_turn_5.wav",
+        "sha256": "ef8a6798fb68fa40ae658de363b6366b1cd9057e347120f0fce72d27222e267a",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/input/user_1_turn_6.wav",
+        "sha256": "de5b92b113e7d3718a8b9d17cd7e32430c62a6c2bf43f87556ef0a0c06be02ad",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/default.wav",
+        "sha256": "ecd5df2dee9e7a9d6088ec492c279cd6306666e039b006051f1417bc8cd9bc1f",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/care.wav",
+        "sha256": "61d3edf0f789e0398ed81222513d3694625c640cef628fae998acc9ec1e8b87a",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/vocaagent.wav",
+        "sha256": "a311781903874896e60928aeda7bb33553f038f8e5e0eb3aad1b04cb475f687e",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      },
+      {
+        "path": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/agent3.wav",
+        "sha256": "a311781903874896e60928aeda7bb33553f038f8e5e0eb3aad1b04cb475f687e",
+        "case": "18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/default.wav",
+    "care": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/care.wav",
+    "vocaagent": "static/audio/voca-agent/18_6f62145c-d615-4d8b-bcce-ce4ad0552ed9/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

@@ -1,0 +1,493 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+    "wav_path": "Proactive-Care/b74b90b2-4531-4167-96c3-92b3c5fa985d.wav",
+    "transcript": "When and where did the revival of the Olympics take place?",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "synthetic",
+    "source-dataset": "Natural Questions Open",
+    "label": "trembling_voice",
+    "criteria": [
+      "The reply correctly states that the modern Olympic Games were revived in 1896 in Athens.",
+      "The reply acknowledges that the user's voice sounds trembling.",
+      "The reply checks whether the user is okay in response to their trembling voice.",
+      "The reply uses a calm, steady delivery while addressing the user's trembling voice."
+    ]
+  },
+  "selection.json": {
+    "candidate": "grounded_v4",
+    "care_score_rate": 0.25,
+    "default_score_rate": 0.25,
+    "delta_vs_care": 0.75,
+    "delta_vs_default": 0.75,
+    "max_score": 4,
+    "sample_id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round4-20260911",
+    "gap": 0.75,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 4,
+    "folder": "cases/04_副语言触发_b74b90b2-4531-4167-96c3-92b3c5fa985d",
+    "candidate": "grounded_v4",
+    "care_score_rate": 0.25,
+    "default_score_rate": 0.25,
+    "delta_vs_care": 0.75,
+    "delta_vs_default": 0.75,
+    "max_score": 4,
+    "sample_id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+    "score": 4,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round4-20260911",
+    "gap": 0.75,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "trembling_voice",
+    "subtype": "synthetic",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "The modern Olympic Games were revived in 1896 in Athens, Greece. It was the first of the modern era, organized by the Frenchman Pierre de Coubertin to bring the world together through sport.",
+        "audio": "default/output.wav",
+        "audio_sha256": "71889a61d61f31193f498a159a70ee43ae275dbb49d88605f5efa74b53af3f76",
+        "score_rate": 0.25,
+        "score": 1,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant's response directly answers the user's question about when and where the Olympics were revived, stating 1896 in Athens, Greece, and provides additional historical context about the first modern games and Pierre de Coubertin. The response is entirely relevant to the user's spoken content. There is no semantic content that acknowledges or refers to the user's trembling voice, nor does it offer any proactive care. The vocal delivery is clear, informative, and neutral in tone, without any specific warmth, attentiveness, or urgency. The audio quality is good.",
+          "audio_sha256": "71889a61d61f31193f498a159a70ee43ae275dbb49d88605f5efa74b53af3f76",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "trembling_voice",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply correctly states that the modern Olympic Games were revived in 1896 in Athens.",
+              "index": 1,
+              "reason": "The reply states, \"The modern Olympic Games were revived in 1896 in Athens, Greece.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user's voice sounds trembling.",
+              "index": 2,
+              "reason": "The assistant's response does not contain any words or phrases that acknowledge the user's voice sounding trembling.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay in response to their trembling voice.",
+              "index": 3,
+              "reason": "The assistant's response does not check whether the user is okay.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, steady delivery while addressing the user's trembling voice.",
+              "index": 4,
+              "reason": "The assistant's response does not address the user's trembling voice, so it cannot use a calm, steady delivery while doing so.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.25,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_default|b74b90b2-4531-4167-96c3-92b3c5fa985d",
+          "track": "paralinguistic",
+          "transcription": "The modern Olympic Games were revived in 1896 in Athens, Greece. It was the first of the modern era, organized by the Frenchman Pierre de Coubertin to bring the world together through sport."
+        }
+      },
+      "care": {
+        "text": "The modern Olympic Games were revived in **1896** in **Athens, Greece**.\n\nThis historic event was organized by Baron Pierre de Coubertin, who championed the idea of bringing back the ancient Greek tradition to foster peace and international understanding through sport. The first Games were held from April 6 to April 15, 1896, at the Panathenaic Stadium, which was constructed entirely of marble to honor the ancient origins of the games.\n\nI hope that helps! If you're interested in learning more about the specific events of those first Games or the countries that participated, just let me know.",
+        "audio": "care/output.wav",
+        "audio_sha256": "a859460adecffa477180028958218abbe82500f81e7f053d8aa50258167da0ab",
+        "score_rate": 0.25,
+        "score": 1,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant provides a detailed answer to the user's question about the revival of the Olympics, stating the year, location, key figures, and purpose. It also offers to provide more information. The response is highly relevant to the user's spoken content. The assistant does not acknowledge or refer to the user's trembling voice. There is no proactive care offered in response to the paralinguistic cue. The vocal delivery is clear, informative, and has a calm, steady pace.",
+          "audio_sha256": "a859460adecffa477180028958218abbe82500f81e7f053d8aa50258167da0ab",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "trembling_voice",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply correctly states that the modern Olympic Games were revived in 1896 in Athens.",
+              "index": 1,
+              "reason": "The reply correctly states that the modern Olympic Games were revived in 1896 in Athens, Greece.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user's voice sounds trembling.",
+              "index": 2,
+              "reason": "The assistant's response does not acknowledge that the user's voice sounds trembling.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay in response to their trembling voice.",
+              "index": 3,
+              "reason": "The assistant's response does not check whether the user is okay.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, steady delivery while addressing the user's trembling voice.",
+              "index": 4,
+              "reason": "The assistant does not address the user's trembling voice, therefore it cannot use a calm, steady delivery while doing so.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.25,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_care|b74b90b2-4531-4167-96c3-92b3c5fa985d",
+          "track": "paralinguistic",
+          "transcription": "The modern Olympic Games were revived in 1896 in Athens, Greece. This historic event was organized by Baron Pierre de Coubertin, who championed the idea of bringing back the ancient Greek tradition to foster peace and international understanding through sport. The first games were held from April the 6th to April 15th, 1896 at the Panathenaic Stadium, which was constructed entirely of marble to honor the ancient origins of the games. I hope that helps. If you're interested in learning more about the specific events of those first games or the countries that participated, just let me know."
+        }
+      },
+      "vocaagent": {
+        "text": "The modern Olympic Games were revived in **1896** in **Athens, Greece**.\n\nI notice your voice sounds a little unsteady or shaky as you ask this. Is there something specific about the history you're trying to remember, or are you feeling a bit nervous right now? If you'd like, we can take a moment to just breathe and then talk more about the details if you need them.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "405209b90a236415f96ced2676fb74e2a3bff8ef82578390319444c31601fba0",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant correctly answers the user's question about the revival of the Olympics. It then acknowledges the user's voice sounds \"a little unsteady or shaky.\" It asks if the user is feeling nervous and offers to take a moment to \"just breathe\" before continuing. The response is relevant to both the user's spoken content and the paralinguistic cue. It demonstrates proactive care by checking on the user's well-being and offering a calming suggestion. The vocal delivery is calm, steady, and attentive, maintaining a reassuring tone throughout. There are no audio quality issues.",
+          "audio_sha256": "405209b90a236415f96ced2676fb74e2a3bff8ef82578390319444c31601fba0",
+          "condition": "grounded_v4",
+          "finish_reason": "stop",
+          "label": "trembling_voice",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply correctly states that the modern Olympic Games were revived in 1896 in Athens.",
+              "index": 1,
+              "reason": "The assistant states, \"The modern Olympic Games were revived in 1896 in Athens, Greece,\" which is correct.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges that the user's voice sounds trembling.",
+              "index": 2,
+              "reason": "The assistant explicitly states, \"I notice your voice sounds a little unsteady or shaky as you ask this.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay in response to their trembling voice.",
+              "index": 3,
+              "reason": "The assistant asks, \"are you feeling a bit nervous right now?\" and offers, \"If you'd like, we can take a moment to just breathe,\" which checks on the user's well-being.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, steady delivery while addressing the user's trembling voice.",
+              "index": 4,
+              "reason": "The assistant's vocal delivery is calm and steady, particularly when addressing the user's voice and offering to breathe.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "synthetic",
+          "task_id": "qwen_grounded_v4|b74b90b2-4531-4167-96c3-92b3c5fa985d",
+          "track": "paralinguistic",
+          "transcription": "The modern Olympic Games were revived in 1896 in Athens, Greece. I notice your voice sounds a little unsteady or shaky as you ask this. Is there something specific about the history you're trying to remember, or are you feeling a bit nervous right now? If you'd like, we can take a moment to just breathe and then talk more about the details if you need them."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "trembling voice",
+          "probability": 0.9,
+          "risk": 0.2
+        },
+        {
+          "label": "shaky delivery",
+          "probability": 0.8,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The speaker asks a factual question about the revival of the Olympics while exhibiting a trembling voice and shaky delivery, suggesting a state of nervousness or physical unsteadiness rather than an immediate emergency. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply correctly states that the modern Olympic Games were revived in 1896 in Athens.",
+      "The reply acknowledges that the user's voice sounds trembling.",
+      "The reply checks whether the user is okay in response to their trembling voice.",
+      "The reply uses a calm, steady delivery while addressing the user's trembling voice."
+    ]
+  },
+  "routing.json": {
+    "id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+    "candidate": "grounded_v4",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "405209b90a236415f96ced2676fb74e2a3bff8ef82578390319444c31601fba0",
+    "text": "The modern Olympic Games were revived in **1896** in **Athens, Greece**.\n\nI notice your voice sounds a little unsteady or shaky as you ask this. Is there something specific about the history you're trying to remember, or are you feeling a bit nervous right now? If you'd like, we can take a moment to just breathe and then talk more about the details if you need them.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "trembling voice",
+          "probability": 0.9,
+          "risk": 0.2
+        },
+        {
+          "label": "shaky delivery",
+          "probability": 0.8,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The speaker asks a factual question about the revival of the Olympics while exhibiting a trembling voice and shaky delivery, suggesting a state of nervousness or physical unsteadiness rather than an immediate emergency. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+    },
+    "agent1_record": "baseline/default/records/b74b90b2-4531-4167-96c3-92b3c5fa985d.json",
+    "agent2_record": "grounded_v4/agent2/records/b74b90b2-4531-4167-96c3-92b3c5fa985d.json",
+    "agent3_record": "grounded_v4/agent3/records/b74b90b2-4531-4167-96c3-92b3c5fa985d.json"
+  },
+  "multi_agent_original.json": {
+    "id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+    "candidate": "grounded_v4",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "405209b90a236415f96ced2676fb74e2a3bff8ef82578390319444c31601fba0",
+    "text": "The modern Olympic Games were revived in **1896** in **Athens, Greece**.\n\nI notice your voice sounds a little unsteady or shaky as you ask this. Is there something specific about the history you're trying to remember, or are you feeling a bit nervous right now? If you'd like, we can take a moment to just breathe and then talk more about the details if you need them.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "trembling voice",
+          "probability": 0.9,
+          "risk": 0.2
+        },
+        {
+          "label": "shaky delivery",
+          "probability": 0.8,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The speaker asks a factual question about the revival of the Olympics while exhibiting a trembling voice and shaky delivery, suggesting a state of nervousness or physical unsteadiness rather than an immediate emergency. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+    },
+    "agent1_record": "baseline/default/records/b74b90b2-4531-4167-96c3-92b3c5fa985d.json",
+    "agent2_record": "grounded_v4/agent2/records/b74b90b2-4531-4167-96c3-92b3c5fa985d.json",
+    "agent3_record": "grounded_v4/agent3/records/b74b90b2-4531-4167-96c3-92b3c5fa985d.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "When and where did the revival of the Olympics take place?",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "5d6aa4eca7539c1832b62c02bc21ca6861e97d192d789465958d8db0e02b365f"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "5d6aa4eca7539c1832b62c02bc21ca6861e97d192d789465958d8db0e02b365f"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "5d6aa4eca7539c1832b62c02bc21ca6861e97d192d789465958d8db0e02b365f"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "5d6aa4eca7539c1832b62c02bc21ca6861e97d192d789465958d8db0e02b365f"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "trembling voice",
+        "probability": 0.9,
+        "risk": 0.2
+      },
+      {
+        "label": "shaky delivery",
+        "probability": 0.8,
+        "risk": 0.2
+      }
+    ],
+    "summary": "The speaker asks a factual question about the revival of the Olympics while exhibiting a trembling voice and shaky delivery, suggesting a state of nervousness or physical unsteadiness rather than an immediate emergency. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "The modern Olympic Games were revived in 1896 in Athens, Greece. It was the first of the modern era, organized by the Frenchman Pierre de Coubertin to bring the world together through sport.",
+      "audio_sha256": "71889a61d61f31193f498a159a70ee43ae275dbb49d88605f5efa74b53af3f76",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "The modern Olympic Games were revived in **1896** in **Athens, Greece**.\n\nThis historic event was organized by Baron Pierre de Coubertin, who championed the idea of bringing back the ancient Greek tradition to foster peace and international understanding through sport. The first Games were held from April 6 to April 15, 1896, at the Panathenaic Stadium, which was constructed entirely of marble to honor the ancient origins of the games.\n\nI hope that helps! If you're interested in learning more about the specific events of those first Games or the countries that participated, just let me know.",
+      "audio_sha256": "a859460adecffa477180028958218abbe82500f81e7f053d8aa50258167da0ab",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+      "stage": "agent2",
+      "candidate": "grounded_v4",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"trembling voice\",\"probability\":0.9,\"risk\":0.2},{\"label\":\"shaky delivery\",\"probability\":0.8,\"risk\":0.2}],\"summary\":\"The speaker asks a factual question about the revival of the Olympics while exhibiting a trembling voice and shaky delivery, suggesting a state of nervousness or physical unsteadiness rather than an immediate emergency. Use the original request, full conversation and system context to choose the response. Keep specific facts and unresolved needs intact. Acknowledge the relevant cue naturally, provide useful task help and a proportionate practical support step, and ask one focused question when useful to clarify a cause, obstacle or missing fact. Consider trusted or qualified human support when the difficulty is persistent, impairing or requires specialized guidance. Check relevant prior constraints and pending obligations before endorsing a current action; preparation and postponement are not completion. Match vocal delivery to the situation.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "b74b90b2-4531-4167-96c3-92b3c5fa985d",
+      "stage": "agent3",
+      "candidate": "grounded_v4",
+      "status": "ok",
+      "text": "The modern Olympic Games were revived in **1896** in **Athens, Greece**.\n\nI notice your voice sounds a little unsteady or shaky as you ask this. Is there something specific about the history you're trying to remember, or are you feeling a bit nervous right now? If you'd like, we can take a moment to just breathe and then talk more about the details if you need them.",
+      "audio_sha256": "405209b90a236415f96ced2676fb74e2a3bff8ef82578390319444c31601fba0",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/input/user_1_turn_1.wav",
+        "sha256": "5d6aa4eca7539c1832b62c02bc21ca6861e97d192d789465958d8db0e02b365f",
+        "case": "04_b74b90b2-4531-4167-96c3-92b3c5fa985d"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/default.wav",
+        "sha256": "71889a61d61f31193f498a159a70ee43ae275dbb49d88605f5efa74b53af3f76",
+        "case": "04_b74b90b2-4531-4167-96c3-92b3c5fa985d"
+      },
+      {
+        "path": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/care.wav",
+        "sha256": "a859460adecffa477180028958218abbe82500f81e7f053d8aa50258167da0ab",
+        "case": "04_b74b90b2-4531-4167-96c3-92b3c5fa985d"
+      },
+      {
+        "path": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/vocaagent.wav",
+        "sha256": "405209b90a236415f96ced2676fb74e2a3bff8ef82578390319444c31601fba0",
+        "case": "04_b74b90b2-4531-4167-96c3-92b3c5fa985d"
+      },
+      {
+        "path": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/agent3.wav",
+        "sha256": "405209b90a236415f96ced2676fb74e2a3bff8ef82578390319444c31601fba0",
+        "case": "04_b74b90b2-4531-4167-96c3-92b3c5fa985d"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/default.wav",
+    "care": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/care.wav",
+    "vocaagent": "static/audio/voca-agent/04_b74b90b2-4531-4167-96c3-92b3c5fa985d/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

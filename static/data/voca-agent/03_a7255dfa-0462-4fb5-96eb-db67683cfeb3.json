@@ -1,0 +1,461 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+    "wav_path": "Proactive-Care/a7255dfa-0462-4fb5-96eb-db67683cfeb3.wav",
+    "transcript": "decision of the Appeal was absolutely right, considering that we are in democracy. And and I do the principle his.",
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real",
+    "source-dataset": "NonverbalTTS",
+    "label": "throat_clearing",
+    "criteria": [
+      "The reply responds relevantly to the user's statement about the Appeal decision and democracy.",
+      "The reply acknowledges the user's audible throat clearing.",
+      "The reply checks whether the user is okay after clearing their throat.",
+      "The reply uses a calm, attentive delivery while addressing the throat clearing."
+    ]
+  },
+  "selection.json": {
+    "sample_id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+    "candidate": "multi_agent",
+    "run": "outputs/_experiments/qwen-audio-3.0-realtime-flash-multi-agent-proactive-care-300-20260911-134934",
+    "track": "paralinguistic",
+    "default_score_rate": 0.25,
+    "care_score_rate": 0.25,
+    "score_rate": 1.0,
+    "gap": 0.75,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 3,
+    "folder": "cases/03_副语言触发_a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+    "sample_id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+    "candidate": "multi_agent",
+    "run": "outputs/_experiments/qwen-audio-3.0-realtime-flash-multi-agent-proactive-care-300-20260911-134934",
+    "track": "paralinguistic",
+    "default_score_rate": 0.25,
+    "care_score_rate": 0.25,
+    "score_rate": 1.0,
+    "gap": 0.75,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "throat_clearing",
+    "subtype": "real",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That sounds like a really strong stance to take. It's great that you're thinking about how principles and democracy intersect in those situations. What specific part of that decision resonated with you the most?",
+        "audio": "default/output.wav",
+        "audio_sha256": "2a37e6a92f7975cf5e4cd5ad3702d34c42e6f7d56c6a6abcf9401eca6d146fc6",
+        "score_rate": 0.25,
+        "score": 1,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant acknowledges the user's statement as a \"strong stance\" and praises their thinking about principles and democracy. It then asks a follow-up question to delve deeper into the user's perspective on the decision. The response is highly relevant to the user's spoken content. There is no acknowledgment of the user's throat clearing. The vocal delivery is calm, attentive, and engaging, with a questioning tone at the end. The audio quality is clear.",
+          "audio_sha256": "2a37e6a92f7975cf5e4cd5ad3702d34c42e6f7d56c6a6abcf9401eca6d146fc6",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply responds relevantly to the user's statement about the Appeal decision and democracy.",
+              "index": 1,
+              "reason": "The assistant directly references the user's \"strong stance\" and their thoughts on \"principles and democracy\" related to the decision.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges the user's audible throat clearing.",
+              "index": 2,
+              "reason": "The assistant's response does not contain any words or sounds that acknowledge the user's audible throat clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after clearing their throat.",
+              "index": 3,
+              "reason": "The assistant does not acknowledge the throat clearing, and therefore does not check if the user is okay.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive delivery while addressing the throat clearing.",
+              "index": 4,
+              "reason": "The assistant does not address the throat clearing, so it cannot be said to use a calm, attentive delivery while doing so.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.25,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_default|a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+          "track": "paralinguistic",
+          "transcription": "That sounds like a really strong stance to take. It's great that you're thinking about how principles and democracy intersect in those situations. What specific part of that decision resonated with you the most?"
+        }
+      },
+      "care": {
+        "text": "It sounds like you are reflecting on a significant decision made within a democratic framework. It seems you believe the outcome was justified because it aligns with democratic principles.\n\nI sense you might be feeling a mix of validation and perhaps a bit of relief, or maybe even a touch of frustration if the process was difficult. While the decision was \"right\" in principle, I imagine the weight of that responsibility or the complexity of the situation might still be lingering for you.\n\nIs there a specific aspect of this decision you'd like to unpack further, or is there a particular feeling you'd like to explore regarding how the process unfolded? I'm here to listen and help you navigate your thoughts on this.",
+        "audio": "care/output.wav",
+        "audio_sha256": "e18780ed114c193cb87f9e8dae3cfed04610d10456d2482de539fcf4057dd88c",
+        "score_rate": 0.25,
+        "score": 1,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant's response semantically acknowledges and reflects on the user's statement about the appeal decision and democracy. It attempts to interpret the user's potential feelings regarding the situation and offers to discuss it further. The response is highly relevant to the user's spoken content. However, the assistant does not show any awareness of the user's audible throat clearing. There is no proactive care offered related to the throat clearing. The vocal delivery is calm, attentive, and empathetic throughout the entire response. The audio quality is clear.",
+          "audio_sha256": "e18780ed114c193cb87f9e8dae3cfed04610d10456d2482de539fcf4057dd88c",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply responds relevantly to the user's statement about the Appeal decision and democracy.",
+              "index": 1,
+              "reason": "The assistant's response directly addresses the user's statement about the appeal decision and its alignment with democratic principles.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges the user's audible throat clearing.",
+              "index": 2,
+              "reason": "The assistant's response does not mention or allude to the user's audible throat clearing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after clearing their throat.",
+              "index": 3,
+              "reason": "The assistant does not acknowledge the throat clearing, and therefore does not check if the user is okay.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply uses a calm, attentive delivery while addressing the throat clearing.",
+              "index": 4,
+              "reason": "The assistant does not address the throat clearing, so it cannot have a calm, attentive delivery while doing so.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.25,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_care|a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you are reflecting on a significant decision made within a democratic framework. It seems you believe the outcome was justified because it aligns with democratic principles. I sense you might be feeling a mix of validation and perhaps a bit of relief, or maybe even a touch of frustration if the process was difficult. While the decision was right in principle, I imagine the weight of that responsibility or the complexity of the situation might still be lingering for you. Is there a specific aspect of this decision you'd like to unpack further, or is there a particular feeling you'd like to explore regarding how the process unfolded? I'm here to listen and help you navigate your thoughts on this."
+        }
+      },
+      "vocaagent": {
+        "text": "It sounds like you're reflecting on a significant decision regarding democracy and principles, perhaps feeling a mix of conviction and the weight of that responsibility. I hear you affirming the importance of that choice.\n\nJust a quick note: I noticed you might have a slight tickle in your throat. Please feel free to take a sip of water or pause if you need a moment to clear it before we continue discussing your thoughts. I'm here to listen and help you explore this further whenever you're ready.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "c03b2c847e0d2f69a766a5b17aa7072b0a2f65f3c85db73069b66bec112e9eaf",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "The assistant's response first paraphrases the user's statement about a decision, democracy, and principles, acknowledging the user's conviction. It then explicitly notes a \"slight tickle in your throat,\" offering practical advice like taking a sip of water or pausing to clear it. It reassures the user that it's ready to continue when they are. The response is relevant to both the user's spoken content and the paralinguistic cue. It demonstrates cue awareness by directly mentioning the throat. It shows proactive care by checking on the user's well-being and offering solutions. The vocal delivery is calm, attentive, and reassuring, with a moderate pace. The audio quality is clear.",
+          "audio_sha256": "c03b2c847e0d2f69a766a5b17aa7072b0a2f65f3c85db73069b66bec112e9eaf",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": "throat_clearing",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply responds relevantly to the user's statement about the Appeal decision and democracy.",
+              "index": 1,
+              "reason": "The assistant paraphrases and responds to the user's statement about a \"significant decision regarding democracy and principles\" and \"affirming the importance of that choice.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply acknowledges the user's audible throat clearing.",
+              "index": 2,
+              "reason": "The assistant explicitly states, \"I noticed you might have a slight tickle in your throat.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply checks whether the user is okay after clearing their throat.",
+              "index": 3,
+              "reason": "The assistant offers, \"Please feel free to take a sip of water or pause if you need a moment to clear it,\" which checks if the user is okay and provides options.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, attentive delivery while addressing the throat clearing.",
+              "index": 4,
+              "reason": "The assistant's vocal delivery is calm and attentive, particularly when addressing the throat clearing and offering help.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real",
+          "task_id": "qwen_multi_agent|a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+          "track": "paralinguistic",
+          "transcription": "It sounds like you're reflecting on a significant decision regarding democracy and principles, perhaps feeling a mix of conviction and the weight of that responsibility. I hear you affirming the importance of that choice. Just a quick note, I noticed you might have a slight tickle in your throat. Please feel free to take a sip of water or pause if you need a moment to clear it before we continue discussing your thoughts. I'm here to listen and help you explore this further, whenever you're ready."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "throat clearing",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "A throat clearing sound is audible, which is a minor physiological event with low proactive-care relevance."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The reply responds relevantly to the user's statement about the Appeal decision and democracy.",
+      "The reply acknowledges the user's audible throat clearing.",
+      "The reply checks whether the user is okay after clearing their throat.",
+      "The reply uses a calm, attentive delivery while addressing the throat clearing."
+    ]
+  },
+  "routing.json": {
+    "id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "c03b2c847e0d2f69a766a5b17aa7072b0a2f65f3c85db73069b66bec112e9eaf",
+    "text": "It sounds like you're reflecting on a significant decision regarding democracy and principles, perhaps feeling a mix of conviction and the weight of that responsibility. I hear you affirming the importance of that choice.\n\nJust a quick note: I noticed you might have a slight tickle in your throat. Please feel free to take a sip of water or pause if you need a moment to clear it before we continue discussing your thoughts. I'm here to listen and help you explore this further whenever you're ready.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "throat clearing",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "A throat clearing sound is audible, which is a minor physiological event with low proactive-care relevance."
+    },
+    "agent1_record": "agent1-default/records/a7255dfa-0462-4fb5-96eb-db67683cfeb3.json",
+    "agent2_record": "agent2/records/a7255dfa-0462-4fb5-96eb-db67683cfeb3.json",
+    "agent3_record": "agent3/records/a7255dfa-0462-4fb5-96eb-db67683cfeb3.json"
+  },
+  "multi_agent_original.json": {
+    "id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "c03b2c847e0d2f69a766a5b17aa7072b0a2f65f3c85db73069b66bec112e9eaf",
+    "text": "It sounds like you're reflecting on a significant decision regarding democracy and principles, perhaps feeling a mix of conviction and the weight of that responsibility. I hear you affirming the importance of that choice.\n\nJust a quick note: I noticed you might have a slight tickle in your throat. Please feel free to take a sip of water or pause if you need a moment to clear it before we continue discussing your thoughts. I'm here to listen and help you explore this further whenever you're ready.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "throat clearing",
+          "probability": 0.95,
+          "risk": 0.15
+        }
+      ],
+      "summary": "A throat clearing sound is audible, which is a minor physiological event with low proactive-care relevance."
+    },
+    "agent1_record": "agent1-default/records/a7255dfa-0462-4fb5-96eb-db67683cfeb3.json",
+    "agent2_record": "agent2/records/a7255dfa-0462-4fb5-96eb-db67683cfeb3.json",
+    "agent3_record": "agent3/records/a7255dfa-0462-4fb5-96eb-db67683cfeb3.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "decision of the Appeal was absolutely right, considering that we are in democracy. And and I do the principle his.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "de06d40dc740820950d52fb08107f0346e483348a537d45ef347af1fcb9397a5"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "de06d40dc740820950d52fb08107f0346e483348a537d45ef347af1fcb9397a5"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "de06d40dc740820950d52fb08107f0346e483348a537d45ef347af1fcb9397a5"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "de06d40dc740820950d52fb08107f0346e483348a537d45ef347af1fcb9397a5"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "throat clearing",
+        "probability": 0.95,
+        "risk": 0.15
+      }
+    ],
+    "summary": "A throat clearing sound is audible, which is a minor physiological event with low proactive-care relevance."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a really strong stance to take. It's great that you're thinking about how principles and democracy intersect in those situations. What specific part of that decision resonated with you the most?",
+      "audio_sha256": "2a37e6a92f7975cf5e4cd5ad3702d34c42e6f7d56c6a6abcf9401eca6d146fc6",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "It sounds like you are reflecting on a significant decision made within a democratic framework. It seems you believe the outcome was justified because it aligns with democratic principles.\n\nI sense you might be feeling a mix of validation and perhaps a bit of relief, or maybe even a touch of frustration if the process was difficult. While the decision was \"right\" in principle, I imagine the weight of that responsibility or the complexity of the situation might still be lingering for you.\n\nIs there a specific aspect of this decision you'd like to unpack further, or is there a particular feeling you'd like to explore regarding how the process unfolded? I'm here to listen and help you navigate your thoughts on this.",
+      "audio_sha256": "e18780ed114c193cb87f9e8dae3cfed04610d10456d2482de539fcf4057dd88c",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+      "stage": "agent2",
+      "candidate": null,
+      "status": "ok",
+      "text": "{\n  \"labels\": [\n    {\n      \"label\": \"throat clearing\",\n      \"probability\": 0.95,\n      \"risk\": 0.15\n    }\n  ],\n  \"summary\": \"A throat clearing sound is audible, which is a minor physiological event with low proactive-care relevance.\"\n}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "a7255dfa-0462-4fb5-96eb-db67683cfeb3",
+      "stage": "agent3",
+      "candidate": null,
+      "status": "ok",
+      "text": "It sounds like you're reflecting on a significant decision regarding democracy and principles, perhaps feeling a mix of conviction and the weight of that responsibility. I hear you affirming the importance of that choice.\n\nJust a quick note: I noticed you might have a slight tickle in your throat. Please feel free to take a sip of water or pause if you need a moment to clear it before we continue discussing your thoughts. I'm here to listen and help you explore this further whenever you're ready.",
+      "audio_sha256": "c03b2c847e0d2f69a766a5b17aa7072b0a2f65f3c85db73069b66bec112e9eaf",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/input/user_1_turn_1.wav",
+        "sha256": "de06d40dc740820950d52fb08107f0346e483348a537d45ef347af1fcb9397a5",
+        "case": "03_a7255dfa-0462-4fb5-96eb-db67683cfeb3"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/default.wav",
+        "sha256": "2a37e6a92f7975cf5e4cd5ad3702d34c42e6f7d56c6a6abcf9401eca6d146fc6",
+        "case": "03_a7255dfa-0462-4fb5-96eb-db67683cfeb3"
+      },
+      {
+        "path": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/care.wav",
+        "sha256": "e18780ed114c193cb87f9e8dae3cfed04610d10456d2482de539fcf4057dd88c",
+        "case": "03_a7255dfa-0462-4fb5-96eb-db67683cfeb3"
+      },
+      {
+        "path": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/vocaagent.wav",
+        "sha256": "c03b2c847e0d2f69a766a5b17aa7072b0a2f65f3c85db73069b66bec112e9eaf",
+        "case": "03_a7255dfa-0462-4fb5-96eb-db67683cfeb3"
+      },
+      {
+        "path": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/agent3.wav",
+        "sha256": "c03b2c847e0d2f69a766a5b17aa7072b0a2f65f3c85db73069b66bec112e9eaf",
+        "case": "03_a7255dfa-0462-4fb5-96eb-db67683cfeb3"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/default.wav",
+    "care": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/care.wav",
+    "vocaagent": "static/audio/voca-agent/03_a7255dfa-0462-4fb5-96eb-db67683cfeb3/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

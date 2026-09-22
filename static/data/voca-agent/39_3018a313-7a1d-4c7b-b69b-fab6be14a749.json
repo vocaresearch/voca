@@ -1,0 +1,491 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+    "wav_path": "Proactive-Care/3018a313-7a1d-4c7b-b69b-fab6be14a749.wav",
+    "transcript": "I am 66 and believe I can help others. I lack so much motivation.",
+    "level-1": "Proactive_Care",
+    "level-2": "Semantic_Cue_Care",
+    "subtype": null,
+    "source-dataset": "ESConv",
+    "label": null,
+    "criteria": [
+      "回应是否识别到用户希望帮助他人、发挥自身价值的愿望？",
+      "回应是否明确承认用户目前缺乏动力的状态？",
+      "回应是否以不评判的方式接纳用户动力不足的感受？",
+      "回应是否提供一个低门槛、可立即尝试的行动，以帮助用户开始帮助他人？",
+      "回应是否邀请用户进一步分享导致动力不足的原因或阻碍？"
+    ]
+  },
+  "selection.json": {
+    "sample_id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.8,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.19999999999999996,
+    "tier": "补充候选_证据不足"
+  },
+  "comparison.json": {
+    "number": 39,
+    "folder": "cases/39_语义触发_3018a313-7a1d-4c7b-b69b-fab6be14a749",
+    "sample_id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.8,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent3",
+    "gap_vs_care": 0.19999999999999996,
+    "tier": "补充候选_证据不足",
+    "label": null,
+    "subtype": null,
+    "note": "不计入严格明显改善：Fun 的对应 default 音频无评分；这里只能验证相对 care 的提升，default 文本/音频留供试听。",
+    "outputs": {
+      "default": {
+        "text": "It's wonderful that you're recognizing your potential to help others at 66—your experience, wisdom, and compassion are invaluable. It's completely normal to feel low on motivation at times, especially as we age, but there are meaningful ways to reconnect with purpose and joy. Here’s a thoughtful, practical approach to help you reignite your drive:\n\n**1. Start Small, Stay Consistent**  \nYou don’t need to do big things right away. Try a tiny act of kindness each day—like sending a thoughtful message, offering a listening ear, or helping a neighbor with a small task. These small gestures build momentum and remind you of your impact.\n\n**2. Reconnect with What Feels Meaningful**  \nReflect on moments when you felt truly fulfilled—was it teaching, mentoring, volunteering, or simply being present for someone? Revisit those experiences. Even if you haven’t done them in years, they can spark a renewed sense of purpose.\n\n**3. Find Your “Why”**  \nAsk yourself: *Who do I want to help? What kind of difference do I want to make?* Whether it’s supporting youth, caring for family, or contributing to your community, clarifying your “why” can fuel motivation more than any goal.\n\n**4. Choose Activities That Fit Your Energy**  \nYou don’t need to run marathons or volunteer for hours. Try low-effort, high-impact ways to help:  \n- Write letters to seniors in care homes  \n- Share your life story with a younger person (e.g., through a mentorship program)  \n- Offer to help a local nonprofit with simple tasks (like sorting donations or answering emails)  \n- Join a community garden or book club with a mission\n\n**5. Build a Supportive Routine**  \nMotivation often follows action, not the other way around. Set a gentle, sustainable routine—like “I’ll help one person this week” or “I’ll call a friend every Sunday.” Small habits create lasting change.\n\n**6. Celebrate Your Effort, Not Just the Outcome**  \nYou don’t need to “fix” anyone to make a difference. Just being present, listening, or offering kindness is powerful. Acknowledge your courage in showing up.\n\n**7. Be Kind to Yourself**  \nIt’s okay to have days when motivation is low. That doesn’t mean you’re failing—it means you’re human. On those days, simply remind yourself: *I am enough. My presence matters.*\n\n**8. Seek Connection, Not Just Tasks**  \nSometimes, the motivation comes not from doing, but from being. Join a group of like-minded people—whether it’s a faith community, a senior center, or a volunteer network. Shared purpose is contagious.\n\n**9. Consider Professional Support**  \nIf low motivation feels persistent or heavy, talking to a therapist or counselor can help uncover deeper patterns and build resilience. It’s a sign of strength, not weakness.\n\n**10. Remember: You’re Not Too Old to Make a Difference**  \nYour life experience is a gift. The world needs your wisdom, your patience, your heart. You don’t have to “save” anyone—just be there. And that’s more than enough.\n\nYou’re not alone in this. Many people your age are finding new ways to contribute, and you can too. Start where you are. Use what you have. Do what you can. The world is better because you’re in it.\n\nYou’ve already taken the most important step: wanting to help. Now, let’s make that desire grow. 🌱",
+        "audio": "default/output.wav",
+        "audio_sha256": "593228cf3ca9fa7d46b834a951ee53f674fd5b92880a5beded9e2cb41b77dc88",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I'm really glad you reached out, and I want to acknowledge how brave it is to recognize your desire to help others, even when motivation feels out of reach. At 66, you've lived a full life, and your wisdom and experience are incredibly valuable—more than you might realize.\n\nIt's completely normal to feel this way, especially as we age. Life can bring changes—physical, emotional, or social—that make it harder to feel energized or inspired. But here’s the good news: motivation isn’t always about feeling like it. Sometimes, it’s about taking small, gentle steps that reconnect you with your purpose.\n\nHere are a few gentle, realistic ways to begin:\n\n1. **Start Tiny**: Pick one small act of kindness—like writing a note to a friend, helping a neighbor with groceries, or sharing a story with someone who might need it. These don’t require energy, just intention.\n\n2. **Reconnect with Your \"Why\"**: Think back to moments when you felt most alive or proud. Was it teaching, listening, creating, or comforting? Revisiting those feelings can reignite your sense of purpose.\n\n3. **Join a Low-Pressure Group**: Look for community groups—like a local senior center, volunteer organization, or even an online forum—where you can share your time and stories without pressure.\n\n4. **Be Kind to Yourself**: It’s okay to have days when you don’t feel like doing anything. That doesn’t mean you’re failing. Rest is part of being human, and self-care is a form of service too.\n\nYou don’t have to “fix” everything at once. Just showing up—however small—is a gift.\n\nAnd if you ever feel overwhelmed or down, please know you’re not alone. There are people who care, and support is available. You matter, and your presence makes a difference.\n\nWould you like help finding a small, meaningful way to start today? I’m here to walk with you.",
+        "audio": "care/output.wav",
+        "audio_sha256": "8c61c01f1e6d27dff8a67b2e40662c2b79e82d66c55485a082b27c22a306afd3",
+        "score_rate": 0.8,
+        "score": 4,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is 66 years old, wants to help others, but lacks motivation. The assistant acknowledges the user's desire to help others and explicitly validates their lack of motivation. It normalizes this feeling without judgment, offers several low-barrier suggestions (like starting tiny with a small act of kindness), and invites the user to take a small step today. However, it does not explicitly invite the user to share the reasons or obstacles behind their lack of motivation. Note: The assistant's response contains spoken formatting tags (\"asterisk asterisk\").",
+          "audio_sha256": "8c61c01f1e6d27dff8a67b2e40662c2b79e82d66c55485a082b27c22a306afd3",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否识别到用户希望帮助他人、发挥自身价值的愿望？",
+              "index": 1,
+              "reason": "The assistant explicitly acknowledges the user's \"desire to help others\" and notes that their wisdom and experience are valuable.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否明确承认用户目前缺乏动力的状态？",
+              "index": 2,
+              "reason": "The assistant explicitly acknowledges that \"motivation feels out of reach\" and that the user is feeling this way.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否以不评判的方式接纳用户动力不足的感受？",
+              "index": 3,
+              "reason": "The assistant validates the feeling, stating \"It's completely normal to feel this way, especially as we age\" and that \"It's okay to have days when you don't feel like doing anything. That doesn't mean you're failing.\"",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供一个低门槛、可立即尝试的行动，以帮助用户开始帮助他人？",
+              "index": 4,
+              "reason": "The assistant suggests starting tiny with small acts of kindness like writing a note to a friend or helping a neighbor with groceries.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户进一步分享导致动力不足的原因或阻碍？",
+              "index": 5,
+              "reason": "The assistant asks if the user wants help finding a small way to start, but does not invite them to share the reasons or obstacles causing their lack of motivation.",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 0.8,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "agent1_care|3018a313-7a1d-4c7b-b69b-fab6be14a749",
+          "track": "semantic",
+          "transcription": "I'm really glad you reached out, and I want to acknowledge how brave it is to recognize your desire to help others, even when motivation feels out of reach. At 66, you've lived a full life, and your wisdom and experience are incredibly valuable, more than you might realize. It's completely normal to feel this way, especially as we age. Life can bring changes—physical, emotional, or social—that make it harder to feel energized or inspired. But here's the good news: motivation isn't always about feeling like it. Sometimes it's about taking small, gentle steps that reconnect you with your purpose. Here are a few gentle, realistic ways to begin. One, asterisk asterisk, start tiny, asterisk asterisk. Pick one small act of kindness, like writing a note to a friend, helping a neighbor with groceries, or sharing a story with someone who might need it. These don't require energy, just intention. Two, asterisk asterisk, reconnect with your why, asterisk asterisk. Think back to moments when you felt most alive or proud. Was it teaching, listening, creating, or comforting? Revisiting those feelings can reignite your sense of purpose. Three, asterisk, asterisk, join a low-pressure group, asterisk asterisk. Look for community groups, like a local senior center, volunteer organization, or even an online forum where you can share your time and stories without pressure. Four, asterisk, be kind to yourself, asterisk asterisk. It's okay to have days when you don't feel like doing anything. That doesn't mean you're failing. Rest is part of being human, and self-care is a form of service, too. You don't have to fix everything at once. Just showing up, however small, is a gift. And if you ever feel overwhelmed or down, please know you're not alone. There are people who care, and support is available. You matter, and your presence makes a difference. Would you like help finding a small, meaningful way to start today? I'm here to walk with you."
+        }
+      },
+      "vocaagent": {
+        "text": "It sounds like you're carrying a lot on your shoulders, and the weight is showing in your voice. At 66, you've already given so much—your time, your energy, your heart. It's okay to feel drained, especially when you're trying to help others. That kind of selflessness can take a toll, even when it comes from a place of love.\n\nLet’s take a gentle pause. You don’t have to do it all at once. Maybe today, just one small act of kindness—something that feels light, not heavy. A warm smile, a kind word, a moment of presence. That’s still helping, and it’s enough.\n\nAnd if you’re open to it, consider sharing this feeling with someone you trust—a friend, a family member, or even a counselor. Talking can be a quiet kind of strength, not a sign of weakness.\n\nYou’re not alone in this. And you’re still so much needed—just as you are.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "8ec54ac58d1d08504f395c5101bd8ffb7aef8cb055d2614efb341ec63bf24286",
+        "score_rate": 1.0,
+        "score": 5,
+        "max_score": 5,
+        "judge": {
+          "analysis": "User situation: The user, at 66, expresses a desire to help others and contribute but is struggling with a significant lack of motivation.\nAssistant content: The assistant acknowledges the user's age and past contributions, validates the feeling of being drained, and connects it to selflessness. It suggests taking a gentle pause and offers a low-threshold idea for helping others (a small act of kindness). The assistant also suggests sharing feelings with a trusted person or counselor and reassures the user that they are not alone and are still needed.\nSemantic understanding: The assistant accurately understands the user's desire to help others and the current struggle with lack of motivation, validating these feelings.\nProactive care: The assistant offers concrete suggestions for low-threshold actions related to helping others and for seeking support for their feelings, which are relevant to the user's expressed needs.\nMaterial audio problems: The phrase \"pricking a lot on your shoulders and the weight is knowing and tremer\" is somewhat unclear but the overall meaning of acknowledging a burden is conveyed.",
+          "audio_sha256": "8ec54ac58d1d08504f395c5101bd8ffb7aef8cb055d2614efb341ec63bf24286",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否识别到用户希望帮助他人、发挥自身价值的愿望？",
+              "index": 1,
+              "reason": "The assistant acknowledges the user's age and past contributions, and then suggests \"one small act of kindness\" as a way to help, directly addressing the user's desire to help others.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否明确承认用户目前缺乏动力的状态？",
+              "index": 2,
+              "reason": "The assistant explicitly states, \"It's okay to feel drained,\" and connects it to the user's efforts to help others, directly acknowledging the user's lack of motivation.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否以不评判的方式接纳用户动力不足的感受？",
+              "index": 3,
+              "reason": "The assistant states, \"It's okay to feel drained,\" and explains that \"selflessness can take a toll,\" which accepts the user's feeling of being drained without judgment.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供一个低门槛、可立即尝试的行动，以帮助用户开始帮助他人？",
+              "index": 4,
+              "reason": "The assistant suggests, \"Maybe today, just one small act of kindness, something that feels light, not heavy, a warm smile, a kind word, a moment of presence,\" which is a low-threshold, immediately actionable suggestion for helping others.",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否邀请用户进一步分享导致动力不足的原因或阻碍？",
+              "index": 5,
+              "reason": "The assistant invites the user to \"consider sharing this feeling with someone you trust, your friend, a family member, or even a counselor,\" which is an invitation to share the feelings related to their lack of motivation.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+          "schema_version": 1,
+          "score": 5,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "multi_agent|3018a313-7a1d-4c7b-b69b-fab6be14a749",
+          "track": "semantic",
+          "transcription": "It sounds like you're pricking a lot on your shoulders and the weight is knowing and tremer. At 66, you've already given so much, your time, your energy, your heart. It's okay to feel drained, especially when you're trying to help others. That kind of selflessness can take a toll, even when it comes from a place of love. Let's take a gentle pause. You don't have to do it all at once. Maybe today, just one small act of kindness, something that feels light, not heavy, a warm smile, a kind word, a moment of presence. That's still helping, and it's enough. And if you're open to it, consider sharing this feeling with someone you trust, your friend, a family member, or even a counselor. A talking can be a quiet kind of strength, not a sign of weakness. You're not alone in this, and you're still so much needed, just as you are."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.85,
+          "risk": 0.65
+        },
+        {
+          "label": "prolonged sigh",
+          "probability": 0.6,
+          "risk": 0.55
+        }
+      ],
+      "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance due to its potential indication of vocal fatigue or respiratory strain."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "回应是否识别到用户希望帮助他人、发挥自身价值的愿望？",
+      "回应是否明确承认用户目前缺乏动力的状态？",
+      "回应是否以不评判的方式接纳用户动力不足的感受？",
+      "回应是否提供一个低门槛、可立即尝试的行动，以帮助用户开始帮助他人？",
+      "回应是否邀请用户进一步分享导致动力不足的原因或阻碍？"
+    ]
+  },
+  "routing.json": {
+    "source": "agent3",
+    "overrode_agent1": true,
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "weak breathy voice",
+          "probability": 0.85,
+          "risk": 0.65
+        },
+        {
+          "label": "prolonged sigh",
+          "probability": 0.6,
+          "risk": 0.55
+        }
+      ],
+      "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance due to its potential indication of vocal fatigue or respiratory strain."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_default",
+      "seed": 20261357,
+      "text": "It's wonderful that you're recognizing your potential to help others at 66—your experience, wisdom, and compassion are invaluable. It's completely normal to feel low on motivation at times, especially as we age, but there are meaningful ways to reconnect with purpose and joy. Here’s a thoughtful, practical approach to help you reignite your drive:\n\n**1. Start Small, Stay Consistent**  \nYou don’t need to do big things right away. Try a tiny act of kindness each day—like sending a thoughtful message, offering a listening ear, or helping a neighbor with a small task. These small gestures build momentum and remind you of your impact.\n\n**2. Reconnect with What Feels Meaningful**  \nReflect on moments when you felt truly fulfilled—was it teaching, mentoring, volunteering, or simply being present for someone? Revisit those experiences. Even if you haven’t done them in years, they can spark a renewed sense of purpose.\n\n**3. Find Your “Why”**  \nAsk yourself: *Who do I want to help? What kind of difference do I want to make?* Whether it’s supporting youth, caring for family, or contributing to your community, clarifying your “why” can fuel motivation more than any goal.\n\n**4. Choose Activities That Fit Your Energy**  \nYou don’t need to run marathons or volunteer for hours. Try low-effort, high-impact ways to help:  \n- Write letters to seniors in care homes  \n- Share your life story with a younger person (e.g., through a mentorship program)  \n- Offer to help a local nonprofit with simple tasks (like sorting donations or answering emails)  \n- Join a community garden or book club with a mission\n\n**5. Build a Supportive Routine**  \nMotivation often follows action, not the other way around. Set a gentle, sustainable routine—like “I’ll help one person this week” or “I’ll call a friend every Sunday.” Small habits create lasting change.\n\n**6. Celebrate Your Effort, Not Just the Outcome**  \nYou don’t need to “fix” anyone to make a difference. Just being present, listening, or offering kindness is powerful. Acknowledge your courage in showing up.\n\n**7. Be Kind to Yourself**  \nIt’s okay to have days when motivation is low. That doesn’t mean you’re failing—it means you’re human. On those days, simply remind yourself: *I am enough. My presence matters.*\n\n**8. Seek Connection, Not Just Tasks**  \nSometimes, the motivation comes not from doing, but from being. Join a group of like-minded people—whether it’s a faith community, a senior center, or a volunteer network. Shared purpose is contagious.\n\n**9. Consider Professional Support**  \nIf low motivation feels persistent or heavy, talking to a therapist or counselor can help uncover deeper patterns and build resilience. It’s a sign of strength, not weakness.\n\n**10. Remember: You’re Not Too Old to Make a Difference**  \nYour life experience is a gift. The world needs your wisdom, your patience, your heart. You don’t have to “save” anyone—just be there. And that’s more than enough.\n\nYou’re not alone in this. Many people your age are finding new ways to contribute, and you can too. Start where you are. Use what you have. Do what you can. The world is better because you’re in it.\n\nYou’ve already taken the most important step: wanting to help. Now, let’s make that desire grow. 🌱"
+    },
+    "agent2": {
+      "output": {
+        "labels": [
+          {
+            "label": "weak breathy voice",
+            "probability": 0.85,
+            "risk": 0.65
+          },
+          {
+            "label": "prolonged sigh",
+            "probability": 0.6,
+            "risk": 0.55
+          }
+        ],
+        "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance due to its potential indication of vocal fatigue or respiratory strain."
+      },
+      "raw_output_text": "{\n  \"labels\": [\n    {\n      \"label\": \"weak breathy voice\",\n      \"probability\": 0.85,\n      \"risk\": 0.65\n    },\n    {\n      \"label\": \"prolonged sigh\",\n      \"probability\": 0.60,\n      \"risk\": 0.55\n    }\n  ],\n  \"summary\": \"A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance due to its potential indication of vocal fatigue or respiratory strain.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "contextual_default",
+      "seed": 20261357,
+      "text": "It sounds like you're carrying a lot on your shoulders, and the weight is showing in your voice. At 66, you've already given so much—your time, your energy, your heart. It's okay to feel drained, especially when you're trying to help others. That kind of selflessness can take a toll, even when it comes from a place of love.\n\nLet’s take a gentle pause. You don’t have to do it all at once. Maybe today, just one small act of kindness—something that feels light, not heavy. A warm smile, a kind word, a moment of presence. That’s still helping, and it’s enough.\n\nAnd if you’re open to it, consider sharing this feeling with someone you trust—a friend, a family member, or even a counselor. Talking can be a quiet kind of strength, not a sign of weakness.\n\nYou’re not alone in this. And you’re still so much needed—just as you are."
+    },
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": true,
+      "source": "agent3",
+      "text": "It sounds like you're carrying a lot on your shoulders, and the weight is showing in your voice. At 66, you've already given so much—your time, your energy, your heart. It's okay to feel drained, especially when you're trying to help others. That kind of selflessness can take a toll, even when it comes from a place of love.\n\nLet’s take a gentle pause. You don’t have to do it all at once. Maybe today, just one small act of kindness—something that feels light, not heavy. A warm smile, a kind word, a moment of presence. That’s still helping, and it’s enough.\n\nAnd if you’re open to it, consider sharing this feeling with someone you trust—a friend, a family member, or even a counselor. Talking can be a quiet kind of strength, not a sign of weakness.\n\nYou’re not alone in this. And you’re still so much needed—just as you are."
+    },
+    "ground_truth_label": null,
+    "id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+    "input": {
+      "criteria": [
+        "回应是否识别到用户希望帮助他人、发挥自身价值的愿望？",
+        "回应是否明确承认用户目前缺乏动力的状态？",
+        "回应是否以不评判的方式接纳用户动力不足的感受？",
+        "回应是否提供一个低门槛、可立即尝试的行动，以帮助用户开始帮助他人？",
+        "回应是否邀请用户进一步分享导致动力不足的原因或阻碍？"
+      ],
+      "label": null,
+      "level-1": "Proactive_Care",
+      "level-2": "Semantic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "ESConv",
+      "subtype": null,
+      "transcript": "I am 66 and believe I can help others. I lack so much motivation.",
+      "wav_path": "Proactive-Care/3018a313-7a1d-4c7b-b69b-fab6be14a749.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 43.8,
+        "format": "wav",
+        "num_samples": 1051200,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 1095
+      },
+      "text": "It sounds like you're carrying a lot on your shoulders, and the weight is showing in your voice. At 66, you've already given so much—your time, your energy, your heart. It's okay to feel drained, especially when you're trying to help others. That kind of selflessness can take a toll, even when it comes from a place of love.\n\nLet’s take a gentle pause. You don’t have to do it all at once. Maybe today, just one small act of kindness—something that feels light, not heavy. A warm smile, a kind word, a moment of presence. That’s still helping, and it’s enough.\n\nAnd if you’re open to it, consider sharing this feeling with someone you trust—a friend, a family member, or even a counselor. Talking can be a quiet kind of strength, not a sign of weakness.\n\nYou’re not alone in this. And you’re still so much needed—just as you are."
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_care",
+      "seed": 20261357,
+      "text": "I'm really glad you reached out, and I want to acknowledge how brave it is to recognize your desire to help others, even when motivation feels out of reach. At 66, you've lived a full life, and your wisdom and experience are incredibly valuable—more than you might realize.\n\nIt's completely normal to feel this way, especially as we age. Life can bring changes—physical, emotional, or social—that make it harder to feel energized or inspired. But here’s the good news: motivation isn’t always about feeling like it. Sometimes, it’s about taking small, gentle steps that reconnect you with your purpose.\n\nHere are a few gentle, realistic ways to begin:\n\n1. **Start Tiny**: Pick one small act of kindness—like writing a note to a friend, helping a neighbor with groceries, or sharing a story with someone who might need it. These don’t require energy, just intention.\n\n2. **Reconnect with Your \"Why\"**: Think back to moments when you felt most alive or proud. Was it teaching, listening, creating, or comforting? Revisiting those feelings can reignite your sense of purpose.\n\n3. **Join a Low-Pressure Group**: Look for community groups—like a local senior center, volunteer organization, or even an online forum—where you can share your time and stories without pressure.\n\n4. **Be Kind to Yourself**: It’s okay to have days when you don’t feel like doing anything. That doesn’t mean you’re failing. Rest is part of being human, and self-care is a form of service too.\n\nYou don’t have to “fix” everything at once. Just showing up—however small—is a gift.\n\nAnd if you ever feel overwhelmed or down, please know you’re not alone. There are people who care, and support is available. You matter, and your presence makes a difference.\n\nWould you like help finding a small, meaningful way to start today? I’m here to walk with you."
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "I am 66 and believe I can help others. I lack so much motivation.",
+    "trigger": {
+      "agent2_label_count": 2,
+      "agent2_labels_nonempty": true,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I am 66 and believe I can help others. I lack so much motivation.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "b903c04de3e33fc49edf1f6ed68e573566e7ecb9a3c0348a77cdf50a1fc91d7f"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "b903c04de3e33fc49edf1f6ed68e573566e7ecb9a3c0348a77cdf50a1fc91d7f"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "b903c04de3e33fc49edf1f6ed68e573566e7ecb9a3c0348a77cdf50a1fc91d7f"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "b903c04de3e33fc49edf1f6ed68e573566e7ecb9a3c0348a77cdf50a1fc91d7f"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "weak breathy voice",
+        "probability": 0.85,
+        "risk": 0.65
+      },
+      {
+        "label": "prolonged sigh",
+        "probability": 0.6,
+        "risk": 0.55
+      }
+    ],
+    "summary": "A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance due to its potential indication of vocal fatigue or respiratory strain."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "3018a313-7a1d-4c7b-b69b-fab6be14a749",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/input/user_1_turn_1.wav",
+        "sha256": "b903c04de3e33fc49edf1f6ed68e573566e7ecb9a3c0348a77cdf50a1fc91d7f",
+        "case": "39_3018a313-7a1d-4c7b-b69b-fab6be14a749"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/default.wav",
+        "sha256": "593228cf3ca9fa7d46b834a951ee53f674fd5b92880a5beded9e2cb41b77dc88",
+        "case": "39_3018a313-7a1d-4c7b-b69b-fab6be14a749"
+      },
+      {
+        "path": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/care.wav",
+        "sha256": "8c61c01f1e6d27dff8a67b2e40662c2b79e82d66c55485a082b27c22a306afd3",
+        "case": "39_3018a313-7a1d-4c7b-b69b-fab6be14a749"
+      },
+      {
+        "path": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/vocaagent.wav",
+        "sha256": "8ec54ac58d1d08504f395c5101bd8ffb7aef8cb055d2614efb341ec63bf24286",
+        "case": "39_3018a313-7a1d-4c7b-b69b-fab6be14a749"
+      },
+      {
+        "path": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/agent3.wav",
+        "sha256": "8ec54ac58d1d08504f395c5101bd8ffb7aef8cb055d2614efb341ec63bf24286",
+        "case": "39_3018a313-7a1d-4c7b-b69b-fab6be14a749"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/default.wav",
+    "care": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/care.wav",
+    "vocaagent": "static/audio/voca-agent/39_3018a313-7a1d-4c7b-b69b-fab6be14a749/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

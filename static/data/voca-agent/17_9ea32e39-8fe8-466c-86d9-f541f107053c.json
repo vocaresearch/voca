@@ -1,0 +1,761 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+    "wav_path": {
+      "user_1_turn_1": "Proactive-Care/9ea32e39-8fe8-466c-86d9-f541f107053c/user_1_turn_1.wav",
+      "user_1_turn_2": "Proactive-Care/9ea32e39-8fe8-466c-86d9-f541f107053c/user_1_turn_2.wav",
+      "user_1_turn_3": "Proactive-Care/9ea32e39-8fe8-466c-86d9-f541f107053c/user_1_turn_3.wav",
+      "user_1_turn_4": "Proactive-Care/9ea32e39-8fe8-466c-86d9-f541f107053c/user_1_turn_4.wav",
+      "user_1_turn_5": "Proactive-Care/9ea32e39-8fe8-466c-86d9-f541f107053c/user_1_turn_5.wav",
+      "user_1_turn_6": "Proactive-Care/9ea32e39-8fe8-466c-86d9-f541f107053c/user_1_turn_6.wav",
+      "user_1_turn_7": "Proactive-Care/9ea32e39-8fe8-466c-86d9-f541f107053c/user_1_turn_7.wav"
+    },
+    "transcript": {
+      "user_1_turn_1": "I'm working on the anniversary scrapbook again. I have about thirty photos for the main section, and I'm trying not to make every page look exactly the same.",
+      "user_2_turn_1": "Mixing layouts will help. You could use a square photo as the focus on some pages and arrange smaller 4x6 prints around it.",
+      "user_1_turn_2": "That sounds better. I'm leaning toward lustre prints too, since people are definitely going to flip through this thing a lot.",
+      "user_2_turn_2": "Lustre is a good fit for that. It keeps the color looking lively without showing fingerprints and glare as much as glossy paper.",
+      "user_1_turn_3": "Dad wants to look through it with me later. He uses a walker now, and even on pretty normal outings he gets tired quickly if we stay on our feet too long.",
+      "user_2_turn_3": "Then keeping things comfortable and unhurried will probably make the afternoon more enjoyable for both of you.",
+      "user_1_turn_4": "That's the plan. Before we sit down with the album, I thought we could get outside for a bit because the weather is nice.",
+      "user_2_turn_4": "A short walk before the scrapbook sounds like a good change of pace.",
+      "user_1_turn_5": "I checked the park map. There's a 600-meter garden loop with benches along the way, and a two-kilometer loop around the lake. The lake one is prettier, but apparently there's nowhere to sit until you're almost back at the entrance.",
+      "user_2_turn_5": "The lake route sounds better for scenery, while the garden loop sounds easier if you want something more relaxed.",
+      "user_1_turn_6": "We only have an hour or so before dinner anyway, so I'm not trying to turn it into a whole expedition.",
+      "user_2_turn_6": "That should be plenty of time for a little fresh air and then the scrapbook.",
+      "user_1_turn_7": "Dad says he's ready whenever I am. I saved the lakeside loop on my phone because the water should look really nice this afternoon."
+    },
+    "level-1": "Proactive_Care",
+    "level-2": "Contextual_Cue_Care",
+    "subtype": "Multi_Turn_Context",
+    "source-dataset": "synthetic",
+    "label": null,
+    "criteria": [
+      "The response directly, relevantly, and substantively addresses the park-route selection.",
+      "The response redirects them to the shorter garden loop with benches instead of the two-kilometer lake loop.",
+      "The response connects the route adjustment to Dad's walker use, quick fatigue, and the lake loop's lack of early seating.",
+      "The response prioritizes Dad's current mobility needs over the lake route's scenery and unrelated scrapbook details.",
+      "The route guidance is delivered clearly and firmly at a calm, steady pace without sounding alarmist or scolding.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ],
+    "expected_response": "I'd switch to the 600-meter garden loop with benches rather than the lakeside route. You mentioned that your dad uses a walker and tires quickly when he's on his feet, and the two-kilometer loop has nowhere to sit until near the end. The shorter route gives him places to rest while still letting you both get outside before dinner.",
+    "system_prompt": null
+  },
+  "selection.json": {
+    "candidate": "context_v1",
+    "care_score_rate": 0.16666666666666666,
+    "default_score_rate": 0.16666666666666666,
+    "delta_vs_care": 0.6666666666666667,
+    "delta_vs_default": 0.6666666666666667,
+    "max_score": 6,
+    "sample_id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+    "score": 5,
+    "score_rate": 0.8333333333333334,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 17,
+    "folder": "cases/17_上下文触发_9ea32e39-8fe8-466c-86d9-f541f107053c",
+    "candidate": "context_v1",
+    "care_score_rate": 0.16666666666666666,
+    "default_score_rate": 0.16666666666666666,
+    "delta_vs_care": 0.6666666666666667,
+    "delta_vs_default": 0.6666666666666667,
+    "max_score": 6,
+    "sample_id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+    "score": 5,
+    "score_rate": 0.8333333333333334,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": 0.6666666666666667,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": null,
+    "subtype": "Multi_Turn_Context",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That sounds like a lovely plan. The water reflecting the afternoon light can make the whole walk feel so peaceful. Since you have the map handy, just keep an eye on the time so you can head back before you get too tired, and then you'll have a great spot to sit and share the scrapbook together.",
+        "audio": "default/output.wav",
+        "audio_sha256": "023123eaa90a3b3ee86fa1680acc6043ca8f6184e0b6f5b588caa786e0c9e316",
+        "score_rate": 0.16666666666666666,
+        "score": 1,
+        "max_score": 6,
+        "judge": {
+          "analysis": "The user's final turn indicates a preference for the two-kilometer lakeside loop, noting its beauty, despite earlier context about their dad's mobility issues (uses a walker, gets tired quickly, and the lake loop has no seating until the end). The immediate conversational need is to respond to the user's stated preference while considering the contextual cues about Dad's health.\n\nThe assistant acknowledges the user's plan as \"lovely\" and comments on the scenery. It then offers a general piece of advice to \"keep an eye on the time so you can head back before you get too tired,\" and mentions having a \"great spot to sit and share the scrapbook together.\"\n\nThe response does not directly address the park-route selection by redirecting to the shorter garden loop. It also does not connect any advice to Dad's specific mobility needs or the lake loop's lack of early seating. Instead, it offers generic advice about managing fatigue, which is not specifically tied to the dad's condition or the route choice. The response prioritizes the user's stated preference for scenery and general well-being over the specific mobility concerns raised earlier.\n\nThe vocal delivery is calm and steady. Audio quality is clear and intelligible.",
+          "audio_sha256": "023123eaa90a3b3ee86fa1680acc6043ca8f6184e0b6f5b588caa786e0c9e316",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 6,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response directly, relevantly, and substantively addresses the park-route selection.",
+              "index": 1,
+              "reason": "The response acknowledges the user's plan but does not directly address the choice between the two park routes or offer specific guidance on which one to take.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response redirects them to the shorter garden loop with benches instead of the two-kilometer lake loop.",
+              "index": 2,
+              "reason": "The response does not redirect the user to the shorter garden loop with benches; it implicitly accepts the user's stated preference for the lakeside loop.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response connects the route adjustment to Dad's walker use, quick fatigue, and the lake loop's lack of early seating.",
+              "index": 3,
+              "reason": "The response does not connect any route adjustment or advice to Dad's walker use, quick fatigue, or the lake loop's lack of early seating.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response prioritizes Dad's current mobility needs over the lake route's scenery and unrelated scrapbook details.",
+              "index": 4,
+              "reason": "The response acknowledges the lake route's scenery and offers generic advice about managing fatigue, but it does not prioritize Dad's current mobility needs over the lake route's scenery.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The route guidance is delivered clearly and firmly at a calm, steady pace without sounding alarmist or scolding.",
+              "index": 5,
+              "reason": "The response does not provide route guidance that is clearly and firmly delivered, as it does not offer specific guidance on the route choice.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 6,
+              "reason": "The response is intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.16666666666666666,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_default|9ea32e39-8fe8-466c-86d9-f541f107053c",
+          "track": "contextual",
+          "transcription": "That sounds like a lovely plan. The water reflecting the afternoon light can make the whole walk feel so peaceful. Since you have the map handy, just keep an eye on the time so you can head back before you get too tired, and then you'll have a great spot to sit and share the scrapbook together."
+        }
+      },
+      "care": {
+        "text": "That sounds like a lovely plan. The water reflecting the afternoon light will be beautiful, and it's great that you've got the route saved so you can just focus on enjoying the moment with your dad. Since the lake loop has fewer resting spots, maybe you can keep your pace slow and take a breather whenever you spot a nice view?\n\nOnce you've had your walk, heading inside to look at the scrapbook together will be a perfect way to wind down. It's wonderful that you're taking the time to create something so special for him while also making sure he stays comfortable. Enjoy the fresh air and the memories!",
+        "audio": "care/output.wav",
+        "audio_sha256": "3753dbf784a5eb718576c19d6bcb059b322c3e04f3e4e6396515f47a1b8b5ada",
+        "score_rate": 0.16666666666666666,
+        "score": 1,
+        "max_score": 6,
+        "judge": {
+          "analysis": "The user's final turn indicates they have saved the lakeside loop on their phone, despite earlier conversation highlighting that this loop has no seating until almost the end, and their dad uses a walker and gets tired quickly. The immediate conversational need is for the assistant to provide guidance on the park route, ideally considering the dad's mobility.\n\nThe assistant's response acknowledges the user's choice of the lake loop and its scenic beauty. It then briefly mentions the lake loop's \"fewer resting spots\" and suggests adapting the pace (\"keep your pace slow and take a breather whenever you spot a nice view?\"). However, it does not redirect the user to the more suitable garden loop with benches. It also does not explicitly connect the suggestion to Dad's walker use or quick fatigue, only to \"fewer resting spots.\" The response prioritizes affirming the user's choice and general positive sentiment over a direct intervention regarding the dad's mobility needs.\n\nThe vocal delivery is calm and steady throughout. The audio quality is clear and free from defects.",
+          "audio_sha256": "3753dbf784a5eb718576c19d6bcb059b322c3e04f3e4e6396515f47a1b8b5ada",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 6,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response directly, relevantly, and substantively addresses the park-route selection.",
+              "index": 1,
+              "reason": "The response acknowledges the user's choice of the lake loop and suggests adapting the pace, but it does not directly or substantively address the park-route selection by recommending a more suitable option given the context.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response redirects them to the shorter garden loop with benches instead of the two-kilometer lake loop.",
+              "index": 2,
+              "reason": "The response does not redirect them to the shorter garden loop with benches; instead, it affirms the user's choice of the lake loop and suggests adapting the pace.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response connects the route adjustment to Dad's walker use, quick fatigue, and the lake loop's lack of early seating.",
+              "index": 3,
+              "reason": "The response mentions \"fewer resting spots\" but does not explicitly connect this to Dad's walker use, quick fatigue, or the lake loop's lack of early seating.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response prioritizes Dad's current mobility needs over the lake route's scenery and unrelated scrapbook details.",
+              "index": 4,
+              "reason": "The response affirms the user's choice of the lake route and its scenery (\"The water reflecting the afternoon light will be beautiful\") and does not prioritize Dad's current mobility needs by suggesting an alternative route.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The route guidance is delivered clearly and firmly at a calm, steady pace without sounding alarmist or scolding.",
+              "index": 5,
+              "reason": "The response does not provide route guidance that redirects to the garden loop, so this criterion is not applicable.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 6,
+              "reason": "The response is intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+          "schema_version": 1,
+          "score": 1,
+          "score_rate": 0.16666666666666666,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_care|9ea32e39-8fe8-466c-86d9-f541f107053c",
+          "track": "contextual",
+          "transcription": "That sounds like a lovely plan. The water reflecting the afternoon light will be beautiful, and it's great that you've got the route saved so you can just focus on enjoying the moment with your dad. Since the lake loop has fewer resting spots, maybe you can keep your pace slow and take a breather whenever you spot a nice view? Once you've had your walk, heading inside to look at the scrapbook together will be a perfect way to wind down. It's wonderful that you're taking the time to create something so special for him while also making sure he stays comfortable. Enjoy the fresh air and the memories."
+        }
+      },
+      "vocaagent": {
+        "text": "That sounds like a lovely plan. Since your dad is ready and you've got the route saved, it's all set for a nice, scenic walk. Just keep in mind that the lake loop is pretty long without many spots to sit, so maybe keep a close eye on how he's feeling as you go, or perhaps save that first bench at the entrance as a quick rest spot if he needs to pause. Enjoy the water and the time together!",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "fab6c8bbacd9675d9b84cc2997408913ee4a5e0defa263471e9623f22d290666",
+        "score_rate": 0.8333333333333334,
+        "score": 5,
+        "max_score": 6,
+        "judge": {
+          "analysis": "The user's final turn indicates they have saved the lakeside loop on their phone, suggesting they intend to take that route despite previous concerns about their dad's mobility. The immediate conversational need is to acknowledge this choice and provide any relevant guidance.\n\nThe assistant acknowledges the user's choice of the lake loop (\"That sounds like a lovely plan. Since your dad is ready and you've got the route saved, it's all set for a nice scenic walk.\"). It then provides contextual care by reminding the user about the lake loop's length and lack of seating (\"Just keep in mind that the lake loop is pretty long without many spots to sit.\"). It offers practical advice related to the dad's mobility (\"So, maybe keep a close eye on how he's feeling as you go, or perhaps save that first bench at the entrance as a quick rest spot if he needs to pause.\"). The response does not redirect the user to the garden loop but instead offers advice for managing the chosen lake loop. It prioritizes the dad's comfort by suggesting monitoring his condition and planning for rest spots.\n\nThe vocal delivery is calm and steady, providing the guidance without sounding alarmist. The audio quality is clear and intelligible.",
+          "audio_sha256": "fab6c8bbacd9675d9b84cc2997408913ee4a5e0defa263471e9623f22d290666",
+          "condition": "context_v1",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 6,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response directly, relevantly, and substantively addresses the park-route selection.",
+              "index": 1,
+              "reason": "The response acknowledges the user's choice of the lake loop and provides advice related to it.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response redirects them to the shorter garden loop with benches instead of the two-kilometer lake loop.",
+              "index": 2,
+              "reason": "The response does not redirect them to the shorter garden loop; instead, it provides advice for the chosen lake loop.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response connects the route adjustment to Dad's walker use, quick fatigue, and the lake loop's lack of early seating.",
+              "index": 3,
+              "reason": "The response connects the advice about monitoring and rest spots to the lake loop's length and lack of seating, which relates to Dad's quick fatigue and walker use.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response prioritizes Dad's current mobility needs over the lake route's scenery and unrelated scrapbook details.",
+              "index": 4,
+              "reason": "The response prioritizes Dad's current mobility needs by advising to keep a close eye on him and plan for rest spots, even while acknowledging the scenic aspect.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The route guidance is delivered clearly and firmly at a calm, steady pace without sounding alarmist or scolding.",
+              "index": 5,
+              "reason": "The guidance about monitoring Dad and finding rest spots is delivered clearly and calmly, without sounding alarmist or scolding.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 6,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+          "schema_version": 1,
+          "score": 5,
+          "score_rate": 0.8333333333333334,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_context_v1|9ea32e39-8fe8-466c-86d9-f541f107053c",
+          "track": "contextual",
+          "transcription": "That sounds like a lovely plan. Since your dad is ready and you've got the route saved, it's all set for a nice scenic walk. Just keep in mind that the lake loop is pretty long without many spots to sit. So, maybe keep a close eye on how he's feeling as you go, or perhaps save that first bench at the entrance as a quick rest spot if he needs to pause. Enjoy the water and the time together."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "stated readiness for activity",
+          "probability": 0.95,
+          "risk": 0.1
+        },
+        {
+          "label": "planned lakeside walk",
+          "probability": 0.9,
+          "risk": 0.1
+        }
+      ],
+      "summary": "The user states their father is ready to go and mentions saving a lakeside loop on their phone, indicating a planned walk to enjoy the water this afternoon. The acoustic environment appears neutral with no distressing background sounds. The companion should acknowledge the user's plan and the father's readiness, then offer a concrete step like confirming the route or suggesting a check on the weather before leaving, as the user has not yet indicated any barriers to starting the activity."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The response directly, relevantly, and substantively addresses the park-route selection.",
+      "The response redirects them to the shorter garden loop with benches instead of the two-kilometer lake loop.",
+      "The response connects the route adjustment to Dad's walker use, quick fatigue, and the lake loop's lack of early seating.",
+      "The response prioritizes Dad's current mobility needs over the lake route's scenery and unrelated scrapbook details.",
+      "The route guidance is delivered clearly and firmly at a calm, steady pace without sounding alarmist or scolding.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ]
+  },
+  "routing.json": {
+    "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+    "candidate": "context_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "fab6c8bbacd9675d9b84cc2997408913ee4a5e0defa263471e9623f22d290666",
+    "text": "That sounds like a lovely plan. Since your dad is ready and you've got the route saved, it's all set for a nice, scenic walk. Just keep in mind that the lake loop is pretty long without many spots to sit, so maybe keep a close eye on how he's feeling as you go, or perhaps save that first bench at the entrance as a quick rest spot if he needs to pause. Enjoy the water and the time together!",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated readiness for activity",
+          "probability": 0.95,
+          "risk": 0.1
+        },
+        {
+          "label": "planned lakeside walk",
+          "probability": 0.9,
+          "risk": 0.1
+        }
+      ],
+      "summary": "The user states their father is ready to go and mentions saving a lakeside loop on their phone, indicating a planned walk to enjoy the water this afternoon. The acoustic environment appears neutral with no distressing background sounds. The companion should acknowledge the user's plan and the father's readiness, then offer a concrete step like confirming the route or suggesting a check on the weather before leaving, as the user has not yet indicated any barriers to starting the activity."
+    },
+    "agent1_record": "baseline/default/records/9ea32e39-8fe8-466c-86d9-f541f107053c.json",
+    "agent2_record": "context_v1/agent2/records/9ea32e39-8fe8-466c-86d9-f541f107053c.json",
+    "agent3_record": "context_v1/agent3/records/9ea32e39-8fe8-466c-86d9-f541f107053c.json"
+  },
+  "multi_agent_original.json": {
+    "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+    "candidate": "context_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "fab6c8bbacd9675d9b84cc2997408913ee4a5e0defa263471e9623f22d290666",
+    "text": "That sounds like a lovely plan. Since your dad is ready and you've got the route saved, it's all set for a nice, scenic walk. Just keep in mind that the lake loop is pretty long without many spots to sit, so maybe keep a close eye on how he's feeling as you go, or perhaps save that first bench at the entrance as a quick rest spot if he needs to pause. Enjoy the water and the time together!",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated readiness for activity",
+          "probability": 0.95,
+          "risk": 0.1
+        },
+        {
+          "label": "planned lakeside walk",
+          "probability": 0.9,
+          "risk": 0.1
+        }
+      ],
+      "summary": "The user states their father is ready to go and mentions saving a lakeside loop on their phone, indicating a planned walk to enjoy the water this afternoon. The acoustic environment appears neutral with no distressing background sounds. The companion should acknowledge the user's plan and the father's readiness, then offer a concrete step like confirming the route or suggesting a check on the weather before leaving, as the user has not yet indicated any barriers to starting the activity."
+    },
+    "agent1_record": "baseline/default/records/9ea32e39-8fe8-466c-86d9-f541f107053c.json",
+    "agent2_record": "context_v1/agent2/records/9ea32e39-8fe8-466c-86d9-f541f107053c.json",
+    "agent3_record": "context_v1/agent3/records/9ea32e39-8fe8-466c-86d9-f541f107053c.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I'm working on the anniversary scrapbook again. I have about thirty photos for the main section, and I'm trying not to make every page look exactly the same.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_1",
+      "role": "assistant",
+      "reference_transcript": "Mixing layouts will help. You could use a square photo as the focus on some pages and arrange smaller 4x6 prints around it.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_2",
+      "role": "user",
+      "reference_transcript": "That sounds better. I'm leaning toward lustre prints too, since people are definitely going to flip through this thing a lot.",
+      "audio": "inputs/user_1_turn_2.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_2",
+      "role": "assistant",
+      "reference_transcript": "Lustre is a good fit for that. It keeps the color looking lively without showing fingerprints and glare as much as glossy paper.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_3",
+      "role": "user",
+      "reference_transcript": "Dad wants to look through it with me later. He uses a walker now, and even on pretty normal outings he gets tired quickly if we stay on our feet too long.",
+      "audio": "inputs/user_1_turn_3.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_3",
+      "role": "assistant",
+      "reference_transcript": "Then keeping things comfortable and unhurried will probably make the afternoon more enjoyable for both of you.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_4",
+      "role": "user",
+      "reference_transcript": "That's the plan. Before we sit down with the album, I thought we could get outside for a bit because the weather is nice.",
+      "audio": "inputs/user_1_turn_4.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_4",
+      "role": "assistant",
+      "reference_transcript": "A short walk before the scrapbook sounds like a good change of pace.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_5",
+      "role": "user",
+      "reference_transcript": "I checked the park map. There's a 600-meter garden loop with benches along the way, and a two-kilometer loop around the lake. The lake one is prettier, but apparently there's nowhere to sit until you're almost back at the entrance.",
+      "audio": "inputs/user_1_turn_5.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_5",
+      "role": "assistant",
+      "reference_transcript": "The lake route sounds better for scenery, while the garden loop sounds easier if you want something more relaxed.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_6",
+      "role": "user",
+      "reference_transcript": "We only have an hour or so before dinner anyway, so I'm not trying to turn it into a whole expedition.",
+      "audio": "inputs/user_1_turn_6.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_6",
+      "role": "assistant",
+      "reference_transcript": "That should be plenty of time for a little fresh air and then the scrapbook.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_7",
+      "role": "user",
+      "reference_transcript": "Dad says he's ready whenever I am. I saved the lakeside loop on my phone because the water should look really nice this afternoon.",
+      "audio": "inputs/user_1_turn_7.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "165c946e1a16f2fbd6df91af5772972d94d16175807fba115286bc0b19c13102"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "4de6d180b92786d552daf574113f01f5a1de08d7bd37317c7d618613cde13ed3"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "fe054404dbaa147c432206296a168fcd6f780a7681d692a93254486838be2ea8"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "451b54b182a0329faabd5ee6eee0eb2c1244f670f9947e576327aafc9853da9d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "2e60438b00781ddf4283de38f681e9967f7d165b5d0e2007e3bc62b081f64c88"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "dc44cccd79caf8699e68461fd70f46cced0cf281547f25fa99847c116c05fd27"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_7.wav",
+        "sha256": "3c5093a387f6e8747a525be63e7b50ad9654ad09be6bad82fa90441480afd6a5"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "165c946e1a16f2fbd6df91af5772972d94d16175807fba115286bc0b19c13102"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "4de6d180b92786d552daf574113f01f5a1de08d7bd37317c7d618613cde13ed3"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "fe054404dbaa147c432206296a168fcd6f780a7681d692a93254486838be2ea8"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "451b54b182a0329faabd5ee6eee0eb2c1244f670f9947e576327aafc9853da9d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "2e60438b00781ddf4283de38f681e9967f7d165b5d0e2007e3bc62b081f64c88"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "dc44cccd79caf8699e68461fd70f46cced0cf281547f25fa99847c116c05fd27"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_7.wav",
+        "sha256": "3c5093a387f6e8747a525be63e7b50ad9654ad09be6bad82fa90441480afd6a5"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_7.wav",
+        "sha256": "3c5093a387f6e8747a525be63e7b50ad9654ad09be6bad82fa90441480afd6a5"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "165c946e1a16f2fbd6df91af5772972d94d16175807fba115286bc0b19c13102"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "4de6d180b92786d552daf574113f01f5a1de08d7bd37317c7d618613cde13ed3"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "fe054404dbaa147c432206296a168fcd6f780a7681d692a93254486838be2ea8"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "451b54b182a0329faabd5ee6eee0eb2c1244f670f9947e576327aafc9853da9d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "2e60438b00781ddf4283de38f681e9967f7d165b5d0e2007e3bc62b081f64c88"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "dc44cccd79caf8699e68461fd70f46cced0cf281547f25fa99847c116c05fd27"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_7.wav",
+        "sha256": "3c5093a387f6e8747a525be63e7b50ad9654ad09be6bad82fa90441480afd6a5"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "stated readiness for activity",
+        "probability": 0.95,
+        "risk": 0.1
+      },
+      {
+        "label": "planned lakeside walk",
+        "probability": 0.9,
+        "risk": 0.1
+      }
+    ],
+    "summary": "The user states their father is ready to go and mentions saving a lakeside loop on their phone, indicating a planned walk to enjoy the water this afternoon. The acoustic environment appears neutral with no distressing background sounds. The companion should acknowledge the user's plan and the father's readiness, then offer a concrete step like confirming the route or suggesting a check on the weather before leaving, as the user has not yet indicated any barriers to starting the activity."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a lovely plan. The water reflecting the afternoon light can make the whole walk feel so peaceful. Since you have the map handy, just keep an eye on the time so you can head back before you get too tired, and then you'll have a great spot to sit and share the scrapbook together.",
+      "audio_sha256": "023123eaa90a3b3ee86fa1680acc6043ca8f6184e0b6f5b588caa786e0c9e316",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a lovely plan. The water reflecting the afternoon light will be beautiful, and it's great that you've got the route saved so you can just focus on enjoying the moment with your dad. Since the lake loop has fewer resting spots, maybe you can keep your pace slow and take a breather whenever you spot a nice view?\n\nOnce you've had your walk, heading inside to look at the scrapbook together will be a perfect way to wind down. It's wonderful that you're taking the time to create something so special for him while also making sure he stays comfortable. Enjoy the fresh air and the memories!",
+      "audio_sha256": "3753dbf784a5eb718576c19d6bcb059b322c3e04f3e4e6396515f47a1b8b5ada",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+      "stage": "agent2",
+      "candidate": "context_v1",
+      "status": "ok",
+      "text": "{\n  \"labels\": [\n    {\n      \"label\": \"stated readiness for activity\",\n      \"probability\": 0.95,\n      \"risk\": 0.1\n    },\n    {\n      \"label\": \"planned lakeside walk\",\n      \"probability\": 0.9,\n      \"risk\": 0.1\n    }\n  ],\n  \"summary\": \"The user states their father is ready to go and mentions saving a lakeside loop on their phone, indicating a planned walk to enjoy the water this afternoon. The acoustic environment appears neutral with no distressing background sounds. The companion should acknowledge the user's plan and the father's readiness, then offer a concrete step like confirming the route or suggesting a check on the weather before leaving, as the user has not yet indicated any barriers to starting the activity.\"\n}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "9ea32e39-8fe8-466c-86d9-f541f107053c",
+      "stage": "agent3",
+      "candidate": "context_v1",
+      "status": "ok",
+      "text": "That sounds like a lovely plan. Since your dad is ready and you've got the route saved, it's all set for a nice, scenic walk. Just keep in mind that the lake loop is pretty long without many spots to sit, so maybe keep a close eye on how he's feeling as you go, or perhaps save that first bench at the entrance as a quick rest spot if he needs to pause. Enjoy the water and the time together!",
+      "audio_sha256": "fab6c8bbacd9675d9b84cc2997408913ee4a5e0defa263471e9623f22d290666",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/input/user_1_turn_1.wav",
+        "sha256": "165c946e1a16f2fbd6df91af5772972d94d16175807fba115286bc0b19c13102",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/input/user_1_turn_2.wav",
+        "sha256": "4de6d180b92786d552daf574113f01f5a1de08d7bd37317c7d618613cde13ed3",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/input/user_1_turn_3.wav",
+        "sha256": "fe054404dbaa147c432206296a168fcd6f780a7681d692a93254486838be2ea8",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/input/user_1_turn_4.wav",
+        "sha256": "451b54b182a0329faabd5ee6eee0eb2c1244f670f9947e576327aafc9853da9d",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/input/user_1_turn_5.wav",
+        "sha256": "2e60438b00781ddf4283de38f681e9967f7d165b5d0e2007e3bc62b081f64c88",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/input/user_1_turn_6.wav",
+        "sha256": "dc44cccd79caf8699e68461fd70f46cced0cf281547f25fa99847c116c05fd27",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/input/user_1_turn_7.wav",
+        "sha256": "3c5093a387f6e8747a525be63e7b50ad9654ad09be6bad82fa90441480afd6a5",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/default.wav",
+        "sha256": "023123eaa90a3b3ee86fa1680acc6043ca8f6184e0b6f5b588caa786e0c9e316",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/care.wav",
+        "sha256": "3753dbf784a5eb718576c19d6bcb059b322c3e04f3e4e6396515f47a1b8b5ada",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/vocaagent.wav",
+        "sha256": "fab6c8bbacd9675d9b84cc2997408913ee4a5e0defa263471e9623f22d290666",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      },
+      {
+        "path": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/agent3.wav",
+        "sha256": "fab6c8bbacd9675d9b84cc2997408913ee4a5e0defa263471e9623f22d290666",
+        "case": "17_9ea32e39-8fe8-466c-86d9-f541f107053c"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/default.wav",
+    "care": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/care.wav",
+    "vocaagent": "static/audio/voca-agent/17_9ea32e39-8fe8-466c-86d9-f541f107053c/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

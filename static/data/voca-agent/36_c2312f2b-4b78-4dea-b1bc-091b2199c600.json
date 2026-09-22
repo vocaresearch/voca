@@ -1,0 +1,400 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+    "wav_path": "Proactive-Care/c2312f2b-4b78-4dea-b1bc-091b2199c600.wav",
+    "transcript": "I have messed up several things lately, and I am starting to feel like I am just bad at everything.",
+    "level-1": "Proactive_Care",
+    "level-2": "Semantic_Cue_Care",
+    "subtype": null,
+    "source-dataset": "synthetic",
+    "label": "Feeling Like a Failure",
+    "criteria": [
+      "回应是否识别到用户因近期连续犯错而产生了对自身能力的全面怀疑？",
+      "回应是否认可用户此刻的挫败或自我否定感是可以理解的？",
+      "回应是否指出“最近搞砸了一些事”并不等同于“什么都做不好”？",
+      "回应是否提供一个具体的支持性下一步，例如邀请用户讲述其中一件事或一起梳理问题？"
+    ]
+  },
+  "selection.json": {
+    "sample_id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.75,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent1_default",
+    "gap_vs_care": 0.25,
+    "tier": "补充候选_证据不足"
+  },
+  "comparison.json": {
+    "number": 36,
+    "folder": "cases/36_语义触发_c2312f2b-4b78-4dea-b1bc-091b2199c600",
+    "sample_id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+    "candidate": "agent2-prompt-v1-en",
+    "run": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832",
+    "model": "Fun-Audio-Chat",
+    "track": "semantic",
+    "care_score_rate": 0.75,
+    "score_rate": 1.0,
+    "default_score_rate": null,
+    "judge_sources": {
+      "care": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/agent1_care/semantic/checkpoint.jsonl",
+      "multi_agent": "outputs/_runs/fun-audio-chat-agent2-v1-full-proactive-care-1170-20260822-015832/judge-live-flash-thinking-512/semantic-contextual-care-vs-multi-20260824/multi_agent/semantic/checkpoint.jsonl"
+    },
+    "route": "agent1_default",
+    "gap_vs_care": 0.25,
+    "tier": "补充候选_证据不足",
+    "label": "Feeling Like a Failure",
+    "subtype": null,
+    "note": "不计入严格明显改善：Fun 的对应 default 音频无评分；这里只能验证相对 care 的提升，default 文本/音频留供试听。",
+    "outputs": {
+      "default": {
+        "text": "I'm really sorry you're feeling this way—what you're experiencing is valid, and you're not alone. It's completely human to have off days, make mistakes, or feel like things are falling apart. But please remember: one or even several setbacks don’t define your worth or your ability. Here’s a gentle, practical way to move forward:\n\n**1. Pause and be kind to yourself**  \nWhen you're overwhelmed, your mind can spiral into self-criticism. Try this: take a deep breath, pause, and say to yourself, *“This is hard right now, but I’m doing my best.”* Self-compassion isn’t weakness—it’s strength.\n\n**2. Separate the mistake from your identity**  \nMistakes are part of learning, growth, and being human. Saying “I messed up” is different from saying “I am a failure.” The former is a fact; the latter is a judgment. You can learn from the mistake without losing your value.\n\n**3. Reflect, don’t ruminate**  \nAsk yourself: *What happened? What can I learn? What would I do differently next time?* This turns a moment of frustration into a chance to grow. But avoid replaying it over and over—your brain needs rest, not a replay.\n\n**4. Focus on progress, not perfection**  \nYou don’t have to be flawless to be worthy. Celebrate small wins: getting out of bed, trying again, asking for help. These are victories too.\n\n**5. Reach out—connection heals**  \nTalking to someone you trust—friend, family, therapist—can lighten the load. You don’t have to carry this alone. Sometimes just saying, *“I’m struggling,”* is the first step toward healing.\n\n**6. Reconnect with your strengths**  \nThink back to times when you succeeded, even in small ways. What skills, kindness, or courage did you show? Write them down. Remind yourself: *I’ve overcome hard things before. I can do it again.*\n\n**7. Be patient with the process**  \nHealing and growth aren’t linear. Some days will be harder than others. That’s okay. Progress isn’t about never failing—it’s about getting back up, again and again.\n\nYou are not bad at everything. You are a person who is learning, trying, and showing up—often in ways you don’t even realize. That matters.\n\nIf you’re open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself.\n\nYou’re not broken. You’re human. And that’s enough. 💛",
+        "audio": "default/output.wav",
+        "audio_sha256": "2c66582ac7f6b7a59bf28ef73d1b07772a3eda2c00434abbba9d2cd5bad36066",
+        "score_rate": null,
+        "score": null,
+        "max_score": null,
+        "judge": null
+      },
+      "care": {
+        "text": "I'm really sorry to hear that you're feeling this way. It's important to remember that everyone makes mistakes, and they don't define your worth or abilities. It's okay to have off days and not be perfect all the time.\n\nIf you're feeling overwhelmed, it might help to take a step back, breathe, and remind yourself of your strengths and past successes. Sometimes, talking to someone you trust can also provide a fresh perspective and support.\n\nRemember, you're not alone, and it's okay to ask for help when you need it. Take care of yourself, and be kind to yourself. You've got this!",
+        "audio": "care/output.wav",
+        "audio_sha256": "eff0cdd3baeda74d74fcb0d3fca371034f2729d39c619e7a3167b8c1566bcc05",
+        "score_rate": 0.75,
+        "score": 3,
+        "max_score": 4,
+        "judge": {
+          "analysis": "- User situation: The user is feeling like they are \"bad at everything\" because they have \"messed up several things lately\". This represents a feeling of global self-doubt and frustration triggered by recent consecutive mistakes.\n- Assistant content: The assistant expresses sympathy, reminds the user that everyone makes mistakes and they don't define their worth or abilities, suggests taking a step back, breathing, recalling strengths/past successes, and talking to someone trusted. It ends with encouraging words.\n- Semantic understanding: The assistant understands that the user is feeling overwhelmed by mistakes and doubting their abilities, addressing that mistakes don't define their worth or abilities.\n- Proactive care: The assistant suggests general coping strategies (breathing, recalling strengths, talking to someone trusted) but does not offer a specific, concrete next step of its own to support the user (like inviting the user to share one of the things they messed up or offering to help sort through the issues together).",
+          "audio_sha256": "eff0cdd3baeda74d74fcb0d3fca371034f2729d39c619e7a3167b8c1566bcc05",
+          "condition": "agent1_care",
+          "finish_reason": "stop",
+          "label": "Feeling Like a Failure",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否识别到用户因近期连续犯错而产生了对自身能力的全面怀疑？",
+              "index": 1,
+              "reason": "助理在回应中指出“they don't define your worth or abilities”（它们不能定义你的价值或能力），识别到了用户因犯错而对自身能力产生全面怀疑的情况。",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否认可用户此刻的挫败或自我否定感是可以理解的？",
+              "index": 2,
+              "reason": "助理表示“It's okay to have off days and not be perfect all the time”，认可了用户此刻的挫败和不完美感是可以理解的。",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否指出“最近搞砸了一些事”并不等同于“什么都做不好”？",
+              "index": 3,
+              "reason": "助理明确指出“everyone makes mistakes and they don't define your worth or abilities”，即犯错并不等同于整个人什么都做不好。",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供一个具体的支持性下一步，例如邀请用户讲述其中一件事或一起梳理问题？",
+              "index": 4,
+              "reason": "助理仅给出了泛泛的建议（如深呼吸、找信任的人倾诉等），并未提供一个由助理自身发起的、具体的支持性下一步（例如主动邀请用户讲述其中一件事或由助理协助一起梳理问题）。",
+              "satisfied": false
+            }
+          ],
+          "sample_id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 0.75,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "agent1_care|c2312f2b-4b78-4dea-b1bc-091b2199c600",
+          "track": "semantic",
+          "transcription": "I'm really sorry to hear that you're lefting this. It's important to remember that everyone makes mistakes and they don't define your worth or abilities. It's okay to have off days and not be perfect all the time. If you're feeling overwhelmed, it might help to take a step back, breathe, and remind yourself of your strengths and past successes. Sometimes, talking to someone you trust can also provide a fresh perspective and support. Remember, you're not alone, and it's okay to ask for help when you need it. Take care of yourself and be kind to yourself. You've got this."
+        }
+      },
+      "vocaagent": {
+        "text": "I'm really sorry you're feeling this way—what you're experiencing is valid, and you're not alone. It's completely human to have off days, make mistakes, or feel like things are falling apart. But please remember: one or even several setbacks don’t define your worth or your ability. Here’s a gentle, practical way to move forward:\n\n**1. Pause and be kind to yourself**  \nWhen you're overwhelmed, your mind can spiral into self-criticism. Try this: take a deep breath, pause, and say to yourself, *“This is hard right now, but I’m doing my best.”* Self-compassion isn’t weakness—it’s strength.\n\n**2. Separate the mistake from your identity**  \nMistakes are part of learning, growth, and being human. Saying “I messed up” is different from saying “I am a failure.” The former is a fact; the latter is a judgment. You can learn from the mistake without losing your value.\n\n**3. Reflect, don’t ruminate**  \nAsk yourself: *What happened? What can I learn? What would I do differently next time?* This turns a moment of frustration into a chance to grow. But avoid replaying it over and over—your brain needs rest, not a replay.\n\n**4. Focus on progress, not perfection**  \nYou don’t have to be flawless to be worthy. Celebrate small wins: getting out of bed, trying again, asking for help. These are victories too.\n\n**5. Reach out—connection heals**  \nTalking to someone you trust—friend, family, therapist—can lighten the load. You don’t have to carry this alone. Sometimes just saying, *“I’m struggling,”* is the first step toward healing.\n\n**6. Reconnect with your strengths**  \nThink back to times when you succeeded, even in small ways. What skills, kindness, or courage did you show? Write them down. Remind yourself: *I’ve overcome hard things before. I can do it again.*\n\n**7. Be patient with the process**  \nHealing and growth aren’t linear. Some days will be harder than others. That’s okay. Progress isn’t about never failing—it’s about getting back up, again and again.\n\nYou are not bad at everything. You are a person who is learning, trying, and showing up—often in ways you don’t even realize. That matters.\n\nIf you’re open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself.\n\nYou’re not broken. You’re human. And that’s enough. 💛",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "2c66582ac7f6b7a59bf28ef73d1b07772a3eda2c00434abbba9d2cd5bad36066",
+        "score_rate": 1.0,
+        "score": 4,
+        "max_score": 4,
+        "judge": {
+          "analysis": "- User situation: The user feels like they are bad at everything because they have messed up several things recently. They are experiencing self-doubt and frustration.\n- Assistant content: The assistant validates the user's feelings, reassures them that setbacks do not define their worth, and provides a detailed 7-step guide to coping and moving forward (including self-compassion, separating mistakes from identity, reflecting, focusing on progress, reaching out, reconnecting with strengths, and being patient). The audio loops/repeats the final paragraph multiple times at the end.\n- Semantic understanding: The assistant accurately understands the user's feelings of failure and self-doubt due to recent mistakes.\n- Proactive care: The assistant offers extensive advice and suggests reaching out to others or a therapist, though it does not directly invite the user to share details with the assistant itself.",
+          "audio_sha256": "2c66582ac7f6b7a59bf28ef73d1b07772a3eda2c00434abbba9d2cd5bad36066",
+          "condition": "multi_agent",
+          "finish_reason": "stop",
+          "label": "Feeling Like a Failure",
+          "max_score": 4,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "回应是否识别到用户因近期连续犯错而产生了对自身能力的全面怀疑？",
+              "index": 1,
+              "reason": "回应明确指出“一次或几次挫折并不能定义你的价值或能力”，并最后安慰用户“你并不是什么都做不好”，准确识别到了用户对自身能力的全面怀疑。",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否认可用户此刻的挫败或自我否定感是可以理解的？",
+              "index": 2,
+              "reason": "回应开篇便表示“我很抱歉你有这种感觉，你的经历是合理的，你并不孤单”，认可了用户的挫败感。",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否指出“最近搞砸了一些事”并不等同于“什么都做不好”？",
+              "index": 3,
+              "reason": "回应明确指出“说‘我搞砸了’与说‘我是个失败者’是不同的”，并强调“你并不是什么都做不好”。",
+              "satisfied": true
+            },
+            {
+              "criterion": "回应是否提供一个具体的支持性下一步，例如邀请用户讲述其中一件事或一起梳理问题？",
+              "index": 4,
+              "reason": "回应提供了具体的下一步建议，包括“暂停并对自己好一点”、“与信任的人或心理咨询师交流”等具体的行动步骤。",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 1.0,
+          "status": "ok",
+          "subtype": null,
+          "task_id": "multi_agent|c2312f2b-4b78-4dea-b1bc-091b2199c600",
+          "track": "semantic",
+          "transcription": "I'm really sorry you're feeling this way. What you're experiencing is valid, and you're not alone. It's completely human to have off days, make mistakes, or feel like things are falling apart. But please remember, one or even several setbacks don't define your worth or your ability. Here's a gentle, practical way to move forward. One, pause and be kind to yourself. When you're overwhelmed, your mind can spiral into self-criticism. Try this: take a deep breath, pause, and say to yourself, \"This is hard right now, but I'm doing my best.\" Self-compassion isn't weakness, it's strength. Two, separate the mistake from your identity. Mistakes are part of learning, growth, and being human. Saying \"I messed up\" is different from saying \"I am a failure.\" The former is a fact, the latter is a judgment. You can learn from the mistake without losing your value. Three, reflect, don't ruminate. What happened? What can I learn? What would I do differently next time? This turns a moment of frustration into a chance to grow, but avoid replaying it over and over. Your brain needs rest, not a replay. Four, focus on progress, not perfection. You don't have to be flawless to be worthy. Celebrate small wins: getting out of bed, trying again, asking for help—these are victories, too. Five, reach out—connection heals. Talking to someone you trust—friend, family, therapist—can lighten the load. You don't have to carry this alone. Sometimes just saying, \"I'm struggling,\" is the first step toward healing. Six, reconnect with your strengths. Think back to times when you succeeded, even in small ways. What skills, kindness, or courage did you show? Write them down. Remind yourself, \"I've overcome hard things before. I can do it again.\" Seven, be patient with the process. Healing and growth aren't linear. Some days will be harder than others, but that's okay. Progress isn't about never failing; it's about getting back up, again and again. You are not bad at everything. You are a person who is learning, trying, and showing up, often in ways you don't even realize. That matters. If you're open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself. You're not broken, you're human, and that's enough. You can carry on at better everything. You're a person who is learning, trying, and showing up often in ways you don't even realize. That matters. If you're open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself. You're not broken, you're human, and that's enough. If you're open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself. You're not broken, you're human, and that's enough."
+        }
+      }
+    },
+    "observation": {
+      "labels": [],
+      "summary": "No salient paralinguistic or environmental acoustic cue with sufficient evidence and proactive-care relevance was detected."
+    },
+    "agent3_executed": false,
+    "background": null,
+    "criteria": [
+      "回应是否识别到用户因近期连续犯错而产生了对自身能力的全面怀疑？",
+      "回应是否认可用户此刻的挫败或自我否定感是可以理解的？",
+      "回应是否指出“最近搞砸了一些事”并不等同于“什么都做不好”？",
+      "回应是否提供一个具体的支持性下一步，例如邀请用户讲述其中一件事或一起梳理问题？"
+    ]
+  },
+  "routing.json": {
+    "source": "agent1_default",
+    "overrode_agent1": false,
+    "trigger": {
+      "agent2_label_count": 0,
+      "agent2_labels_nonempty": false,
+      "rule": "agent2.labels_nonempty"
+    },
+    "agent2_observation": {
+      "labels": [],
+      "summary": "No salient paralinguistic or environmental acoustic cue with sufficient evidence and proactive-care relevance was detected."
+    }
+  },
+  "multi_agent_original.json": {
+    "agent1": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_default",
+      "seed": 20261864,
+      "text": "I'm really sorry you're feeling this way—what you're experiencing is valid, and you're not alone. It's completely human to have off days, make mistakes, or feel like things are falling apart. But please remember: one or even several setbacks don’t define your worth or your ability. Here’s a gentle, practical way to move forward:\n\n**1. Pause and be kind to yourself**  \nWhen you're overwhelmed, your mind can spiral into self-criticism. Try this: take a deep breath, pause, and say to yourself, *“This is hard right now, but I’m doing my best.”* Self-compassion isn’t weakness—it’s strength.\n\n**2. Separate the mistake from your identity**  \nMistakes are part of learning, growth, and being human. Saying “I messed up” is different from saying “I am a failure.” The former is a fact; the latter is a judgment. You can learn from the mistake without losing your value.\n\n**3. Reflect, don’t ruminate**  \nAsk yourself: *What happened? What can I learn? What would I do differently next time?* This turns a moment of frustration into a chance to grow. But avoid replaying it over and over—your brain needs rest, not a replay.\n\n**4. Focus on progress, not perfection**  \nYou don’t have to be flawless to be worthy. Celebrate small wins: getting out of bed, trying again, asking for help. These are victories too.\n\n**5. Reach out—connection heals**  \nTalking to someone you trust—friend, family, therapist—can lighten the load. You don’t have to carry this alone. Sometimes just saying, *“I’m struggling,”* is the first step toward healing.\n\n**6. Reconnect with your strengths**  \nThink back to times when you succeeded, even in small ways. What skills, kindness, or courage did you show? Write them down. Remind yourself: *I’ve overcome hard things before. I can do it again.*\n\n**7. Be patient with the process**  \nHealing and growth aren’t linear. Some days will be harder than others. That’s okay. Progress isn’t about never failing—it’s about getting back up, again and again.\n\nYou are not bad at everything. You are a person who is learning, trying, and showing up—often in ways you don’t even realize. That matters.\n\nIf you’re open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself.\n\nYou’re not broken. You’re human. And that’s enough. 💛"
+    },
+    "agent2": {
+      "output": {
+        "labels": [],
+        "summary": "No salient paralinguistic or environmental acoustic cue with sufficient evidence and proactive-care relevance was detected."
+      },
+      "raw_output_text": "{\n  \"labels\": [],\n  \"summary\": \"No salient paralinguistic or environmental acoustic cue with sufficient evidence and proactive-care relevance was detected.\"\n}",
+      "record_path": "<local source path redacted>"
+    },
+    "agent3": null,
+    "final": {
+      "audio_path": "<recorded audio path redacted>",
+      "overrode_agent1": false,
+      "source": "agent1_default",
+      "text": "I'm really sorry you're feeling this way—what you're experiencing is valid, and you're not alone. It's completely human to have off days, make mistakes, or feel like things are falling apart. But please remember: one or even several setbacks don’t define your worth or your ability. Here’s a gentle, practical way to move forward:\n\n**1. Pause and be kind to yourself**  \nWhen you're overwhelmed, your mind can spiral into self-criticism. Try this: take a deep breath, pause, and say to yourself, *“This is hard right now, but I’m doing my best.”* Self-compassion isn’t weakness—it’s strength.\n\n**2. Separate the mistake from your identity**  \nMistakes are part of learning, growth, and being human. Saying “I messed up” is different from saying “I am a failure.” The former is a fact; the latter is a judgment. You can learn from the mistake without losing your value.\n\n**3. Reflect, don’t ruminate**  \nAsk yourself: *What happened? What can I learn? What would I do differently next time?* This turns a moment of frustration into a chance to grow. But avoid replaying it over and over—your brain needs rest, not a replay.\n\n**4. Focus on progress, not perfection**  \nYou don’t have to be flawless to be worthy. Celebrate small wins: getting out of bed, trying again, asking for help. These are victories too.\n\n**5. Reach out—connection heals**  \nTalking to someone you trust—friend, family, therapist—can lighten the load. You don’t have to carry this alone. Sometimes just saying, *“I’m struggling,”* is the first step toward healing.\n\n**6. Reconnect with your strengths**  \nThink back to times when you succeeded, even in small ways. What skills, kindness, or courage did you show? Write them down. Remind yourself: *I’ve overcome hard things before. I can do it again.*\n\n**7. Be patient with the process**  \nHealing and growth aren’t linear. Some days will be harder than others. That’s okay. Progress isn’t about never failing—it’s about getting back up, again and again.\n\nYou are not bad at everything. You are a person who is learning, trying, and showing up—often in ways you don’t even realize. That matters.\n\nIf you’re open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself.\n\nYou’re not broken. You’re human. And that’s enough. 💛"
+    },
+    "ground_truth_label": "Feeling Like a Failure",
+    "id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+    "input": {
+      "criteria": [
+        "回应是否识别到用户因近期连续犯错而产生了对自身能力的全面怀疑？",
+        "回应是否认可用户此刻的挫败或自我否定感是可以理解的？",
+        "回应是否指出“最近搞砸了一些事”并不等同于“什么都做不好”？",
+        "回应是否提供一个具体的支持性下一步，例如邀请用户讲述其中一件事或一起梳理问题？"
+      ],
+      "label": "Feeling Like a Failure",
+      "level-1": "Proactive_Care",
+      "level-2": "Semantic_Cue_Care",
+      "model_input_contract": "single_user_audio_v1",
+      "source-dataset": "synthetic",
+      "subtype": null,
+      "transcript": "I have messed up several things lately, and I am starting to feel like I am just bad at everything.",
+      "wav_path": "Proactive-Care/c2312f2b-4b78-4dea-b1bc-091b2199c600.wav"
+    },
+    "mode": "conditional_multi_agent",
+    "model": "Fun-Audio-Chat-8B",
+    "output": {
+      "audio": {
+        "channels": 1,
+        "duration_seconds": 178.6,
+        "format": "wav",
+        "num_samples": 4286400,
+        "path": "<local source path redacted>",
+        "sample_rate_hz": 24000,
+        "sample_width_bytes": 2,
+        "token_count": 4465
+      },
+      "text": "I'm really sorry you're feeling this way—what you're experiencing is valid, and you're not alone. It's completely human to have off days, make mistakes, or feel like things are falling apart. But please remember: one or even several setbacks don’t define your worth or your ability. Here’s a gentle, practical way to move forward:\n\n**1. Pause and be kind to yourself**  \nWhen you're overwhelmed, your mind can spiral into self-criticism. Try this: take a deep breath, pause, and say to yourself, *“This is hard right now, but I’m doing my best.”* Self-compassion isn’t weakness—it’s strength.\n\n**2. Separate the mistake from your identity**  \nMistakes are part of learning, growth, and being human. Saying “I messed up” is different from saying “I am a failure.” The former is a fact; the latter is a judgment. You can learn from the mistake without losing your value.\n\n**3. Reflect, don’t ruminate**  \nAsk yourself: *What happened? What can I learn? What would I do differently next time?* This turns a moment of frustration into a chance to grow. But avoid replaying it over and over—your brain needs rest, not a replay.\n\n**4. Focus on progress, not perfection**  \nYou don’t have to be flawless to be worthy. Celebrate small wins: getting out of bed, trying again, asking for help. These are victories too.\n\n**5. Reach out—connection heals**  \nTalking to someone you trust—friend, family, therapist—can lighten the load. You don’t have to carry this alone. Sometimes just saying, *“I’m struggling,”* is the first step toward healing.\n\n**6. Reconnect with your strengths**  \nThink back to times when you succeeded, even in small ways. What skills, kindness, or courage did you show? Write them down. Remind yourself: *I’ve overcome hard things before. I can do it again.*\n\n**7. Be patient with the process**  \nHealing and growth aren’t linear. Some days will be harder than others. That’s okay. Progress isn’t about never failing—it’s about getting back up, again and again.\n\nYou are not bad at everything. You are a person who is learning, trying, and showing up—often in ways you don’t even realize. That matters.\n\nIf you’re open to it, consider talking to a therapist or counselor. They can help you explore these feelings in a safe, supportive space. You deserve care, especially from yourself.\n\nYou’re not broken. You’re human. And that’s enough. 💛"
+    },
+    "schema_version": 1,
+    "single_model_care": {
+      "audio_path": "<recorded audio path redacted>",
+      "condition": "semantic_care",
+      "seed": 20261864,
+      "text": "I'm really sorry to hear that you're feeling this way. It's important to remember that everyone makes mistakes, and they don't define your worth or abilities. It's okay to have off days and not be perfect all the time.\n\nIf you're feeling overwhelmed, it might help to take a step back, breathe, and remind yourself of your strengths and past successes. Sometimes, talking to someone you trust can also provide a fresh perspective and support.\n\nRemember, you're not alone, and it's okay to ask for help when you need it. Take care of yourself, and be kind to yourself. You've got this!"
+    },
+    "source_audio_path": "<local source path redacted>",
+    "status": "complete",
+    "task": "proactive_care",
+    "transcript_reference_only": "I have messed up several things lately, and I am starting to feel like I am just bad at everything.",
+    "trigger": {
+      "agent2_label_count": 0,
+      "agent2_labels_nonempty": false,
+      "rule": "agent2.labels_nonempty"
+    }
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I have messed up several things lately, and I am starting to feel like I am just bad at everything.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "681caae3627f78af1e99ebea7b48724d77073963949b4b5e966cb8b962d870bf"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "681caae3627f78af1e99ebea7b48724d77073963949b4b5e966cb8b962d870bf"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "681caae3627f78af1e99ebea7b48724d77073963949b4b5e966cb8b962d870bf"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [],
+    "summary": "No salient paralinguistic or environmental acoustic cue with sufficient evidence and proactive-care relevance was detected."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "care": {
+      "id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent2": {
+      "id": "c2312f2b-4b78-4dea-b1bc-091b2199c600",
+      "stage": null,
+      "candidate": null,
+      "status": "complete",
+      "text": null,
+      "audio_sha256": null,
+      "model": null,
+      "provider": null,
+      "prompt_mode": null,
+      "condition_composition": null,
+      "input_audio": null,
+      "output_modalities": null,
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": null
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/36_c2312f2b-4b78-4dea-b1bc-091b2199c600/input/user_1_turn_1.wav",
+        "sha256": "681caae3627f78af1e99ebea7b48724d77073963949b4b5e966cb8b962d870bf",
+        "case": "36_c2312f2b-4b78-4dea-b1bc-091b2199c600"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/36_c2312f2b-4b78-4dea-b1bc-091b2199c600/default.wav",
+        "sha256": "2c66582ac7f6b7a59bf28ef73d1b07772a3eda2c00434abbba9d2cd5bad36066",
+        "case": "36_c2312f2b-4b78-4dea-b1bc-091b2199c600"
+      },
+      {
+        "path": "static/audio/voca-agent/36_c2312f2b-4b78-4dea-b1bc-091b2199c600/care.wav",
+        "sha256": "eff0cdd3baeda74d74fcb0d3fca371034f2729d39c619e7a3167b8c1566bcc05",
+        "case": "36_c2312f2b-4b78-4dea-b1bc-091b2199c600"
+      },
+      {
+        "path": "static/audio/voca-agent/36_c2312f2b-4b78-4dea-b1bc-091b2199c600/vocaagent.wav",
+        "sha256": "2c66582ac7f6b7a59bf28ef73d1b07772a3eda2c00434abbba9d2cd5bad36066",
+        "case": "36_c2312f2b-4b78-4dea-b1bc-091b2199c600"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/36_c2312f2b-4b78-4dea-b1bc-091b2199c600/default.wav",
+    "care": "static/audio/voca-agent/36_c2312f2b-4b78-4dea-b1bc-091b2199c600/care.wav",
+    "vocaagent": "static/audio/voca-agent/36_c2312f2b-4b78-4dea-b1bc-091b2199c600/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": false,
+    "source_stage": "agent1_default"
+  }
+}

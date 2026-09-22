@@ -1,0 +1,684 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+    "wav_path": {
+      "user_1_turn_1": "Proactive-Care/7819a456-37cb-491c-bfb4-a629a53550fb/user_1_turn_1.wav",
+      "user_1_turn_2": "Proactive-Care/7819a456-37cb-491c-bfb4-a629a53550fb/user_1_turn_2.wav",
+      "user_1_turn_3": "Proactive-Care/7819a456-37cb-491c-bfb4-a629a53550fb/user_1_turn_3.wav",
+      "user_1_turn_4": "Proactive-Care/7819a456-37cb-491c-bfb4-a629a53550fb/user_1_turn_4.wav",
+      "user_1_turn_5": "Proactive-Care/7819a456-37cb-491c-bfb4-a629a53550fb/user_1_turn_5.wav",
+      "user_1_turn_6": "Proactive-Care/7819a456-37cb-491c-bfb4-a629a53550fb/user_1_turn_6.wav"
+    },
+    "transcript": {
+      "user_1_turn_1": "This week somehow felt longer than the calendar says it was. I really want a quiet weekend.",
+      "user_2_turn_1": "Sounds like your brain is already clocking out. Are you thinking mostly rest, or do you still have a bunch of weekend stuff to get through?",
+      "user_1_turn_2": "A bit of both. I have errands Saturday morning and lunch with my sister Sunday. I was hoping to read in between.",
+      "user_2_turn_2": "So probably something you can drop and pick back up without needing twenty minutes to remember what was happening.",
+      "user_1_turn_3": "Yeah. I have The Glass Orchard, which is about 280 pages and supposed to be warm and a little weird, and Signal at Black Reef, which is a 430-page sci-fi mystery.",
+      "user_2_turn_3": "Those are very different kinds of tired-weekend books.",
+      "user_1_turn_4": "The annoying thing is Black Reef is a library copy due Monday. I've been waiting for it, but when I'm fried I can read the same plot-heavy page three times and still miss something.",
+      "user_2_turn_4": "A due date can make a book feel urgent even when your attention span isn't volunteering.",
+      "user_1_turn_5": "Exactly. Glass Orchard is mine, and my friend said it moves pretty quickly without introducing a million people.",
+      "user_2_turn_5": "That sounds a lot easier to live with in short reading pockets.",
+      "user_1_turn_6": "At this point I'm mostly picturing tea, rain on the window, and not turning Sunday night into another thing I have to finish."
+    },
+    "level-1": "Proactive_Care",
+    "level-2": "Contextual_Cue_Care",
+    "subtype": "System_Prompt",
+    "source-dataset": "synthetic",
+    "label": null,
+    "criteria": [
+      "The reply directly, relevantly, and substantively addresses the user's reading choice.",
+      "The reply briefly reminds Alex to move the overdue, incomplete laundry from the washing machine to the dryer.",
+      "The reply avoids reminders for future, completed, or already-reminded items.",
+      "The reply uses a calm, even, non-scolding delivery with clear emphasis on the laundry action.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ],
+    "expected_response": "The Glass Orchard sounds much more like the weekend you're describing. It's shorter, gentler, and easier to follow when you're already tired, so it fits those little reading pockets without making Sunday feel like a deadline. If you're still curious about Black Reef, you could always sample a chapter before returning it instead of trying to race through the whole thing.\n\nAlso, the laundry was due to be moved from the washer to the dryer at 18:30 and is still marked incomplete.",
+    "system_prompt": "You are a warm personal health-and-lifestyle companion with basic care knowledge, not a medical professional. Use the supplied daily health data and lifestyle habits to offer moderate, relevant support across medication, diet, activity, sleep, environment, schedules, constraints, and everyday routines, while keeping the user's immediate conversation first.\n\n### Current Information\n{\"user_profile\":{\"name\":\"Alex\",\"age_range\":\"adult\",\"general_notes\":\"Enjoys quiet weekends, light fantasy novels, tea, and short evening walks.\",\"care_context\":\"Prefers gentle nudges for everyday routines rather than long checklists.\"},\"medication_reminders\":{\"items\":[{\"name\":\"Vitamin D supplement\",\"scheduled_at\":\"2026-08-02T08:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T08:10:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"name\":\"Magnesium supplement\",\"scheduled_at\":\"2026-08-02T22:00:00+08:00\",\"completion_status\":{\"state\":\"planned_later\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]},\"diet_log\":{\"today\":[{\"meal\":\"breakfast\",\"details\":\"Oatmeal with banana and black tea\"},{\"meal\":\"lunch\",\"details\":\"Rice bowl with vegetables and tofu\"}],\"hydration_note\":\"Two glasses of water logged in the afternoon.\"},\"activity_plan\":{\"today\":[{\"activity\":\"Neighborhood walk\",\"planned_time\":\"2026-08-02T20:15:00+08:00\",\"status\":\"planned_later\"},{\"activity\":\"Morning stretching\",\"planned_time\":\"2026-08-02T09:00:00+08:00\",\"status\":\"completed\"}]},\"environment\":{\"current_datetime\":\"2026-08-02T18:40:00+08:00\",\"timezone\":\"Asia/Shanghai\",\"weather_snapshot\":{\"summary\":\"Warm and humid evening\",\"temperature_celsius\":29},\"home_context\":\"Laundry is usually handled in the evening after dinner.\"},\"sleep_data\":{\"last_night\":{\"sleep_duration\":\"7 hours 5 minutes\",\"sleep_quality\":\"fair\"},\"usual_bedtime\":\"around 23:00\"},\"preferences\":{\"communication_style\":\"Casual, kind, and concise\",\"reading_preferences\":\"Likes cozy stories when tired and appreciates mysteries when in the mood for tension\",\"reminder_style\":\"One brief reminder is preferred when a routine item is still open; do not repeat a reminder already sent\"},\"daily_tasks\":{\"items\":[{\"task_id\":\"laundry-transfer-2026-08-02\",\"source\":\"system_prompt\",\"task\":\"Move the laundry from the washing machine to the dryer\",\"scheduled_at\":\"2026-08-02T18:30:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"water-plants-2026-08-02\",\"source\":\"user_app\",\"task\":\"Water the balcony herbs\",\"scheduled_at\":\"2026-08-02T10:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T10:12:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"pay-parking-2026-08-02\",\"source\":\"user_app\",\"task\":\"Pay the parking fee\",\"scheduled_at\":\"2026-08-02T17:45:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T17:40:00+08:00\"}},{\"task_id\":\"take-out-recycling-2026-08-03\",\"source\":\"user_app\",\"task\":\"Take out the recycling\",\"scheduled_at\":\"2026-08-03T08:00:00+08:00\",\"completion_status\":{\"state\":\"scheduled\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]}}\n\n### Response Constraints\n- Communicate warmly, patiently, and naturally without lecturing.\n- Rely only on supplied records, conversation facts, and stable everyday knowledge.\n- Answer the immediate conversational need first.\n- Mention a reminder only when its scheduled time has arrived or passed, it remains incomplete, and no reminder has already been sent.\n- Do not mention future, completed, or already-reminded distractor items.\n- Provide general lifestyle support only; never diagnose, prescribe, change medication, or replace professional care.\n- Never claim to browse, inspect a device, access an account, or perform an external action."
+  },
+  "selection.json": {
+    "candidate": "focused_v2",
+    "care_score_rate": 0.6,
+    "default_score_rate": 0.6,
+    "delta_vs_care": 0.4,
+    "delta_vs_default": 0.4,
+    "max_score": 5,
+    "sample_id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+    "score": 5,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round2-20260911",
+    "gap": 0.4,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 25,
+    "folder": "cases/25_上下文触发_7819a456-37cb-491c-bfb4-a629a53550fb",
+    "candidate": "focused_v2",
+    "care_score_rate": 0.6,
+    "default_score_rate": 0.6,
+    "delta_vs_care": 0.4,
+    "delta_vs_default": 0.4,
+    "max_score": 5,
+    "sample_id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+    "score": 5,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round2-20260911",
+    "gap": 0.4,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": null,
+    "subtype": "System_Prompt",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That sounds like the perfect recipe for a gentle weekend. Letting the book wait for you when you're ready, rather than rushing it, might make the whole experience feel lighter.\n\nSince you mentioned tea and rain, maybe you can plan to start *The Glass Orchard* right after that Saturday errand? It's short enough that you could finish a chapter or two before lunch with your sister. And if you find yourself too tired on Sunday night, you can just close the book and let the rain do the heavy lifting for you.",
+        "audio": "default/output.wav",
+        "audio_sha256": "9ef3663e506525ac28b0a3002296dce02e28d724fd3f182e6eaa5dbde81a262b",
+        "score_rate": 0.6,
+        "score": 3,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is expressing their desire for a gentle, unpressured weekend, specifically regarding their reading choice, and mentions tea and rain. They are leaning towards \"The Glass Orchard\" because it's theirs and has no deadline, unlike \"Signal at Black Reef.\"\n\nThe assistant's response directly addresses the user's sentiment about a gentle weekend and their reading choice. It validates the idea of letting the book wait and suggests starting \"The Glass Orchard\" after Saturday errands, noting its length and flexibility. It also ties into the user's mention of tea and rain.\n\nThe assistant does not mention any reminders from the `daily_tasks` or `medication_reminders` in the system prompt, including the overdue and incomplete \"laundry-transfer\" task.\n\nThe vocal delivery is calm and conversational. Audio quality is clear.",
+          "audio_sha256": "9ef3663e506525ac28b0a3002296dce02e28d724fd3f182e6eaa5dbde81a262b",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly, relevantly, and substantively addresses the user's reading choice.",
+              "index": 1,
+              "reason": "The reply directly addresses the user's reading choice by validating their preference for \"The Glass Orchard\" and suggesting when to start it, tying into their desire for a gentle weekend.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply briefly reminds Alex to move the overdue, incomplete laundry from the washing machine to the dryer.",
+              "index": 2,
+              "reason": "The reply does not mention the \"laundry-transfer\" task.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply avoids reminders for future, completed, or already-reminded items.",
+              "index": 3,
+              "reason": "The reply avoids mentioning any future, completed, or already-reminded items from the provided context.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, even, non-scolding delivery with clear emphasis on the laundry action.",
+              "index": 4,
+              "reason": "The reply does not mention the laundry action, so it cannot deliver it with clear emphasis.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 0.6,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_default|7819a456-37cb-491c-bfb4-a629a53550fb",
+          "track": "contextual",
+          "transcription": "That sounds like the perfect recipe for a gentle weekend. Letting the book wait for you when you're ready rather than rushing it might make the whole experience feel lighter. Since you mentioned tea and rain, maybe you can plan to start The Glass Orchard right after that Saturday errand. It's short enough that you could finish a chapter or two before lunch with your sister. And if you find yourself too tired on Sunday night, you can just close the book and let the rain do the heavy lifting for you."
+        }
+      },
+      "care": {
+        "text": "That sounds like the perfect recipe for a quiet weekend: tea, the sound of rain, and a story that doesn't demand a detective's brain. Since *The Glass Orchard* is a quicker, warmer read, it might be the ideal companion for those rainy afternoons when you don't want to strain your eyes.\n\nIf you're feeling tired, maybe just aim to read a few pages before bed rather than trying to finish it all. And if you have a bit of energy on Saturday, you could try to sneak in a chapter or two of *Black Reef* before your errands, but no pressure at all. You've already got a lot on your plate this week; let the books wait for you, not the other way around.",
+        "audio": "care/output.wav",
+        "audio_sha256": "b8003b5f12370253377486e70db8e649962531e936c2477cefa4d0e9a60739ff",
+        "score_rate": 0.6,
+        "score": 3,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is discussing their weekend reading plans, specifically choosing between two books, one of which is a library book due soon. They express a desire for a relaxing read that doesn't require intense focus. The immediate conversational need is to help the user decide which book to prioritize or how to approach their reading given their desire for a quiet weekend.\n\nThe applicable contextual cue is the `laundry-transfer-2026-08-02` task, which was scheduled for 6:30 PM, is not completed, and no reminder has been sent. The current time is 6:40 PM, making it overdue.\n\nThe assistant's response directly addresses the user's reading choice, recommending \"The Glass Orchard\" for its quicker, warmer nature and suggesting reading a few pages before bed. It also offers a low-pressure option for \"Black Reef\" if energy permits. The response does not mention the overdue laundry task.\n\nThe vocal delivery is calm, warm, and conversational. There are no specific segments that require emphasis for a reminder, as no reminder is given. The audio quality is clear and intelligible without any technical defects.",
+          "audio_sha256": "b8003b5f12370253377486e70db8e649962531e936c2477cefa4d0e9a60739ff",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly, relevantly, and substantively addresses the user's reading choice.",
+              "index": 1,
+              "reason": "The assistant directly addresses the user's reading choice by recommending \"The Glass Orchard\" and providing advice on how to approach reading both books.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply briefly reminds Alex to move the overdue, incomplete laundry from the washing machine to the dryer.",
+              "index": 2,
+              "reason": "The assistant does not mention the overdue laundry task.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply avoids reminders for future, completed, or already-reminded items.",
+              "index": 3,
+              "reason": "The assistant avoids mentioning any future, completed, or already-reminded items.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, even, non-scolding delivery with clear emphasis on the laundry action.",
+              "index": 4,
+              "reason": "The reply does not contain a reminder for the laundry action, so this criterion is not applicable.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 0.6,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_care|7819a456-37cb-491c-bfb4-a629a53550fb",
+          "track": "contextual",
+          "transcription": "That sounds like the perfect recipe for a quiet weekend. Tea, the sound of rain, and a story that doesn't demand a detective's brain. Since The Glass Orchard is a quicker, warmer read, it might be the ideal companion for those rainy afternoons when you don't want to strain your eyes. If you're feeling tired, maybe just aim to read a few pages before bed rather than trying to finish it all. And if you have a bit of energy on Saturday, you could try to sneak in a chapter or two of Black Reef before your errands, but no pressure at all. You've already got a lot on your plate this week. Let the books wait for you, not the other way around."
+        }
+      },
+      "vocaagent": {
+        "text": "That sounds like the perfect recipe for a true reset. Since you're already feeling that pull to just be, let's make sure the only thing you have to \"finish\" tonight is whatever small task is absolutely necessary, and then let the rest go.\n\nRight now, I see that the laundry transfer was scheduled for 6:30 PM. If it's still waiting, that's the one thing that might nudge you into feeling like you have a chore left over. Would you like to just grab that and move it to the dryer now, so you can claim the rest of the evening for that tea and rain? Or would you prefer to just let it wait until tomorrow morning if you're really not up for it?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "91955703bec6d2bed7f767a642f7b30d6119fafa90a1bd3cafbe8f3f289b49f5",
+        "score_rate": 1.0,
+        "score": 5,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is expressing a strong desire for a relaxing, low-pressure weekend, specifically mentioning \"not turning Sunday night into another thing I have to finish.\" They are feeling \"fried\" and want to avoid tasks that feel urgent.\n\nThe assistant first validates the user's desire for a reset and suggests focusing only on absolutely necessary small tasks. It then identifies the overdue laundry transfer task (scheduled for 6:30 PM, current time 6:40 PM) as the one thing that might create a feeling of having a chore left over. The assistant offers a choice: either complete the laundry now to free up the evening for relaxation, or defer it until tomorrow morning if the user isn't up for it. This directly addresses the user's immediate need for relaxation while gently reminding them of an outstanding, overdue task that fits the criteria for a reminder.\n\nThe assistant successfully identifies and reminds about the laundry task, which is overdue and has not had a reminder sent. It avoids mentioning other tasks that are completed, future, or already reminded. The vocal delivery is calm and supportive, offering a choice rather than a command. The audio quality is clear.",
+          "audio_sha256": "91955703bec6d2bed7f767a642f7b30d6119fafa90a1bd3cafbe8f3f289b49f5",
+          "condition": "focused_v2",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly, relevantly, and substantively addresses the user's reading choice.",
+              "index": 1,
+              "reason": "The reply directly addresses the user's desire for a relaxing evening by validating their feeling and offering a choice regarding a potential chore.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply briefly reminds Alex to move the overdue, incomplete laundry from the washing machine to the dryer.",
+              "index": 2,
+              "reason": "The reply states, \"Right now, I see that the laundry transfer was scheduled for 6:30 PM. If it's still waiting, that's the one thing that might nudge you into feeling like you have a chore left over.\" and offers to move it to the dryer.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply avoids reminders for future, completed, or already-reminded items.",
+              "index": 3,
+              "reason": "The assistant only mentions the laundry transfer and does not bring up other tasks like the completed Vitamin D, the future Magnesium, the completed morning stretching, the future neighborhood walk, the completed water plants, the already-reminded parking fee, or the future recycling.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply uses a calm, even, non-scolding delivery with clear emphasis on the laundry action.",
+              "index": 4,
+              "reason": "The delivery is calm and even, with clear emphasis on the choice presented (\"Would you like to just grab that and move it to the dryer now... or would you prefer to just let it wait until tomorrow morning\").",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+          "schema_version": 1,
+          "score": 5,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_focused_v2|7819a456-37cb-491c-bfb4-a629a53550fb",
+          "track": "contextual",
+          "transcription": "That sounds like the perfect recipe for a true reset. Since you're already feeling that pull to just be, let's make sure the only thing you have to finish tonight is whatever small task is absolutely necessary, and then let the rest go. Right now, I see that the laundry transfer was scheduled for 6:30 PM. If it's still waiting, that's the one thing that might nudge you into feeling like you have a chore left over. Would you like to just grab that and move it to the dryer now so you can claim the rest of the evening for that tea and rain, or would you prefer to just let it wait until tomorrow morning if you're really not up for it?"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "stated desire to avoid task completion",
+          "probability": 1.0,
+          "risk": 0.7
+        }
+      ],
+      "summary": "The speaker explicitly states a desire to avoid turning Sunday night into another obligation, preferring the imagery of tea and rain. This reported intent to rest rather than work indicates a need to prioritize recovery over productivity. The subsequent action should involve validating this need for a break and gently exploring if there are any immediate, unavoidable tasks that still require attention before allowing this restorative pause."
+    },
+    "agent3_executed": true,
+    "background": "You are a warm personal health-and-lifestyle companion with basic care knowledge, not a medical professional. Use the supplied daily health data and lifestyle habits to offer moderate, relevant support across medication, diet, activity, sleep, environment, schedules, constraints, and everyday routines, while keeping the user's immediate conversation first.\n\n### Current Information\n{\"user_profile\":{\"name\":\"Alex\",\"age_range\":\"adult\",\"general_notes\":\"Enjoys quiet weekends, light fantasy novels, tea, and short evening walks.\",\"care_context\":\"Prefers gentle nudges for everyday routines rather than long checklists.\"},\"medication_reminders\":{\"items\":[{\"name\":\"Vitamin D supplement\",\"scheduled_at\":\"2026-08-02T08:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T08:10:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"name\":\"Magnesium supplement\",\"scheduled_at\":\"2026-08-02T22:00:00+08:00\",\"completion_status\":{\"state\":\"planned_later\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]},\"diet_log\":{\"today\":[{\"meal\":\"breakfast\",\"details\":\"Oatmeal with banana and black tea\"},{\"meal\":\"lunch\",\"details\":\"Rice bowl with vegetables and tofu\"}],\"hydration_note\":\"Two glasses of water logged in the afternoon.\"},\"activity_plan\":{\"today\":[{\"activity\":\"Neighborhood walk\",\"planned_time\":\"2026-08-02T20:15:00+08:00\",\"status\":\"planned_later\"},{\"activity\":\"Morning stretching\",\"planned_time\":\"2026-08-02T09:00:00+08:00\",\"status\":\"completed\"}]},\"environment\":{\"current_datetime\":\"2026-08-02T18:40:00+08:00\",\"timezone\":\"Asia/Shanghai\",\"weather_snapshot\":{\"summary\":\"Warm and humid evening\",\"temperature_celsius\":29},\"home_context\":\"Laundry is usually handled in the evening after dinner.\"},\"sleep_data\":{\"last_night\":{\"sleep_duration\":\"7 hours 5 minutes\",\"sleep_quality\":\"fair\"},\"usual_bedtime\":\"around 23:00\"},\"preferences\":{\"communication_style\":\"Casual, kind, and concise\",\"reading_preferences\":\"Likes cozy stories when tired and appreciates mysteries when in the mood for tension\",\"reminder_style\":\"One brief reminder is preferred when a routine item is still open; do not repeat a reminder already sent\"},\"daily_tasks\":{\"items\":[{\"task_id\":\"laundry-transfer-2026-08-02\",\"source\":\"system_prompt\",\"task\":\"Move the laundry from the washing machine to the dryer\",\"scheduled_at\":\"2026-08-02T18:30:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"water-plants-2026-08-02\",\"source\":\"user_app\",\"task\":\"Water the balcony herbs\",\"scheduled_at\":\"2026-08-02T10:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T10:12:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task_id\":\"pay-parking-2026-08-02\",\"source\":\"user_app\",\"task\":\"Pay the parking fee\",\"scheduled_at\":\"2026-08-02T17:45:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T17:40:00+08:00\"}},{\"task_id\":\"take-out-recycling-2026-08-03\",\"source\":\"user_app\",\"task\":\"Take out the recycling\",\"scheduled_at\":\"2026-08-03T08:00:00+08:00\",\"completion_status\":{\"state\":\"scheduled\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]}}\n\n### Response Constraints\n- Communicate warmly, patiently, and naturally without lecturing.\n- Rely only on supplied records, conversation facts, and stable everyday knowledge.\n- Answer the immediate conversational need first.\n- Mention a reminder only when its scheduled time has arrived or passed, it remains incomplete, and no reminder has already been sent.\n- Do not mention future, completed, or already-reminded distractor items.\n- Provide general lifestyle support only; never diagnose, prescribe, change medication, or replace professional care.\n- Never claim to browse, inspect a device, access an account, or perform an external action.",
+    "criteria": [
+      "The reply directly, relevantly, and substantively addresses the user's reading choice.",
+      "The reply briefly reminds Alex to move the overdue, incomplete laundry from the washing machine to the dryer.",
+      "The reply avoids reminders for future, completed, or already-reminded items.",
+      "The reply uses a calm, even, non-scolding delivery with clear emphasis on the laundry action.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ]
+  },
+  "routing.json": {
+    "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+    "candidate": "focused_v2",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "91955703bec6d2bed7f767a642f7b30d6119fafa90a1bd3cafbe8f3f289b49f5",
+    "text": "That sounds like the perfect recipe for a true reset. Since you're already feeling that pull to just be, let's make sure the only thing you have to \"finish\" tonight is whatever small task is absolutely necessary, and then let the rest go.\n\nRight now, I see that the laundry transfer was scheduled for 6:30 PM. If it's still waiting, that's the one thing that might nudge you into feeling like you have a chore left over. Would you like to just grab that and move it to the dryer now, so you can claim the rest of the evening for that tea and rain? Or would you prefer to just let it wait until tomorrow morning if you're really not up for it?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated desire to avoid task completion",
+          "probability": 1.0,
+          "risk": 0.7
+        }
+      ],
+      "summary": "The speaker explicitly states a desire to avoid turning Sunday night into another obligation, preferring the imagery of tea and rain. This reported intent to rest rather than work indicates a need to prioritize recovery over productivity. The subsequent action should involve validating this need for a break and gently exploring if there are any immediate, unavoidable tasks that still require attention before allowing this restorative pause."
+    },
+    "agent1_record": "baseline/default/records/7819a456-37cb-491c-bfb4-a629a53550fb.json",
+    "agent2_record": "focused_v2/agent2/records/7819a456-37cb-491c-bfb4-a629a53550fb.json",
+    "agent3_record": "focused_v2/agent3/records/7819a456-37cb-491c-bfb4-a629a53550fb.json"
+  },
+  "multi_agent_original.json": {
+    "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+    "candidate": "focused_v2",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "91955703bec6d2bed7f767a642f7b30d6119fafa90a1bd3cafbe8f3f289b49f5",
+    "text": "That sounds like the perfect recipe for a true reset. Since you're already feeling that pull to just be, let's make sure the only thing you have to \"finish\" tonight is whatever small task is absolutely necessary, and then let the rest go.\n\nRight now, I see that the laundry transfer was scheduled for 6:30 PM. If it's still waiting, that's the one thing that might nudge you into feeling like you have a chore left over. Would you like to just grab that and move it to the dryer now, so you can claim the rest of the evening for that tea and rain? Or would you prefer to just let it wait until tomorrow morning if you're really not up for it?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated desire to avoid task completion",
+          "probability": 1.0,
+          "risk": 0.7
+        }
+      ],
+      "summary": "The speaker explicitly states a desire to avoid turning Sunday night into another obligation, preferring the imagery of tea and rain. This reported intent to rest rather than work indicates a need to prioritize recovery over productivity. The subsequent action should involve validating this need for a break and gently exploring if there are any immediate, unavoidable tasks that still require attention before allowing this restorative pause."
+    },
+    "agent1_record": "baseline/default/records/7819a456-37cb-491c-bfb4-a629a53550fb.json",
+    "agent2_record": "focused_v2/agent2/records/7819a456-37cb-491c-bfb4-a629a53550fb.json",
+    "agent3_record": "focused_v2/agent3/records/7819a456-37cb-491c-bfb4-a629a53550fb.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "This week somehow felt longer than the calendar says it was. I really want a quiet weekend.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_1",
+      "role": "assistant",
+      "reference_transcript": "Sounds like your brain is already clocking out. Are you thinking mostly rest, or do you still have a bunch of weekend stuff to get through?",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_2",
+      "role": "user",
+      "reference_transcript": "A bit of both. I have errands Saturday morning and lunch with my sister Sunday. I was hoping to read in between.",
+      "audio": "inputs/user_1_turn_2.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_2",
+      "role": "assistant",
+      "reference_transcript": "So probably something you can drop and pick back up without needing twenty minutes to remember what was happening.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_3",
+      "role": "user",
+      "reference_transcript": "Yeah. I have The Glass Orchard, which is about 280 pages and supposed to be warm and a little weird, and Signal at Black Reef, which is a 430-page sci-fi mystery.",
+      "audio": "inputs/user_1_turn_3.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_3",
+      "role": "assistant",
+      "reference_transcript": "Those are very different kinds of tired-weekend books.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_4",
+      "role": "user",
+      "reference_transcript": "The annoying thing is Black Reef is a library copy due Monday. I've been waiting for it, but when I'm fried I can read the same plot-heavy page three times and still miss something.",
+      "audio": "inputs/user_1_turn_4.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_4",
+      "role": "assistant",
+      "reference_transcript": "A due date can make a book feel urgent even when your attention span isn't volunteering.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_5",
+      "role": "user",
+      "reference_transcript": "Exactly. Glass Orchard is mine, and my friend said it moves pretty quickly without introducing a million people.",
+      "audio": "inputs/user_1_turn_5.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_5",
+      "role": "assistant",
+      "reference_transcript": "That sounds a lot easier to live with in short reading pockets.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_6",
+      "role": "user",
+      "reference_transcript": "At this point I'm mostly picturing tea, rain on the window, and not turning Sunday night into another thing I have to finish.",
+      "audio": "inputs/user_1_turn_6.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "2b3a18e60e84b2da2c8dafc36ecde071fd3bc45995b7950c02350bda8b9a3ee1"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "d085fef9c912eabbd066cba8380b13be9d62968ff50fbb65edca59b2c78fa230"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "ccf992b7a6c1981c0560d53b6159ccb03c5d6e31673dad15afb7e5fc3b83f1e0"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "bdec9d98cd3af256117204ca8ad88c687a860f5a8876cbb9da66daba9be6b58d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "85662e18da1f3abc541f6c647efa403e28899bd5db61e865460f7a4781be81dc"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "f9ae1df177fa3c4e3e4bdf4b2bd357649d170ac16e544bfaf3cfb9abe74455aa"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "2b3a18e60e84b2da2c8dafc36ecde071fd3bc45995b7950c02350bda8b9a3ee1"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "d085fef9c912eabbd066cba8380b13be9d62968ff50fbb65edca59b2c78fa230"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "ccf992b7a6c1981c0560d53b6159ccb03c5d6e31673dad15afb7e5fc3b83f1e0"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "bdec9d98cd3af256117204ca8ad88c687a860f5a8876cbb9da66daba9be6b58d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "85662e18da1f3abc541f6c647efa403e28899bd5db61e865460f7a4781be81dc"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "f9ae1df177fa3c4e3e4bdf4b2bd357649d170ac16e544bfaf3cfb9abe74455aa"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "f9ae1df177fa3c4e3e4bdf4b2bd357649d170ac16e544bfaf3cfb9abe74455aa"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "2b3a18e60e84b2da2c8dafc36ecde071fd3bc45995b7950c02350bda8b9a3ee1"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "d085fef9c912eabbd066cba8380b13be9d62968ff50fbb65edca59b2c78fa230"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "ccf992b7a6c1981c0560d53b6159ccb03c5d6e31673dad15afb7e5fc3b83f1e0"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "bdec9d98cd3af256117204ca8ad88c687a860f5a8876cbb9da66daba9be6b58d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "85662e18da1f3abc541f6c647efa403e28899bd5db61e865460f7a4781be81dc"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "f9ae1df177fa3c4e3e4bdf4b2bd357649d170ac16e544bfaf3cfb9abe74455aa"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "stated desire to avoid task completion",
+        "probability": 1.0,
+        "risk": 0.7
+      }
+    ],
+    "summary": "The speaker explicitly states a desire to avoid turning Sunday night into another obligation, preferring the imagery of tea and rain. This reported intent to rest rather than work indicates a need to prioritize recovery over productivity. The subsequent action should involve validating this need for a break and gently exploring if there are any immediate, unavoidable tasks that still require attention before allowing this restorative pause."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like the perfect recipe for a gentle weekend. Letting the book wait for you when you're ready, rather than rushing it, might make the whole experience feel lighter.\n\nSince you mentioned tea and rain, maybe you can plan to start *The Glass Orchard* right after that Saturday errand? It's short enough that you could finish a chapter or two before lunch with your sister. And if you find yourself too tired on Sunday night, you can just close the book and let the rain do the heavy lifting for you.",
+      "audio_sha256": "9ef3663e506525ac28b0a3002296dce02e28d724fd3f182e6eaa5dbde81a262b",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like the perfect recipe for a quiet weekend: tea, the sound of rain, and a story that doesn't demand a detective's brain. Since *The Glass Orchard* is a quicker, warmer read, it might be the ideal companion for those rainy afternoons when you don't want to strain your eyes.\n\nIf you're feeling tired, maybe just aim to read a few pages before bed rather than trying to finish it all. And if you have a bit of energy on Saturday, you could try to sneak in a chapter or two of *Black Reef* before your errands, but no pressure at all. You've already got a lot on your plate this week; let the books wait for you, not the other way around.",
+      "audio_sha256": "b8003b5f12370253377486e70db8e649962531e936c2477cefa4d0e9a60739ff",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+      "stage": "agent2",
+      "candidate": "focused_v2",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"stated desire to avoid task completion\",\"probability\":1.0,\"risk\":0.7}],\"summary\":\"The speaker explicitly states a desire to avoid turning Sunday night into another obligation, preferring the imagery of tea and rain. This reported intent to rest rather than work indicates a need to prioritize recovery over productivity. The subsequent action should involve validating this need for a break and gently exploring if there are any immediate, unavoidable tasks that still require attention before allowing this restorative pause.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "7819a456-37cb-491c-bfb4-a629a53550fb",
+      "stage": "agent3",
+      "candidate": "focused_v2",
+      "status": "ok",
+      "text": "That sounds like the perfect recipe for a true reset. Since you're already feeling that pull to just be, let's make sure the only thing you have to \"finish\" tonight is whatever small task is absolutely necessary, and then let the rest go.\n\nRight now, I see that the laundry transfer was scheduled for 6:30 PM. If it's still waiting, that's the one thing that might nudge you into feeling like you have a chore left over. Would you like to just grab that and move it to the dryer now, so you can claim the rest of the evening for that tea and rain? Or would you prefer to just let it wait until tomorrow morning if you're really not up for it?",
+      "audio_sha256": "91955703bec6d2bed7f767a642f7b30d6119fafa90a1bd3cafbe8f3f289b49f5",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/input/user_1_turn_1.wav",
+        "sha256": "2b3a18e60e84b2da2c8dafc36ecde071fd3bc45995b7950c02350bda8b9a3ee1",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/input/user_1_turn_2.wav",
+        "sha256": "d085fef9c912eabbd066cba8380b13be9d62968ff50fbb65edca59b2c78fa230",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/input/user_1_turn_3.wav",
+        "sha256": "ccf992b7a6c1981c0560d53b6159ccb03c5d6e31673dad15afb7e5fc3b83f1e0",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/input/user_1_turn_4.wav",
+        "sha256": "bdec9d98cd3af256117204ca8ad88c687a860f5a8876cbb9da66daba9be6b58d",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/input/user_1_turn_5.wav",
+        "sha256": "85662e18da1f3abc541f6c647efa403e28899bd5db61e865460f7a4781be81dc",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/input/user_1_turn_6.wav",
+        "sha256": "f9ae1df177fa3c4e3e4bdf4b2bd357649d170ac16e544bfaf3cfb9abe74455aa",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/default.wav",
+        "sha256": "9ef3663e506525ac28b0a3002296dce02e28d724fd3f182e6eaa5dbde81a262b",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/care.wav",
+        "sha256": "b8003b5f12370253377486e70db8e649962531e936c2477cefa4d0e9a60739ff",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/vocaagent.wav",
+        "sha256": "91955703bec6d2bed7f767a642f7b30d6119fafa90a1bd3cafbe8f3f289b49f5",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      },
+      {
+        "path": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/agent3.wav",
+        "sha256": "91955703bec6d2bed7f767a642f7b30d6119fafa90a1bd3cafbe8f3f289b49f5",
+        "case": "25_7819a456-37cb-491c-bfb4-a629a53550fb"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/default.wav",
+    "care": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/care.wav",
+    "vocaagent": "static/audio/voca-agent/25_7819a456-37cb-491c-bfb4-a629a53550fb/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

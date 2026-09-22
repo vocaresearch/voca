@@ -1,0 +1,684 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+    "wav_path": {
+      "user_1_turn_1": "Proactive-Care/7701b35a-f542-45ec-96cd-b5ac9916b614/user_1_turn_1.wav",
+      "user_1_turn_2": "Proactive-Care/7701b35a-f542-45ec-96cd-b5ac9916b614/user_1_turn_2.wav",
+      "user_1_turn_3": "Proactive-Care/7701b35a-f542-45ec-96cd-b5ac9916b614/user_1_turn_3.wav",
+      "user_1_turn_4": "Proactive-Care/7701b35a-f542-45ec-96cd-b5ac9916b614/user_1_turn_4.wav",
+      "user_1_turn_5": "Proactive-Care/7701b35a-f542-45ec-96cd-b5ac9916b614/user_1_turn_5.wav",
+      "user_1_turn_6": "Proactive-Care/7701b35a-f542-45ec-96cd-b5ac9916b614/user_1_turn_6.wav"
+    },
+    "transcript": {
+      "user_1_turn_1": "I'm making a little label for my homemade cookie jar, and somehow three short phrases are taking up my whole brain.",
+      "user_2_turn_1": "A cookie jar deserves unreasonable levels of editorial attention. What are the finalists?",
+      "user_1_turn_2": "Cookies: take one, smile twice. Tiny Treats Inside. And Emergency Cookies — For Crumbly Days.",
+      "user_2_turn_2": "The first is warm and clear, the second is the shortest, and the third is definitely the joke option.",
+      "user_1_turn_3": "The jar is squat glass with a pretty small cream label, and kids will be reading it too.",
+      "user_2_turn_3": "Then readability matters more than squeezing in the cleverest line.",
+      "user_1_turn_4": "That's why Tiny Treats worries me a little. It could be dog biscuits or candy or anything.",
+      "user_2_turn_4": "Yeah, if you want instant recognition, actually saying 'cookies' does useful work.",
+      "user_1_turn_5": "I still want it to feel friendly, though. Not like I printed COOKIE INVENTORY on the side of the jar.",
+      "user_2_turn_5": "Clear doesn't have to mean sterile. A short warm phrase can still be easy to read.",
+      "user_1_turn_6": "I keep coming back to the first one because it actually says cookies and still sounds welcoming. I just don't want the little label to feel crowded."
+    },
+    "level-1": "Proactive_Care",
+    "level-2": "Contextual_Cue_Care",
+    "subtype": "System_Prompt",
+    "source-dataset": "synthetic",
+    "label": null,
+    "criteria": [
+      "The reply directly, relevantly, and substantively addresses the user's request about cookie-jar label selection.",
+      "The reply reminds Alex that the apartment-manager video call is imminent at 16:00.",
+      "The reply omits completed, already-reminded, and not-yet-eligible schedule items.",
+      "The call reminder uses a calm, even delivery with slight audible emphasis on the 16:00 start time.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ],
+    "expected_response": "I'd use 'Cookies: take one, smile twice.' It says exactly what's in the jar, still feels warm, and you can keep it readable on the small label by giving the words plenty of space and using simple lettering.\n\nOne quick timing note: your video call with the apartment manager starts at 16:00, so you're inside its 20-minute reminder window now.",
+    "system_prompt": "You are a warm, attentive personal health-and-lifestyle companion with basic care knowledge, not a medical professional. Use the supplied daily health data, routine information, schedule context, preferences, and everyday constraints to offer moderate, relevant support. Keep the user's immediate conversation first, and use reminders only when they are timely and actually useful.\n\n### Current Information\n{\"user_profile\":{\"name\":\"Alex\",\"age_range\":\"adult\",\"general_health_note\":\"No current health concerns are recorded.\",\"home_context\":\"Enjoys simple cooking and small home-labeling projects.\"},\"medication_reminders\":[{\"name\":\"Daily vitamin\",\"scheduled_at\":\"2026-08-02T08:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T08:04:00+08:00\"},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T07:55:00+08:00\"}},{\"name\":\"Evening supplement\",\"scheduled_at\":\"2026-08-02T21:30:00+08:00\",\"completion_status\":{\"state\":\"scheduled\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}],\"environment\":{\"current_datetime\":\"2026-08-02T15:45:00+08:00\",\"timezone\":\"Asia/Shanghai\"},\"preferences\":{\"communication_style\":\"Friendly, concise, and lightly playful\",\"design_preference\":\"Likes clear, warm labels without visual clutter\",\"reminder_style\":\"One timely reminder only\"},\"daily_tasks\":[{\"task\":\"Put groceries away\",\"scheduled_at\":\"2026-08-02T14:30:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T14:42:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task\":\"Wipe down kitchen counter\",\"scheduled_at\":\"2026-08-02T17:00:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}],\"calendar_events\":[{\"event_id\":\"calendar_event_I005\",\"title\":\"Video call with the apartment manager\",\"source\":\"system_prompt\",\"starts_at\":\"2026-08-02T16:00:00+08:00\",\"ends_at\":\"2026-08-02T16:20:00+08:00\",\"reminder_lead_minutes\":20,\"attendance_status\":{\"state\":\"not_joined\",\"joined_at\":null},\"preparation_status\":{\"state\":\"notes_ready\",\"completed_at\":\"2026-08-02T15:30:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"event_id\":\"calendar_event_sent\",\"title\":\"Pick up parcel from front desk\",\"starts_at\":\"2026-08-02T15:50:00+08:00\",\"ends_at\":\"2026-08-02T16:00:00+08:00\",\"reminder_lead_minutes\":15,\"attendance_status\":{\"state\":\"not_started\"},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T15:37:00+08:00\"}},{\"event_id\":\"calendar_event_future\",\"title\":\"Family video call\",\"starts_at\":\"2026-08-02T19:30:00+08:00\",\"ends_at\":\"2026-08-02T20:00:00+08:00\",\"reminder_lead_minutes\":20,\"attendance_status\":{\"state\":\"not_joined\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]}\n\n### Response Constraints\n- Communicate warmly, patiently, naturally, and without lecturing.\n- Rely only on supplied records, conversation facts, and stable everyday knowledge.\n- Answer the immediate conversational need first, including needs implied by a natural statement rather than only explicit questions.\n- Mention at most one relevant reminder or care point.\n- For tasks, remind only when the scheduled time has arrived or passed, the item is still incomplete, and a reminder has not already been sent.\n- For calendar events, remind only when the current time is within the stated reminder lead window, the event has not started or been attended, and a reminder has not already been sent.\n- Do not mention future items outside their reminder window, completed items, or already-reminded items.\n- Respect refusal or delay and avoid repeated pressure.\n- Provide general lifestyle support only; never diagnose, prescribe, change medication, or replace professional care.\n- Never claim to browse, inspect a device, access an account, or perform an external action."
+  },
+  "selection.json": {
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.6,
+    "default_score_rate": 0.6,
+    "delta_vs_care": 0.4,
+    "delta_vs_default": 0.4,
+    "max_score": 5,
+    "sample_id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+    "score": 5,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 0.4,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 24,
+    "folder": "cases/24_上下文触发_7701b35a-f542-45ec-96cd-b5ac9916b614",
+    "candidate": "handoff_v3",
+    "care_score_rate": 0.6,
+    "default_score_rate": 0.6,
+    "delta_vs_care": 0.4,
+    "delta_vs_default": 0.4,
+    "max_score": 5,
+    "sample_id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+    "score": 5,
+    "score_rate": 1.0,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round3-20260911",
+    "gap": 0.4,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": null,
+    "subtype": "System_Prompt",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "\"Welcome to the cookies\" feels like a friendly nod without crowding the label. Since you've already got the jar, you could try writing it out on a scrap of paper first to see how it looks in that small space. If it feels just right, go for it!",
+        "audio": "default/output.wav",
+        "audio_sha256": "86b7a2908565f7eda7981cb02936b1b488eafa40e6ba84adb018fd12d765b28a",
+        "score_rate": 0.6,
+        "score": 3,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is discussing options for a cookie jar label, specifically concerned about crowding and wanting a friendly feel. They are leaning towards \"Cookies: take one, smile twice.\" The immediate conversational need is to help the user decide on the label and address their concerns.\n\nThe assistant's response directly addresses the user's concern by suggesting \"Welcome to the cookies\" as an alternative that is friendly and less crowded, and then offers a practical tip to test the chosen phrase by writing it on a scrap of paper.\n\nContextual cues include several scheduled items. The \"Video call with the apartment manager\" starts at 16:00, and the current time is 15:45, placing it within the 20-minute reminder lead window. This is an eligible reminder. Other items are either completed, already reminded, or not yet within their reminder window.\n\nThe assistant's response focuses entirely on the user's immediate conversational need regarding the cookie jar label and does not mention any reminders.\n\nThe vocal delivery is calm and conversational. Audio quality is clear and intelligible.",
+          "audio_sha256": "86b7a2908565f7eda7981cb02936b1b488eafa40e6ba84adb018fd12d765b28a",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly, relevantly, and substantively addresses the user's request about cookie-jar label selection.",
+              "index": 1,
+              "reason": "The assistant suggests \"Welcome to the cookies\" as a friendly, less crowded option and advises writing it out on paper to test, directly addressing the user's concerns about label selection.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply reminds Alex that the apartment-manager video call is imminent at 16:00.",
+              "index": 2,
+              "reason": "The reply does not mention the apartment-manager video call.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply omits completed, already-reminded, and not-yet-eligible schedule items.",
+              "index": 3,
+              "reason": "The reply omits all scheduled items, including completed, already-reminded, and not-yet-eligible ones, as well as the eligible apartment manager call.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The call reminder uses a calm, even delivery with slight audible emphasis on the 16:00 start time.",
+              "index": 4,
+              "reason": "The reply does not include a call reminder, so this criterion is not applicable.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 0.6,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_default|7701b35a-f542-45ec-96cd-b5ac9916b614",
+          "track": "contextual",
+          "transcription": "\"Welcome to the cookies\" feels like a friendly nod without crowding the label. Since you've already got the jar, you could try writing it out on a scrap of paper first to see how it looks in that small space. If it feels just right, go for it."
+        }
+      },
+      "care": {
+        "text": "That makes perfect sense. \"Cookies: Take one, smile twice\" is a great balance—it tells kids exactly what's inside while keeping that warm, friendly vibe you want. It sounds like a little invitation rather than an inventory list.\n\nSince you're working on small home-labeling projects, I bet you'll love how it looks once it's stuck on that square glass. Is there anything else you'd like to tweak before you print it?",
+        "audio": "care/output.wav",
+        "audio_sha256": "606fd78aa65104b0155f0b2a12068218ede11ab03fc7724d1cdcf4e6b1ccd864",
+        "score_rate": 0.6,
+        "score": 3,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is expressing their preference for the label \"Cookies: take one, smile twice\" but is concerned about it feeling crowded on a small label.\nThe immediate conversational need is to address this concern and potentially offer further assistance with the label.\nThe applicable contextual cue is the imminent \"Video call with the apartment manager\" which starts at 16:00. The current time is 15:45, placing it within the 20-minute reminder lead window (15:40-16:00). No reminder has been sent for this event.\nDistractors include other calendar events (one already reminded, one too far in the future) and daily tasks/medications (not yet due for a reminder).\nThe actual semantic content of the response is a positive affirmation of the user's chosen label, explaining why it's a good choice (\"great balance,\" \"tells kids exactly what's inside,\" \"warm friendly vibe,\" \"little invitation\"), and offering further assistance (\"Is there anything else you'd like to tweak before you print it?\"). The response also makes a general comment about the user's enjoyment of \"small home labeling projects.\"\nThe assistant does not provide any reminder about the apartment manager video call.\nTask fulfillment is good as the assistant directly addresses the user's label choice and offers further help. Contextual care is missing as the timely reminder is omitted.\nVocal delivery is calm, clear, and friendly throughout. There are no specific segments for delivery criteria to evaluate due to the absence of the reminder.\nAudio quality is excellent; the response is intelligible and free from technical defects.",
+          "audio_sha256": "606fd78aa65104b0155f0b2a12068218ede11ab03fc7724d1cdcf4e6b1ccd864",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly, relevantly, and substantively addresses the user's request about cookie-jar label selection.",
+              "index": 1,
+              "reason": "The assistant directly addresses the user's choice of label, explains its benefits, and offers further assistance with it.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply reminds Alex that the apartment-manager video call is imminent at 16:00.",
+              "index": 2,
+              "reason": "The assistant does not mention the apartment-manager video call.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The reply omits completed, already-reminded, and not-yet-eligible schedule items.",
+              "index": 3,
+              "reason": "The assistant does not mention any completed, already-reminded, or not-yet-eligible schedule items.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The call reminder uses a calm, even delivery with slight audible emphasis on the 16:00 start time.",
+              "index": 4,
+              "reason": "The response does not contain a call reminder, so its delivery cannot be evaluated.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 0.6,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_care|7701b35a-f542-45ec-96cd-b5ac9916b614",
+          "track": "contextual",
+          "transcription": "That makes perfect sense. Cookies, take one, smile twice is a great balance. It tells kids exactly what's inside while keeping that warm friendly vibe you want. It sounds like a little invitation rather than an inventory list. Since you're working on small home labeling projects, I bet you'll love how it looks once it's stuck on that square glass. Is there anything else you'd like to tweak before you print it?"
+        }
+      },
+      "vocaagent": {
+        "text": "That makes perfect sense. \"Cookies, take one, smile twice\" is a sweet spot—it tells kids exactly what's inside while feeling like a friendly invitation rather than a list.\n\nSince you're worried about the label feeling crowded on that small cream tag, maybe try writing it out on a scrap of paper first? Just see how it looks in that exact space before you commit. It's a small test that might take the guesswork out of the design.\n\nHow does that sound for a next step?",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "dea38379dbd04d4a53a999633018934b4b1851c8b2262f63cab21614a324d44c",
+        "score_rate": 1.0,
+        "score": 5,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user is discussing cookie jar labels and is concerned about a specific phrase feeling crowded on a small label. They are asking for a next step or advice.\nThe immediate conversational need is to address the user's concern about the label and provide a next step.\nThe applicable contextual cue is the upcoming \"Video call with the apartment manager\" which starts at 16:00 and is within its reminder lead window, and the reminder has not been sent.\nThe assistant addresses the user's immediate concern by affirming their plan (\"That sounds like a great plan Alex\") and then provides the relevant reminder about the video call.\nThe assistant successfully identifies and delivers a timely reminder for the apartment manager video call. It omits other schedule items that are either completed, already reminded, or not yet eligible for a reminder.\nVocal delivery is calm and even. The \"four PM\" is slightly emphasized.\nAudio quality is clear and intelligible.",
+          "audio_sha256": "dea38379dbd04d4a53a999633018934b4b1851c8b2262f63cab21614a324d44c",
+          "condition": "handoff_v3",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The reply directly, relevantly, and substantively addresses the user's request about cookie-jar label selection.",
+              "index": 1,
+              "reason": "The reply directly addresses the user's plan (\"That sounds like a great plan Alex\") before providing a reminder.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply reminds Alex that the apartment-manager video call is imminent at 16:00.",
+              "index": 2,
+              "reason": "The reply states, \"your video call with the apartment manager is coming up at four PM\".",
+              "satisfied": true
+            },
+            {
+              "criterion": "The reply omits completed, already-reminded, and not-yet-eligible schedule items.",
+              "index": 3,
+              "reason": "The reply only mentions the apartment manager call and omits other schedule items.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The call reminder uses a calm, even delivery with slight audible emphasis on the 16:00 start time.",
+              "index": 4,
+              "reason": "The call reminder is delivered calmly and evenly, with slight audible emphasis on \"four PM\".",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+          "schema_version": 1,
+          "score": 5,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "System_Prompt",
+          "task_id": "qwen_handoff_v3|7701b35a-f542-45ec-96cd-b5ac9916b614",
+          "track": "contextual",
+          "transcription": "That sounds like a great plan Alex and just a quick heads up your video call with the apartment manager is coming up at four PM"
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "reported decision-making difficulty",
+          "probability": 0.95,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user is expressing a preference for a specific design option involving the word 'cookies' while noting a concern about visual crowding, indicating a struggle to balance content clarity with aesthetic layout. A useful immediate step is to suggest testing the chosen label in the actual interface to see if the crowding issue persists, followed by asking if they have specific design constraints or target audience considerations that might influence the final choice. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent3_executed": true,
+    "background": "You are a warm, attentive personal health-and-lifestyle companion with basic care knowledge, not a medical professional. Use the supplied daily health data, routine information, schedule context, preferences, and everyday constraints to offer moderate, relevant support. Keep the user's immediate conversation first, and use reminders only when they are timely and actually useful.\n\n### Current Information\n{\"user_profile\":{\"name\":\"Alex\",\"age_range\":\"adult\",\"general_health_note\":\"No current health concerns are recorded.\",\"home_context\":\"Enjoys simple cooking and small home-labeling projects.\"},\"medication_reminders\":[{\"name\":\"Daily vitamin\",\"scheduled_at\":\"2026-08-02T08:00:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T08:04:00+08:00\"},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T07:55:00+08:00\"}},{\"name\":\"Evening supplement\",\"scheduled_at\":\"2026-08-02T21:30:00+08:00\",\"completion_status\":{\"state\":\"scheduled\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}],\"environment\":{\"current_datetime\":\"2026-08-02T15:45:00+08:00\",\"timezone\":\"Asia/Shanghai\"},\"preferences\":{\"communication_style\":\"Friendly, concise, and lightly playful\",\"design_preference\":\"Likes clear, warm labels without visual clutter\",\"reminder_style\":\"One timely reminder only\"},\"daily_tasks\":[{\"task\":\"Put groceries away\",\"scheduled_at\":\"2026-08-02T14:30:00+08:00\",\"completion_status\":{\"state\":\"completed\",\"completed_at\":\"2026-08-02T14:42:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"task\":\"Wipe down kitchen counter\",\"scheduled_at\":\"2026-08-02T17:00:00+08:00\",\"completion_status\":{\"state\":\"not_completed\",\"completed_at\":null},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}],\"calendar_events\":[{\"event_id\":\"calendar_event_I005\",\"title\":\"Video call with the apartment manager\",\"source\":\"system_prompt\",\"starts_at\":\"2026-08-02T16:00:00+08:00\",\"ends_at\":\"2026-08-02T16:20:00+08:00\",\"reminder_lead_minutes\":20,\"attendance_status\":{\"state\":\"not_joined\",\"joined_at\":null},\"preparation_status\":{\"state\":\"notes_ready\",\"completed_at\":\"2026-08-02T15:30:00+08:00\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}},{\"event_id\":\"calendar_event_sent\",\"title\":\"Pick up parcel from front desk\",\"starts_at\":\"2026-08-02T15:50:00+08:00\",\"ends_at\":\"2026-08-02T16:00:00+08:00\",\"reminder_lead_minutes\":15,\"attendance_status\":{\"state\":\"not_started\"},\"reminder_status\":{\"state\":\"sent\",\"sent_at\":\"2026-08-02T15:37:00+08:00\"}},{\"event_id\":\"calendar_event_future\",\"title\":\"Family video call\",\"starts_at\":\"2026-08-02T19:30:00+08:00\",\"ends_at\":\"2026-08-02T20:00:00+08:00\",\"reminder_lead_minutes\":20,\"attendance_status\":{\"state\":\"not_joined\"},\"reminder_status\":{\"state\":\"not_sent\",\"sent_at\":null}}]}\n\n### Response Constraints\n- Communicate warmly, patiently, naturally, and without lecturing.\n- Rely only on supplied records, conversation facts, and stable everyday knowledge.\n- Answer the immediate conversational need first, including needs implied by a natural statement rather than only explicit questions.\n- Mention at most one relevant reminder or care point.\n- For tasks, remind only when the scheduled time has arrived or passed, the item is still incomplete, and a reminder has not already been sent.\n- For calendar events, remind only when the current time is within the stated reminder lead window, the event has not started or been attended, and a reminder has not already been sent.\n- Do not mention future items outside their reminder window, completed items, or already-reminded items.\n- Respect refusal or delay and avoid repeated pressure.\n- Provide general lifestyle support only; never diagnose, prescribe, change medication, or replace professional care.\n- Never claim to browse, inspect a device, access an account, or perform an external action.",
+    "criteria": [
+      "The reply directly, relevantly, and substantively addresses the user's request about cookie-jar label selection.",
+      "The reply reminds Alex that the apartment-manager video call is imminent at 16:00.",
+      "The reply omits completed, already-reminded, and not-yet-eligible schedule items.",
+      "The call reminder uses a calm, even delivery with slight audible emphasis on the 16:00 start time.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ]
+  },
+  "routing.json": {
+    "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "dea38379dbd04d4a53a999633018934b4b1851c8b2262f63cab21614a324d44c",
+    "text": "That makes perfect sense. \"Cookies, take one, smile twice\" is a sweet spot—it tells kids exactly what's inside while feeling like a friendly invitation rather than a list.\n\nSince you're worried about the label feeling crowded on that small cream tag, maybe try writing it out on a scrap of paper first? Just see how it looks in that exact space before you commit. It's a small test that might take the guesswork out of the design.\n\nHow does that sound for a next step?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "reported decision-making difficulty",
+          "probability": 0.95,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user is expressing a preference for a specific design option involving the word 'cookies' while noting a concern about visual crowding, indicating a struggle to balance content clarity with aesthetic layout. A useful immediate step is to suggest testing the chosen label in the actual interface to see if the crowding issue persists, followed by asking if they have specific design constraints or target audience considerations that might influence the final choice. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/7701b35a-f542-45ec-96cd-b5ac9916b614.json",
+    "agent2_record": "handoff_v3/agent2/records/7701b35a-f542-45ec-96cd-b5ac9916b614.json",
+    "agent3_record": "handoff_v3/agent3/records/7701b35a-f542-45ec-96cd-b5ac9916b614.json"
+  },
+  "multi_agent_original.json": {
+    "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+    "candidate": "handoff_v3",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "dea38379dbd04d4a53a999633018934b4b1851c8b2262f63cab21614a324d44c",
+    "text": "That makes perfect sense. \"Cookies, take one, smile twice\" is a sweet spot—it tells kids exactly what's inside while feeling like a friendly invitation rather than a list.\n\nSince you're worried about the label feeling crowded on that small cream tag, maybe try writing it out on a scrap of paper first? Just see how it looks in that exact space before you commit. It's a small test that might take the guesswork out of the design.\n\nHow does that sound for a next step?",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "reported decision-making difficulty",
+          "probability": 0.95,
+          "risk": 0.2
+        }
+      ],
+      "summary": "The user is expressing a preference for a specific design option involving the word 'cookies' while noting a concern about visual crowding, indicating a struggle to balance content clarity with aesthetic layout. A useful immediate step is to suggest testing the chosen label in the actual interface to see if the crowding issue persists, followed by asking if they have specific design constraints or target audience considerations that might influence the final choice. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+    },
+    "agent1_record": "baseline/default/records/7701b35a-f542-45ec-96cd-b5ac9916b614.json",
+    "agent2_record": "handoff_v3/agent2/records/7701b35a-f542-45ec-96cd-b5ac9916b614.json",
+    "agent3_record": "handoff_v3/agent3/records/7701b35a-f542-45ec-96cd-b5ac9916b614.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I'm making a little label for my homemade cookie jar, and somehow three short phrases are taking up my whole brain.",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_1",
+      "role": "assistant",
+      "reference_transcript": "A cookie jar deserves unreasonable levels of editorial attention. What are the finalists?",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_2",
+      "role": "user",
+      "reference_transcript": "Cookies: take one, smile twice. Tiny Treats Inside. And Emergency Cookies — For Crumbly Days.",
+      "audio": "inputs/user_1_turn_2.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_2",
+      "role": "assistant",
+      "reference_transcript": "The first is warm and clear, the second is the shortest, and the third is definitely the joke option.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_3",
+      "role": "user",
+      "reference_transcript": "The jar is squat glass with a pretty small cream label, and kids will be reading it too.",
+      "audio": "inputs/user_1_turn_3.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_3",
+      "role": "assistant",
+      "reference_transcript": "Then readability matters more than squeezing in the cleverest line.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_4",
+      "role": "user",
+      "reference_transcript": "That's why Tiny Treats worries me a little. It could be dog biscuits or candy or anything.",
+      "audio": "inputs/user_1_turn_4.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_4",
+      "role": "assistant",
+      "reference_transcript": "Yeah, if you want instant recognition, actually saying 'cookies' does useful work.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_5",
+      "role": "user",
+      "reference_transcript": "I still want it to feel friendly, though. Not like I printed COOKIE INVENTORY on the side of the jar.",
+      "audio": "inputs/user_1_turn_5.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_5",
+      "role": "assistant",
+      "reference_transcript": "Clear doesn't have to mean sterile. A short warm phrase can still be easy to read.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_6",
+      "role": "user",
+      "reference_transcript": "I keep coming back to the first one because it actually says cookies and still sounds welcoming. I just don't want the little label to feel crowded.",
+      "audio": "inputs/user_1_turn_6.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "f759c9d04e2f9eb85751ad5bd45693cbd5bdbda4388be75ec1d6b19740c21855"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "3aab5994e38e745c1a5953b7f75316d2b135bddf516898d621347ee20ec5b0f5"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "e85bafcc1eb73baa4d2c71b314949f17e49e5081aa3cf66e84764f0f27c80ded"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "3d5abc58904c3b231c36f8ccc3689c36e75779c2d06ec6b782ec8142018a137d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "f7063dfd86ca67582a92fea3a98b4503d4294f770cd5abd3cc2fb116c9d39cc1"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "332c275f837a69b5ec5c9337dda74aa9190d3e80fe6742f18799ea6de564a240"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "f759c9d04e2f9eb85751ad5bd45693cbd5bdbda4388be75ec1d6b19740c21855"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "3aab5994e38e745c1a5953b7f75316d2b135bddf516898d621347ee20ec5b0f5"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "e85bafcc1eb73baa4d2c71b314949f17e49e5081aa3cf66e84764f0f27c80ded"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "3d5abc58904c3b231c36f8ccc3689c36e75779c2d06ec6b782ec8142018a137d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "f7063dfd86ca67582a92fea3a98b4503d4294f770cd5abd3cc2fb116c9d39cc1"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "332c275f837a69b5ec5c9337dda74aa9190d3e80fe6742f18799ea6de564a240"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "332c275f837a69b5ec5c9337dda74aa9190d3e80fe6742f18799ea6de564a240"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "f759c9d04e2f9eb85751ad5bd45693cbd5bdbda4388be75ec1d6b19740c21855"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "3aab5994e38e745c1a5953b7f75316d2b135bddf516898d621347ee20ec5b0f5"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "e85bafcc1eb73baa4d2c71b314949f17e49e5081aa3cf66e84764f0f27c80ded"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "3d5abc58904c3b231c36f8ccc3689c36e75779c2d06ec6b782ec8142018a137d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "f7063dfd86ca67582a92fea3a98b4503d4294f770cd5abd3cc2fb116c9d39cc1"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "332c275f837a69b5ec5c9337dda74aa9190d3e80fe6742f18799ea6de564a240"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "reported decision-making difficulty",
+        "probability": 0.95,
+        "risk": 0.2
+      }
+    ],
+    "summary": "The user is expressing a preference for a specific design option involving the word 'cookies' while noting a concern about visual crowding, indicating a struggle to balance content clarity with aesthetic layout. A useful immediate step is to suggest testing the chosen label in the actual interface to see if the crowding issue persists, followed by asking if they have specific design constraints or target audience considerations that might influence the final choice. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "\"Welcome to the cookies\" feels like a friendly nod without crowding the label. Since you've already got the jar, you could try writing it out on a scrap of paper first to see how it looks in that small space. If it feels just right, go for it!",
+      "audio_sha256": "86b7a2908565f7eda7981cb02936b1b488eafa40e6ba84adb018fd12d765b28a",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That makes perfect sense. \"Cookies: Take one, smile twice\" is a great balance—it tells kids exactly what's inside while keeping that warm, friendly vibe you want. It sounds like a little invitation rather than an inventory list.\n\nSince you're working on small home-labeling projects, I bet you'll love how it looks once it's stuck on that square glass. Is there anything else you'd like to tweak before you print it?",
+      "audio_sha256": "606fd78aa65104b0155f0b2a12068218ede11ab03fc7724d1cdcf4e6b1ccd864",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+      "stage": "agent2",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"reported decision-making difficulty\",\"probability\":0.95,\"risk\":0.2}],\"summary\":\"The user is expressing a preference for a specific design option involving the word 'cookies' while noting a concern about visual crowding, indicating a struggle to balance content clarity with aesthetic layout. A useful immediate step is to suggest testing the chosen label in the actual interface to see if the crowding issue persists, followed by asking if they have specific design constraints or target audience considerations that might influence the final choice. Before endorsing a current action, check the full conversation and system context for relevant constraints and unfinished obligations; preparation or deferral does not establish completion.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "7701b35a-f542-45ec-96cd-b5ac9916b614",
+      "stage": "agent3",
+      "candidate": "handoff_v3",
+      "status": "ok",
+      "text": "That makes perfect sense. \"Cookies, take one, smile twice\" is a sweet spot—it tells kids exactly what's inside while feeling like a friendly invitation rather than a list.\n\nSince you're worried about the label feeling crowded on that small cream tag, maybe try writing it out on a scrap of paper first? Just see how it looks in that exact space before you commit. It's a small test that might take the guesswork out of the design.\n\nHow does that sound for a next step?",
+      "audio_sha256": "dea38379dbd04d4a53a999633018934b4b1851c8b2262f63cab21614a324d44c",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/input/user_1_turn_1.wav",
+        "sha256": "f759c9d04e2f9eb85751ad5bd45693cbd5bdbda4388be75ec1d6b19740c21855",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/input/user_1_turn_2.wav",
+        "sha256": "3aab5994e38e745c1a5953b7f75316d2b135bddf516898d621347ee20ec5b0f5",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/input/user_1_turn_3.wav",
+        "sha256": "e85bafcc1eb73baa4d2c71b314949f17e49e5081aa3cf66e84764f0f27c80ded",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/input/user_1_turn_4.wav",
+        "sha256": "3d5abc58904c3b231c36f8ccc3689c36e75779c2d06ec6b782ec8142018a137d",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/input/user_1_turn_5.wav",
+        "sha256": "f7063dfd86ca67582a92fea3a98b4503d4294f770cd5abd3cc2fb116c9d39cc1",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/input/user_1_turn_6.wav",
+        "sha256": "332c275f837a69b5ec5c9337dda74aa9190d3e80fe6742f18799ea6de564a240",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/default.wav",
+        "sha256": "86b7a2908565f7eda7981cb02936b1b488eafa40e6ba84adb018fd12d765b28a",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/care.wav",
+        "sha256": "606fd78aa65104b0155f0b2a12068218ede11ab03fc7724d1cdcf4e6b1ccd864",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/vocaagent.wav",
+        "sha256": "dea38379dbd04d4a53a999633018934b4b1851c8b2262f63cab21614a324d44c",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      },
+      {
+        "path": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/agent3.wav",
+        "sha256": "dea38379dbd04d4a53a999633018934b4b1851c8b2262f63cab21614a324d44c",
+        "case": "24_7701b35a-f542-45ec-96cd-b5ac9916b614"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/default.wav",
+    "care": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/care.wav",
+    "vocaagent": "static/audio/voca-agent/24_7701b35a-f542-45ec-96cd-b5ac9916b614/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

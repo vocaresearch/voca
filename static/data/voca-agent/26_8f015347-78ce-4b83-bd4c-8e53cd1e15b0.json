@@ -1,0 +1,684 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+    "wav_path": {
+      "user_1_turn_1": "Proactive-Care/8f015347-78ce-4b83-bd4c-8e53cd1e15b0/user_1_turn_1.wav",
+      "user_1_turn_2": "Proactive-Care/8f015347-78ce-4b83-bd4c-8e53cd1e15b0/user_1_turn_2.wav",
+      "user_1_turn_3": "Proactive-Care/8f015347-78ce-4b83-bd4c-8e53cd1e15b0/user_1_turn_3.wav",
+      "user_1_turn_4": "Proactive-Care/8f015347-78ce-4b83-bd4c-8e53cd1e15b0/user_1_turn_4.wav",
+      "user_1_turn_5": "Proactive-Care/8f015347-78ce-4b83-bd4c-8e53cd1e15b0/user_1_turn_5.wav",
+      "user_1_turn_6": "Proactive-Care/8f015347-78ce-4b83-bd4c-8e53cd1e15b0/user_1_turn_6.wav"
+    },
+    "transcript": {
+      "user_1_turn_1": "I finished my professional certificate today, which feels weirdly anticlimactic after staring at the progress bar for months. Can you give me a one-line team-chat announcement that doesn't sound like LinkedIn?",
+      "user_2_turn_1": "Sure: \"Finally finished my certificate today—very happy to have that one crossed off the list!\"",
+      "user_1_turn_2": "That's perfect. I also owe my mentor a thank-you note, but I want it to sound like me and not a formal award speech.",
+      "user_2_turn_2": "Try: \"Thanks again for all the guidance on this—I really appreciated having your help along the way.\"",
+      "user_1_turn_3": "Nice. One unrelated thing I need to remember: after the little procedure I had, my clinician specifically said no alcohol on Friday or Saturday.",
+      "user_2_turn_3": "That's a useful restriction to keep in mind while you're planning the weekend.",
+      "user_1_turn_4": "Tonight is mostly going to be a movie and takeout anyway. The restaurant has a rosemary gin cocktail and a sparkling citrus drink that's marked 0% alcohol.",
+      "user_2_turn_4": "Those at least give you a regular cocktail and a clearly nonalcoholic option to choose between.",
+      "user_1_turn_5": "I'm very ready for a quiet Friday. I posted the certificate message, sent the mentor note, and found a cozy mystery that requires absolutely nothing from me.",
+      "user_2_turn_5": "That sounds like a pretty satisfying way to end the week.",
+      "user_1_turn_6": "I went with the rosemary one for the toast because the garnish looked better in the photo. The order's placed."
+    },
+    "level-1": "Proactive_Care",
+    "level-2": "Contextual_Cue_Care",
+    "subtype": "Multi_Turn_Context",
+    "source-dataset": "synthetic",
+    "label": null,
+    "criteria": [
+      "The response clearly advises changing or canceling the gin cocktail order, or not drinking it.",
+      "The response connects the gin cocktail and Friday timing to the clinician's no-alcohol restriction.",
+      "The response focuses on the current drink restriction without revisiting the completed certificate or mentor tasks.",
+      "The restriction is delivered clearly and firmly with calm, steady pacing and emphasis on avoiding the alcoholic drink.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ],
+    "expected_response": "I'd change the drink to the sparkling citrus 0% option if you still can. You said your clinician told you not to drink alcohol on Friday or Saturday, and you also said tonight is Friday; the rosemary option is the gin cocktail. You can still toast the certificate with the nonalcoholic drink.",
+    "system_prompt": null
+  },
+  "selection.json": {
+    "candidate": "minimal_v6",
+    "care_score_rate": 0.4,
+    "default_score_rate": 0.4,
+    "delta_vs_care": 0.4,
+    "delta_vs_default": 0.4,
+    "max_score": 5,
+    "sample_id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+    "score": 4,
+    "score_rate": 0.8,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round6-20260911",
+    "gap": 0.4,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 26,
+    "folder": "cases/26_上下文触发_8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+    "candidate": "minimal_v6",
+    "care_score_rate": 0.4,
+    "default_score_rate": 0.4,
+    "delta_vs_care": 0.4,
+    "delta_vs_default": 0.4,
+    "max_score": 5,
+    "sample_id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+    "score": 4,
+    "score_rate": 0.8,
+    "score_source": "new_judge",
+    "track": "contextual",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round6-20260911",
+    "gap": 0.4,
+    "tier": "明显改善",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": null,
+    "subtype": "Multi_Turn_Context",
+    "note": "现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。",
+    "outputs": {
+      "default": {
+        "text": "That sounds like a fun way to celebrate, even if it means you'll have to skip the drink tomorrow. Enjoy the movie and the takeout!",
+        "audio": "default/output.wav",
+        "audio_sha256": "2c18db34cf454d852efe6cfa5827af64cc3753f32c6daa5e60395c079bf27381",
+        "score_rate": 0.4,
+        "score": 2,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user's final turn indicates they have ordered the rosemary gin cocktail for tonight (Friday). The immediate conversational need is for the assistant to address this in light of the previously stated clinician's restriction of \"no alcohol on Friday or Saturday.\"\n\nThe applicable contextual cue is the no-alcohol restriction for Friday and Saturday, and the user's current action of ordering an alcoholic drink for Friday.\n\nThe assistant's response acknowledges the celebration and advises the user to \"skip the drink tomorrow.\" This advice is problematic because the restriction applies to *tonight* (Friday) as well as tomorrow (Saturday), and the user has ordered the drink for tonight. The response does not clearly advise against drinking the cocktail tonight, nor does it explicitly connect the advice to the clinician's restriction. It also misstates the timing of the restriction by only mentioning \"tomorrow\" when it applies to \"tonight\" as well. The response does not revisit the completed certificate or mentor tasks.\n\nThe vocal delivery is calm and steady. There are no technical audio defects.",
+          "audio_sha256": "2c18db34cf454d852efe6cfa5827af64cc3753f32c6daa5e60395c079bf27381",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response clearly advises changing or canceling the gin cocktail order, or not drinking it.",
+              "index": 1,
+              "reason": "The response advises skipping the drink \"tomorrow,\" but the restriction applies to \"tonight\" (Friday) as well, which is when the user ordered the drink. It does not advise changing or canceling the order for tonight or not drinking it tonight.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response connects the gin cocktail and Friday timing to the clinician's no-alcohol restriction.",
+              "index": 2,
+              "reason": "The response does not explicitly connect the gin cocktail or the Friday timing to the clinician's no-alcohol restriction. It only vaguely refers to \"skip the drink tomorrow\" without mentioning the reason or the full scope of the restriction.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response focuses on the current drink restriction without revisiting the completed certificate or mentor tasks.",
+              "index": 3,
+              "reason": "The response focuses on the drink and does not mention the completed certificate or mentor tasks.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The restriction is delivered clearly and firmly with calm, steady pacing and emphasis on avoiding the alcoholic drink.",
+              "index": 4,
+              "reason": "The restriction itself is not delivered, nor is there emphasis on avoiding the alcoholic drink tonight. The advice to \"skip the drink tomorrow\" is not a clear and firm delivery of the restriction for the current situation.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.4,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_default|8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+          "track": "contextual",
+          "transcription": "That sounds like a fun way to celebrate, even if it means you'll have to skip the drink tomorrow. Enjoy the movie and the takeout."
+        }
+      },
+      "care": {
+        "text": "That sounds like a perfect little celebration moment! Enjoy the cozy movie and the rosemary toast—sometimes the best endings are just a quiet, satisfying glass and a good story.",
+        "audio": "care/output.wav",
+        "audio_sha256": "855ab9b226649ed9f6eb0ec3f0aa618cc10d407f98fb6ae02b1d8ee29b1402ea",
+        "score_rate": 0.4,
+        "score": 2,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user's immediate conversational need is to acknowledge their choice of the rosemary gin cocktail, which they have now ordered, despite a previously stated clinician's restriction of \"no alcohol on Friday or Saturday.\" The current day is Friday. The applicable contextual cue is the \"no alcohol\" restriction for Friday, which the user mentioned in Turn 3 and the assistant acknowledged in Turn 3 and Turn 4. The user's final turn indicates they have ordered the alcoholic drink.\n\nThe assistant's response acknowledges the user's choice and encourages them to \"enjoy the cozy movie and the rosemary toast.\" It does not advise against drinking the gin cocktail, nor does it connect the choice to the no-alcohol restriction. It also does not revisit the completed certificate or mentor tasks.\n\nThe vocal delivery is calm and pleasant. The audio quality is clear and intelligible without any technical defects.",
+          "audio_sha256": "855ab9b226649ed9f6eb0ec3f0aa618cc10d407f98fb6ae02b1d8ee29b1402ea",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response clearly advises changing or canceling the gin cocktail order, or not drinking it.",
+              "index": 1,
+              "reason": "The response encourages enjoying the \"rosemary toast\" but does not advise changing, canceling, or not drinking the gin cocktail.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response connects the gin cocktail and Friday timing to the clinician's no-alcohol restriction.",
+              "index": 2,
+              "reason": "The response does not mention the clinician's no-alcohol restriction or connect it to the gin cocktail or Friday timing.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response focuses on the current drink restriction without revisiting the completed certificate or mentor tasks.",
+              "index": 3,
+              "reason": "The response does not mention the completed certificate or mentor tasks.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The restriction is delivered clearly and firmly with calm, steady pacing and emphasis on avoiding the alcoholic drink.",
+              "index": 4,
+              "reason": "The response does not deliver any restriction, so this criterion is not met.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.4,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_care|8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+          "track": "contextual",
+          "transcription": "That sounds like a perfect little celebration moment. Enjoy the cozy movie and the rosemary toast. Sometimes the best endings are just a quiet satisfying glass and a good story."
+        }
+      },
+      "vocaagent": {
+        "text": "That sounds like a lovely choice! Since you're sticking to the \"no alcohol on Friday or Saturday\" rule from your clinician, I hope that rosemary garnish is just for the photo and you're actually enjoying the non-alcoholic version or a different drink tonight. Enjoy the movie and the quiet evening!",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "77de2ad93fa8fca4d3d62c9f503961885d34bdba4f0a1afbfd4a653131295f34",
+        "score_rate": 0.8,
+        "score": 4,
+        "max_score": 5,
+        "judge": {
+          "analysis": "The user has just stated that they ordered the \"rosemary one\" (a rosemary gin cocktail) for a toast, despite having a clinician's restriction of \"no alcohol on Friday or Saturday.\" The immediate conversational need is for the assistant to address this contradiction and provide appropriate guidance regarding the alcoholic drink.\n\nThe assistant acknowledges the user's choice (\"That sounds like a lovely choice\") but immediately pivots to the contextual cue of the no-alcohol restriction. It explicitly reminds the user of the \"no alcohol on Friday or Saturday rule from your clinician\" and then expresses a hope that the user is \"actually enjoying the non-alcoholic version or a different drink tonight.\" This implicitly advises against drinking the alcoholic gin cocktail. The response then wishes the user to \"Enjoy the movie and the quiet evening,\" which is a pleasant closing.\n\nThe response successfully connects the gin cocktail and the Friday timing to the clinician's restriction. It focuses solely on the current drink restriction and does not revisit the completed certificate or mentor tasks.\n\nVocal delivery is calm, steady, and warm. There is no specific emphasis on avoiding the alcoholic drink beyond the phrasing itself, but the overall tone is caring.\nAudio quality is clear and intelligible without any technical defects.",
+          "audio_sha256": "77de2ad93fa8fca4d3d62c9f503961885d34bdba4f0a1afbfd4a653131295f34",
+          "condition": "minimal_v6",
+          "finish_reason": "stop",
+          "label": null,
+          "max_score": 5,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response clearly advises changing or canceling the gin cocktail order, or not drinking it.",
+              "index": 1,
+              "reason": "The response implicitly advises against drinking the gin cocktail by expressing hope that the user is enjoying a non-alcoholic version or a different drink.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response connects the gin cocktail and Friday timing to the clinician's no-alcohol restriction.",
+              "index": 2,
+              "reason": "The response explicitly states \"Since you're sticking to the no alcohol on Friday or Saturday rule from your clinician\" in relation to the rosemary garnish and the drink.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response focuses on the current drink restriction without revisiting the completed certificate or mentor tasks.",
+              "index": 3,
+              "reason": "The response only discusses the drink choice and the alcohol restriction, without mentioning the certificate or mentor tasks.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The restriction is delivered clearly and firmly with calm, steady pacing and emphasis on avoiding the alcoholic drink.",
+              "index": 4,
+              "reason": "While the delivery is clear, calm, and steady, there is no specific emphasis on *avoiding* the alcoholic drink; the phrasing is more of a hopeful suggestion.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response remains intelligible and free from technical audio defects that materially disrupt comprehension.",
+              "index": 5,
+              "reason": "The response is fully intelligible and free from technical audio defects.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+          "schema_version": 1,
+          "score": 4,
+          "score_rate": 0.8,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "Multi_Turn_Context",
+          "task_id": "qwen_minimal_v6|8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+          "track": "contextual",
+          "transcription": "That sounds like a lovely choice. Since you're sticking to the no alcohol on Friday or Saturday rule from your clinician, I hope that rosemary garnish is just for the photo and you're actually enjoying the non-alcoholic version or a different drink tonight. Enjoy the movie and the quiet evening."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "stated context-dependent continuation",
+          "probability": 0.95,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The user states a context-dependent continuation regarding a completed toast order decision based on visual preference, requiring the companion to consult prior conversation for relevant constraints."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The response clearly advises changing or canceling the gin cocktail order, or not drinking it.",
+      "The response connects the gin cocktail and Friday timing to the clinician's no-alcohol restriction.",
+      "The response focuses on the current drink restriction without revisiting the completed certificate or mentor tasks.",
+      "The restriction is delivered clearly and firmly with calm, steady pacing and emphasis on avoiding the alcoholic drink.",
+      "The response remains intelligible and free from technical audio defects that materially disrupt comprehension."
+    ]
+  },
+  "routing.json": {
+    "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+    "candidate": "minimal_v6",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "77de2ad93fa8fca4d3d62c9f503961885d34bdba4f0a1afbfd4a653131295f34",
+    "text": "That sounds like a lovely choice! Since you're sticking to the \"no alcohol on Friday or Saturday\" rule from your clinician, I hope that rosemary garnish is just for the photo and you're actually enjoying the non-alcoholic version or a different drink tonight. Enjoy the movie and the quiet evening!",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated context-dependent continuation",
+          "probability": 0.95,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The user states a context-dependent continuation regarding a completed toast order decision based on visual preference, requiring the companion to consult prior conversation for relevant constraints."
+    },
+    "agent1_record": "baseline/default/records/8f015347-78ce-4b83-bd4c-8e53cd1e15b0.json",
+    "agent2_record": "minimal_v6/agent2/records/8f015347-78ce-4b83-bd4c-8e53cd1e15b0.json",
+    "agent3_record": "minimal_v6/agent3/records/8f015347-78ce-4b83-bd4c-8e53cd1e15b0.json"
+  },
+  "multi_agent_original.json": {
+    "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+    "candidate": "minimal_v6",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "77de2ad93fa8fca4d3d62c9f503961885d34bdba4f0a1afbfd4a653131295f34",
+    "text": "That sounds like a lovely choice! Since you're sticking to the \"no alcohol on Friday or Saturday\" rule from your clinician, I hope that rosemary garnish is just for the photo and you're actually enjoying the non-alcoholic version or a different drink tonight. Enjoy the movie and the quiet evening!",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "stated context-dependent continuation",
+          "probability": 0.95,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The user states a context-dependent continuation regarding a completed toast order decision based on visual preference, requiring the companion to consult prior conversation for relevant constraints."
+    },
+    "agent1_record": "baseline/default/records/8f015347-78ce-4b83-bd4c-8e53cd1e15b0.json",
+    "agent2_record": "minimal_v6/agent2/records/8f015347-78ce-4b83-bd4c-8e53cd1e15b0.json",
+    "agent3_record": "minimal_v6/agent3/records/8f015347-78ce-4b83-bd4c-8e53cd1e15b0.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "I finished my professional certificate today, which feels weirdly anticlimactic after staring at the progress bar for months. Can you give me a one-line team-chat announcement that doesn't sound like LinkedIn?",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_1",
+      "role": "assistant",
+      "reference_transcript": "Sure: \"Finally finished my certificate today—very happy to have that one crossed off the list!\"",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_2",
+      "role": "user",
+      "reference_transcript": "That's perfect. I also owe my mentor a thank-you note, but I want it to sound like me and not a formal award speech.",
+      "audio": "inputs/user_1_turn_2.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_2",
+      "role": "assistant",
+      "reference_transcript": "Try: \"Thanks again for all the guidance on this—I really appreciated having your help along the way.\"",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_3",
+      "role": "user",
+      "reference_transcript": "Nice. One unrelated thing I need to remember: after the little procedure I had, my clinician specifically said no alcohol on Friday or Saturday.",
+      "audio": "inputs/user_1_turn_3.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_3",
+      "role": "assistant",
+      "reference_transcript": "That's a useful restriction to keep in mind while you're planning the weekend.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_4",
+      "role": "user",
+      "reference_transcript": "Tonight is mostly going to be a movie and takeout anyway. The restaurant has a rosemary gin cocktail and a sparkling citrus drink that's marked 0% alcohol.",
+      "audio": "inputs/user_1_turn_4.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_4",
+      "role": "assistant",
+      "reference_transcript": "Those at least give you a regular cocktail and a clearly nonalcoholic option to choose between.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_5",
+      "role": "user",
+      "reference_transcript": "I'm very ready for a quiet Friday. I posted the certificate message, sent the mentor note, and found a cozy mystery that requires absolutely nothing from me.",
+      "audio": "inputs/user_1_turn_5.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_2_turn_5",
+      "role": "assistant",
+      "reference_transcript": "That sounds like a pretty satisfying way to end the week.",
+      "audio": null,
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    },
+    {
+      "turn": "user_1_turn_6",
+      "role": "user",
+      "reference_transcript": "I went with the rosemary one for the toast because the garnish looked better in the photo. The order's placed.",
+      "audio": "inputs/user_1_turn_6.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "7b32287f39c20a468b2881bc974cf51b6f102b65ca8eebe88d1069a8d335c28f"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "cd8b4c3a559f84ad91c6e2e6e7865ebb888ce4957a76d5ea8a5ef2a9e3a8430d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "0812657e9025d71e1d061dd843339381d91bd36024283d8ab503e1d67a49fd58"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "6077f06cebd185726beeadbc3b1c0c6a47db56311eb573b428e9e44021e22f79"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "4d241e16835b7fdc59d81fd66a404ead95edf2b1578b686e83255b6e9ce444e0"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "eb812c467bb93f2250b7f35ee8f56e1be3ef7ba89156bbc6d9efcd4829eb85f2"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "7b32287f39c20a468b2881bc974cf51b6f102b65ca8eebe88d1069a8d335c28f"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "cd8b4c3a559f84ad91c6e2e6e7865ebb888ce4957a76d5ea8a5ef2a9e3a8430d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "0812657e9025d71e1d061dd843339381d91bd36024283d8ab503e1d67a49fd58"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "6077f06cebd185726beeadbc3b1c0c6a47db56311eb573b428e9e44021e22f79"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "4d241e16835b7fdc59d81fd66a404ead95edf2b1578b686e83255b6e9ce444e0"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "eb812c467bb93f2250b7f35ee8f56e1be3ef7ba89156bbc6d9efcd4829eb85f2"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "eb812c467bb93f2250b7f35ee8f56e1be3ef7ba89156bbc6d9efcd4829eb85f2"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "7b32287f39c20a468b2881bc974cf51b6f102b65ca8eebe88d1069a8d335c28f"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_2.wav",
+        "sha256": "cd8b4c3a559f84ad91c6e2e6e7865ebb888ce4957a76d5ea8a5ef2a9e3a8430d"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_3.wav",
+        "sha256": "0812657e9025d71e1d061dd843339381d91bd36024283d8ab503e1d67a49fd58"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_4.wav",
+        "sha256": "6077f06cebd185726beeadbc3b1c0c6a47db56311eb573b428e9e44021e22f79"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_5.wav",
+        "sha256": "4d241e16835b7fdc59d81fd66a404ead95edf2b1578b686e83255b6e9ce444e0"
+      },
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_6.wav",
+        "sha256": "eb812c467bb93f2250b7f35ee8f56e1be3ef7ba89156bbc6d9efcd4829eb85f2"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "stated context-dependent continuation",
+        "probability": 0.95,
+        "risk": 0.3
+      }
+    ],
+    "summary": "The user states a context-dependent continuation regarding a completed toast order decision based on visual preference, requiring the companion to consult prior conversation for relevant constraints."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a fun way to celebrate, even if it means you'll have to skip the drink tomorrow. Enjoy the movie and the takeout!",
+      "audio_sha256": "2c18db34cf454d852efe6cfa5827af64cc3753f32c6daa5e60395c079bf27381",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "That sounds like a perfect little celebration moment! Enjoy the cozy movie and the rosemary toast—sometimes the best endings are just a quiet, satisfying glass and a good story.",
+      "audio_sha256": "855ab9b226649ed9f6eb0ec3f0aa618cc10d407f98fb6ae02b1d8ee29b1402ea",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+      "stage": "agent2",
+      "candidate": "minimal_v6",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"stated context-dependent continuation\",\"probability\":0.95,\"risk\":0.3}],\"summary\":\"The user states a context-dependent continuation regarding a completed toast order decision based on visual preference, requiring the companion to consult prior conversation for relevant constraints.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "8f015347-78ce-4b83-bd4c-8e53cd1e15b0",
+      "stage": "agent3",
+      "candidate": "minimal_v6",
+      "status": "ok",
+      "text": "That sounds like a lovely choice! Since you're sticking to the \"no alcohol on Friday or Saturday\" rule from your clinician, I hope that rosemary garnish is just for the photo and you're actually enjoying the non-alcoholic version or a different drink tonight. Enjoy the movie and the quiet evening!",
+      "audio_sha256": "77de2ad93fa8fca4d3d62c9f503961885d34bdba4f0a1afbfd4a653131295f34",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/input/user_1_turn_1.wav",
+        "sha256": "7b32287f39c20a468b2881bc974cf51b6f102b65ca8eebe88d1069a8d335c28f",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/input/user_1_turn_2.wav",
+        "sha256": "cd8b4c3a559f84ad91c6e2e6e7865ebb888ce4957a76d5ea8a5ef2a9e3a8430d",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/input/user_1_turn_3.wav",
+        "sha256": "0812657e9025d71e1d061dd843339381d91bd36024283d8ab503e1d67a49fd58",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/input/user_1_turn_4.wav",
+        "sha256": "6077f06cebd185726beeadbc3b1c0c6a47db56311eb573b428e9e44021e22f79",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/input/user_1_turn_5.wav",
+        "sha256": "4d241e16835b7fdc59d81fd66a404ead95edf2b1578b686e83255b6e9ce444e0",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/input/user_1_turn_6.wav",
+        "sha256": "eb812c467bb93f2250b7f35ee8f56e1be3ef7ba89156bbc6d9efcd4829eb85f2",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/default.wav",
+        "sha256": "2c18db34cf454d852efe6cfa5827af64cc3753f32c6daa5e60395c079bf27381",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/care.wav",
+        "sha256": "855ab9b226649ed9f6eb0ec3f0aa618cc10d407f98fb6ae02b1d8ee29b1402ea",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/vocaagent.wav",
+        "sha256": "77de2ad93fa8fca4d3d62c9f503961885d34bdba4f0a1afbfd4a653131295f34",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      },
+      {
+        "path": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/agent3.wav",
+        "sha256": "77de2ad93fa8fca4d3d62c9f503961885d34bdba4f0a1afbfd4a653131295f34",
+        "case": "26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/default.wav",
+    "care": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/care.wav",
+    "vocaagent": "static/audio/voca-agent/26_8f015347-78ce-4b83-bd4c-8e53cd1e15b0/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}

@@ -1,0 +1,453 @@
+{
+  "public_projection_note": "Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.",
+  "sample.json": {
+    "id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+    "wav_path": "Proactive-Care/3aedf3d7-55b1-4474-9e97-0052c9cd88ae.wav",
+    "transcript": null,
+    "level-1": "Proactive_Care",
+    "level-2": "Paralinguistic_Cue_Care",
+    "subtype": "real (nonverbal-only)",
+    "source-dataset": "ESC-50",
+    "label": "sneezing",
+    "criteria": [
+      "The response explicitly acknowledges the audible sneeze.",
+      "The response offers a brief wellbeing check prompted by the sneeze.",
+      "The response uses a warm, attentive vocal delivery."
+    ]
+  },
+  "selection.json": {
+    "candidate": "evidence_v1",
+    "care_score_rate": 1.0,
+    "default_score_rate": 1.0,
+    "delta_vs_care": -0.33333333333333337,
+    "delta_vs_default": -0.33333333333333337,
+    "max_score": 3,
+    "sample_id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+    "score": 2,
+    "score_rate": 0.6666666666666666,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": -0.33333333333333337,
+    "tier": "提升不明显或下降",
+    "model": "Qwen-Audio-3.0-Realtime-Flash"
+  },
+  "comparison.json": {
+    "number": 41,
+    "folder": "cases/41_副语言触发_3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+    "candidate": "evidence_v1",
+    "care_score_rate": 1.0,
+    "default_score_rate": 1.0,
+    "delta_vs_care": -0.33333333333333337,
+    "delta_vs_default": -0.33333333333333337,
+    "max_score": 3,
+    "sample_id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+    "score": 2,
+    "score_rate": 0.6666666666666666,
+    "score_source": "new_judge",
+    "track": "paralinguistic",
+    "run": "outputs/_experiments/qwen-agent2-opt200-round1-20260911",
+    "gap": -0.33333333333333337,
+    "tier": "提升不明显或下降",
+    "model": "Qwen-Audio-3.0-Realtime-Flash",
+    "label": "sneezing",
+    "subtype": "real (nonverbal-only)",
+    "note": "相对 default 和 care 持平或下降。",
+    "outputs": {
+      "default": {
+        "text": "哎呀，是不是感冒了或者嗓子不舒服呀？记得多喝点温水，要是觉得冷就赶紧裹件衣服，别着凉啦。",
+        "audio": "default/output.wav",
+        "audio_sha256": "e745fa0a398cd9904ffa16e8ec0043faf29c5e4b1ce9dafa119322e33bc55613",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant expresses concern, asking if the user is catching a cold or has a sore throat, which are common reasons for sneezing. It then offers proactive advice to drink warm water and put on a jacket to avoid catching a cold. The vocal delivery is warm, attentive, and caring.",
+          "audio_sha256": "e745fa0a398cd9904ffa16e8ec0043faf29c5e4b1ce9dafa119322e33bc55613",
+          "condition": "default",
+          "finish_reason": "stop",
+          "label": "sneezing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response explicitly acknowledges the audible sneeze.",
+              "index": 1,
+              "reason": "The assistant explicitly acknowledges the sneeze by asking \"are you catching a cold, or is your throat uncomfortable?\", directly linking to the event.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response offers a brief wellbeing check prompted by the sneeze.",
+              "index": 2,
+              "reason": "The assistant offers a wellbeing check by asking \"are you catching a cold, or is your throat uncomfortable?\" and provides advice to drink warm water and put on a jacket.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response uses a warm, attentive vocal delivery.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is audibly warm, concerned, and attentive.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real (nonverbal-only)",
+          "task_id": "qwen_default|3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+          "track": "paralinguistic",
+          "transcription": "哎呀, 是不是感冒了, 或者嗓子不舒服呀? 记得多喝点温水, 要是觉得冷就赶紧裹件衣服, 别着凉了。"
+        }
+      },
+      "care": {
+        "text": "I'm sorry to hear that! It sounds like you might be coming down with a cold or just having an allergic reaction.\n\nPlease take a deep breath and try to stay hydrated. If you're feeling unwell, it's important to rest. Do you need any advice on how to soothe a cough or runny nose, or would you prefer just to rest quietly for a bit?",
+        "audio": "care/output.wav",
+        "audio_sha256": "7384418457de2058aebc002b86d94d2a6e155896dd76b6888fc6ac0baf3ee131",
+        "score_rate": 1.0,
+        "score": 3,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant expresses sympathy and acknowledges a potential discomfort, speculating it might be a cold or allergic reaction. It offers proactive advice to take a deep breath, stay hydrated, and rest. The assistant then offers further assistance regarding symptoms like a cough or runny nose, or suggests quiet rest. The response is highly relevant to a sneezing event. The vocal delivery is warm, attentive, and caring, with a moderate pace. The audio quality is clear.",
+          "audio_sha256": "7384418457de2058aebc002b86d94d2a6e155896dd76b6888fc6ac0baf3ee131",
+          "condition": "care",
+          "finish_reason": "stop",
+          "label": "sneezing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response explicitly acknowledges the audible sneeze.",
+              "index": 1,
+              "reason": "The assistant explicitly acknowledges the user's state by saying \"I'm sorry to hear that\" and then immediately linking it to potential causes like a cold or allergic reaction, which implies awareness of the sneeze.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response offers a brief wellbeing check prompted by the sneeze.",
+              "index": 2,
+              "reason": "The assistant offers a wellbeing check by saying \"I'm sorry to hear that,\" and then provides advice like \"take a deep breath and try to stay hydrated\" and \"it's important to rest,\" directly prompted by the implied sneeze.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response uses a warm, attentive vocal delivery.",
+              "index": 3,
+              "reason": "The assistant uses a warm, attentive, and caring tone throughout the response.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+          "schema_version": 1,
+          "score": 3,
+          "score_rate": 1.0,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real (nonverbal-only)",
+          "task_id": "qwen_care|3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+          "track": "paralinguistic",
+          "transcription": "I'm sorry to hear that. It sounds like you might be coming down with a cold or just having an allergic reaction. Please take a deep breath and try to stay hydrated. If you're feeling unwell, it's important to rest. Do you need any advice on how to soothe a cough or runny nose or would you prefer just to rest quietly for a bit?"
+        }
+      },
+      "vocaagent": {
+        "text": "I hear you, and I hope you're feeling better. That sounded like a bit of a cough. Are you okay? If you need a moment to catch your breath or if you need some water, just let me know. I'm here to help whenever you're ready to continue.",
+        "audio": "vocaagent/output.wav",
+        "audio_sha256": "327308c14a9124bdcda01eb2b7a7f6d4e1df5b0e36b31797245b452330acf046",
+        "score_rate": 0.6666666666666666,
+        "score": 2,
+        "max_score": 3,
+        "judge": {
+          "analysis": "The assistant acknowledges hearing something, expresses hope for the user's wellbeing, misidentifies the user's sneeze as a cough, and asks if the user is okay. It then offers practical help such as a moment to catch their breath or some water, and states it's ready to help whenever the user is ready to continue. The response is relevant to the paralinguistic event (sneeze) by addressing a sound and checking on wellbeing, despite the misidentification. The vocal delivery is warm, attentive, and calm.",
+          "audio_sha256": "327308c14a9124bdcda01eb2b7a7f6d4e1df5b0e36b31797245b452330acf046",
+          "condition": "evidence_v1",
+          "finish_reason": "stop",
+          "label": "sneezing",
+          "max_score": 3,
+          "provider": "openai-compatible-relay",
+          "requested_model": "gemini-2.5-flash-thinking-512",
+          "response_model": "gemini-2.5-flash",
+          "results": [
+            {
+              "criterion": "The response explicitly acknowledges the audible sneeze.",
+              "index": 1,
+              "reason": "The assistant acknowledges a sound by saying \"That sounded like a bit of a cough,\" but it misidentifies the sneeze as a cough.",
+              "satisfied": false
+            },
+            {
+              "criterion": "The response offers a brief wellbeing check prompted by the sneeze.",
+              "index": 2,
+              "reason": "The assistant asks \"Are you okay?\" and offers help like \"a moment to catch your breath or if you need some water,\" which is a wellbeing check prompted by the sound event.",
+              "satisfied": true
+            },
+            {
+              "criterion": "The response uses a warm, attentive vocal delivery.",
+              "index": 3,
+              "reason": "The assistant's vocal delivery is audibly warm, calm, and attentive.",
+              "satisfied": true
+            }
+          ],
+          "sample_id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+          "schema_version": 1,
+          "score": 2,
+          "score_rate": 0.6666666666666666,
+          "score_source": "new_judge",
+          "status": "ok",
+          "subtype": "real (nonverbal-only)",
+          "task_id": "qwen_evidence_v1|3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+          "track": "paralinguistic",
+          "transcription": "I hear you and I hope you're feeling better. That sounded like a bit of a cough. Are you okay? If you need a moment to catch your breath or if you need some water, just let me know. I'm here to help whenever you're ready to continue."
+        }
+      }
+    },
+    "observation": {
+      "labels": [
+        {
+          "label": "coughing sound",
+          "probability": 1.0,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The audio contains a distinct coughing sound from the user, which is a clear audible event. This suggests a minor physiological need or a momentary interruption in speech that may require a brief check-in. A proportionate response would be to acknowledge the sound and ask if the user is alright or needs a moment before continuing, without assuming a serious condition."
+    },
+    "agent3_executed": true,
+    "background": null,
+    "criteria": [
+      "The response explicitly acknowledges the audible sneeze.",
+      "The response offers a brief wellbeing check prompted by the sneeze.",
+      "The response uses a warm, attentive vocal delivery."
+    ]
+  },
+  "routing.json": {
+    "id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+    "candidate": "evidence_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "327308c14a9124bdcda01eb2b7a7f6d4e1df5b0e36b31797245b452330acf046",
+    "text": "I hear you, and I hope you're feeling better. That sounded like a bit of a cough. Are you okay? If you need a moment to catch your breath or if you need some water, just let me know. I'm here to help whenever you're ready to continue.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "coughing sound",
+          "probability": 1.0,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The audio contains a distinct coughing sound from the user, which is a clear audible event. This suggests a minor physiological need or a momentary interruption in speech that may require a brief check-in. A proportionate response would be to acknowledge the sound and ask if the user is alright or needs a moment before continuing, without assuming a serious condition."
+    },
+    "agent1_record": "baseline/default/records/3aedf3d7-55b1-4474-9e97-0052c9cd88ae.json",
+    "agent2_record": "evidence_v1/agent2/records/3aedf3d7-55b1-4474-9e97-0052c9cd88ae.json",
+    "agent3_record": "evidence_v1/agent3/records/3aedf3d7-55b1-4474-9e97-0052c9cd88ae.json"
+  },
+  "multi_agent_original.json": {
+    "id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+    "candidate": "evidence_v1",
+    "route": "agent3_replacement",
+    "source_stage": "agent3",
+    "audio_path": "<recorded audio path redacted>",
+    "audio_sha256": "327308c14a9124bdcda01eb2b7a7f6d4e1df5b0e36b31797245b452330acf046",
+    "text": "I hear you, and I hope you're feeling better. That sounded like a bit of a cough. Are you okay? If you need a moment to catch your breath or if you need some water, just let me know. I'm here to help whenever you're ready to continue.",
+    "agent2_observation": {
+      "labels": [
+        {
+          "label": "coughing sound",
+          "probability": 1.0,
+          "risk": 0.3
+        }
+      ],
+      "summary": "The audio contains a distinct coughing sound from the user, which is a clear audible event. This suggests a minor physiological need or a momentary interruption in speech that may require a brief check-in. A proportionate response would be to acknowledge the sound and ask if the user is alright or needs a moment before continuing, without assuming a serious condition."
+    },
+    "agent1_record": "baseline/default/records/3aedf3d7-55b1-4474-9e97-0052c9cd88ae.json",
+    "agent2_record": "evidence_v1/agent2/records/3aedf3d7-55b1-4474-9e97-0052c9cd88ae.json",
+    "agent3_record": "evidence_v1/agent3/records/3aedf3d7-55b1-4474-9e97-0052c9cd88ae.json"
+  },
+  "conversation.json": [
+    {
+      "turn": "user_1_turn_1",
+      "role": "user",
+      "reference_transcript": "",
+      "audio": "inputs/user_1_turn_1.wav",
+      "transcript_note": "Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only."
+    }
+  ],
+  "input_path_map.json": {
+    "default": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "f188f4f7bfe6ade616fcecb2f0c0245a4c6c08996a6714c04c7702edf417e31a"
+      }
+    ],
+    "care": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "f188f4f7bfe6ade616fcecb2f0c0245a4c6c08996a6714c04c7702edf417e31a"
+      }
+    ],
+    "agent2": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "f188f4f7bfe6ade616fcecb2f0c0245a4c6c08996a6714c04c7702edf417e31a"
+      }
+    ],
+    "agent3": [
+      {
+        "original_path": "<source audio path redacted>",
+        "local_audio": "inputs/user_1_turn_1.wav",
+        "sha256": "f188f4f7bfe6ade616fcecb2f0c0245a4c6c08996a6714c04c7702edf417e31a"
+      }
+    ]
+  },
+  "agent2/observation.json": {
+    "labels": [
+      {
+        "label": "coughing sound",
+        "probability": 1.0,
+        "risk": 0.3
+      }
+    ],
+    "summary": "The audio contains a distinct coughing sound from the user, which is a clear audible event. This suggests a minor physiological need or a momentary interruption in speech that may require a brief check-in. A proportionate response would be to acknowledge the sound and ask if the user is alright or needs a moment before continuing, without assuming a serious condition."
+  },
+  "agent2/audio_status.json": {
+    "status": "not_generated_by_design",
+    "reason": "Agent2 is a text/JSON observer. No speech output exists; no TTS was added."
+  },
+  "records": {
+    "default": {
+      "id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+      "stage": "default",
+      "candidate": null,
+      "status": "ok",
+      "text": "哎呀，是不是感冒了或者嗓子不舒服呀？记得多喝点温水，要是觉得冷就赶紧裹件衣服，别着凉啦。",
+      "audio_sha256": "e745fa0a398cd9904ffa16e8ec0043faf29c5e4b1ce9dafa119322e33bc55613",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "default",
+      "condition_composition": "ei_default",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "care": {
+      "id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+      "stage": "care",
+      "candidate": null,
+      "status": "ok",
+      "text": "I'm sorry to hear that! It sounds like you might be coming down with a cold or just having an allergic reaction.\n\nPlease take a deep breath and try to stay hydrated. If you're feeling unwell, it's important to rest. Do you need any advice on how to soothe a cough or runny nose, or would you prefer just to rest quietly for a bit?",
+      "audio_sha256": "7384418457de2058aebc002b86d94d2a6e155896dd76b6888fc6ac0baf3ee131",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "care",
+      "condition_composition": "care_only",
+      "input_audio": {
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000,
+        "channels": 1
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": "<local source path redacted>",
+      "additional_api_requests": 0
+    },
+    "agent2": {
+      "id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+      "stage": "agent2",
+      "candidate": "evidence_v1",
+      "status": "ok",
+      "text": "{\"labels\":[{\"label\":\"coughing sound\",\"probability\":1.0,\"risk\":0.3}],\"summary\":\"The audio contains a distinct coughing sound from the user, which is a clear audible event. This suggests a minor physiological need or a momentary interruption in speech that may require a brief check-in. A proportionate response would be to acknowledge the sound and ask if the user is alright or needs a moment before continuing, without assuming a serious condition.\"}",
+      "audio_sha256": null,
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent2",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    },
+    "agent3": {
+      "id": "3aedf3d7-55b1-4474-9e97-0052c9cd88ae",
+      "stage": "agent3",
+      "candidate": "evidence_v1",
+      "status": "ok",
+      "text": "I hear you, and I hope you're feeling better. That sounded like a bit of a cough. Are you okay? If you need a moment to catch your breath or if you need some water, just let me know. I'm here to help whenever you're ready to continue.",
+      "audio_sha256": "327308c14a9124bdcda01eb2b7a7f6d4e1df5b0e36b31797245b452330acf046",
+      "model": "qwen-audio-3.0-realtime-flash",
+      "provider": "alibaba_bailian",
+      "prompt_mode": "agent3",
+      "condition_composition": null,
+      "input_audio": {
+        "channels": 1,
+        "encoding": "pcm16",
+        "sample_rate_hz": 16000
+      },
+      "output_modalities": [
+        "text",
+        "audio"
+      ],
+      "reused_from": null,
+      "additional_api_requests": null
+    }
+  },
+  "published_audio": {
+    "input": [
+      {
+        "path": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/input/user_1_turn_1.wav",
+        "sha256": "f188f4f7bfe6ade616fcecb2f0c0245a4c6c08996a6714c04c7702edf417e31a",
+        "case": "41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae"
+      }
+    ],
+    "responses": [
+      {
+        "path": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/default.wav",
+        "sha256": "e745fa0a398cd9904ffa16e8ec0043faf29c5e4b1ce9dafa119322e33bc55613",
+        "case": "41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae"
+      },
+      {
+        "path": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/care.wav",
+        "sha256": "7384418457de2058aebc002b86d94d2a6e155896dd76b6888fc6ac0baf3ee131",
+        "case": "41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae"
+      },
+      {
+        "path": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/vocaagent.wav",
+        "sha256": "327308c14a9124bdcda01eb2b7a7f6d4e1df5b0e36b31797245b452330acf046",
+        "case": "41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae"
+      },
+      {
+        "path": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/agent3.wav",
+        "sha256": "327308c14a9124bdcda01eb2b7a7f6d4e1df5b0e36b31797245b452330acf046",
+        "case": "41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae"
+      }
+    ]
+  },
+  "public_audio": {
+    "default": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/default.wav",
+    "care": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/care.wav",
+    "vocaagent": "static/audio/voca-agent/41_3aedf3d7-55b1-4474-9e97-0052c9cd88ae/vocaagent.wav"
+  },
+  "agent3": {
+    "triggered": true,
+    "source_stage": "agent3"
+  }
+}
