@@ -19,7 +19,8 @@ voca-page/
     ├── audio/                # selected original WAVs under examples/ and voca-agent/
     ├── css/style.css
     ├── js/examples.js
-    └── images/overview.png
+    ├── figures/              # four original publication PDFs
+    └── images/               # responsive figure previews
 ```
 
 ## Audio
@@ -74,6 +75,20 @@ contextual cases, and all twenty environmental/emotional cases from the new
 package. The paralinguistic total is 32. Outcome tabs distinguish higher recorded
 scores from no gain/regressions; unavailable Default scores are labeled. Cases
 that reuse Default are not labeled as improvements over Default.
+
+Model buttons filter the VocaAgent gallery by Qwen-Audio-3.0-Realtime-Flash
+or Fun-Audio-Chat, updating every result and trigger count. Cases use the codes
+QW/FUN plus P (paralinguistic), S (semantic) or C (contextual). Within each model
+and trigger, improvements precede limited results; similar reference cues are
+adjacent, with larger gains first (larger declines first in the limited group).
+The original case URLs remain unchanged. Linking to a case from another model
+reveals that model automatically.
+
+Four supplied publication figures are displayed as responsive WebP previews
+with links to the original PDFs under `static/figures/`. To refresh the previews
+from `../VocaAgent.pdf` and the three PDFs under `../Fig/`, install PyMuPDF and
+Pillow in the authoring environment and run `python3 tools/build_figures.py`.
+No PDF renderer or Python dependency is required by the deployed website.
 
 The main page retains category tabs and case summaries. Each full example lives
 in its own HTML file under `pages/examples/` or `pages/voca-agent/` and loads in

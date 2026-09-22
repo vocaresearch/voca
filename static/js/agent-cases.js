@@ -2,6 +2,9 @@
   'use strict';
   var gallery = document.getElementById('agent-cases');
   if (!gallery) return;
+  var modelButtons = Array.from(gallery.querySelectorAll('.agent-model-filter button'));
+  var selectedModel = 'all';
+  var selectedOutcome = 0;
 
   var outcomeNav = gallery.querySelector('.agent-outcome-tabs');
   var outcomeTabs = Array.from(outcomeNav.querySelectorAll('a'));
@@ -77,9 +80,58 @@
   }
 
   function activateOutcome(index) {
+    selectedOutcome = index;
     display(outcomeTabs, outcomes, index);
     activateSubgroup(subgroupStates[index], subgroupStates[index].selected);
   }
+
+  function visibleCount(panel) {
+    return panel.querySelectorAll('.agent-case-choice:not([hidden])').length;
+  }
+
+  function filterModel(model, keepSelection) {
+    selectedModel = model;
+    modelButtons.forEach(function (button) {
+      button.setAttribute('aria-pressed', String(button.dataset.model === model));
+    });
+    gallery.querySelectorAll('.agent-case-choice').forEach(function (choice) {
+      choice.hidden = model !== 'all' && choice.dataset.model !== model;
+      if (choice.hidden) { choice.open = false; pauseWithin(choice); }
+    });
+    subgroupStates.forEach(function (state, i) {
+      var count = visibleCount(state.outcome);
+      outcomeTabs[i].querySelector('span').textContent = count;
+      var heading = state.outcome.querySelector('.sub-h');
+      heading.textContent = heading.dataset.title + ' · ' + count + ' cases';
+      state.panels.forEach(function (panel, j) {
+        var n = visibleCount(panel);
+        state.tabs[j].querySelector('b').textContent = n;
+        panel.querySelector('.subgroup-count').textContent = n + ' cases';
+        panel.querySelector('.agent-empty').hidden = n !== 0;
+      });
+      if (!keepSelection && !visibleCount(state.panels[state.selected])) {
+        var next = state.panels.findIndex(function (panel) { return visibleCount(panel) > 0; });
+        if (next >= 0) state.selected = next;
+      }
+    });
+    if (!keepSelection && !visibleCount(outcomes[selectedOutcome])) {
+      var next = outcomes.findIndex(function (panel) { return visibleCount(panel) > 0; });
+      if (next >= 0) selectedOutcome = next;
+    }
+    var total = visibleCount(gallery);
+    var label = model === 'all' ? 'both models' : modelButtons.find(function (button) {
+      return button.dataset.model === model;
+    }).childNodes[0].textContent.trim();
+    gallery.querySelector('.agent-filter-status').textContent = 'Showing ' + total + ' cases across result groups for ' + label + '.';
+    activateOutcome(selectedOutcome);
+  }
+
+  modelButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      filterModel(button.dataset.model, false);
+      updateHash(subgroupStates[selectedOutcome].panels[subgroupStates[selectedOutcome].selected]);
+    });
+  });
 
   subgroupStates.forEach(function (state) {
     wireTabs(state.nav, state.tabs, state.panels, function (index) { activateSubgroup(state, index); });
@@ -117,6 +169,10 @@
     if (!outcome) return;
     var outcomeIndex = outcomes.indexOf(outcome);
     if (outcomeIndex < 0) return;
+    var choice = target.closest('.agent-case-choice');
+    if (choice && selectedModel !== 'all' && choice.dataset.model !== selectedModel) {
+      filterModel(choice.dataset.model, true);
+    }
     activateOutcome(outcomeIndex);
     var panel = target.closest('.agent-subgroup');
     if (panel) {
@@ -124,7 +180,6 @@
       var panelIndex = state.panels.indexOf(panel);
       if (panelIndex >= 0) activateSubgroup(state, panelIndex);
     }
-    var choice = target.closest('.agent-case-choice');
     if (choice) choice.open = true;
     requestAnimationFrame(function () {
       if (!outcome.hidden && (!panel || !panel.hidden)) target.scrollIntoView({ block: 'start', behavior: 'instant' });

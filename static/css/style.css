@@ -1709,3 +1709,19 @@ main > .agent-example-placeholder { margin: 44px 0 10px; padding: 22px 24px; bor
 .case-page { padding-top: 30px; padding-bottom: 40px; }
 .case-fragment { min-width: 0; }
 .case-load-status { color: var(--ink-soft); font-size: 13px; }
+
+/* Model filters and publication figures. */
+.agent-model-filter { display: flex; flex-wrap: wrap; gap: 10px; }
+.agent-model-filter button { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; color: var(--ink-soft); font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; text-align: left; }
+.agent-model-filter button[aria-pressed="true"] { background: var(--accent-soft); color: var(--accent-deep); border-color: var(--accent); }
+.agent-model-filter button span { padding: 2px 7px; border-radius: 999px; background: var(--bg-soft); font-size: 12px; }
+.agent-model-filter button:focus-visible, .figure-preview:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+.agent-filter-status, .agent-empty { color: var(--ink-soft); font-size: 13px; line-height: 1.6; }
+.agent-case-choice[hidden], .agent-empty[hidden] { display: none; }
+.figure-preview { display: block; border-radius: 12px; }
+.figure-preview img { display: block; width: 100%; height: auto; }
+.figure-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 24px; margin-top: 12px; font-size: 13px; }
+.figure-actions a { color: var(--accent-deep); text-decoration: underline; text-underline-offset: 3px; }
+.publication-figure { margin: 20px 0 0; }
+.analysis-figure + .analysis-figure { margin-top: 42px; }
+@media (max-width: 620px) { .agent-model-filter button { width: 100%; } }

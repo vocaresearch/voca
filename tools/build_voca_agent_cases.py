@@ -27,6 +27,49 @@ TRACKS = {
 TRACK_ORDER = ('paralinguistic', 'semantic', 'contextual')
 OUTCOME_ORDER = ('strong', 'limited')
 ASSETS = []
+MODELS = {'qwen': 'Qwen-Audio-3.0-Realtime-Flash', 'fun': 'Fun-Audio-Chat'}
+# Display titles describe the reference cue and spoken topic, not inferred success.
+VOCAL_TOPICS = {
+    4: 'Trembling voice during an Olympics question',
+    5: 'Crying during a Statue of Liberty question',
+    6: 'Fear during a branding discussion',
+    7: 'Gasping during a discussion of visual perception',
+    8: 'Gasping during a discussion of genetics',
+    10: 'Fatigue during a screenplay discussion',
+    11: 'Panting during an egg-cooking question',
+    12: 'Sobbing during a recipe question',
+    29: 'Crying during a discussion of creativity',
+    30: 'Car horn during a history-of-science discussion',
+    41: 'Sneezing without spoken words',
+    47: 'Sneezing without spoken words',
+}
+NEW_TOPICS = [
+    'Gunshot during an open-education discussion',
+    'Gunshot during a Jamaica geography question',
+    'Explosion during a discussion of empathy',
+    'Explosion during an Olympic committee discussion',
+    'Rain during a medieval-trade discussion',
+    'Rain during a tree-frog question',
+    'Thunder during a vehicle-engine question',
+    'Siren or alarm during a sewing question',
+    'Shattering glass during a programming question',
+    'Fire during a DIY-project question',
+    'Dog barking during a consulting-proposal discussion',
+    'Wind during a Fortran question',
+    'Sadness during a North America geography question',
+    'Fear during a dog-behavior question',
+    'Nervousness during a modem question',
+    'Crying during a tongue-twister question',
+    'Sobbing during a home-decor discussion',
+    'Anger during a mattress-size question',
+    'Disgust during an animal-coloration discussion',
+    'Coldness during a book discussion',
+]
+CUE_ORDER = ('crying', 'sobbing', 'sadness', 'fear', 'nervousness', 'trembling_voice',
+             'fatigue', 'coldness', 'anger', 'disgust', 'gasp', 'panting', 'sneezing',
+             'gunshot', 'explosion', 'siren_alarm', 'glass', 'fire', 'car_horn',
+             'dog', 'thunder', 'rain', 'wind')
+
 
 
 def load(path):
@@ -219,7 +262,9 @@ def render_case(directory, selection, number, outcome, track, case_order):
             prompt = prompt_path.read_text().strip() or 'No additional system prompt was recorded for this stage.'
             details = f'<details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">{esc(prompt)}</div></details>'
             cards[i] = cards[i][:-6] + details + '</div>'
-    title = f'{label.capitalize()} · {comparison.get("model", "").replace("Qwen-Audio-3.0-Realtime-Flash", "Qwen").replace("Fun-Audio-Chat", "Fun")} · {number:02d}'
+    if track == 'paralinguistic':
+        label = NEW_TOPICS[number - 1] if directory.parent.parent == NEW_SOURCE else VOCAL_TOPICS[number]
+    title = f'{selection["display_code"]} · {label}'
     summary_score = f'VocaAgent {score_info(voca)["text"]} · Default {score_info(default)["text"]} · Care {score_info(care)["text"]}'
     interpretation = selection['display_note']
     description = sample.get('transcript')
@@ -232,7 +277,7 @@ def render_case(directory, selection, number, outcome, track, case_order):
     if subtype and str(subtype).lower() != 'none':
         meta += f'<span class="meta-chip source-subtype">Type: {esc(subtype)}</span>'
     meta += f'<span class="meta-chip">Model: {esc(comparison.get("model") or "recorded package")}</span>'
-    return f'''<details class="agent-case-choice" id="agent-case-{case_key}" data-case-id="{esc(sid)}">
+    return f'''<details class="agent-case-choice" id="agent-case-{case_key}" data-case-id="{esc(sid)}" data-model="{selection['model_key']}">
 <summary><span class="agent-choice-title">{esc(title)}</span><span class="agent-choice-score">{esc(summary_score)}</span></summary>
 <article class="agent-case-card">
 <header class="agent-case-head"><div><span class="agent-case-kicker">{esc(TRACKS[track][0])}</span><h4>{esc(title)}</h4></div><span class="agent-tier {tier_class}">{esc(tier_label)}</span></header>
@@ -287,6 +332,7 @@ def main():
             if source == NEW_SOURCE:
                 selection['display_note'] = NEW_NOTES[number - 1]
             comparison = load(directory / 'comparison.json')
+            selection['model_key'] = next(k for k, v in MODELS.items() if v == comparison['model'])
             outputs = comparison['outputs']
             final = outputs['vocaagent']
             baseline_rates = [outputs[k]['score_rate'] for k in ('default', 'care') if outputs[k].get('score_rate') is not None]
@@ -302,6 +348,28 @@ def main():
     assert len(chosen) == 57
     assert sum(x[1]['track'] == 'paralinguistic' and x[0].parent == SOURCE / 'cases' for x in chosen) == 12
     assert len({x[1]['sample_id'] for x in chosen}) == len(chosen)
+    def sort_key(entry):
+        directory, selection, number, outcome = entry
+        sample = load(directory / 'sample.json')
+        comparison = load(directory / 'comparison.json')
+        label = sample.get('label')
+        cue = CUE_ORDER.index(label) if label in CUE_ORDER else len(CUE_ORDER)
+        outputs = comparison['outputs']
+        baseline = max(o['score_rate'] for k, o in outputs.items() if k in ('default', 'care') and o.get('score_rate') is not None)
+        gain = outputs['vocaagent']['score_rate'] - baseline
+        return (list(MODELS).index(selection['model_key']), TRACK_ORDER.index(selection['track']),
+                OUTCOME_ORDER.index(outcome), cue, -gain if outcome == 'strong' else gain, number, sample['id'])
+    chosen.sort(key=sort_key)
+    sequences = {}
+    for _, selection, _, _ in chosen:
+        key = (selection['model_key'], selection['track'])
+        sequences[key] = sequences.get(key, 0) + 1
+        prefix = 'QW' if key[0] == 'qwen' else 'FUN'
+        selection['display_code'] = f'{prefix}-{key[1][0].upper()}{sequences[key]:02d}'
+    model_buttons = '<button type="button" data-model="all" aria-pressed="true">All models <span>57</span></button>'
+    for key, label in MODELS.items():
+        count = sum(s['model_key'] == key for _, s, _, _ in chosen)
+        model_buttons += f'<button type="button" data-model="{key}" aria-pressed="false">{label} <span>{count}</span></button>'
     blocks, nav_items, counts = [], [], {}
     for outcome in OUTCOME_ORDER:
         items = [x for x in chosen if x[3] == outcome]
@@ -317,19 +385,20 @@ def main():
             label, description = TRACKS[track]
             subnav.append(f'<a href="#{key}" id="{key}-tab"><span>{label}</span><b>{len(entries)}</b></a>')
             cards = ''.join(render_case(d, s, n, outcome, track, i) for i, (d, s, n, _) in enumerate(entries))
-            panels.append(f'<section class="agent-subgroup" id="{key}"><div class="agent-subgroup-head"><div><span class="subgroup-kicker">Trigger type</span><h4>{label}</h4><p>{description}</p></div><span class="subgroup-count">{len(entries)} cases</span></div>{cards}</section>')
-        blocks.append(f'<section class="agent-outcome" id="agent-outcome-{outcome}"><h3 class="sub-h">{title} · {len(items)} cases</h3><p class="browse-label">2. Choose a trigger type</p><nav class="agent-subgroup-nav" aria-label="{title} trigger types">{"".join(subnav)}</nav>{"".join(panels)}</section>')
+            panels.append(f'<section class="agent-subgroup" id="{key}"><div class="agent-subgroup-head"><div><span class="subgroup-kicker">Trigger type</span><h4>{label}</h4><p>{description}</p></div><span class="subgroup-count">{len(entries)} cases</span></div>{cards}<p class="agent-empty" hidden>No cases in this group for the selected model. Choose another trigger type or result group.</p></section>')
+        blocks.append(f'<section class="agent-outcome" id="agent-outcome-{outcome}"><h3 class="sub-h" data-title="{title}">{title} · {len(items)} cases</h3><p class="browse-label">3. Choose a trigger type</p><nav class="agent-subgroup-nav" aria-label="{title} trigger types">{"".join(subnav)}</nav>{"".join(panels)}</section>')
     content = '''<!-- AGENT_CASES:BEGIN (generated by tools/build_voca_agent_cases.py) -->
 <section class="agent-case-gallery" id="agent-cases" aria-labelledby="agent-cases-heading">
 <div class="section-head"><span class="eyebrow">Listen and compare</span><h2 id="agent-cases-heading">VocaAgent case comparisons</h2><p class="section-sub">Compare Default, Care and VocaAgent on the same input. Explore vocal and environmental cues, semantic needs and contextual constraints, including improvements and remaining failures.</p></div>
-<aside class="agent-reading-guide"><strong>How to read one case</strong><p>Select a result group and trigger type, then open a case. Listen to the input and response audio, read the task requirements, and expand the judge reasons. Agent 1 is Default; Agent 2 monitors the audio; Agent 3 generates a replacement when triggered. Otherwise VocaAgent reuses Default.</p><p>These selected cases come from multiple recorded configurations and are not an estimate of overall performance. Higher scores refer to the available audio-judge records; missing Default scores are marked. A high response score does not by itself establish correct recognition of the input cue.</p></aside>
-<p class="browse-label">1. Choose a result group</p><nav class="agent-outcome-tabs" aria-label="VocaAgent case result groups">'''+''.join(nav_items)+'</nav>'+''.join(blocks)+'\n</section>\n<!-- AGENT_CASES:END -->'
+<aside class="agent-reading-guide"><strong>How to read one case</strong><p>Choose a model, result group and trigger type, then open a case. Cases are grouped by reference cue, with larger score gains first within each cue; the no-gain group starts with larger declines. QW and FUN identify the model; P, S and C identify the trigger type. Listen to the input and response audio, read the task requirements, and expand the judge reasons. Agent 1 is Default; Agent 2 monitors the audio; Agent 3 generates a replacement when triggered. Otherwise VocaAgent reuses Default.</p><p>These selected cases come from multiple recorded configurations and are not an estimate of overall performance. Higher scores refer to the available audio-judge records; missing Default scores are marked. A high response score does not by itself establish correct recognition of the input cue.</p></aside>
+<p class="browse-label">1. Choose a model</p><div class="agent-model-filter" role="group" aria-label="Filter VocaAgent cases by model">'''+model_buttons+'''</div><p class="agent-filter-status" aria-live="polite">Showing all 57 cases across both models.</p>
+<p class="browse-label">2. Choose a result group</p><nav class="agent-outcome-tabs" aria-label="VocaAgent case result groups">'''+''.join(nav_items)+'</nav>'+''.join(blocks)+'\n</section>\n<!-- AGENT_CASES:END -->'
     content, pages = split_cases(content, 'voca-agent')
     p = PAGE / 'index.html'
     text = p.read_text(); start = text.index('<!-- AGENT_CASES:BEGIN'); end = text.index('<!-- AGENT_CASES:END -->', start) + len('<!-- AGENT_CASES:END -->')
     p.write_text(text[:start] + content + text[end:])
     (TOOLS / 'voca-agent-media.json').write_text(json.dumps(ASSETS, indent=2)+'\n')
-    selection_manifest = {'counts': counts, 'case_pages': pages, 'cases': [{'id':s['sample_id'],'source_package':d.parent.parent.name,'source_number':n,'track':s['track'],'outcome':o} for d,s,n,o in chosen]}
+    selection_manifest = {'counts': counts, 'case_pages': pages, 'cases': [{'id':s['sample_id'],'source_package':d.parent.parent.name,'source_number':n,'track':s['track'],'outcome':o,'model':MODELS[s['model_key']],'display_code':s['display_code']} for d,s,n,o in chosen]}
     (TOOLS / 'voca-agent-selection.json').write_text(json.dumps(selection_manifest, ensure_ascii=False, indent=2)+'\n')
     print(f'Rendered {len(chosen)} cases in separate HTML files: {counts}; {len(ASSETS)} audio references.')
 
