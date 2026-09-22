@@ -87,32 +87,6 @@
   });
   wireTabs(outcomeNav, outcomeTabs, outcomes, activateOutcome);
 
-  function loadJson(details) {
-    var loader = details.querySelector('.agent-json-loader');
-    if (!loader || loader.dataset.loaded === 'true' || loader.dataset.loading === 'true') return;
-    loader.dataset.loading = 'true';
-    var status = loader.querySelector('.gallery-status');
-    status.textContent = 'Loading recorded JSON…';
-    fetch(loader.dataset.jsonUrl, { credentials: 'same-origin' }).then(function (response) {
-      if (!response.ok) throw new Error('HTTP ' + response.status);
-      return response.json();
-    }).then(function (data) {
-      var pre = document.createElement('pre');
-      pre.textContent = JSON.stringify(data, null, 2);
-      loader.appendChild(pre);
-      loader.dataset.loaded = 'true';
-      status.textContent = 'Loaded.';
-    }).catch(function (error) {
-      status.textContent = 'Could not load the JSON record (' + error.message + ').';
-    }).finally(function () {
-      loader.dataset.loading = 'false';
-    });
-  }
-
-  gallery.querySelectorAll('.agent-json').forEach(function (details) {
-    details.addEventListener('toggle', function () { if (details.open) loadJson(details); });
-  });
-
   gallery.querySelectorAll('.agent-case-choice').forEach(function (choice) {
     choice.addEventListener('toggle', function () {
       if (!choice.open) { pauseWithin(choice); return; }
@@ -121,16 +95,19 @@
         if (other !== choice) { other.open = false; pauseWithin(other); }
       });
     });
-    var copy = choice.querySelector('.agent-copy-case');
-    var close = choice.querySelector('.agent-close-case');
-    var status = choice.querySelector('.agent-case-actions .gallery-status');
-    if (copy) copy.addEventListener('click', function () { copyLink(choice, status); });
-    if (close) close.addEventListener('click', function () {
+  });
+  gallery.addEventListener('click', function (event) {
+    var button = event.target.closest('.agent-copy-case, .agent-close-case');
+    if (!button) return;
+    var choice = button.closest('.agent-case-choice');
+    if (button.classList.contains('agent-copy-case')) {
+      copyLink(choice, choice.querySelector('.agent-case-actions .gallery-status'));
+    } else {
       choice.open = false;
       pauseWithin(choice);
       choice.querySelector('summary').focus();
       choice.scrollIntoView({ block: 'start', behavior: 'instant' });
-    });
+    }
   });
 
   function revealHash() {

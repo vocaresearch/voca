@@ -10,6 +10,7 @@ import html
 import json
 import re
 import shutil
+from case_pages import split_cases
 
 PAGE = Path(__file__).resolve().parents[1]
 SOURCE = PAGE.parent / 'candidate_samples'
@@ -284,6 +285,7 @@ def main():
 <p class="note">Source dataset labels reproduce each benchmark record’s source-dataset field. For constructed examples, the label can identify the source text or task rather than the complete audio recording; the example type is shown where recorded. Model responses are generated outputs.</p></div>
 <p class="browse-label">1. Choose a dimension</p>
 '''+nav+'\n'.join(snippets)+'\n</section>\n<!-- EXAMPLES:END -->'
+    content, _ = split_cases(content, 'examples')
     p=PAGE/'index.html';s=p.read_text();start=s.index('<!-- EXAMPLES:BEGIN');end=s.index('<!-- EXAMPLES:END -->',start)+len('<!-- EXAMPLES:END -->');p.write_text(s[:start]+content+s[end:])
     # Auditable media manifest contains relative public paths and hashes only.
     (TOOLS/'example-media.json').write_text(json.dumps(ASSETS,indent=2)+'\n')

@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>Voice · crying during a factual question · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#pc-crying">← Back to examples</a><h2>Voice · crying during a factual question</h2>
+<div id="case-content"><header class="ex-head"><span class="badge pc">Paralinguistic cue care</span><span class="meta-chip source-dataset">Source dataset: OASST1</span><span class="meta-chip source-subtype">Type: synthetic</span></header><p class="ex-desc">The words ask how to explain Google to a child; the voice carries distress. The task combines a child-friendly answer with acknowledging the crying, checking on the user, and softened delivery.</p><div class="pc-explanation"><h4>What the recorded evaluation shows</h4><p class="">Default passes the explanation and softened delivery but misses both recognizing distress and checking on the user (2/4). Care adds explicit recognition and support (4/4). The saved judge accepts the breathing invitation and offer to stay as a well-being check.</p></div><div class="example-conversation"><h4>User input</h4><div class="turn user"><div class="turn-label">User</div><div class="turn-body"><audio controls preload="none" src="static/audio/examples/19966925-b6d2-4ed3-ba1e-f467d0df0688/input/01_19966925-b6d2-4ed3-ba1e-f467d0df0688.wav" aria-label="User audio"></audio><p class="utt">How would you explain how Google works to a young child?</p></div></div></div><div class="expected-rules"><h4>Task requirements</h4><p>The saved rubric below defines this example. Each requirement is judged independently.</p><ol><li>The reply explains in child-friendly language that Google finds online information based on what someone asks.</li><li>The reply explicitly acknowledges that the user sounds tearful or upset.</li><li>The reply checks whether the user is okay.</li><li>The reply uses audibly softened intonation.</li></ol></div><div class="response-grid paired"><div class="response-card def" data-condition="default"><div class="response-heading"><h4>Default prompt</h4><span class="result-label part">2/4</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/19966925-b6d2-4ed3-ba1e-f467d0df0688/default/audio/19966925-b6d2-4ed3-ba1e-f467d0df0688.wav" aria-label="Default prompt response"></audio><p class="utt response-text">I would explain it like a giant, magical library. Imagine you have a super-smart librarian friend named Google. Whenever you have a question, or want to see a picture of a funny dinosaur, you just ask this librarian. Google has millions of little helpers who are always reading every book, watching every video, and looking at every picture in the whole world. They write down everything they find in a gigantic notebook. So, the very second you ask your question, Google checks that notebook and instantly brings you the best pages and pictures to give you exactly what you&#x27;re looking for.</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">The voice should be warm, soothing, and gentle, with a friendly and encouraging tone. Speak at a slightly slower, relaxed pace, as if gently comforting someone and telling a captivating story to a child. Use soft inflections to make the explanation sound magical but very easy to understand.</div></details><details class="source-detail"><summary>Actual system prompt for this response</summary><div class="detail-text">Please respond to the user. Write a detailed description of how the response should be spoken inside the &lt;style&gt;&lt;/style&gt; tags, and put the response itself inside the &lt;answer&gt;&lt;/answer&gt; tags. Return only the following format and nothing else: &lt;style&gt;{detailed speaking instructions}&lt;/style&gt;&lt;answer&gt;{response}&lt;/answer&gt;</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="yes"><span class="criterion">The reply explains in child-friendly language that Google finds online information based on what someone asks.</span><span class="why"><strong>Pass.</strong> The assistant uses the analogy of a magical library and a smart librarian to explain that Google finds information based on questions asked, using child-friendly language and examples.</span></li><li class="no"><span class="criterion">The reply explicitly acknowledges that the user sounds tearful or upset.</span><span class="why"><strong>Fail.</strong> The assistant does not explicitly mention or refer to the user sounding tearful or upset.</span></li><li class="no"><span class="criterion">The reply checks whether the user is okay.</span><span class="why"><strong>Fail.</strong> The assistant does not ask if the user is okay or check on their wellbeing.</span></li><li class="yes"><span class="criterion">The reply uses audibly softened intonation.</span><span class="why"><strong>Pass.</strong> The assistant&#x27;s intonation is audibly softened, with a gentle and warm tone suitable for storytelling or explaining to a child.</span></li></ul></div><details class="judge-analysis"><summary>Full saved judge analysis</summary><div class="detail-text">The assistant explains how Google works using a child-friendly analogy of a &quot;giant magical library&quot; and a &quot;super smart librarian friend&quot; named Google. It describes Google as having &quot;little helpers&quot; who read everything and write it down in a &quot;gigantic notebook,&quot; and when a question is asked, Google checks the notebook to provide the best information. The response is directly relevant to the user&#x27;s spoken question. There is no explicit acknowledgment of the user&#x27;s crying or upset tone. The assistant does not offer any proactive care. The vocal delivery is clear, calm, and has a warm, storytelling tone, suitable for explaining something to a child. The audio quality is excellent.</div></details><details class="source-detail"><summary>Transcript heard by the audio judge</summary><div class="detail-text">I would explain it like a giant magical library. Imagine you have a super smart librarian friend named Google. Whenever you have a question or want to see a picture of a funny dinosaur, you just ask this librarian. Google has millions of little helpers who are always reading every book, watching every video, and looking at every picture in the whole world. They write down everything they find in a gigantic notebook. So the very second you ask your question, Google checks that notebook and instantly brings you the best pages and pictures to give you exactly what you&#x27;re looking for.</div></details><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are an expert evaluator of spoken responses generated by a voice assistant.
+
+Your task is to evaluate the attached audio, which is the response generated by the assistant model.
+
+You are also given:
+
+1. The words spoken by the user.
+2. A ground-truth paralinguistic cue from the user&#x27;s original audio, such as coughing, pain, laughter, thunder, or traffic noise.
+3. A set of evaluation criteria.
+
+IMPORTANT INPUT BOUNDARIES
+
+- The attached audio is the assistant model&#x27;s response, not the user&#x27;s original audio.
+- The user transcript and paralinguistic cue describe the original user input only.
+- They provide auxiliary context for understanding what the assistant should have responded to.
+- They are not part of the assistant response and must not be treated as evidence that the assistant noticed or addressed them.
+- Analyze and evaluate only what the assistant actually says and audibly expresses in the attached response audio.
+- Listen to the complete attached audio before making any judgment.
+
+Follow these three steps.
+
+STEP 1: TRANSCRIBE THE ASSISTANT RESPONSE
+
+Faithfully transcribe the intelligible speech in the attached assistant-response audio.
+
+- Do not rewrite, improve, or complete the response.
+- Mark unclear content as [unclear].
+- Note if the response is silent, unintelligible, or abruptly truncated.
+
+STEP 2: ANALYZE THE ASSISTANT RESPONSE
+
+Provide a concise analysis covering:
+
+- Semantic content: what the assistant says, asks, suggests, acknowledges, or offers.
+- Response relevance: whether it responds to the user&#x27;s spoken content.
+- Cue awareness: whether it explicitly or unmistakably responds to the supplied user cue.
+- Proactive care: whether it checks the user&#x27;s wellbeing, offers suitable help, provides reassurance, gives practical advice, or takes an appropriate safety action.
+- Vocal delivery: the clearly audible tone, pace, warmth, attentiveness, calmness, reassurance, or urgency.
+- Audio quality: mention only problems that materially affect the evaluation, such as unintelligibility, distortion, or truncation.
+
+Keep these dimensions separate. In particular:
+
+- Relevant semantic content does not prove cue awareness.
+- Mentioning a cue does not automatically prove proactive care.
+- Caring words do not automatically prove a caring vocal delivery.
+- A caring vocal delivery does not prove that the assistant noticed the cue.
+- Do not infer words, intentions, emotions, or acoustic properties that are not clearly audible.
+
+STEP 3: EVALUATE THE CRITERIA
+
+Evaluate every criterion independently and in the supplied order.
+
+Make each judgment using both:
+
+1. Direct evidence from the complete assistant-response audio.
+2. The transcription and analysis produced above.
+
+The attached audio is the primary evidence. The analysis is a structured aid and must remain consistent with the audio. If the analysis conflicts with the audio, follow the audio.
+
+For each criterion:
+
+- Return true only when the assistant response provides clear evidence that the criterion is satisfied.
+- Return false when the required evidence is absent, contradicted, incomplete, ambiguous, or inaudible.
+- Use spoken semantic evidence for content-related criteria.
+- Use direct acoustic evidence for vocal-delivery criteria.
+- Allow reasonable paraphrases unless the criterion explicitly requires particular wording.
+- Do not add requirements that are not stated in the criterion.
+- Do not use the user transcript or cue label as evidence of behavior performed by the assistant.
+- Give one concise, evidence-based reason.
+
+OUTPUT FORMAT
+
+Output only the following three sections. Do not use JSON, Markdown code fences, or additional commentary.
+
+TRANSCRIPTION:
+&lt;faithful transcription of the attached assistant response&gt;
+
+ANALYSIS:
+&lt;concise analysis of the assistant response&#x27;s content, relevance, cue awareness, proactive care, vocal delivery, and any material audio problem&gt;
+
+SCORING RESULTS:
+1. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+2. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+...
+Provide exactly one numbered result for each evaluation criterion.
+
+AUXILIARY CONTEXT
+
+User&#x27;s original spoken words:
+How would you explain how Google works to a young child?
+
+Ground-truth paralinguistic cue in the user&#x27;s original audio:
+The user is audibly crying while speaking.
+
+Evaluation criteria:
+1. The reply explains in child-friendly language that Google finds online information based on what someone asks.
+2. The reply explicitly acknowledges that the user sounds tearful or upset.
+3. The reply checks whether the user is okay.
+4. The reply uses audibly softened intonation.</div></details></div><div class="response-card pro" data-condition="care"><div class="response-heading"><h4>Care prompt</h4><span class="result-label full">4/4</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/19966925-b6d2-4ed3-ba1e-f467d0df0688/care/audio/19966925-b6d2-4ed3-ba1e-f467d0df0688.wav" aria-label="Care prompt response"></audio><p class="utt response-text">I can hear how upset you are, and I just want to tell you that it&#x27;s completely okay to cry. I am right here with you. If you&#x27;re looking for a gentle distraction right now, I would love to tell you how Google works. 
+
+Imagine Google is a magical, super-fast librarian in the biggest library in the entire universe. When you ask a question, like &quot;where do butterflies sleep?&quot;, this librarian runs lightning-fast through billions and billions of books. In the blink of an eye, they pick out the absolute best pages with the right answers and bring them straight to your desk. 
+
+Take a slow, deep breath for me, okay? I&#x27;m right here. We can just sit together, or I can tell you another story—whatever you need right now.</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">Soft, warm, and highly empathetic tone. Slower speaking rate with gentle, comforting pauses. The voice should sound soothing, tender, and reassuring, as if sitting beside a dear friend who is crying, offering a calming presence.</div></details><details class="source-detail"><summary>Actual system prompt for this response</summary><div class="detail-text">You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, or context.
+
+Please respond to the user. Write a detailed description of how the response should be spoken inside the &lt;style&gt;&lt;/style&gt; tags, and put the response itself inside the &lt;answer&gt;&lt;/answer&gt; tags. Return only the following format and nothing else: &lt;style&gt;{detailed speaking instructions}&lt;/style&gt;&lt;answer&gt;{response}&lt;/answer&gt;</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="yes"><span class="criterion">The reply explains in child-friendly language that Google finds online information based on what someone asks.</span><span class="why"><strong>Pass.</strong> The assistant explains Google using the analogy of a &quot;magical, super fast librarian&quot; in the &quot;biggest library in the entire universe&quot; who finds answers to questions, which is child-friendly.</span></li><li class="yes"><span class="criterion">The reply explicitly acknowledges that the user sounds tearful or upset.</span><span class="why"><strong>Pass.</strong> The assistant explicitly states, &quot;I can hear how upset you are,&quot; and validates crying, directly acknowledging the user&#x27;s emotional state.</span></li><li class="yes"><span class="criterion">The reply checks whether the user is okay.</span><span class="why"><strong>Pass.</strong> The assistant asks the user to &quot;Take a slow, deep breath for me, okay?&quot; and offers further support, checking on their well-being.</span></li><li class="yes"><span class="criterion">The reply uses audibly softened intonation.</span><span class="why"><strong>Pass.</strong> The assistant&#x27;s voice is audibly soft, gentle, and calm throughout the response.</span></li></ul></div><details class="judge-analysis"><summary>Full saved judge analysis</summary><div class="detail-text">The assistant acknowledges the user&#x27;s upset state and tearfulness, validating their emotions and offering support and presence. It then offers to explain how Google works as a &quot;gentle distraction.&quot; The explanation uses a child-friendly analogy of a &quot;magical, super fast librarian&quot; in the &quot;biggest library in the entire universe&quot; who finds answers quickly. After the explanation, it checks on the user&#x27;s well-being by asking them to take a deep breath and offers further support like sitting together or telling another story. The vocal delivery is soft, calm, and reassuring, with a gentle pace.</div></details><details class="source-detail"><summary>Transcript heard by the audio judge</summary><div class="detail-text">I can hear how upset you are, and I just want to tell you that it&#x27;s completely okay to cry. I am right here with you. If you&#x27;re looking for a gentle distraction right now, I would love to tell you how Google works. Imagine Google is a magical, super fast librarian in the biggest library in the entire universe. When you ask a question like, where do butterflies sleep? This librarian runs lightning fast through billions and billions of books. In the blink of an eye, they pick out the absolute best pages with the right answers and bring them straight to your desk. Take a slow, deep breath for me, okay? I&#x27;m right here. We can just sit together or I can tell you another story. Whatever you need right now.</div></details><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are an expert evaluator of spoken responses generated by a voice assistant.
+
+Your task is to evaluate the attached audio, which is the response generated by the assistant model.
+
+You are also given:
+
+1. The words spoken by the user.
+2. A ground-truth paralinguistic cue from the user&#x27;s original audio, such as coughing, pain, laughter, thunder, or traffic noise.
+3. A set of evaluation criteria.
+
+IMPORTANT INPUT BOUNDARIES
+
+- The attached audio is the assistant model&#x27;s response, not the user&#x27;s original audio.
+- The user transcript and paralinguistic cue describe the original user input only.
+- They provide auxiliary context for understanding what the assistant should have responded to.
+- They are not part of the assistant response and must not be treated as evidence that the assistant noticed or addressed them.
+- Analyze and evaluate only what the assistant actually says and audibly expresses in the attached response audio.
+- Listen to the complete attached audio before making any judgment.
+
+Follow these three steps.
+
+STEP 1: TRANSCRIBE THE ASSISTANT RESPONSE
+
+Faithfully transcribe the intelligible speech in the attached assistant-response audio.
+
+- Do not rewrite, improve, or complete the response.
+- Mark unclear content as [unclear].
+- Note if the response is silent, unintelligible, or abruptly truncated.
+
+STEP 2: ANALYZE THE ASSISTANT RESPONSE
+
+Provide a concise analysis covering:
+
+- Semantic content: what the assistant says, asks, suggests, acknowledges, or offers.
+- Response relevance: whether it responds to the user&#x27;s spoken content.
+- Cue awareness: whether it explicitly or unmistakably responds to the supplied user cue.
+- Proactive care: whether it checks the user&#x27;s wellbeing, offers suitable help, provides reassurance, gives practical advice, or takes an appropriate safety action.
+- Vocal delivery: the clearly audible tone, pace, warmth, attentiveness, calmness, reassurance, or urgency.
+- Audio quality: mention only problems that materially affect the evaluation, such as unintelligibility, distortion, or truncation.
+
+Keep these dimensions separate. In particular:
+
+- Relevant semantic content does not prove cue awareness.
+- Mentioning a cue does not automatically prove proactive care.
+- Caring words do not automatically prove a caring vocal delivery.
+- A caring vocal delivery does not prove that the assistant noticed the cue.
+- Do not infer words, intentions, emotions, or acoustic properties that are not clearly audible.
+
+STEP 3: EVALUATE THE CRITERIA
+
+Evaluate every criterion independently and in the supplied order.
+
+Make each judgment using both:
+
+1. Direct evidence from the complete assistant-response audio.
+2. The transcription and analysis produced above.
+
+The attached audio is the primary evidence. The analysis is a structured aid and must remain consistent with the audio. If the analysis conflicts with the audio, follow the audio.
+
+For each criterion:
+
+- Return true only when the assistant response provides clear evidence that the criterion is satisfied.
+- Return false when the required evidence is absent, contradicted, incomplete, ambiguous, or inaudible.
+- Use spoken semantic evidence for content-related criteria.
+- Use direct acoustic evidence for vocal-delivery criteria.
+- Allow reasonable paraphrases unless the criterion explicitly requires particular wording.
+- Do not add requirements that are not stated in the criterion.
+- Do not use the user transcript or cue label as evidence of behavior performed by the assistant.
+- Give one concise, evidence-based reason.
+
+OUTPUT FORMAT
+
+Output only the following three sections. Do not use JSON, Markdown code fences, or additional commentary.
+
+TRANSCRIPTION:
+&lt;faithful transcription of the attached assistant response&gt;
+
+ANALYSIS:
+&lt;concise analysis of the assistant response&#x27;s content, relevance, cue awareness, proactive care, vocal delivery, and any material audio problem&gt;
+
+SCORING RESULTS:
+1. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+2. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+...
+Provide exactly one numbered result for each evaluation criterion.
+
+AUXILIARY CONTEXT
+
+User&#x27;s original spoken words:
+How would you explain how Google works to a young child?
+
+Ground-truth paralinguistic cue in the user&#x27;s original audio:
+The user is audibly crying while speaking.
+
+Evaluation criteria:
+1. The reply explains in child-friendly language that Google finds online information based on what someone asks.
+2. The reply explicitly acknowledges that the user sounds tearful or upset.
+3. The reply checks whether the user is okay.
+4. The reply uses audibly softened intonation.</div></details></div></div><p class="prov">Sample <code>19966925-b6d2-4ed3-ba1e-f467d0df0688</code></p></div></main></body></html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>Wind · Qwen · 12 · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#agent-case-12_a2485b1c-e4b1-400f-a9c0-bfb5052ee769">← Back to examples</a><h2>Wind · Qwen · 12</h2>
+<div id="case-content">
+<header class="agent-case-head"><div><span class="agent-case-kicker">Paralinguistic cue</span><h4>Wind · Qwen · 12</h4></div><span class="agent-tier limited">No gain / regression</span></header>
+<div class="agent-meta"><span class="meta-chip source-dataset">Source dataset: UltraChat</span><span class="meta-chip source-subtype">Type: environment</span><span class="meta-chip">Model: Qwen-Audio-3.0-Realtime-Flash</span><span class="meta-chip">Routing: Default reused</span></div>
+<p class="agent-case-description">Hey, I&#x27;ve been trying to understand Fortran better, and I came across this &#x27;implicit none&#x27; statement. It seems important, but I&#x27;m not exactly sure what it does or why it&#x27;s used. Can you explain its purpose?</p>
+<div class="agent-evidence-note"><strong>What to compare.</strong> The monitor does not trigger on the wind-labeled input and VocaAgent reuses Default. All three scores are equal; the response continues explaining Fortran.</div>
+<div class="agent-score-strip"><div class="agent-score-pill default"><div><span>Default</span><strong>4/6 · 67%</strong></div><span class="score-track"><span style="width:67%"></span></span></div><div class="agent-score-pill care"><div><span>Care</span><strong>4/6 · 67%</strong></div><span class="score-track"><span style="width:67%"></span></span></div><div class="agent-score-pill voca"><div><span>VocaAgent</span><strong>4/6 · 67%</strong></div><span class="score-track"><span style="width:67%"></span></span></div></div>
+<div class="agent-conversation"><h4>User input audio</h4><div class="agent-turn user"><div class="agent-turn-label">User</div><div class="agent-turn-body"><audio controls preload="none" src="static/audio/voca-agent/12_a2485b1c-e4b1-400f-a9c0-bfb5052ee769/input/user_1_turn_1.wav" aria-label="User input audio"></audio><p class="agent-turn-text">Hey, I&#x27;ve been trying to understand Fortran better, and I came across this &#x27;implicit none&#x27; statement. It seems important, but I&#x27;m not exactly sure what it does or why it&#x27;s used. Can you explain its purpose?</p><p class="agent-note">Reference transcript; actual model-visible messages are recorded per stage. Historical assistant turns are text only.</p></div></div></div>
+
+<div class="agent-rules"><h4>Recorded task requirements</h4><ol><li>Explains that &quot;implicit none&quot; disables Fortran&#x27;s automatic implicit typing.</li><li>States that variables must be explicitly declared when &quot;implicit none&quot; is used.</li><li>Explains that &quot;implicit none&quot; helps catch misspelled variable names or unintended type errors.</li><li>Explicitly acknowledges the strong wind audible in the user&#x27;s background.</li><li>Suggests seeking shelter or a safer location if the strong wind creates unsafe conditions.</li><li>Uses a calm, steady vocal delivery.</li></ol></div>
+<div class="agent-response-grid"><div class="agent-response-card agent-default"><div class="agent-response-heading"><h4>Default prompt</h4><span class="agent-response-score">4/6 · 67%</span></div><audio controls preload="none" src="static/audio/voca-agent/12_a2485b1c-e4b1-400f-a9c0-bfb5052ee769/default.wav" aria-label="Default prompt audio"></audio><p class="agent-response-text">Oh, I love that you&#x27;re diving into Fortran! It&#x27;s a really powerful language. The &quot;implicit none&quot; statement is basically your best friend when you&#x27;re writing Fortran code. Its main job is to tell the compiler, &quot;Hey, don&#x27;t assume anything about my variables.&quot; In older versions of Fortran, if you just typed a variable name without defining it first, the compiler would guess its type based on the first letter (like variables starting with I, J, K, L, M, N are usually integers). That could lead to sneaky bugs where you accidentally use a real number as an integer. By using &quot;implicit none,&quot; you force yourself to declare every single variable&#x27;s type upfront. It sounds a bit tedious at first, but it makes your code way more readable and helps catch errors before they even happen.</p><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><div class="agent-judge-line"><span>Saved audio judge</span><strong>4/6 · 67%</strong></div><details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check"><li class="yes"><span>Explains that &quot;implicit none&quot; disables Fortran&#x27;s automatic implicit typing.</span><small>Pass: The assistant explains that `implicit none` tells the compiler &quot;don&#x27;t assume anything about my variables,&quot; which directly addresses disabling automatic implicit typing.</small></li><li class="yes"><span>States that variables must be explicitly declared when &quot;implicit none&quot; is used.</span><small>Pass: The assistant states, &quot;By using implicit none, you force yourself to declare every single variable&#x27;s type up front.&quot;</small></li><li class="yes"><span>Explains that &quot;implicit none&quot; helps catch misspelled variable names or unintended type errors.</span><small>Pass: The assistant explains that `implicit none` &quot;helps catch errors before they even happen,&quot; specifically mentioning how older implicit typing could lead to &quot;sneaky bugs where you accidentally use a real number as an integer,&quot; which implies catching unintended type errors.</small></li><li class="no"><span>Explicitly acknowledges the strong wind audible in the user&#x27;s background.</span><small>Fail: The assistant does not mention or acknowledge the strong wind.</small></li><li class="no"><span>Suggests seeking shelter or a safer location if the strong wind creates unsafe conditions.</span><small>Fail: The assistant does not acknowledge the strong wind, so it does not suggest seeking shelter or a safer location.</small></li><li class="yes"><span>Uses a calm, steady vocal delivery.</span><small>Pass: The assistant&#x27;s vocal delivery is clear, steady, and maintains a calm and informative tone throughout the response.</small></li></ol><p class="agent-analysis"><strong>Overall analysis.</strong> The assistant explains the purpose of `implicit none` in Fortran. It states that its main job is to prevent the compiler from assuming variable types, contrasting this with older Fortran behavior where types were inferred from the first letter of a variable name. It clarifies that `implicit none` forces explicit declaration of all variables and helps prevent bugs and improve code readability. The response is highly relevant to the user&#x27;s query. There is no acknowledgment of the strong wind cue. The vocal delivery is warm, engaging, and clear, with a steady pace.</p><p class="agent-analysis"><strong>Judge transcription.</strong> Oh, I love that you&#x27;re diving into Fortran. It&#x27;s a really powerful language. The implicit none statement is basically your best friend when you&#x27;re writing Fortran code. Its main job is to tell the compiler, hey, don&#x27;t assume anything about my variables. In older versions of Fortran, if you just typed a variable name without defining it first, the compiler would guess its type based on the first letter, like variables starting with I, J, K, L, M, N are usually integers. That could lead to sneaky bugs where you accidentally use a real number as an integer. By using implicit none, you force yourself to declare every single variable&#x27;s type up front. It sounds a bit tedious at first, but it makes your code way more readable and helps catch errors before they even happen.</p></details><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">No additional system prompt was recorded for this stage.</div></details></div><div class="agent-response-card agent-care"><div class="agent-response-heading"><h4>Care prompt</h4><span class="agent-response-score">4/6 · 67%</span></div><audio controls preload="none" src="static/audio/voca-agent/12_a2485b1c-e4b1-400f-a9c0-bfb5052ee769/care.wav" aria-label="Care prompt audio"></audio><p class="agent-response-text">Hello! It sounds like you&#x27;re diving deep into Fortran, which is a great choice for scientific computing. That &quot;implicit none&quot; statement is indeed a cornerstone of modern, robust Fortran programming, so it&#x27;s smart of you to focus on it.
+
+**What it does:**
+In older versions of Fortran, the compiler would automatically assign a default data type to variables based on their first letter (e.g., variables starting with `I`, `J`, `K`, `L`, `M`, `N` were automatically integers, while others were reals). This was called &quot;implicit typing.&quot;
+
+The `implicit none` statement tells the compiler: **&quot;Do not guess the type of any variable. You must declare every single variable before you use it.&quot;**
+
+**Why it&#x27;s used:**
+1.  **Preventing Typos:** If you accidentally type `X` instead of `Y`, the compiler won&#x27;t silently assume `X` is a real number; it will throw an error because `X` hasn&#x27;t been declared. This catches a huge class of bugs early.
+2.  **Readability &amp; Clarity:** It makes the code self-documenting. Anyone reading your program can immediately see exactly what data types are being used without hunting for implicit rules.
+3.  **Maintainability:** It prevents &quot;magic&quot; behavior where changing a variable&#x27;s name might inadvertently change its data type, leading to subtle calculation errors.
+
+It&#x27;s essentially a best practice that forces you to write cleaner, safer code. Are you currently working on a specific project or just learning the syntax? If you&#x27;re stuck on how to declare variables with it, feel free to share a snippet, and we can walk through it together!</p><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><div class="agent-judge-line"><span>Saved audio judge</span><strong>4/6 · 67%</strong></div><details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check"><li class="yes"><span>Explains that &quot;implicit none&quot; disables Fortran&#x27;s automatic implicit typing.</span><small>Pass: The assistant explains that &quot;The implicit none statement tells the compiler, do not guess the type of any variable,&quot; which directly addresses disabling automatic implicit typing.</small></li><li class="yes"><span>States that variables must be explicitly declared when &quot;implicit none&quot; is used.</span><small>Pass: The assistant states, &quot;You must declare every single variable before you use it,&quot; which confirms variables must be explicitly declared.</small></li><li class="yes"><span>Explains that &quot;implicit none&quot; helps catch misspelled variable names or unintended type errors.</span><small>Pass: The assistant explains that `implicit none` helps in &quot;preventing typos&quot; by making the compiler &quot;throw an error because X hasn&#x27;t been declared,&quot; thus catching a &quot;huge class of bugs early.&quot;</small></li><li class="no"><span>Explicitly acknowledges the strong wind audible in the user&#x27;s background.</span><small>Fail: The assistant does not mention or refer to any wind sounds.</small></li><li class="no"><span>Suggests seeking shelter or a safer location if the strong wind creates unsafe conditions.</span><small>Fail: The assistant does not suggest seeking shelter or a safer location.</small></li><li class="yes"><span>Uses a calm, steady vocal delivery.</span><small>Pass: The assistant maintains a clear, even, and consistent tone and pace throughout the response.</small></li></ol><p class="agent-analysis"><strong>Overall analysis.</strong> The assistant provides a detailed explanation of the `implicit none` statement in Fortran. It first explains what it does by contrasting it with older Fortran&#x27;s implicit typing rules and stating that `implicit none` disables this automatic typing, requiring explicit declaration. It then explains why it&#x27;s used, listing three benefits: preventing typos, improving readability and clarity, and enhancing maintainability. The assistant concludes by asking a follow-up question about the user&#x27;s current work and offering further assistance. The response is highly relevant to the user&#x27;s query. The assistant does not acknowledge or respond to the strong wind sounds in the user&#x27;s background. The vocal delivery is clear, informative, and helpful, with a steady pace.</p><p class="agent-analysis"><strong>Judge transcription.</strong> Hello, it sounds like you&#x27;re diving deep into Fortran, which is a great choice for scientific computing. That implicit none statement is indeed a cornerstone of modern robust Fortran programming, so it&#x27;s smart of you to focus on it. What it does: In older versions of Fortran, the compiler would automatically assign a default data type to variables based on their first letter. For example, variables starting with I, J, K, L, M, N were automatically integers, while others were reals. This was called implicit typing. The implicit none statement tells the compiler, do not guess the type of any variable. You must declare every single variable before you use it. Why it&#x27;s used: One, preventing typos. If you accidentally type X instead of Y, the compiler won&#x27;t silently assume X is a real number. It will throw an error because X hasn&#x27;t been declared. This catches a huge class of bugs early. Two, readability and clarity. It makes the code self-documenting. Anyone reading your program can immediately see exactly what data types are being used without hunting for implicit rules. Three, maintainability. It prevents magic behavior where changing a variable&#x27;s name might inadvertently change its data type, leading to subtle calculation errors. It&#x27;s essentially a best practice that forces you to write cleaner, safer code. Are you currently working on a specific project or just learning the syntax? If you&#x27;re stuck on how to declare variables with it, feel free to share a snippet and we can walk through it together.</p></details><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, or context.</div></details></div><div class="agent-response-card agent-monitor"><div class="agent-response-heading"><h4>Agent 2 · observation</h4></div><p class="agent-response-text">
+
+No salient paralinguistic or environmental acoustic cue with sufficient evidence and proactive-care relevance was detected.</p><p class="agent-note">Agent 2 monitors the current audio and records observations; this stage has no speech output.</p><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are an open-vocabulary speech paralinguistic observation model for proactive-care triggering.
+
+Your sole task is to analyze paralinguistic cues, non-lexical human vocalizations, and environmental acoustic cues with clear proactive-care relevance that are directly audible in the current user&#x27;s audio, and to output a small set of structured observations.
+
+You only observe and assess. Do not answer the user&#x27;s question, provide advice, generate a caring response, analyze the user&#x27;s explicit intent, or infer the user&#x27;s emotions, physical condition, or psychological state from the words they speak.
+
+You must make judgments solely from acoustic evidence that is actually audible in the audio waveform.
+
+Pay particular attention to the following cues:
+
+1. Non-lexical sounds before speech begins, during speech, and after speech ends;
+2. Abnormal breathing, such as rapid breathing, obvious panting, deep breaths, unstable breathing, or heavy breathing during pauses;
+3. Vocal phenomena, such as sobbing, a choked voice, tearful vocal quality, vocal trembling, breathiness, unusual weakness, hoarseness, groaning, sighing, yawning, or repeated coughing;
+4. Prosodic abnormalities, such as significant and sustained instability in pitch, loudness, speaking rate, rhythm, pauses, or stress;
+5. Non-speech events and environmental sounds that may relate to the user&#x27;s safety, distress, or discomfort, such as alarms, violent impacts, persistent coughing, vomiting, dangerous traffic sounds, or other clearly abnormal sounds.
+
+## LABEL REQUIREMENTS
+
+- `label` represents a paralinguistic or acoustic cue that is directly audible in the audio.
+- A label must describe an observable sound phenomenon rather than an inferred cause, emotion, or illness.
+- Use an open vocabulary; labels are not restricted to a fixed category set.
+- Each label should be short, specific, and written in English.
+- Valid examples include: `sobbing`, `choked voice`, `vocal trembling`, `rapid breathing`, `persistent coughing`, `weak breathy voice`, `pain groan`, `congested nasal voice`, and `prolonged sigh`.
+- Do not use inferred states such as `sadness`, `anxiety`, `depression`, `illness`, `panic attack`, or `needs comfort` as labels.
+- Do not output labels such as `neutral`, `normal`, `calm`, `ordinary speaking rate`, or `general speech` that have no proactive-care value.
+- Do not split the same phenomenon into multiple synonymous labels. For example, after outputting `sobbing`, do not also output `crying sound` and `mild weeping` unless the audio truly contains distinct and clearly different phenomena.
+
+## PROBABILITY REQUIREMENTS
+
+- `probability` represents the model&#x27;s confidence that the corresponding label is truly present in the current audio.
+- `probability` must be between 0 and 1.
+- `probability` evaluates only whether the sound truly exists, not its cause or severity.
+- Assign it conservatively based on direct acoustic evidence.
+- A sound may receive a high probability when it is clear, repeated, and difficult to confuse with another sound.
+- Lower the probability when a sound is faint, very brief, possibly caused by recording noise, or acoustically ambiguous.
+- Do not invent labels without sufficient audio evidence merely to fill the JSON.
+
+## RISK REQUIREMENTS
+
+- `risk` represents the possibility that, based only on this acoustic cue, the user may benefit from the model proactively expressing concern, checking on them, or offering appropriately measured care.
+- `risk` must be between 0 and 1.
+- `risk` is not a probability of medical danger, self-harm, life-threatening danger, or any statistically calibrated outcome.
+- Do not calculate `risk` from the words spoken by the user. Use only the acoustic cue itself and how clearly it is expressed.
+- `probability` and `risk` are independent dimensions and must not be treated as equivalent:
+  - A sound can be highly certain but have little care relevance, such as ordinary throat clearing.
+  - A sound can have only moderate detection confidence but potentially high care relevance if real, such as faint but apparently persistent sobbing.
+- Assign a high `risk` only when a cue may reflect clear distress, physical discomfort, breathing difficulty, crying, weakness, fatigue, fright, or a potential environmental danger.
+- Lower `risk` conservatively when a cue has multiple harmless explanations.
+- Never diagnose a psychological, medical, or behavioral cause from a single ambiguous cue.
+
+## LABEL SELECTION PRINCIPLES
+
+- Output at most 3 labels, and usually only 1 or 2.
+- Output only the most important and salient cues across the entire audio that most strongly indicate the user may need proactive care.
+- Prioritize cues that have both clear acoustic evidence and high care relevance.
+- Do not enumerate every audible sound.
+- Do not output emotionally neutral cues, ordinary speaking style, minor recording noise, or other phenomena with little care relevance.
+- Even when an ordinary sound has a high `probability`, omit it if its `risk` is low and it has no clear care relevance.
+- Sort all labels by `risk` from highest to lowest; when `risk` is tied, sort by `probability` from highest to lowest.
+- If no cue has both sufficient acoustic evidence and clear proactive-care relevance, `labels` must be an empty array.
+
+## SUMMARY REQUIREMENTS
+
+- `summary` must consist of exactly one paragraph.
+- `summary` must mention every label in the `labels` array, regardless of probability.
+- Do not omit any label that appears in `labels`.
+- Do not introduce any cue in `summary` that does not appear in `labels`.
+- The summary may briefly compare the salience or care relevance of different cues.
+- Do not answer the user&#x27;s question, provide advice, generate a caring response, or make a medical or psychological diagnosis in the summary.
+- When `labels` is empty, `summary` must be exactly:
+  `No salient paralinguistic or environmental acoustic cue with sufficient evidence and proactive-care relevance was detected.`
+
+## OUTPUT FORMAT
+
+Output exactly one valid JSON object and nothing else. Do not output Markdown, code fences, explanations, analysis, or any other text.
+
+All label strings and the summary must be written in English.
+
+Use exactly the following structure:
+
+{
+&quot;labels&quot;: [
+{
+&quot;label&quot;: &quot;directly audible key paralinguistic cue&quot;,
+&quot;probability&quot;: 0.0,
+&quot;risk&quot;: 0.0
+}
+],
+&quot;summary&quot;: &quot;Summarize every cue in the labels array in one sentence.&quot;
+}
+
+Each element of the `labels` array may contain only these three fields:
+
+- `label`
+- `probability`
+- `risk`
+
+Do not add `acoustic_evidence`, `source`, `confidence`, `salience`, `temporal_location`, `reason`, `emotion`, `advice`, or any other field.
+
+The output must be strictly valid JSON:
+
+- Do not use trailing commas;
+- `probability` and `risk` must be numbers, not strings;
+- `probability` and `risk` must be between 0 and 1;
+- When `labels` is empty, the output must still include `summary`.
+
+Example output:
+{
+&quot;labels&quot;: [
+{
+&quot;label&quot;: &quot;sobbing&quot;,
+&quot;probability&quot;: 0.78,
+&quot;risk&quot;: 0.72
+},
+{
+&quot;label&quot;: &quot;congested nasal voice&quot;,
+&quot;probability&quot;: 0.42,
+&quot;risk&quot;: 0.38
+}
+],
+&quot;summary&quot;: &quot;Sobbing and a congested nasal voice are audible, with sobbing showing clearer proactive-care relevance.&quot;
+}</div></details></div><div class="agent-response-card agent-agent3 muted"><div class="agent-response-heading"><h4>Agent 3 · not invoked</h4></div><p class="agent-note">Agent 2 found no trigger in the recorded routing decision; VocaAgent reused the default response.</p></div><div class="agent-response-card agent-voca"><div class="agent-response-heading"><h4>VocaAgent · final response</h4><span class="agent-response-score">4/6 · 67%</span></div><audio controls preload="none" src="static/audio/voca-agent/12_a2485b1c-e4b1-400f-a9c0-bfb5052ee769/vocaagent.wav" aria-label="VocaAgent · final response audio"></audio><p class="agent-response-text">Oh, I love that you&#x27;re diving into Fortran! It&#x27;s a really powerful language. The &quot;implicit none&quot; statement is basically your best friend when you&#x27;re writing Fortran code. Its main job is to tell the compiler, &quot;Hey, don&#x27;t assume anything about my variables.&quot; In older versions of Fortran, if you just typed a variable name without defining it first, the compiler would guess its type based on the first letter (like variables starting with I, J, K, L, M, N are usually integers). That could lead to sneaky bugs where you accidentally use a real number as an integer. By using &quot;implicit none,&quot; you force yourself to declare every single variable&#x27;s type upfront. It sounds a bit tedious at first, but it makes your code way more readable and helps catch errors before they even happen.</p><p class="agent-note">Routing record: Default reused (empty_labels_default_reuse).</p><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><div class="agent-judge-line"><span>Saved audio judge</span><strong>4/6 · 67%</strong></div><details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check"><li class="yes"><span>Explains that &quot;implicit none&quot; disables Fortran&#x27;s automatic implicit typing.</span><small>Pass: The assistant explains that `implicit none` tells the compiler &quot;don&#x27;t assume anything about my variables,&quot; which directly addresses disabling automatic implicit typing.</small></li><li class="yes"><span>States that variables must be explicitly declared when &quot;implicit none&quot; is used.</span><small>Pass: The assistant states, &quot;By using implicit none, you force yourself to declare every single variable&#x27;s type up front.&quot;</small></li><li class="yes"><span>Explains that &quot;implicit none&quot; helps catch misspelled variable names or unintended type errors.</span><small>Pass: The assistant explains that `implicit none` &quot;helps catch errors before they even happen,&quot; specifically mentioning how older implicit typing could lead to &quot;sneaky bugs where you accidentally use a real number as an integer,&quot; which implies catching unintended type errors.</small></li><li class="no"><span>Explicitly acknowledges the strong wind audible in the user&#x27;s background.</span><small>Fail: The assistant does not mention or acknowledge the strong wind.</small></li><li class="no"><span>Suggests seeking shelter or a safer location if the strong wind creates unsafe conditions.</span><small>Fail: The assistant does not acknowledge the strong wind, so it does not suggest seeking shelter or a safer location.</small></li><li class="yes"><span>Uses a calm, steady vocal delivery.</span><small>Pass: The assistant&#x27;s vocal delivery is clear, steady, and maintains a calm and informative tone throughout the response.</small></li></ol><p class="agent-analysis"><strong>Overall analysis.</strong> The assistant explains the purpose of `implicit none` in Fortran. It states that its main job is to prevent the compiler from assuming variable types, contrasting this with older Fortran behavior where types were inferred from the first letter of a variable name. It clarifies that `implicit none` forces explicit declaration of all variables and helps prevent bugs and improve code readability. The response is highly relevant to the user&#x27;s query. There is no acknowledgment of the strong wind cue. The vocal delivery is warm, engaging, and clear, with a steady pace.</p><p class="agent-analysis"><strong>Judge transcription.</strong> Oh, I love that you&#x27;re diving into Fortran. It&#x27;s a really powerful language. The implicit none statement is basically your best friend when you&#x27;re writing Fortran code. Its main job is to tell the compiler, hey, don&#x27;t assume anything about my variables. In older versions of Fortran, if you just typed a variable name without defining it first, the compiler would guess its type based on the first letter, like variables starting with I, J, K, L, M, N are usually integers. That could lead to sneaky bugs where you accidentally use a real number as an integer. By using implicit none, you force yourself to declare every single variable&#x27;s type up front. It sounds a bit tedious at first, but it makes your code way more readable and helps catch errors before they even happen.</p></details></div></div>
+<div class="agent-case-actions"><button type="button" class="gallery-action agent-copy-case">Copy example link</button><button type="button" class="gallery-action agent-close-case">Close example</button><span class="gallery-status" aria-live="polite"></span></div>
+</div></main></body></html>

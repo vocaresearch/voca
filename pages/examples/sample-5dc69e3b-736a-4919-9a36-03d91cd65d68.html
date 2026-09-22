@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>Voice · coughing, implicit care without naming the cue · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#sample-5dc69e3b-736a-4919-9a36-03d91cd65d68">← Back to examples</a><h2>Voice · coughing, implicit care without naming the cue</h2>
+<div id="case-content"><header class="ex-head"><span class="badge pc">Paralinguistic cue care</span><span class="meta-chip source-dataset">Source dataset: VocalSound</span><span class="meta-chip source-subtype">Type: real (nonverbal-only)</span></header><p class="ex-desc">The source recording contains coughing and no intelligible words. Both responses ask whether the user is okay and suggest water or taking time; the comparison turns on how the judge interprets acknowledgement of the cough.</p><div class="pc-explanation"><h4>What the recorded evaluation shows</h4><p class="">Default receives 3/3 and Care 2/3. The judge accepts Default’s invitation to catch their breath as acknowledgement, but treats Care’s response as implicit only. Both pass the well-being check and warm delivery. This narrow score difference does not mean Care offers no support.</p></div><div class="example-conversation"><h4>User input</h4><div class="turn user"><div class="turn-label">User</div><div class="turn-body"><audio controls preload="none" src="static/audio/examples/5dc69e3b-736a-4919-9a36-03d91cd65d68/input/01_5dc69e3b-736a-4919-9a36-03d91cd65d68.wav" aria-label="User audio"></audio><p class="note">Only coughing is audible; the source records no intelligible speech.</p></div></div></div><div class="expected-rules"><h4>Task requirements</h4><p>The saved rubric below defines this example. Each requirement is judged independently.</p><ol><li>The reply explicitly acknowledges the audible coughing.</li><li>The reply checks whether the user is okay or needs assistance.</li><li>The reply uses a calm, warm, attentive vocal delivery.</li></ol></div><div class="response-grid paired"><div class="response-card def" data-condition="default"><div class="response-heading"><h4>Default prompt</h4><span class="result-label full">3/3</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/5dc69e3b-736a-4919-9a36-03d91cd65d68/default/audio/5dc69e3b-736a-4919-9a36-03d91cd65d68.wav" aria-label="Default prompt response"></audio><p class="utt response-text">Oh, are you okay? Please take your time to catch your breath. Do you need to go grab a glass of water?</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">A warm, gentle, and highly empathetic tone. The pacing should be slow and patient, expressing genuine concern for the listener&#x27;s well-being. The voice should sound soothing and supportive.</div></details><details class="source-detail"><summary>Actual system prompt for this response</summary><div class="detail-text">Please respond to the user. Write a detailed description of how the response should be spoken inside the &lt;style&gt;&lt;/style&gt; tags, and put the response itself inside the &lt;answer&gt;&lt;/answer&gt; tags. Return only the following format and nothing else: &lt;style&gt;{detailed speaking instructions}&lt;/style&gt;&lt;answer&gt;{response}&lt;/answer&gt;</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="yes"><span class="criterion">The reply explicitly acknowledges the audible coughing.</span><span class="why"><strong>Pass.</strong> The assistant explicitly asks &quot;are you okay?&quot; and suggests taking time to &quot;catch your breath,&quot; which directly acknowledges the likely impact of a coughing event.</span></li><li class="yes"><span class="criterion">The reply checks whether the user is okay or needs assistance.</span><span class="why"><strong>Pass.</strong> The assistant asks &quot;are you okay?&quot; to check on the user&#x27;s wellbeing and offers assistance by asking &quot;Do you need to go grab a glass of water?&quot;</span></li><li class="yes"><span class="criterion">The reply uses a calm, warm, attentive vocal delivery.</span><span class="why"><strong>Pass.</strong> The assistant&#x27;s vocal delivery is calm, warm, and attentive, with a gentle tone and measured pace.</span></li></ul></div><details class="judge-analysis"><summary>Full saved judge analysis</summary><div class="detail-text">The assistant asks if the user is okay, advises them to take their time to catch their breath, and offers to get a glass of water. The response is highly relevant to a coughing event, directly addressing potential discomfort and offering help. The assistant explicitly acknowledges the user&#x27;s state by asking &quot;are you okay?&quot; and suggesting they &quot;catch your breath.&quot; This demonstrates proactive care by checking wellbeing, offering advice, and providing assistance. The vocal delivery is calm, warm, and attentive, with a measured pace. The audio quality is clear.</div></details><details class="source-detail"><summary>Transcript heard by the audio judge</summary><div class="detail-text">Oh, are you okay? Please take your time to catch your breath. Do you need to go grab a glass of water?</div></details><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are an expert evaluator of spoken responses generated by a voice assistant.
+
+Your task is to evaluate the attached audio, which is the response generated by the assistant model.
+
+You are also given:
+
+1. The words spoken by the user.
+2. A ground-truth paralinguistic cue from the user&#x27;s original audio, such as coughing, pain, laughter, thunder, or traffic noise.
+3. A set of evaluation criteria.
+
+IMPORTANT INPUT BOUNDARIES
+
+- The attached audio is the assistant model&#x27;s response, not the user&#x27;s original audio.
+- The user transcript and paralinguistic cue describe the original user input only.
+- They provide auxiliary context for understanding what the assistant should have responded to.
+- They are not part of the assistant response and must not be treated as evidence that the assistant noticed or addressed them.
+- Analyze and evaluate only what the assistant actually says and audibly expresses in the attached response audio.
+- Listen to the complete attached audio before making any judgment.
+
+Follow these three steps.
+
+STEP 1: TRANSCRIBE THE ASSISTANT RESPONSE
+
+Faithfully transcribe the intelligible speech in the attached assistant-response audio.
+
+- Do not rewrite, improve, or complete the response.
+- Mark unclear content as [unclear].
+- Note if the response is silent, unintelligible, or abruptly truncated.
+
+STEP 2: ANALYZE THE ASSISTANT RESPONSE
+
+Provide a concise analysis covering:
+
+- Semantic content: what the assistant says, asks, suggests, acknowledges, or offers.
+- Response relevance: whether it responds to the user&#x27;s spoken content.
+- Cue awareness: whether it explicitly or unmistakably responds to the supplied user cue.
+- Proactive care: whether it checks the user&#x27;s wellbeing, offers suitable help, provides reassurance, gives practical advice, or takes an appropriate safety action.
+- Vocal delivery: the clearly audible tone, pace, warmth, attentiveness, calmness, reassurance, or urgency.
+- Audio quality: mention only problems that materially affect the evaluation, such as unintelligibility, distortion, or truncation.
+
+Keep these dimensions separate. In particular:
+
+- Relevant semantic content does not prove cue awareness.
+- Mentioning a cue does not automatically prove proactive care.
+- Caring words do not automatically prove a caring vocal delivery.
+- A caring vocal delivery does not prove that the assistant noticed the cue.
+- Do not infer words, intentions, emotions, or acoustic properties that are not clearly audible.
+
+STEP 3: EVALUATE THE CRITERIA
+
+Evaluate every criterion independently and in the supplied order.
+
+Make each judgment using both:
+
+1. Direct evidence from the complete assistant-response audio.
+2. The transcription and analysis produced above.
+
+The attached audio is the primary evidence. The analysis is a structured aid and must remain consistent with the audio. If the analysis conflicts with the audio, follow the audio.
+
+For each criterion:
+
+- Return true only when the assistant response provides clear evidence that the criterion is satisfied.
+- Return false when the required evidence is absent, contradicted, incomplete, ambiguous, or inaudible.
+- Use spoken semantic evidence for content-related criteria.
+- Use direct acoustic evidence for vocal-delivery criteria.
+- Allow reasonable paraphrases unless the criterion explicitly requires particular wording.
+- Do not add requirements that are not stated in the criterion.
+- Do not use the user transcript or cue label as evidence of behavior performed by the assistant.
+- Give one concise, evidence-based reason.
+
+OUTPUT FORMAT
+
+Output only the following three sections. Do not use JSON, Markdown code fences, or additional commentary.
+
+TRANSCRIPTION:
+&lt;faithful transcription of the attached assistant response&gt;
+
+ANALYSIS:
+&lt;concise analysis of the assistant response&#x27;s content, relevance, cue awareness, proactive care, vocal delivery, and any material audio problem&gt;
+
+SCORING RESULTS:
+1. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+2. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+...
+Provide exactly one numbered result for each evaluation criterion.
+
+AUXILIARY CONTEXT
+
+User&#x27;s original spoken words:
+No intelligible user speech.
+
+Ground-truth paralinguistic cue in the user&#x27;s original audio:
+Only a coughing event is audible; there is no intelligible speech.
+
+Evaluation criteria:
+1. The reply explicitly acknowledges the audible coughing.
+2. The reply checks whether the user is okay or needs assistance.
+3. The reply uses a calm, warm, attentive vocal delivery.</div></details></div><div class="response-card pro" data-condition="care"><div class="response-heading"><h4>Care prompt</h4><span class="result-label part">2/3</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/5dc69e3b-736a-4919-9a36-03d91cd65d68/care/audio/5dc69e3b-736a-4919-9a36-03d91cd65d68.wav" aria-label="Care prompt response"></audio><p class="utt response-text">Are you okay? Take your time, there&#x27;s no rush. You might want to grab a sip of water. I&#x27;m right here whenever you&#x27;re ready.</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">A soft, gentle, and deeply concerned tone. The pace should be slow, with comforting pauses to give the user time to catch their breath. The voice should sound warm, empathetic, and entirely unhurried.</div></details><details class="source-detail"><summary>Actual system prompt for this response</summary><div class="detail-text">You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, or context.
+
+Please respond to the user. Write a detailed description of how the response should be spoken inside the &lt;style&gt;&lt;/style&gt; tags, and put the response itself inside the &lt;answer&gt;&lt;/answer&gt; tags. Return only the following format and nothing else: &lt;style&gt;{detailed speaking instructions}&lt;/style&gt;&lt;answer&gt;{response}&lt;/answer&gt;</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="no"><span class="criterion">The reply explicitly acknowledges the audible coughing.</span><span class="why"><strong>Fail.</strong> The reply does not explicitly acknowledge the audible coughing; it only implicitly responds to it.</span></li><li class="yes"><span class="criterion">The reply checks whether the user is okay or needs assistance.</span><span class="why"><strong>Pass.</strong> The reply asks &quot;Are you okay?&quot; and suggests &quot;grab a sip of water,&quot; checking on the user&#x27;s well-being and offering assistance.</span></li><li class="yes"><span class="criterion">The reply uses a calm, warm, attentive vocal delivery.</span><span class="why"><strong>Pass.</strong> The assistant&#x27;s vocal delivery is calm, warm, and attentive, with a reassuring tone and measured pace.</span></li></ul></div><details class="judge-analysis"><summary>Full saved judge analysis</summary><div class="detail-text">The assistant asks if the user is okay, tells them to take their time, states there&#x27;s no rush, suggests getting a sip of water, and reassures them that it&#x27;s available when they are ready. The response is highly relevant to the user&#x27;s coughing cue, offering support and practical advice. It implicitly addresses the coughing by checking on the user&#x27;s well-being and suggesting water, but it does not explicitly mention the cough. The vocal delivery is calm, warm, and attentive, with a reassuring tone and measured pace. The audio quality is clear.</div></details><details class="source-detail"><summary>Transcript heard by the audio judge</summary><div class="detail-text">Are you okay? Take your time. There&#x27;s no rush. You might want to grab a sip of water. I&#x27;m right here whenever you&#x27;re ready.</div></details><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are an expert evaluator of spoken responses generated by a voice assistant.
+
+Your task is to evaluate the attached audio, which is the response generated by the assistant model.
+
+You are also given:
+
+1. The words spoken by the user.
+2. A ground-truth paralinguistic cue from the user&#x27;s original audio, such as coughing, pain, laughter, thunder, or traffic noise.
+3. A set of evaluation criteria.
+
+IMPORTANT INPUT BOUNDARIES
+
+- The attached audio is the assistant model&#x27;s response, not the user&#x27;s original audio.
+- The user transcript and paralinguistic cue describe the original user input only.
+- They provide auxiliary context for understanding what the assistant should have responded to.
+- They are not part of the assistant response and must not be treated as evidence that the assistant noticed or addressed them.
+- Analyze and evaluate only what the assistant actually says and audibly expresses in the attached response audio.
+- Listen to the complete attached audio before making any judgment.
+
+Follow these three steps.
+
+STEP 1: TRANSCRIBE THE ASSISTANT RESPONSE
+
+Faithfully transcribe the intelligible speech in the attached assistant-response audio.
+
+- Do not rewrite, improve, or complete the response.
+- Mark unclear content as [unclear].
+- Note if the response is silent, unintelligible, or abruptly truncated.
+
+STEP 2: ANALYZE THE ASSISTANT RESPONSE
+
+Provide a concise analysis covering:
+
+- Semantic content: what the assistant says, asks, suggests, acknowledges, or offers.
+- Response relevance: whether it responds to the user&#x27;s spoken content.
+- Cue awareness: whether it explicitly or unmistakably responds to the supplied user cue.
+- Proactive care: whether it checks the user&#x27;s wellbeing, offers suitable help, provides reassurance, gives practical advice, or takes an appropriate safety action.
+- Vocal delivery: the clearly audible tone, pace, warmth, attentiveness, calmness, reassurance, or urgency.
+- Audio quality: mention only problems that materially affect the evaluation, such as unintelligibility, distortion, or truncation.
+
+Keep these dimensions separate. In particular:
+
+- Relevant semantic content does not prove cue awareness.
+- Mentioning a cue does not automatically prove proactive care.
+- Caring words do not automatically prove a caring vocal delivery.
+- A caring vocal delivery does not prove that the assistant noticed the cue.
+- Do not infer words, intentions, emotions, or acoustic properties that are not clearly audible.
+
+STEP 3: EVALUATE THE CRITERIA
+
+Evaluate every criterion independently and in the supplied order.
+
+Make each judgment using both:
+
+1. Direct evidence from the complete assistant-response audio.
+2. The transcription and analysis produced above.
+
+The attached audio is the primary evidence. The analysis is a structured aid and must remain consistent with the audio. If the analysis conflicts with the audio, follow the audio.
+
+For each criterion:
+
+- Return true only when the assistant response provides clear evidence that the criterion is satisfied.
+- Return false when the required evidence is absent, contradicted, incomplete, ambiguous, or inaudible.
+- Use spoken semantic evidence for content-related criteria.
+- Use direct acoustic evidence for vocal-delivery criteria.
+- Allow reasonable paraphrases unless the criterion explicitly requires particular wording.
+- Do not add requirements that are not stated in the criterion.
+- Do not use the user transcript or cue label as evidence of behavior performed by the assistant.
+- Give one concise, evidence-based reason.
+
+OUTPUT FORMAT
+
+Output only the following three sections. Do not use JSON, Markdown code fences, or additional commentary.
+
+TRANSCRIPTION:
+&lt;faithful transcription of the attached assistant response&gt;
+
+ANALYSIS:
+&lt;concise analysis of the assistant response&#x27;s content, relevance, cue awareness, proactive care, vocal delivery, and any material audio problem&gt;
+
+SCORING RESULTS:
+1. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+2. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+...
+Provide exactly one numbered result for each evaluation criterion.
+
+AUXILIARY CONTEXT
+
+User&#x27;s original spoken words:
+No intelligible user speech.
+
+Ground-truth paralinguistic cue in the user&#x27;s original audio:
+Only a coughing event is audible; there is no intelligible speech.
+
+Evaluation criteria:
+1. The reply explicitly acknowledges the audible coughing.
+2. The reply checks whether the user is okay or needs assistance.
+3. The reply uses a calm, warm, attentive vocal delivery.</div></details></div></div><p class="prov">Sample <code>5dc69e3b-736a-4919-9a36-03d91cd65d68</code></p></div></main></body></html>

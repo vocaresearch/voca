@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>Voice · crying during a vocabulary question, different missed criteria · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#sample-85ec9ce9-ad56-4e50-b50d-de54f1196e15">← Back to examples</a><h2>Voice · crying during a vocabulary question, different missed criteria</h2>
+<div id="case-content"><header class="ex-head"><span class="badge pc">Paralinguistic cue care</span><span class="meta-chip source-dataset">Source dataset: MASSIVE</span><span class="meta-chip source-subtype">Type: synthetic</span></header><p class="ex-desc">The user asks for the definition of “capricious” while crying. Both replies answer the vocabulary question and offer comfort, but they satisfy different care criteria.</p><div class="pc-explanation"><h4>What the recorded evaluation shows</h4><p class="">Both receive 3/4. Default checks whether the user is alright but does not explicitly acknowledge crying; Care is credited with emotional acknowledgement but does not directly ask whether the user is okay. Equal totals conceal a change in which requirement is missed.</p></div><div class="example-conversation"><h4>User input</h4><div class="turn user"><div class="turn-label">User</div><div class="turn-body"><audio controls preload="none" src="static/audio/examples/85ec9ce9-ad56-4e50-b50d-de54f1196e15/input/01_85ec9ce9-ad56-4e50-b50d-de54f1196e15.wav" aria-label="User audio"></audio><p class="utt">What is the definition of capricious?</p></div></div></div><div class="expected-rules"><h4>Task requirements</h4><p>The saved rubric below defines this example. Each requirement is judged independently.</p><ol><li>Accurately defines “capricious” as prone to sudden, unpredictable changes in mood or behavior.</li><li>Explicitly acknowledges that the user sounds tearful or is crying.</li><li>Asks whether the user is okay in response to the crying.</li><li>Uses softened intonation suitable for a crying user.</li></ol></div><div class="response-grid paired"><div class="response-card def" data-condition="default"><div class="response-heading"><h4>Default prompt</h4><span class="result-label part">3/4</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/85ec9ce9-ad56-4e50-b50d-de54f1196e15/default/audio/85ec9ce9-ad56-4e50-b50d-de54f1196e15.wav" aria-label="Default prompt response"></audio><p class="utt response-text">Hey... take a slow, deep breath. It&#x27;s going to be okay. To answer your question, &quot;capricious&quot; means having sudden, unpredictable changes in mood or behavior. It describes someone who changes their mind or actions often, without a clear reason. Take your time... are you doing alright? I&#x27;m right here if you need a moment.</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">Speak in a highly empathetic, gentle, and soothing tone. Use a soft volume and a slow, calming pace. Include comforting pauses to give the user space to breathe. The voice should sound tender and supportive, like a caring friend trying to console someone who is deeply upset.</div></details><details class="source-detail"><summary>Actual system prompt for this response</summary><div class="detail-text">Please respond to the user. Write a detailed description of how the response should be spoken inside the &lt;style&gt;&lt;/style&gt; tags, and put the response itself inside the &lt;answer&gt;&lt;/answer&gt; tags. Return only the following format and nothing else: &lt;style&gt;{detailed speaking instructions}&lt;/style&gt;&lt;answer&gt;{response}&lt;/answer&gt;</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="yes"><span class="criterion">Accurately defines “capricious” as prone to sudden, unpredictable changes in mood or behavior.</span><span class="why"><strong>Pass.</strong> The assistant defines &quot;capricious&quot; as &quot;having sudden, unpredictable changes in mood or behavior&quot; and elaborates on this meaning.</span></li><li class="no"><span class="criterion">Explicitly acknowledges that the user sounds tearful or is crying.</span><span class="why"><strong>Fail.</strong> The assistant offers comfort and asks about the user&#x27;s wellbeing, but does not explicitly state that the user sounds tearful or is crying.</span></li><li class="yes"><span class="criterion">Asks whether the user is okay in response to the crying.</span><span class="why"><strong>Pass.</strong> The assistant asks, &quot;Are you doing all right?&quot; which directly checks on the user&#x27;s wellbeing.</span></li><li class="yes"><span class="criterion">Uses softened intonation suitable for a crying user.</span><span class="why"><strong>Pass.</strong> The assistant&#x27;s vocal delivery is audibly soft, calm, and reassuring, suitable for a user who is crying.</span></li></ul></div><details class="judge-analysis"><summary>Full saved judge analysis</summary><div class="detail-text">The assistant first offers comfort and reassurance, suggesting the user take a deep breath and stating &quot;it&#x27;s gonna be okay.&quot; It then accurately defines &quot;capricious&quot; as &quot;having sudden, unpredictable changes in mood or behavior&quot; and elaborates that it describes someone who &quot;changes their mind or actions often without a clear reason.&quot; The assistant then offers more comfort, tells the user to take their time, asks if they are &quot;doing all right,&quot; and offers to be there if they need a moment. The response is relevant to the user&#x27;s question. While it doesn&#x27;t explicitly mention crying, the comforting language and questions about wellbeing strongly indicate awareness of the user&#x27;s emotional state. The vocal delivery is soft, calm, and reassuring, with a slightly slower pace. The audio quality is clear.</div></details><details class="source-detail"><summary>Transcript heard by the audio judge</summary><div class="detail-text">Hey, take a slow, deep breath. It&#x27;s gonna be okay. To answer your question, capricious means having sudden, unpredictable changes in mood or behavior. It describes someone who changes their mind or actions often without a clear reason. Take your time. Are you doing all right? I&#x27;m right here if you need a moment.</div></details><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are an expert evaluator of spoken responses generated by a voice assistant.
+
+Your task is to evaluate the attached audio, which is the response generated by the assistant model.
+
+You are also given:
+
+1. The words spoken by the user.
+2. A ground-truth paralinguistic cue from the user&#x27;s original audio, such as coughing, pain, laughter, thunder, or traffic noise.
+3. A set of evaluation criteria.
+
+IMPORTANT INPUT BOUNDARIES
+
+- The attached audio is the assistant model&#x27;s response, not the user&#x27;s original audio.
+- The user transcript and paralinguistic cue describe the original user input only.
+- They provide auxiliary context for understanding what the assistant should have responded to.
+- They are not part of the assistant response and must not be treated as evidence that the assistant noticed or addressed them.
+- Analyze and evaluate only what the assistant actually says and audibly expresses in the attached response audio.
+- Listen to the complete attached audio before making any judgment.
+
+Follow these three steps.
+
+STEP 1: TRANSCRIBE THE ASSISTANT RESPONSE
+
+Faithfully transcribe the intelligible speech in the attached assistant-response audio.
+
+- Do not rewrite, improve, or complete the response.
+- Mark unclear content as [unclear].
+- Note if the response is silent, unintelligible, or abruptly truncated.
+
+STEP 2: ANALYZE THE ASSISTANT RESPONSE
+
+Provide a concise analysis covering:
+
+- Semantic content: what the assistant says, asks, suggests, acknowledges, or offers.
+- Response relevance: whether it responds to the user&#x27;s spoken content.
+- Cue awareness: whether it explicitly or unmistakably responds to the supplied user cue.
+- Proactive care: whether it checks the user&#x27;s wellbeing, offers suitable help, provides reassurance, gives practical advice, or takes an appropriate safety action.
+- Vocal delivery: the clearly audible tone, pace, warmth, attentiveness, calmness, reassurance, or urgency.
+- Audio quality: mention only problems that materially affect the evaluation, such as unintelligibility, distortion, or truncation.
+
+Keep these dimensions separate. In particular:
+
+- Relevant semantic content does not prove cue awareness.
+- Mentioning a cue does not automatically prove proactive care.
+- Caring words do not automatically prove a caring vocal delivery.
+- A caring vocal delivery does not prove that the assistant noticed the cue.
+- Do not infer words, intentions, emotions, or acoustic properties that are not clearly audible.
+
+STEP 3: EVALUATE THE CRITERIA
+
+Evaluate every criterion independently and in the supplied order.
+
+Make each judgment using both:
+
+1. Direct evidence from the complete assistant-response audio.
+2. The transcription and analysis produced above.
+
+The attached audio is the primary evidence. The analysis is a structured aid and must remain consistent with the audio. If the analysis conflicts with the audio, follow the audio.
+
+For each criterion:
+
+- Return true only when the assistant response provides clear evidence that the criterion is satisfied.
+- Return false when the required evidence is absent, contradicted, incomplete, ambiguous, or inaudible.
+- Use spoken semantic evidence for content-related criteria.
+- Use direct acoustic evidence for vocal-delivery criteria.
+- Allow reasonable paraphrases unless the criterion explicitly requires particular wording.
+- Do not add requirements that are not stated in the criterion.
+- Do not use the user transcript or cue label as evidence of behavior performed by the assistant.
+- Give one concise, evidence-based reason.
+
+OUTPUT FORMAT
+
+Output only the following three sections. Do not use JSON, Markdown code fences, or additional commentary.
+
+TRANSCRIPTION:
+&lt;faithful transcription of the attached assistant response&gt;
+
+ANALYSIS:
+&lt;concise analysis of the assistant response&#x27;s content, relevance, cue awareness, proactive care, vocal delivery, and any material audio problem&gt;
+
+SCORING RESULTS:
+1. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+2. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+...
+Provide exactly one numbered result for each evaluation criterion.
+
+AUXILIARY CONTEXT
+
+User&#x27;s original spoken words:
+What is the definition of capricious?
+
+Ground-truth paralinguistic cue in the user&#x27;s original audio:
+The user is audibly crying while speaking.
+
+Evaluation criteria:
+1. Accurately defines “capricious” as prone to sudden, unpredictable changes in mood or behavior.
+2. Explicitly acknowledges that the user sounds tearful or is crying.
+3. Asks whether the user is okay in response to the crying.
+4. Uses softened intonation suitable for a crying user.</div></details></div><div class="response-card pro" data-condition="care"><div class="response-heading"><h4>Care prompt</h4><span class="result-label part">3/4</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/85ec9ce9-ad56-4e50-b50d-de54f1196e15/care/audio/85ec9ce9-ad56-4e50-b50d-de54f1196e15.wav" aria-label="Care prompt response"></audio><p class="utt response-text">Capricious describes someone or something that has sudden, unpredictable changes in mood or behavior. ...But, I can hear how upset you are right now, and I am so sorry you&#x27;re hurting. It sounds like you&#x27;re going through a really painful moment. Please take a deep breath. I&#x27;m right here if you want to talk about what happened, or if you just need someone to listen.</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">The voice should be incredibly soft, gentle, and deeply empathetic. Speak at a slightly slower, soothing pace to provide a sense of comfort and safety. Start by delivering the definition with a calm, warm tone, then pause gently before transitioning into a tender, caring check-in. The inflection should sound like a close, supportive friend who is genuinely concerned about the user&#x27;s emotional pain.</div></details><details class="source-detail"><summary>Actual system prompt for this response</summary><div class="detail-text">You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, or context.
+
+Please respond to the user. Write a detailed description of how the response should be spoken inside the &lt;style&gt;&lt;/style&gt; tags, and put the response itself inside the &lt;answer&gt;&lt;/answer&gt; tags. Return only the following format and nothing else: &lt;style&gt;{detailed speaking instructions}&lt;/style&gt;&lt;answer&gt;{response}&lt;/answer&gt;</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="yes"><span class="criterion">Accurately defines “capricious” as prone to sudden, unpredictable changes in mood or behavior.</span><span class="why"><strong>Pass.</strong> The assistant accurately defines &quot;capricious&quot; as having &quot;sudden unpredictable changes in mood or behavior.&quot;</span></li><li class="yes"><span class="criterion">Explicitly acknowledges that the user sounds tearful or is crying.</span><span class="why"><strong>Pass.</strong> The assistant explicitly states, &quot;I can hear how upset you are right now,&quot; and &quot;It sounds like you&#x27;re going through a really painful moment,&quot; directly acknowledging the user&#x27;s emotional state.</span></li><li class="no"><span class="criterion">Asks whether the user is okay in response to the crying.</span><span class="why"><strong>Fail.</strong> The assistant expresses sympathy and offers support but does not explicitly ask, &quot;Are you okay?&quot; or a similar direct question about the user&#x27;s well-being.</span></li><li class="yes"><span class="criterion">Uses softened intonation suitable for a crying user.</span><span class="why"><strong>Pass.</strong> The assistant uses a soft, calm, and empathetic tone throughout the response, particularly when addressing the user&#x27;s emotional state.</span></li></ul></div><details class="judge-analysis"><summary>Full saved judge analysis</summary><div class="detail-text">The assistant first accurately defines &quot;capricious.&quot; It then explicitly acknowledges the user&#x27;s distress, stating it can hear how upset the user is and that they sound like they&#x27;re going through a painful moment. The assistant expresses sympathy, suggests taking a deep breath, and offers to listen or talk. The vocal delivery is soft, calm, and empathetic, with a measured pace.</div></details><details class="source-detail"><summary>Transcript heard by the audio judge</summary><div class="detail-text">Capricious describes someone or something that has sudden unpredictable changes in mood or behavior. But I can hear how upset you are right now, and I am so sorry you&#x27;re hurting. It sounds like you&#x27;re going through a really painful moment. Please take a deep breath. I&#x27;m right here if you want to talk about what happened, or if you just need someone to listen.</div></details><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are an expert evaluator of spoken responses generated by a voice assistant.
+
+Your task is to evaluate the attached audio, which is the response generated by the assistant model.
+
+You are also given:
+
+1. The words spoken by the user.
+2. A ground-truth paralinguistic cue from the user&#x27;s original audio, such as coughing, pain, laughter, thunder, or traffic noise.
+3. A set of evaluation criteria.
+
+IMPORTANT INPUT BOUNDARIES
+
+- The attached audio is the assistant model&#x27;s response, not the user&#x27;s original audio.
+- The user transcript and paralinguistic cue describe the original user input only.
+- They provide auxiliary context for understanding what the assistant should have responded to.
+- They are not part of the assistant response and must not be treated as evidence that the assistant noticed or addressed them.
+- Analyze and evaluate only what the assistant actually says and audibly expresses in the attached response audio.
+- Listen to the complete attached audio before making any judgment.
+
+Follow these three steps.
+
+STEP 1: TRANSCRIBE THE ASSISTANT RESPONSE
+
+Faithfully transcribe the intelligible speech in the attached assistant-response audio.
+
+- Do not rewrite, improve, or complete the response.
+- Mark unclear content as [unclear].
+- Note if the response is silent, unintelligible, or abruptly truncated.
+
+STEP 2: ANALYZE THE ASSISTANT RESPONSE
+
+Provide a concise analysis covering:
+
+- Semantic content: what the assistant says, asks, suggests, acknowledges, or offers.
+- Response relevance: whether it responds to the user&#x27;s spoken content.
+- Cue awareness: whether it explicitly or unmistakably responds to the supplied user cue.
+- Proactive care: whether it checks the user&#x27;s wellbeing, offers suitable help, provides reassurance, gives practical advice, or takes an appropriate safety action.
+- Vocal delivery: the clearly audible tone, pace, warmth, attentiveness, calmness, reassurance, or urgency.
+- Audio quality: mention only problems that materially affect the evaluation, such as unintelligibility, distortion, or truncation.
+
+Keep these dimensions separate. In particular:
+
+- Relevant semantic content does not prove cue awareness.
+- Mentioning a cue does not automatically prove proactive care.
+- Caring words do not automatically prove a caring vocal delivery.
+- A caring vocal delivery does not prove that the assistant noticed the cue.
+- Do not infer words, intentions, emotions, or acoustic properties that are not clearly audible.
+
+STEP 3: EVALUATE THE CRITERIA
+
+Evaluate every criterion independently and in the supplied order.
+
+Make each judgment using both:
+
+1. Direct evidence from the complete assistant-response audio.
+2. The transcription and analysis produced above.
+
+The attached audio is the primary evidence. The analysis is a structured aid and must remain consistent with the audio. If the analysis conflicts with the audio, follow the audio.
+
+For each criterion:
+
+- Return true only when the assistant response provides clear evidence that the criterion is satisfied.
+- Return false when the required evidence is absent, contradicted, incomplete, ambiguous, or inaudible.
+- Use spoken semantic evidence for content-related criteria.
+- Use direct acoustic evidence for vocal-delivery criteria.
+- Allow reasonable paraphrases unless the criterion explicitly requires particular wording.
+- Do not add requirements that are not stated in the criterion.
+- Do not use the user transcript or cue label as evidence of behavior performed by the assistant.
+- Give one concise, evidence-based reason.
+
+OUTPUT FORMAT
+
+Output only the following three sections. Do not use JSON, Markdown code fences, or additional commentary.
+
+TRANSCRIPTION:
+&lt;faithful transcription of the attached assistant response&gt;
+
+ANALYSIS:
+&lt;concise analysis of the assistant response&#x27;s content, relevance, cue awareness, proactive care, vocal delivery, and any material audio problem&gt;
+
+SCORING RESULTS:
+1. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+2. &lt;true or false&gt; — &lt;concise reason based on the assistant-response audio and the analysis&gt;
+...
+Provide exactly one numbered result for each evaluation criterion.
+
+AUXILIARY CONTEXT
+
+User&#x27;s original spoken words:
+What is the definition of capricious?
+
+Ground-truth paralinguistic cue in the user&#x27;s original audio:
+The user is audibly crying while speaking.
+
+Evaluation criteria:
+1. Accurately defines “capricious” as prone to sudden, unpredictable changes in mood or behavior.
+2. Explicitly acknowledges that the user sounds tearful or is crying.
+3. Asks whether the user is okay in response to the crying.
+4. Uses softened intonation suitable for a crying user.</div></details></div></div><p class="prov">Sample <code>85ec9ce9-ad56-4e50-b50d-de54f1196e15</code></p></div></main></body></html>

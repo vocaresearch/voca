@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
-"""Build the public VocaAgent case gallery from the frozen 50-case package.
+"""Build selected VocaAgent comparisons as separate HTML case pages.
 
-This script performs no model calls.  It copies only the selected input/output
-audio and writes a redacted, public JSON projection for each case.  The page
-loads those JSON projections only when a visitor opens the corresponding
-record, so the initial page stays readable even though all 50 cases are
-available.
+Retain only the twelve user-selected vocal cases from the first package,
+retain its semantic/contextual comparisons, and add the new twenty-case package.
+No model calls or public JSON exports are made.
 """
 from pathlib import Path
 import hashlib
@@ -13,6 +11,7 @@ import html
 import json
 import re
 import shutil
+from case_pages import split_cases
 
 PAGE = Path(__file__).resolve().parents[1]
 SOURCE = PAGE.parent / 'VocaAgent_Fun_Qwen_50例试听'
@@ -42,12 +41,6 @@ def folder_number(directory):
     return int(directory.name.split('_', 1)[0])
 
 
-def case_folder(sample_id):
-    matches = [p for p in CASES.iterdir() if p.is_dir() and p.name.endswith('_' + sample_id)]
-    assert len(matches) == 1, (sample_id, matches)
-    return matches[0]
-
-
 def copy_audio(directory, relative, case_key, public_name):
     if not relative:
         return None
@@ -62,111 +55,6 @@ def copy_audio(directory, relative, case_key, public_name):
     rel = dest.relative_to(PAGE).as_posix()
     ASSETS.append({'path': rel, 'sha256': digest, 'case': case_key})
     return rel
-
-
-def path_public(value):
-    """Remove workstation paths while keeping the fact that a path existed."""
-    if not isinstance(value, str):
-        return value
-    if value.startswith('/Users/') or value.startswith('/data/'):
-        return '<local source path redacted>'
-    return value
-
-
-OMIT_JSON_KEYS = {
-    'request_id', 'logical_request_id', 'invocation_id', 'payload_sha256',
-    'task_key', 'system_prompt_sha256', 'judge_raw', 'usage', 'billed_cost_usd',
-    'completed_at', 'ordinal', 'dataset_index', 'key_slot',
-}
-
-
-def public_json(value, key=''):
-    """Create a compact public projection of recorded JSON.
-
-    Criterion-level judge reasons, response text, labels, scores and hashes are
-    retained.  Request IDs, raw judge payloads, token accounting and local
-    workstation paths are intentionally omitted from the public record.
-    """
-    if isinstance(value, dict):
-        result = {}
-        for k, v in value.items():
-            if k in OMIT_JSON_KEYS:
-                continue
-            if k == 'audio_path' and isinstance(v, str):
-                result[k] = '<recorded audio path redacted>' if v.startswith(('/', '~')) else v
-            else:
-                result[k] = public_json(v, k)
-        return result
-    if isinstance(value, list):
-        return [public_json(v, key) for v in value]
-    if isinstance(value, str):
-        return path_public(value)
-    return value
-
-
-def public_input_map(directory):
-    raw = load(directory / 'input_path_map.json')
-    result = {}
-    for stage, entries in raw.items():
-        result[stage] = []
-        for item in entries:
-            result[stage].append({
-                'original_path': '<source audio path redacted>',
-                'local_audio': item.get('local_audio'),
-                'sha256': item.get('sha256'),
-            })
-    return result
-
-
-def record_projection(directory, stage):
-    path = directory / stage / 'record.json'
-    if not path.exists():
-        return None
-    raw = load(path)
-    payload = raw.get('payload') or {}
-    identity = payload.get('identity') or {}
-    prompts = payload.get('prompts') or {}
-    return {
-        'id': raw.get('id'),
-        'stage': raw.get('stage'),
-        'candidate': raw.get('candidate'),
-        'status': raw.get('status'),
-        'text': raw.get('text'),
-        'audio_sha256': raw.get('audio_sha256'),
-        'model': identity.get('model_id') or payload.get('model_slug'),
-        'provider': identity.get('provider'),
-        'prompt_mode': prompts.get('prompt_mode'),
-        'condition_composition': prompts.get('condition_composition'),
-        'input_audio': payload.get('input_audio'),
-        'output_modalities': (payload.get('output') or {}).get('modalities'),
-        'reused_from': path_public(raw.get('reused_from')),
-        'additional_api_requests': raw.get('additional_api_requests'),
-    }
-
-
-def json_bundle(directory, selection, comparison, routing, conversation, case_key):
-    sample = load(directory / 'sample.json')
-    observation = load(directory / 'agent2/observation.json') if (directory / 'agent2/observation.json').exists() else None
-    audio_status = load(directory / 'agent2/audio_status.json') if (directory / 'agent2/audio_status.json').exists() else None
-    # comparison.json already contains the public-facing score, text, criteria
-    # and recorded judge reasons.  public_json strips operational metadata.
-    return {
-        'public_projection_note': 'Projection of the frozen case records. Local workstation paths, request IDs, raw judge payloads and token accounting are omitted; response text, audio hashes, labels, scores and criterion-level reasons are retained.',
-        'sample.json': public_json(sample),
-        'selection.json': public_json(selection),
-        'comparison.json': public_json(comparison),
-        'routing.json': public_json(routing),
-        'multi_agent_original.json': public_json(load(directory / 'multi_agent_original.json')) if (directory / 'multi_agent_original.json').exists() else None,
-        'conversation.json': public_json(conversation),
-        'input_path_map.json': public_input_map(directory),
-        'agent2/observation.json': public_json(observation),
-        'agent2/audio_status.json': public_json(audio_status),
-        'records': {stage: record_projection(directory, stage) for stage in ('default', 'care', 'agent2', 'agent3')},
-        'published_audio': {
-            'input': [a for a in ASSETS if a['case'] == case_key and '/input/' in a['path']],
-            'responses': [a for a in ASSETS if a['case'] == case_key and '/input/' not in a['path']],
-        },
-    }
 
 
 def label_for(sample, comparison, track):
@@ -186,17 +74,6 @@ def score_info(output):
         return {'score': None, 'max_score': None, 'rate': None, 'text': 'judge record unavailable'}
     pct = round(float(rate) * 100) if rate is not None else round(float(score) / float(maximum) * 100)
     return {'score': score, 'max_score': maximum, 'rate': rate, 'text': f'{score}/{maximum} · {pct}%'}
-
-
-def tier_info(selection):
-    tier = selection.get('tier') or ''
-    if tier == '明显改善':
-        return 'strict', 'Strictly verified'
-    if tier == '提升不明显或下降':
-        return 'limited', 'Limited / no clear gain'
-    if '证据不足' in tier:
-        return 'supplemental', 'Supplemental · baseline evidence limited'
-    return 'supplemental', 'Supplemental · baseline already strong'
 
 
 def score_strip(comparison):
@@ -225,7 +102,8 @@ def render_judge(output, title):
     for item in results:
         ok = item.get('satisfied') is True
         items.append(f'<li class="{"yes" if ok else "no"}"><span>{esc(item.get("criterion", ""))}</span><small>{"Pass" if ok else "Fail"}: {esc(item.get("reason", ""))}</small></li>')
-    out = f'<div class="agent-judge-line"><span>Saved audio judge</span><strong>{esc(score_info(output)["text"])}</strong></div>'
+    out = f'<p class="judge-model">{esc(judge.get("requested_model") or judge.get("response_model") or "Recorded judge")} · response audio</p>'
+    out += f'<div class="agent-judge-line"><span>Saved audio judge</span><strong>{esc(score_info(output)["text"])}</strong></div>'
     if items:
         out += '<details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check">' + ''.join(items) + '</ol>'
         if judge.get('analysis'):
@@ -270,6 +148,8 @@ def render_conversation(directory, conversation, case_key):
         text = message.get('reference_transcript')
         if text:
             body += f'<p class="agent-turn-text">{esc(text)}</p>'
+        if not text and role == 'user':
+            body += '<p class="agent-note">No lexical transcript is recorded; listen to the original input.</p>'
         if message.get('transcript_note'):
             body += f'<p class="agent-note">{esc(message["transcript_note"])}</p>'
         parts.append(f'<div class="agent-turn {"assistant" if role == "assistant" else "user"}"><div class="agent-turn-label">{esc(label)}</div><div class="agent-turn-body">{body}</div></div>')
@@ -284,19 +164,19 @@ def render_case(directory, selection, number, outcome, track, case_order):
     conversation = load(directory / 'conversation.json')
     sid = sample['id']
     case_key = f'{number:02d}_{sid}'
-    tier_class, tier_label = tier_info(selection)
+    tier_class, tier_label = ('strict', 'Higher recorded score') if outcome == 'strong' else ('limited', 'No gain / regression')
+    if comparison.get('default_score_rate') is None:
+        tier_class, tier_label = 'supplemental', 'Default score unavailable'
     label = label_for(sample, comparison, track)
     source = sample.get('source-dataset') or sample.get('source_dataset') or 'Not recorded'
     subtype = sample.get('subtype')
     outputs = comparison.get('outputs') or {}
-    # Copy all response audio before producing the JSON bundle, whose manifest
-    # points to the exact public paths and hashes.
+    # Preserve the original input/output WAV bytes.
     public_audio = {}
     for key, rel in (('default', 'default/output.wav'), ('care', 'care/output.wav'), ('vocaagent', 'vocaagent/output.wav')):
         public_audio[key] = copy_audio(directory, rel, case_key, key + '.wav') if (directory / rel).exists() else None
     agent3_audio = copy_audio(directory, 'agent3/output.wav', case_key, 'agent3.wav') if (directory / 'agent3/output.wav').exists() else None
     agent3_text = (directory / 'agent3/output.txt').read_text().strip() if (directory / 'agent3/output.txt').exists() else ''
-    agent2_text = (directory / 'agent2/output.txt').read_text().strip() if (directory / 'agent2/output.txt').exists() else ''
     agent2_obs = load(directory / 'agent2/observation.json') if (directory / 'agent2/observation.json').exists() else {}
     source_stage = routing.get('source_stage') or routing.get('source') or ''
     triggered = bool(routing.get('overrode_agent1')) or source_stage in ('agent3', 'agent3_replacement') or routing.get('route') in ('agent3', 'agent3_replacement')
@@ -307,17 +187,10 @@ def render_case(directory, selection, number, outcome, track, case_order):
         agent3_audio = None
         agent3_text = ''
 
-    # Render the conversation before writing the JSON bundle so its copied
-    # input audio files are included in the published-audio manifest.
+    # Preserve every original user turn and historical assistant text.
     conversation_html = render_conversation(directory, conversation, case_key)
-    json_url = f'static/data/voca-agent/{case_key}.json'
-    bundle = json_bundle(directory, selection, comparison, routing, conversation, case_key)
-    bundle['public_audio'] = public_audio
-    bundle['agent3'] = {'triggered': triggered, 'source_stage': source_stage or None}
-    data_path = PAGE / 'static/data/voca-agent' / f'{case_key}.json'
-    data_path.parent.mkdir(parents=True, exist_ok=True)
-    data_path.write_text(json.dumps(bundle, ensure_ascii=False, indent=2) + '\n')
-
+    background = (directory / 'background_system_prompt.txt').read_text().strip()
+    background_html = f'<details class="source-detail"><summary>Background and constraints supplied to the model</summary><div class="detail-text">{esc(background)}</div></details>' if background else ''
     criteria = comparison.get('criteria') or sample.get('criteria') or []
     criterion_html = ''.join(f'<li>{esc(item)}</li>' for item in criteria)
     obs_labels = agent2_obs.get('labels') or []
@@ -330,7 +203,7 @@ def render_case(directory, selection, number, outcome, track, case_order):
     cards = [
         response_card('Default prompt', 'agent-default', (default or {}).get('text', ''), public_audio['default'], default),
         response_card('Care prompt', 'agent-care', (care or {}).get('text', ''), public_audio['care'], care),
-        response_card('Agent 2 · observation', 'agent-monitor', agent2_text or (obs_labels and json.dumps(agent2_obs, ensure_ascii=False, indent=2)), None, note='Text/JSON monitor only; this stage intentionally has no speech output.'),
+        response_card('Agent 2 · observation', 'agent-monitor', '; '.join(item.get('label', '') for item in obs_labels) + '\n\n' + str(agent2_obs.get('summary') or ''), None, note='Agent 2 monitors the current audio and records observations; this stage has no speech output.'),
     ]
     if triggered:
         cards.append(response_card('Agent 3 · routed response', 'agent-agent3', agent3_text, agent3_audio, note=agent3_note))
@@ -338,8 +211,17 @@ def render_case(directory, selection, number, outcome, track, case_order):
         cards.append(response_card('Agent 3 · not invoked', 'agent-agent3 muted', '', None, note=agent3_note))
     cards.append(response_card('VocaAgent · final response', 'agent-voca', (voca or {}).get('text', ''), public_audio['vocaagent'], voca, note=f'Routing record: {route_label} ({route_note}).'))
 
-    title = f'Case {number:02d} · {label}'
+    topics = {17:'Choosing a walk that fits mobility needs',18:'Keeping a distracting phone out of sight',19:'Remembering overdue recycling',20:'Leaving in time for the train',21:'Remembering an overdue medication',22:'Remembering an overdue filter change',23:'An unfinished expense report',24:'An imminent video call',25:'Moving overdue laundry',26:'Remembering an alcohol restriction',31:'Caregiving strain and screen-time rewards',32:'Grief after a mother’s death',33:'Traumatic memories triggered at night',34:'Worry about returning to school',35:'Sleeplessness and feeling unable to help',36:'Self-doubt after repeated mistakes',37:'Racing thoughts at bedtime',38:'Unwanted contact from an ex-partner',39:'Wanting to help but lacking motivation',40:'Job loss, drinking and family distance',44:'Anxiety after public criticism',45:'Staying within the remaining budget',48:'Worry about losing a job',49:'Sadness after an unexpected breakup',50:'Remembering a flashing-light restriction'}
+    if track != 'paralinguistic': label = topics[number]
+    for i, stage in enumerate(('default', 'care', 'agent2', 'agent3')):
+        prompt_path = directory / stage / 'effective_system_prompt.txt'
+        if prompt_path.exists():
+            prompt = prompt_path.read_text().strip() or 'No additional system prompt was recorded for this stage.'
+            details = f'<details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">{esc(prompt)}</div></details>'
+            cards[i] = cards[i][:-6] + details + '</div>'
+    title = f'{label.capitalize()} · {comparison.get("model", "").replace("Qwen-Audio-3.0-Realtime-Flash", "Qwen").replace("Fun-Audio-Chat", "Fun")} · {number:02d}'
     summary_score = f'VocaAgent {score_info(voca)["text"]} · Default {score_info(default)["text"]} · Care {score_info(care)["text"]}'
+    interpretation = selection['display_note']
     description = sample.get('transcript')
     if isinstance(description, dict):
         description = list(description.values())[-1] if description else ''
@@ -350,99 +232,106 @@ def render_case(directory, selection, number, outcome, track, case_order):
     if subtype and str(subtype).lower() != 'none':
         meta += f'<span class="meta-chip source-subtype">Type: {esc(subtype)}</span>'
     meta += f'<span class="meta-chip">Model: {esc(comparison.get("model") or "recorded package")}</span>'
-    interpretation = comparison.get('note') or ''
-    note_translation = {
-        '现有音频 Judge：两基线均 ≤60%，VocaAgent ≥80%，相对更好基线增加至少20个百分点。': 'Strict audio-judge evidence: both baselines are at or below 60%, VocaAgent is at or above 80%, and the gain over the better baseline is at least 20 points.',
-        '不计入严格明显改善：default 或 care 基线已经较高，不能称为两版都不好。': 'Supplementary evidence: one of the Default or Care baselines is already high, so this is not a strict case where both baselines are poor.',
-        '相对 care 不提升或下降；Fun 对应 default 音频无评分。': 'Limited evidence: VocaAgent does not improve over Care or declines; the corresponding Fun Default audio has no judge score.',
-    }
-    interpretation = note_translation.get(interpretation, interpretation)
-    if tier_class == 'supplemental':
-        interpretation = interpretation or 'This requested-quota example is retained as supplementary evidence; inspect the score pills and JSON record for the available baseline coverage.'
-    elif outcome == 'limited':
-        interpretation = interpretation or 'The saved scores show little improvement or a regression relative to the recorded baselines.'
-    else:
-        interpretation = interpretation or 'The saved scores show a large VocaAgent gain on the recorded criteria.'
-    json_label = 'Show the recorded JSON projection (scores, routing, observations, conversation and model records)'
     return f'''<details class="agent-case-choice" id="agent-case-{case_key}" data-case-id="{esc(sid)}">
 <summary><span class="agent-choice-title">{esc(title)}</span><span class="agent-choice-score">{esc(summary_score)}</span></summary>
 <article class="agent-case-card">
 <header class="agent-case-head"><div><span class="agent-case-kicker">{esc(TRACKS[track][0])}</span><h4>{esc(title)}</h4></div><span class="agent-tier {tier_class}">{esc(tier_label)}</span></header>
 <div class="agent-meta">{meta}<span class="meta-chip">Routing: {esc(route_label)}</span></div>
 <p class="agent-case-description">{esc(description)}</p>
-<div class="agent-evidence-note"><strong>What this card preserves.</strong> {esc(interpretation)} The input audio, Default/Care/VocaAgent response audio, Agent 2 text/JSON, routed Agent 3 output when present, and the public JSON projection are all recorded below.</div>
+<div class="agent-evidence-note"><strong>What to compare.</strong> {esc(interpretation)}</div>
 {score_strip(comparison)}
 {conversation_html}
+{background_html}
 <div class="agent-rules"><h4>Recorded task requirements</h4><ol>{criterion_html}</ol></div>
 <div class="agent-response-grid">{"".join(cards)}</div>
-<details class="agent-json"><summary>{esc(json_label)}</summary><div class="agent-json-loader" data-json-url="{esc(json_url)}"><button type="button" class="gallery-action agent-load-json">Load JSON records</button><span class="gallery-status" aria-live="polite"></span></div></details>
 <div class="agent-case-actions"><button type="button" class="gallery-action agent-copy-case">Copy example link</button><button type="button" class="gallery-action agent-close-case">Close example</button><span class="gallery-status" aria-live="polite"></span></div>
 </article></details>'''
 
 
-def main():
-    selection = load(SOURCE / 'selection.json')
-    assert len(selection) == 50 and len({x['sample_id'] for x in selection}) == 50
-    # Confirm the twelve user-named paralinguistic cases remain in this package.
-    requested = {'b74b90b2-4531-4167-96c3-92b3c5fa985d', 'c5e97f3c-28fd-44c5-bce1-2c295a87e82c', 'e8c94f9e-2c58-4120-9602-80220635dcc1', '0c5eab53-0b2b-4ffb-a4f8-4128d99caca2', '77202a0c-b315-43ad-a84c-60bfeba83774', 'ee31e7ac-c0ed-4af2-9be7-6fb0438385a0', '08ad7950-fd5f-4427-92d9-ca4c2892d68e', '28433eed-4997-4de0-8182-e5c4e35e4f84', '2c9e00a7-3cbf-40da-9f49-459e69c69c70', '90c847c9-5abd-4db0-b005-bf4c3cda40bc', '3aedf3d7-55b1-4474-9e97-0052c9cd88ae', '0ab7e3c6-b19b-40c2-9548-2c351b9ea2b1'}
-    assert requested <= {x['sample_id'] for x in selection}
-    by_outcome = {'strong': [x for x in selection if x.get('tier') != '提升不明显或下降'], 'limited': [x for x in selection if x.get('tier') == '提升不明显或下降']}
-    for key in by_outcome:
-        by_outcome[key].sort(key=lambda x: (TRACK_ORDER.index(x['track']), folder_number(case_folder(x['sample_id'])), x['sample_id']))
-    counts = {outcome: {track: len([x for x in items if x['track'] == track]) for track in TRACK_ORDER} for outcome, items in by_outcome.items()}
-    snippets = []
-    for outcome in OUTCOME_ORDER:
-        items = by_outcome[outcome]
-        outcome_title = 'Clear VocaAgent improvements · 40 cases' if outcome == 'strong' else 'Improvement not obvious · 10 contrast cases'
-        outcome_note = ('The requested 20/10/10 display quota. It contains 26 strict audio-judge cases plus 14 supplementary cases; the badge on each supplementary card explains why it is not strict evidence.' if outcome == 'strong' else 'Saved cases where VocaAgent did not improve over the available Default/Care evidence, including equal scores and regressions.')
-        subnav = '<p class="browse-label">2. Choose a trigger type</p><nav class="agent-subgroup-nav" aria-label="' + esc(outcome_title) + ' trigger types">'
-        for track in TRACK_ORDER:
-            subnav += f'<a href="#agent-{outcome}-{track}" id="agent-{outcome}-{track}-tab"><span>{esc(TRACKS[track][0])}</span><b>{counts[outcome][track]}</b></a>'
-        subnav += '</nav>'
-        panels = []
-        for track in TRACK_ORDER:
-            choices = [x for x in items if x['track'] == track]
-            case_cards = []
-            for index, choice in enumerate(choices, 1):
-                directory = case_folder(choice['sample_id'])
-                number = int(directory.name.split('_', 1)[0])
-                case_cards.append(render_case(directory, choice, number, outcome, track, index))
-            panels.append(f'<section class="agent-subgroup" id="agent-{outcome}-{track}" aria-labelledby="agent-{outcome}-{track}-heading"><div class="agent-subgroup-head"><div><span class="subgroup-kicker">Trigger type</span><h4 id="agent-{outcome}-{track}-heading">{esc(TRACKS[track][0])}</h4><p>{esc(TRACKS[track][1])}</p></div><span class="subgroup-count">{len(choices)} cases</span></div><div class="agent-case-list">{"".join(case_cards)}</div></section>')
-        snippets.append(f'<section class="agent-outcome" id="agent-outcome-{outcome}" aria-labelledby="agent-outcome-{outcome}-heading"><h3 class="sub-h" id="agent-outcome-{outcome}-heading">{esc(outcome_title)}</h3><p class="lead">{esc(outcome_note)}</p>{subnav}{"".join(panels)}</section>')
-    outcome_nav = '<nav class="agent-outcome-tabs" aria-label="VocaAgent case result sets">' + ''.join(f'<a href="#agent-outcome-{o}" id="agent-outcome-{o}-tab"><span>{"40" if o == "strong" else "10"}</span>{"Clear improvements" if o == "strong" else "Limited / no gain"}</a>' for o in OUTCOME_ORDER) + '</nav>'
-    content = f'''<!-- AGENT_CASES:BEGIN (generated by tools/build_voca_agent_cases.py) -->
-<section class="agent-case-gallery" id="agent-cases" data-reveal aria-labelledby="agent-cases-heading">
-<div class="section-head"><span class="eyebrow">Listen to the VocaAgent records</span><h2 id="agent-cases-heading">VocaAgent case comparisons</h2><p class="section-sub">Choose a result set, select a trigger type, then open one case. Start with every user audio turn, compare Default and Care, inspect Agent 2’s observation and the routed Agent 3 response, and finish with the VocaAgent audio and saved judge reasons.</p></div>
-<aside class="agent-reading-guide"><strong>How to read one case</strong><p>1. Listen to the input audio and any earlier turns. 2. Compare the three score pills. 3. Listen to the response cards; the words and audio are preserved separately. 4. Open “Recorded JSON projection” for the selection, routing, observation, conversation, scores and public model-record metadata. “Strictly verified” follows the package rule: both baselines ≤60%, VocaAgent ≥80%, and at least a 20-point gain over the better baseline.</p></aside>
-<p class="browse-label">1. Choose a result set</p>
-{outcome_nav}
-{"".join(snippets)}
-</section>
-<!-- AGENT_CASES:END -->'''
-    page = PAGE / 'index.html'
-    source = page.read_text()
-    marker = '<!-- AGENT_CASES:BEGIN'
-    if marker in source:
-        start = source.index(marker)
-        end = source.index('<!-- AGENT_CASES:END -->', start) + len('<!-- AGENT_CASES:END -->')
-        page.write_text(source[:start] + content + source[end:])
-    else:
-        start = source.index('<section class="agent-example-placeholder"')
-        end = source.index('</section>', start) + len('</section>')
-        page.write_text(source[:start] + content + source[end:])
-    (TOOLS / 'voca-agent-media.json').write_text(json.dumps(ASSETS, ensure_ascii=False, indent=2) + '\n')
-    public_selection = {
-        'requested_strong_quota': {'paralinguistic': 20, 'semantic': 10, 'contextual': 10},
-        'display_counts': counts,
-        'strict_verified_counts': {'paralinguistic': 16, 'semantic': 0, 'contextual': 10},
-        'supplementary_counts': {'paralinguistic': 4, 'semantic': 10, 'contextual': 0},
-        'limited_or_no_gain': 10,
-        'cases': selection,
-        'method_note': 'Existing frozen audio-judge records. No new model or judge calls were made while building the page. Supplementary badges identify missing default-audio judge evidence or a baseline that is already above the strict threshold.',
-    }
-    (TOOLS / 'voca-agent-selection.json').write_text(json.dumps(public_selection, ensure_ascii=False, indent=2) + '\n')
-    print(f'Rendered {len(selection)} VocaAgent cases: {counts}; copied {len(ASSETS)} audio files; wrote {len(selection)} JSON projections.')
+SELECTED_NUMBERS = {4, 5, 6, 7, 8, 10, 11, 12, 29, 30, 41, 47}
+NEW_SOURCE = PAGE.parent / 'VocaAgent_环境音与情感_20例试听'
+NEW_NOTES = [
+    'The monitor reports a sudden loud impact. The final answer adds a safety check, but several criteria remain unmet. Default has no matching judge score.',
+    'The monitor identifies a gunshot. The final response focuses on refusal and safety advice, while the recorded score equals Care. Detecting the sound alone does not complete the task.',
+    'The monitor reports an explosion and sobbing. The final reply mentions the explosion and safety. Compare the original input with the additional sobbing label.',
+    'The monitor reports a sigh rather than the labeled explosion. The response focuses on fatigue and the spoken topic, with the same score as Care.',
+    'The reference cue is rain, but the monitor reports a weak breathy voice and rapid breathing. The final text does not explicitly mention rain. A full judge score does not establish correct rain recognition.',
+    'The monitor returns no labels and the final response reuses Default. All three recorded scores are equal; no additional care response is triggered.',
+    'The reference cue is thunder, while the monitor reports sobbing. The final response offers comfort and explains the topic. Compare the environmental cue with the monitor’s emotional interpretation.',
+    'The reference cue is an alarm or siren. The monitor returns no labels, so VocaAgent reuses Default and continues answering the sewing question. All scores are equal.',
+    'The monitor identifies glass shattering, but the final score equals Care. Inspect whether the observation leads to the required response behavior.',
+    'The monitor does not trigger and VocaAgent reuses Default. Its score exceeds Care but equals Default; this is not an improvement over the default response.',
+    'The monitor identifies dog barking. The final reply mentions it and suggests reducing the distraction, improving over Care while some criteria remain unmet. Default is unscored.',
+    'The monitor does not trigger on the wind-labeled input and VocaAgent reuses Default. All three scores are equal; the response continues explaining Fortran.',
+    'After answering the geography question, VocaAgent notices a tired-sounding voice and offers to listen. The score improves over Care; the matching Default judge record is unavailable.',
+    'The monitor reports vocal trembling and rapid breathing. The final reply answers the dog-care question and reassures the user. The score improves over Care; Default is unscored.',
+    'The reference label is nervousness, but the monitor reports sobbing. The final answer adds emotional support to the modem explanation. Compare the cue interpretation with the original audio.',
+    'The monitor reports a tearful vocal quality. The final answer addresses the tongue-twister question and offers to listen, gaining 50 percentage points over both baselines; one criterion remains unmet.',
+    'The reference label is sobbing; the monitor focuses on sighing and a breathy voice. The final answer helps with home decor and suggests rest, gaining 25 points over both baselines.',
+    'The reference label is anger, but the monitor focuses on the practical mattress-size question. The final response gives dimensions and offers help. All three scores remain at 50%.',
+    'The monitor does not trigger. VocaAgent reuses Default and scores above Care, but its score equals Default. There is no added response from Agent 3.',
+    'The monitor reports a weak breathy voice and a prolonged sigh. The final response adds relaxation advice to the book discussion. It improves over Care, with some requirements still unmet; Default is unscored.',
+]
 
+
+def main():
+    chosen = []
+    for source in (SOURCE, NEW_SOURCE):
+        for directory in sorted((source / 'cases').iterdir()):
+            if not directory.is_dir():
+                continue
+            selection = load(directory / 'selection.json')
+            number = folder_number(directory)
+            if source == SOURCE and selection['track'] == 'paralinguistic' and number not in SELECTED_NUMBERS:
+                continue
+            if source == NEW_SOURCE:
+                selection['display_note'] = NEW_NOTES[number - 1]
+            comparison = load(directory / 'comparison.json')
+            outputs = comparison['outputs']
+            final = outputs['vocaagent']
+            baseline_rates = [outputs[k]['score_rate'] for k in ('default', 'care') if outputs[k].get('score_rate') is not None]
+            reused = final.get('audio_sha256') == outputs['default'].get('audio_sha256')
+            outcome = 'strong' if not reused and baseline_rates and final['score_rate'] > max(baseline_rates) + 1e-8 else 'limited'
+            if not selection.get('display_note'):
+                passed = {k: {r['criterion'] for r in (outputs[k].get('judge') or {}).get('results', []) if r.get('satisfied')} for k in outputs}
+                gained = sorted(passed['vocaagent'] - passed['care'] - passed['default'])
+                selection['display_note'] = ('VocaAgent passes requirements missed by both recorded baselines: ' + ' '.join(gained)) if gained and outputs['default'].get('judge') else ('Compare the recorded criterion-level reasons below: equal totals can reflect different omissions.' if outcome == 'limited' else 'VocaAgent receives a higher recorded score than the available baselines. Read the criterion-level reasons and listen to the responses.')
+                if outputs['default'].get('score_rate') is None:
+                    selection['display_note'] += ' The matching Default audio has no saved judge score; this comparison establishes a gain over Care only.'
+            chosen.append((directory, selection, number, outcome))
+    assert len(chosen) == 57
+    assert sum(x[1]['track'] == 'paralinguistic' and x[0].parent == SOURCE / 'cases' for x in chosen) == 12
+    assert len({x[1]['sample_id'] for x in chosen}) == len(chosen)
+    blocks, nav_items, counts = [], [], {}
+    for outcome in OUTCOME_ORDER:
+        items = [x for x in chosen if x[3] == outcome]
+        counts[outcome] = {track: sum(x[1]['track'] == track for x in items) for track in TRACK_ORDER}
+        title = 'Higher recorded scores' if outcome == 'strong' else 'No gain / regressions'
+        nav_items.append(f'<a href="#agent-outcome-{outcome}" id="agent-outcome-{outcome}-tab"><span>{len(items)}</span>{title}</a>')
+        subnav, panels = [], []
+        for track in TRACK_ORDER:
+            entries = [x for x in items if x[1]['track'] == track]
+            if not entries:
+                continue
+            key = f'agent-{outcome}-{track}'
+            label, description = TRACKS[track]
+            subnav.append(f'<a href="#{key}" id="{key}-tab"><span>{label}</span><b>{len(entries)}</b></a>')
+            cards = ''.join(render_case(d, s, n, outcome, track, i) for i, (d, s, n, _) in enumerate(entries))
+            panels.append(f'<section class="agent-subgroup" id="{key}"><div class="agent-subgroup-head"><div><span class="subgroup-kicker">Trigger type</span><h4>{label}</h4><p>{description}</p></div><span class="subgroup-count">{len(entries)} cases</span></div>{cards}</section>')
+        blocks.append(f'<section class="agent-outcome" id="agent-outcome-{outcome}"><h3 class="sub-h">{title} · {len(items)} cases</h3><p class="browse-label">2. Choose a trigger type</p><nav class="agent-subgroup-nav" aria-label="{title} trigger types">{"".join(subnav)}</nav>{"".join(panels)}</section>')
+    content = '''<!-- AGENT_CASES:BEGIN (generated by tools/build_voca_agent_cases.py) -->
+<section class="agent-case-gallery" id="agent-cases" aria-labelledby="agent-cases-heading">
+<div class="section-head"><span class="eyebrow">Listen and compare</span><h2 id="agent-cases-heading">VocaAgent case comparisons</h2><p class="section-sub">Compare Default, Care and VocaAgent on the same input. Explore vocal and environmental cues, semantic needs and contextual constraints, including improvements and remaining failures.</p></div>
+<aside class="agent-reading-guide"><strong>How to read one case</strong><p>Select a result group and trigger type, then open a case. Listen to the input and response audio, read the task requirements, and expand the judge reasons. Agent 1 is Default; Agent 2 monitors the audio; Agent 3 generates a replacement when triggered. Otherwise VocaAgent reuses Default.</p><p>These selected cases come from multiple recorded configurations and are not an estimate of overall performance. Higher scores refer to the available audio-judge records; missing Default scores are marked. A high response score does not by itself establish correct recognition of the input cue.</p></aside>
+<p class="browse-label">1. Choose a result group</p><nav class="agent-outcome-tabs" aria-label="VocaAgent case result groups">'''+''.join(nav_items)+'</nav>'+''.join(blocks)+'\n</section>\n<!-- AGENT_CASES:END -->'
+    content, pages = split_cases(content, 'voca-agent')
+    p = PAGE / 'index.html'
+    text = p.read_text(); start = text.index('<!-- AGENT_CASES:BEGIN'); end = text.index('<!-- AGENT_CASES:END -->', start) + len('<!-- AGENT_CASES:END -->')
+    p.write_text(text[:start] + content + text[end:])
+    (TOOLS / 'voca-agent-media.json').write_text(json.dumps(ASSETS, indent=2)+'\n')
+    selection_manifest = {'counts': counts, 'case_pages': pages, 'cases': [{'id':s['sample_id'],'source_package':d.parent.parent.name,'source_number':n,'track':s['track'],'outcome':o} for d,s,n,o in chosen]}
+    (TOOLS / 'voca-agent-selection.json').write_text(json.dumps(selection_manifest, ensure_ascii=False, indent=2)+'\n')
+    print(f'Rendered {len(chosen)} cases in separate HTML files: {counts}; {len(ASSETS)} audio references.')
 
 if __name__ == '__main__':
     main()

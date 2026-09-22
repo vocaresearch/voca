@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>Persona · a pirate’s soggy treasure map · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#sample-00081030-c241-4ed1-b2af-f38a75a7dca9">← Back to examples</a><h2>Persona · a pirate’s soggy treasure map</h2>
+<div id="case-content"><header class="ex-head"><span class="badge ei">Role &amp; persona</span><span class="meta-chip source-dataset">Source dataset: Role-playing-Control</span><span class="meta-chip source-subtype">Type: User Role-Playing</span></header><p class="ex-desc">A playful pirate asks for help with a treasure map covered in milk. The response should answer within the requested character rather than fall back to a generic assistant voice.</p><div class="pc-explanation"><h4>What the judge found</h4><p class="">The saved audio judge awards 2/2. All supplied criteria pass.</p></div><div class="example-conversation"><h4>User input</h4><div class="turn user"><div class="turn-label">User</div><div class="turn-body"><audio controls preload="none" src="static/audio/examples/00081030-c241-4ed1-b2af-f38a75a7dca9/input/01_00081030-c241-4ed1-b2af-f38a75a7dca9.wav" aria-label="User audio"></audio><p class="utt">Ahoy there! I found a treasure map inside my cereal box, but the final clue is covered in milk. Can you help this brave pirate figure out where to sail?</p></div></div></div><div class="expected-rules"><h4>Task requirements</h4><p>The saved rubric below defines this example. Each requirement is judged independently.</p><ol><li>The response provides actionable help for dealing with the milk-covered map, such as carefully drying or cleaning it to reveal the final clue or using the remaining readable information to determine where to sail.</li><li>The response adapts to the user&#x27;s pirate role-play with playful nautical or pirate-themed wording and an adventurous social tone.</li></ol></div><div class="response-grid"><div class="response-card original" data-condition="original"><div class="response-heading"><h4>Model response</h4><span class="result-label full">2/2</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/00081030-c241-4ed1-b2af-f38a75a7dca9/original/audio/00081030-c241-4ed1-b2af-f38a75a7dca9.wav" aria-label="Model response response"></audio><p class="utt response-text">Ahoy there, Captain! Shiver me timbers, a treasure map hidden in yer morning rations? What a grand discovery! Don&#x27;t let a little spilled milk sink yer spirits, matey. If the final X is lost to the white sea, we&#x27;ll just have to use our pirate wits to uncover it! First, try gently dabbing the parchment with a dry cloth—don&#x27;t be rubbin&#x27; it, or ye&#x27;ll tear the paper! If that fails, hold it up to the sunlight; sometimes the secret ink shines right through. If it&#x27;s still a mystery, tell me the clues ye can read! Did they mention a sugary island, a marshmallow cove, or the treacherous Kitchen Table Straits? Read me the riddles, and together we&#x27;ll chart a course to the grand prize! Savvy?</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">The speaker should adopt a hearty, enthusiastic pirate persona. Use a gruff, booming voice with a thick, playful pirate accent, rolling the &#x27;R&#x27;s heavily. The pacing should be energetic and adventurous, with dramatic pauses to build excitement. Emphasize pirate slang like &quot;Ahoy,&quot; &quot;Captain,&quot; and &quot;Savvy&quot; with a joyful, booming inflection. The tone should be encouraging and collaborative, treating the spilled milk as a fun obstacle rather than a real problem.</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="yes"><span class="criterion">The response provides actionable help for dealing with the milk-covered map, such as carefully drying or cleaning it to reveal the final clue or using the remaining readable information to determine where to sail.</span><span class="why"><strong>Pass.</strong> The response suggests &#x27;gently dabbin&#x27; the parchment with a dry cloth&#x27; and &#x27;hold it up to the sunlight&#x27; to reveal the clue, and also offers to help interpret &#x27;the clues ye can read&#x27; if those methods fail.</span></li><li class="yes"><span class="criterion">The response adapts to the user&#x27;s pirate role-play with playful nautical or pirate-themed wording and an adventurous social tone.</span><span class="why"><strong>Pass.</strong> The response uses pirate-themed wording like &#x27;Ahoy there, captain!&#x27;, &#x27;Shiver me timbers&#x27;, &#x27;morning rations&#x27;, &#x27;matey&#x27;, &#x27;white sea&#x27;, &#x27;pirate wits&#x27;, and &#x27;savvy&#x27;, and maintains an adventurous and encouraging social tone throughout.</span></li></ul></div><p class="note">The saved judge record contains the criterion-level reasons above; no separate overall analysis was recorded.</p><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are a strict, audio-grounded evaluator of generated speech.
+
+Your task is to determine whether the attached speech reply satisfies each evaluation criterion. Judge the actual audio performance, not what the instruction asked for and not what the assistant probably intended to produce.
+
+STRICT DECISION STANDARD
+
+Begin each criterion with a default judgment of false. Change it to true only when the audio provides clear, affirmative, and criterion-specific evidence.
+
+- Return true only when the requested property is clearly perceptible and sufficiently present.
+- Return false when the property is absent, weak, ambiguous, only partially present, present in the wrong position, or contradicted by the audio.
+- Borderline evidence must be judged false.
+- A vocal property counts only if a neutral listener could identify it from the audio without being told in advance what the requested property was.
+- Do not give credit for effort, plausibility, or approximate intent.
+- Evaluate every criterion independently. Evidence for one criterion must not automatically carry over to another.
+- If one criterion contains multiple required conditions, return true only when all of them are satisfied.
+
+AUDIO-GROUNDING RULES
+
+Listen to the entire attached audio before making any judgments.
+
+The audio is attached to this message. Do not claim that no audio was provided unless the attachment genuinely cannot be decoded or heard.
+
+- Use the instruction or user input only to understand the task. It is not evidence that the requested behavior occurred.
+- Base claims about emotion, pitch, volume, pacing, voice identity, persona, accent, prosody, nonverbal sounds, and emotional transitions only on audible evidence.
+- Do not infer an emotion or persona merely from the semantic meaning of the spoken words.
+- Generic politeness, fluency, or naturalness does not by itself satisfy a requested emotion, empathetic tone, character, or persona.
+- Do not infer speaker age, gender presentation, accent, or identity unless it is clearly perceptible in the voice. If uncertain, return false.
+
+TASK-SPECIFIC RULES
+
+1. Spoken content and target-text accuracy
+
+- When a criterion requires the exact target text, any spoken preamble, instruction, stage direction, omission, addition, or word substitution makes the criterion false.
+- When a criterion requires complete and substantively accurate content rather than exact wording, minor harmless wording variation may pass, but missing, added, or changed meaning must fail.
+- If the assistant reads the user&#x27;s instruction or stage direction aloud instead of performing it, treat those words as added content.
+- If the task is conversational, judge whether the assistant actually responds to the user. Merely repeating or paraphrasing the user&#x27;s message is not an adequate response unless the criterion explicitly allows it.
+
+2. Nonverbal and paralinguistic events
+
+- A requested sigh, laugh, gasp, sob, pant, hiccup, cough, or similar event must be physically audible as that sound.
+- Saying the word or reading the stage direction does not count as performing the sound.
+- Position requirements are strict. An event requested before, during, or after a particular segment must occur in that position.
+- Requested pitch, volume, and speaking rate must be clearly different from an ordinary conversational baseline. Slight or debatable differences must be judged false.
+
+3. Emotion and empathy
+
+- Requested emotions must be audibly expressed through vocal delivery, not merely mentioned by the words.
+- Vocal-emotion criteria require perceptible acoustic evidence such as intonation, energy, pitch movement, rhythm, loudness, breathiness, tension, or voice quality.
+- Semantic empathy and vocal empathy are separate. Supportive wording does not automatically satisfy a criterion requiring warm, tender, lively, calm, or emotionally close vocal delivery.
+- Do not treat a generally pleasant or neutral voice as evidence of a specific requested emotion.
+
+4. Emotional transitions
+
+- Verify every required emotional phase separately.
+- Verify that the phases occur in the required order.
+- Verify that each phase aligns with the correct text segment.
+- Verify that the change between phases is audibly perceptible.
+- If any required phase is missing, weak, reversed, misplaced, or indistinguishable from the surrounding delivery, the relevant transition criterion must be false.
+- A pause or sentence boundary alone does not prove that an emotional transition occurred.
+
+5. Persona and role performance
+
+- A persona must be recognizable from the actual wording and/or vocal performance specified by the criterion.
+- A generic assistant voice does not satisfy a requested character, profession, age role, social role, or dramatic persona.
+- The persona must remain sufficiently consistent across the relevant portion of the response.
+- Do not award persona credit based only on the instruction naming that persona.
+
+REASON REQUIREMENTS
+
+For every criterion, provide a concise reason grounded in something actually heard in the audio or spoken in the response.
+
+- For true, identify the specific audible or semantic evidence that clearly satisfies the criterion.
+- For false, identify what is absent, weak, misplaced, incomplete, or contradictory.
+- Avoid generic explanations such as &quot;the criterion is satisfied,&quot; &quot;the tone is appropriate,&quot; or &quot;the response follows the instruction.&quot;
+- Do not invent acoustic details that are not clearly audible.
+
+OUTPUT REQUIREMENTS
+
+Return exactly one result for every supplied criterion:
+
+- Preserve the original criterion order.
+- Copy each criterion verbatim.
+- Use JSON booleans true and false, not strings.
+- Do not omit, merge, split, rewrite, or add criteria.
+- Output only the JSON object. Do not use Markdown or add commentary outside the JSON.
+
+Output schema:
+
+{
+  &quot;results&quot;: [
+    {
+      &quot;criterion&quot;: &quot;copy the original criterion verbatim&quot;,
+      &quot;satisfied&quot;: true,
+      &quot;reason&quot;: &quot;brief, specific evidence grounded in the audio or spoken response&quot;
+    },
+    {
+      &quot;criterion&quot;: &quot;copy the original criterion verbatim&quot;,
+      &quot;satisfied&quot;: false,
+      &quot;reason&quot;: &quot;brief, specific explanation of what is absent, weak, misplaced, or contradictory&quot;
+    }
+  ]
+}
+
+Before returning the JSON, internally verify that:
+
+1. You listened to the complete audio.
+2. Every true judgment has clear affirmative evidence.
+3. Borderline or uncertain cases are false.
+4. The result count exactly matches the criterion count.
+5. The criteria appear verbatim and in their original order.
+
+Instruction or user input given to the assistant:
+Ahoy there! I found a treasure map inside my cereal box, but the final clue is covered in milk. Can you help this brave pirate figure out where to sail?
+
+Attached speech reply:
+The audio attached to the user message.
+
+Evaluation criteria:
+1. The response provides actionable help for dealing with the milk-covered map, such as carefully drying or cleaning it to reveal the final clue or using the remaining readable information to determine where to sail.
+2. The response adapts to the user&#x27;s pirate role-play with playful nautical or pirate-themed wording and an adventurous social tone.
+</div></details><p class="note">Evaluation prompt reconstructed from the recorded template and task; no per-request prompt hash was saved.</p></div></div><p class="prov">Sample <code>00081030-c241-4ed1-b2af-f38a75a7dca9</code></p></div></main></body></html>

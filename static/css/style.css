@@ -1682,7 +1682,7 @@ main > .agent-example-placeholder { margin: 44px 0 10px; padding: 22px 24px; bor
 .agent-judge-line { display: flex; justify-content: space-between; gap: 10px; margin-top: 13px; padding-top: 10px; border-top: 1px solid var(--line-soft); color: var(--ink-soft); font-size: 12px; }
 .agent-judge-line strong { color: var(--ink); font-variant-numeric: tabular-nums; }
 .agent-judge-detail { margin-top: 10px; }
-.agent-judge-detail > summary, .agent-json > summary { cursor: pointer; color: var(--accent-deep); font-size: 12px; font-weight: 650; }
+.agent-judge-detail > summary { cursor: pointer; color: var(--accent-deep); font-size: 12px; font-weight: 650; }
 .agent-criteria-check { margin: 9px 0 0; padding-left: 20px; }
 .agent-criteria-check li { margin: 6px 0; color: var(--ink-soft); font-size: 12px; line-height: 1.5; }
 .agent-criteria-check li::marker { color: var(--ink-faint); }
@@ -1692,10 +1692,6 @@ main > .agent-example-placeholder { margin: 44px 0 10px; padding: 22px 24px; bor
 .agent-criteria-check small { margin-top: 2px; color: var(--ink-faint); }
 .agent-analysis { margin: 10px 0 0; padding: 9px 10px; border-radius: 7px; background: var(--bg-soft); color: var(--ink-soft); font-size: 12px; line-height: 1.55; white-space: pre-wrap; overflow-wrap: anywhere; }
 .agent-observation-label { display: inline-block; margin: 0 5px 5px 0; padding: 4px 7px; border-radius: 999px; color: var(--accent-deep); background: var(--accent-soft); font-size: 11px; font-weight: 650; }
-.agent-json { margin: 14px 0 0; padding: 12px 14px; border: 1px solid var(--line-soft); border-radius: 9px; background: var(--bg-soft); }
-.agent-json-loader { margin-top: 10px; }
-.agent-json-loader .gallery-status { margin-left: 8px; }
-.agent-json-loader pre { max-height: 460px; margin: 11px 0 0; padding: 12px; overflow: auto; border-radius: 8px; background: #1e2028; color: #eef0f6; font: 11px/1.55 var(--mono); white-space: pre; }
 .agent-case-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 17px; padding-top: 13px; border-top: 1px solid var(--line-soft); }
 .agent-response-card .agent-note { text-align: left; }
 @media (max-width: 800px) {
@@ -1709,3 +1705,7 @@ main > .agent-example-placeholder { margin: 44px 0 10px; padding: 22px 24px; bor
   .agent-case-choice > summary { padding: 14px; }
   .agent-turn { grid-template-columns: minmax(0, 1fr); gap: 5px; }
 }
+
+.case-page { padding-top: 30px; padding-bottom: 40px; }
+.case-fragment { min-width: 0; }
+.case-load-status { color: var(--ink-soft); font-size: 13px; }

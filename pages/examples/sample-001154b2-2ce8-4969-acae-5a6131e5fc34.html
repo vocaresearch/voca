@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>Vocal expression · a market vendor · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#sample-001154b2-2ce8-4969-acae-5a6131e5fc34">← Back to examples</a><h2>Vocal expression · a market vendor</h2>
+<div id="case-content"><header class="ex-head"><span class="badge ei">Paralinguistic expression</span><span class="meta-chip source-dataset">Source dataset: synthesized_texts</span></header><p class="ex-desc">A role and vocal-performance instruction accompanies a target line. The judge evaluates the spoken performance against each requirement, not merely whether the generated style description names it.</p><div class="pc-explanation"><h4>What the judge found</h4><p class="">The saved audio judge awards 4/4. All supplied criteria pass.</p></div><div class="example-conversation"><h4>User input</h4><div class="turn user"><div class="turn-label">User</div><div class="turn-body"><audio controls preload="none" src="static/audio/examples/001154b2-2ce8-4969-acae-5a6131e5fc34/input/01_001154b2-2ce8-4969-acae-5a6131e5fc34.wav" aria-label="User audio"></audio><p class="utt">At a neighborhood market, a middle-aged female vendor is inviting a passing customer to taste her wares; perform the line as this vendor, making the offer feel personally addressed and plausible: &quot;Here, sweetheart, try a free sample of local cheese.&quot;</p></div></div></div><div class="expected-rules"><h4>Task requirements</h4><p>The saved rubric below defines this example. Each requirement is judged independently.</p><ol><li>The audio clearly speaks the target sentence: &quot;Here, sweetheart, try a free sample of local cheese.&quot;</li><li>The voice is presented as a middle-aged female speaker.</li><li>The delivery sounds like a market vendor inviting a passerby to sample a product.</li><li>The offer is delivered in a warm, personally addressed manner toward the customer.</li></ol></div><div class="response-grid"><div class="response-card original" data-condition="original"><div class="response-heading"><h4>Model response</h4><span class="result-label full">4/4</span></div><p class="ab-sub">Gemini-3-Pro + TTS</p><audio controls preload="none" src="static/audio/examples/001154b2-2ce8-4969-acae-5a6131e5fc34/original/audio/001154b2-2ce8-4969-acae-5a6131e5fc34.wav" aria-label="Model response response"></audio><p class="utt response-text">Here, sweetheart, try a free sample of local cheese.</p><details class="tts-style"><summary>Style prompt passed to the TTS stage</summary><div class="detail-text">A warm, maternal, and inviting tone, typical of a friendly middle-aged market vendor. The voice should project slightly to catch the attention of a passerby, but remain intimate and welcoming. Start with a gentle, affectionate upward inflection on &#x27;sweetheart,&#x27; followed by a brief, natural pause as if extending a hand with the sample. Emphasize the words &#x27;free&#x27; and &#x27;local&#x27; with a proud, encouraging lilt, ending with a warm smile audible in the delivery.</div></details><div class="rubric"><h4>Judge criteria</h4><p class="judge-model">gemini-2.5-flash-thinking-512 · response audio</p><ul class="crit"><li class="yes"><span class="criterion">The audio clearly speaks the target sentence: &quot;Here, sweetheart, try a free sample of local cheese.&quot;</span><span class="why"><strong>Pass.</strong> The audio pronounces the exact target sentence without any omissions, additions, or substitutions.</span></li><li class="yes"><span class="criterion">The voice is presented as a middle-aged female speaker.</span><span class="why"><strong>Pass.</strong> The voice is clearly female, and its pitch, resonance, and vocal maturity are consistent with a middle-aged adult, not sounding youthful or elderly.</span></li><li class="yes"><span class="criterion">The delivery sounds like a market vendor inviting a passerby to sample a product.</span><span class="why"><strong>Pass.</strong> The delivery is friendly, engaging, and has a slightly uplifted, encouraging tone, particularly on &#x27;sweetheart&#x27; and the end of the sentence, consistent with an invitation from a vendor.</span></li><li class="yes"><span class="criterion">The offer is delivered in a warm, personally addressed manner toward the customer.</span><span class="why"><strong>Pass.</strong> The word &#x27;sweetheart&#x27; is spoken with a gentle, affectionate tone, and the overall delivery has a soft, inviting quality with a slight upward inflection, making it sound warm and directly addressed.</span></li></ul></div><p class="note">The saved judge record contains the criterion-level reasons above; no separate overall analysis was recorded.</p><details class="source-detail"><summary>Full evaluation prompt</summary><div class="detail-text">You are a strict, audio-grounded evaluator of generated speech.
+
+Your task is to determine whether the attached speech reply satisfies each evaluation criterion. Judge the actual audio performance, not what the instruction asked for and not what the assistant probably intended to produce.
+
+STRICT DECISION STANDARD
+
+Begin each criterion with a default judgment of false. Change it to true only when the audio provides clear, affirmative, and criterion-specific evidence.
+
+- Return true only when the requested property is clearly perceptible and sufficiently present.
+- Return false when the property is absent, weak, ambiguous, only partially present, present in the wrong position, or contradicted by the audio.
+- Borderline evidence must be judged false.
+- A vocal property counts only if a neutral listener could identify it from the audio without being told in advance what the requested property was.
+- Do not give credit for effort, plausibility, or approximate intent.
+- Evaluate every criterion independently. Evidence for one criterion must not automatically carry over to another.
+- If one criterion contains multiple required conditions, return true only when all of them are satisfied.
+
+AUDIO-GROUNDING RULES
+
+Listen to the entire attached audio before making any judgments.
+
+The audio is attached to this message. Do not claim that no audio was provided unless the attachment genuinely cannot be decoded or heard.
+
+- Use the instruction or user input only to understand the task. It is not evidence that the requested behavior occurred.
+- Base claims about emotion, pitch, volume, pacing, voice identity, persona, accent, prosody, nonverbal sounds, and emotional transitions only on audible evidence.
+- Do not infer an emotion or persona merely from the semantic meaning of the spoken words.
+- Generic politeness, fluency, or naturalness does not by itself satisfy a requested emotion, empathetic tone, character, or persona.
+- Do not infer speaker age, gender presentation, accent, or identity unless it is clearly perceptible in the voice. If uncertain, return false.
+
+TASK-SPECIFIC RULES
+
+1. Spoken content and target-text accuracy
+
+- When a criterion requires the exact target text, any spoken preamble, instruction, stage direction, omission, addition, or word substitution makes the criterion false.
+- When a criterion requires complete and substantively accurate content rather than exact wording, minor harmless wording variation may pass, but missing, added, or changed meaning must fail.
+- If the assistant reads the user&#x27;s instruction or stage direction aloud instead of performing it, treat those words as added content.
+- If the task is conversational, judge whether the assistant actually responds to the user. Merely repeating or paraphrasing the user&#x27;s message is not an adequate response unless the criterion explicitly allows it.
+
+2. Nonverbal and paralinguistic events
+
+- A requested sigh, laugh, gasp, sob, pant, hiccup, cough, or similar event must be physically audible as that sound.
+- Saying the word or reading the stage direction does not count as performing the sound.
+- Position requirements are strict. An event requested before, during, or after a particular segment must occur in that position.
+- Requested pitch, volume, and speaking rate must be clearly different from an ordinary conversational baseline. Slight or debatable differences must be judged false.
+
+3. Emotion and empathy
+
+- Requested emotions must be audibly expressed through vocal delivery, not merely mentioned by the words.
+- Vocal-emotion criteria require perceptible acoustic evidence such as intonation, energy, pitch movement, rhythm, loudness, breathiness, tension, or voice quality.
+- Semantic empathy and vocal empathy are separate. Supportive wording does not automatically satisfy a criterion requiring warm, tender, lively, calm, or emotionally close vocal delivery.
+- Do not treat a generally pleasant or neutral voice as evidence of a specific requested emotion.
+
+4. Emotional transitions
+
+- Verify every required emotional phase separately.
+- Verify that the phases occur in the required order.
+- Verify that each phase aligns with the correct text segment.
+- Verify that the change between phases is audibly perceptible.
+- If any required phase is missing, weak, reversed, misplaced, or indistinguishable from the surrounding delivery, the relevant transition criterion must be false.
+- A pause or sentence boundary alone does not prove that an emotional transition occurred.
+
+5. Persona and role performance
+
+- A persona must be recognizable from the actual wording and/or vocal performance specified by the criterion.
+- A generic assistant voice does not satisfy a requested character, profession, age role, social role, or dramatic persona.
+- The persona must remain sufficiently consistent across the relevant portion of the response.
+- Do not award persona credit based only on the instruction naming that persona.
+
+REASON REQUIREMENTS
+
+For every criterion, provide a concise reason grounded in something actually heard in the audio or spoken in the response.
+
+- For true, identify the specific audible or semantic evidence that clearly satisfies the criterion.
+- For false, identify what is absent, weak, misplaced, incomplete, or contradictory.
+- Avoid generic explanations such as &quot;the criterion is satisfied,&quot; &quot;the tone is appropriate,&quot; or &quot;the response follows the instruction.&quot;
+- Do not invent acoustic details that are not clearly audible.
+
+OUTPUT REQUIREMENTS
+
+Return exactly one result for every supplied criterion:
+
+- Preserve the original criterion order.
+- Copy each criterion verbatim.
+- Use JSON booleans true and false, not strings.
+- Do not omit, merge, split, rewrite, or add criteria.
+- Output only the JSON object. Do not use Markdown or add commentary outside the JSON.
+
+Output schema:
+
+{
+  &quot;results&quot;: [
+    {
+      &quot;criterion&quot;: &quot;copy the original criterion verbatim&quot;,
+      &quot;satisfied&quot;: true,
+      &quot;reason&quot;: &quot;brief, specific evidence grounded in the audio or spoken response&quot;
+    },
+    {
+      &quot;criterion&quot;: &quot;copy the original criterion verbatim&quot;,
+      &quot;satisfied&quot;: false,
+      &quot;reason&quot;: &quot;brief, specific explanation of what is absent, weak, misplaced, or contradictory&quot;
+    }
+  ]
+}
+
+Before returning the JSON, internally verify that:
+
+1. You listened to the complete audio.
+2. Every true judgment has clear affirmative evidence.
+3. Borderline or uncertain cases are false.
+4. The result count exactly matches the criterion count.
+5. The criteria appear verbatim and in their original order.
+
+Instruction or user input given to the assistant:
+At a neighborhood market, a middle-aged female vendor is inviting a passing customer to taste her wares; perform the line as this vendor, making the offer feel personally addressed and plausible: &quot;Here, sweetheart, try a free sample of local cheese.&quot;
+
+Attached speech reply:
+The audio attached to the user message.
+
+Evaluation criteria:
+1. The audio clearly speaks the target sentence: &quot;Here, sweetheart, try a free sample of local cheese.&quot;
+2. The voice is presented as a middle-aged female speaker.
+3. The delivery sounds like a market vendor inviting a passerby to sample a product.
+4. The offer is delivered in a warm, personally addressed manner toward the customer.
+</div></details><p class="note">Evaluation prompt reconstructed from the recorded template and task; no per-request prompt hash was saved.</p></div></div><p class="prov">Sample <code>001154b2-2ce8-4969-acae-5a6131e5fc34</code></p></div></main></body></html>

@@ -14,9 +14,9 @@ voca-page/
 ├── index.html
 ├── .nojekyll                 # tells GitHub Pages to serve files as-is
 ├── tools/                    # optional gallery regeneration and selection manifest
+├── pages/                    # 44 benchmark and 57 VocaAgent case pages
 └── static/
     ├── audio/                # selected original WAVs under examples/ and voca-agent/
-    ├── data/voca-agent/      # lazy-loaded public JSON projections for 50 cases
     ├── css/style.css
     ├── js/examples.js
     └── images/overview.png
@@ -31,7 +31,7 @@ from `index.html` with relative paths and play on click:
 <audio controls preload="none" src="static/audio/pc_para_hit_model.m4a"></audio>
 ```
 
-The page links the original example audio plus 306 copied WAV files for the
+The page links the original example audio plus 337 copied WAV files for the
 VocaAgent gallery. The VocaAgent files preserve every selected input turn and
 the recorded Default, Care, Agent 3 and final VocaAgent response audio without
 re-encoding. The new audio manifest is `tools/voca-agent-media.json`.
@@ -68,20 +68,25 @@ history text, and relevant background constraints. Prompts and judge details can
 be expanded. Raw records containing local source paths are not copied into the
 public gallery.
 
-The page also contains a guided VocaAgent gallery with 40 requested-quota
-comparison cases (20 paralinguistic, 10 semantic, 10 contextual) and 10
-limited/no-gain contrast cases. Choose the result set, then the trigger type,
-then open a single case. Every card keeps all user audio turns, Default/Care/
-VocaAgent text and audio, Agent 2 observations, routed Agent 3 output when
-present, criterion-level audio-judge reasons, and a lazily loaded public JSON
-projection under `static/data/voca-agent/`. Local workstation paths, request
-IDs and raw operational payloads are removed from those public projections.
+The VocaAgent gallery contains 57 cases: the twelve explicitly selected
+paralinguistic cases from the original package, its thirteen semantic and twelve
+contextual cases, and all twenty environmental/emotional cases from the new
+package. The paralinguistic total is 32. Outcome tabs distinguish higher recorded
+scores from no gain/regressions; unavailable Default scores are labeled. Cases
+that reuse Default are not labeled as improvements over Default.
 
-The 40-case display contains 26 strict cases and 14 supplementary cases. A
-badge on each supplementary card explains whether default-audio evidence is
-missing or a baseline is already above the strict threshold; the page does not
-present those records as strict two-baseline failures. The frozen package's
-selection and method notes are copied to `tools/voca-agent-selection.json`.
+The main page retains category tabs and case summaries. Each full example lives
+in its own HTML file under `pages/examples/` or `pages/voca-agent/` and loads in
+place when opened. This preserves the same browsing interface while keeping
+`index.html` small. Each child page can also be opened independently; this is
+the fallback when JavaScript is disabled or a fragment fails to load. No public
+JSON files are loaded or displayed. Original source packages are not modified.
+
+VocaAgent cards preserve all user audio turns, historical assistant text,
+background constraints, Default/Care/final outputs, Agent 2 observations,
+Agent 3 outputs where invoked, actual system prompts, and recorded audio-judge
+criteria and reasons. Audio loaded after expansion also obeys single-player
+playback and pauses when the case or its category is closed.
 
 Proactive care includes 14 voice or background-cue cases, three semantic cases
 and four contextual cases. The expanded selection covers nonverbal-only sniffing
@@ -106,7 +111,8 @@ python3 tools/build_voca_agent_cases.py
 Regeneration reads `../candidate_samples/` and selected folders under
 `../用户理解/`, `../主动关怀_多样对比/` and `../副语言触发_不提升与下降/`,
 which are only needed for this optional authoring step.
-The published HTML, scripts and audio are self-contained.
+VocaAgent regeneration additionally reads `../VocaAgent_Fun_Qwen_50例试听/` and
+`../VocaAgent_环境音与情感_20例试听/`. The published HTML, scripts and audio are self-contained.
 
 ## Preview locally
 
@@ -115,7 +121,7 @@ python3 -m http.server 8000
 # open http://localhost:8000
 ```
 
-Opening `index.html` directly as a `file://` URL also works.
+Use the HTTP preview server for loading cases in place. When opening files directly, follow the standalone case links.
 
 ## Deploy on GitHub Pages
 
