@@ -6,6 +6,7 @@ retain its semantic/contextual comparisons, add the twenty-case package, and cur
 No model calls or public JSON exports are made.
 """
 from pathlib import Path
+from functools import lru_cache
 import hashlib
 import html
 import json
@@ -74,6 +75,44 @@ CUE_ORDER = ('crying', 'sobbing', 'sadness', 'fear', 'nervousness', 'trembling_v
 
 def load(path):
     return json.loads(path.read_text())
+
+
+@lru_cache(maxsize=1)
+def default_supplements():
+    records = load(PAGE.parent / '网页修复/voca-agent-default-supplements.json')['records']
+    indexed = {record['sample_id']: record for record in records}
+    assert len(indexed) == len(records), 'Duplicate Default supplement'
+    return indexed
+
+
+def load_comparison(directory):
+    comparison = load(directory / 'comparison.json')
+    supplement = default_supplements().get(comparison['sample_id'])
+    if supplement is None:
+        return comparison
+    outputs = comparison['outputs']
+    default, final = outputs['default'], outputs['vocaagent']
+    judge = supplement['judge']
+    digest = hashlib.sha256((directory / 'default/output.wav').read_bytes()).hexdigest()
+    assert comparison['model'] == supplement['target']
+    assert supplement['output_condition'] == comparison['track'] + '_default'
+    assert judge['sample_id'] == comparison['sample_id']
+    assert digest == default['audio_sha256'] == supplement['audio_sha256'] == judge['audio_sha256']
+    assert digest == final['audio_sha256'], 'Score reuse requires byte-identical final audio'
+    assert judge == final['judge'], 'Preserve the original final-response judge record'
+    assert [item['criterion'] for item in judge['results']] == comparison['criteria']
+    assert len(judge['results']) == judge['max_score']
+    assert sum(item['satisfied'] is True for item in judge['results']) == judge['score']
+    assert abs(judge['score_rate'] - judge['score'] / judge['max_score']) < 1e-8
+    if default.get('judge'):
+        assert all(default[key] == judge[key] for key in ('score', 'max_score', 'score_rate'))
+    default['judge'] = judge
+    for key in ('score', 'max_score', 'score_rate'):
+        default[key] = judge[key]
+    comparison['default_score_rate'] = judge['score_rate']
+    comparison['delta_vs_default'] = final['score_rate'] - judge['score_rate']
+    comparison['default_score_basis'] = supplement['score_basis']
+    return comparison
 
 
 def pretty(value):
@@ -202,7 +241,7 @@ def render_conversation(directory, conversation, case_key):
 
 def render_case(directory, selection, number, outcome, track, case_order):
     sample = load(directory / 'sample.json')
-    comparison = load(directory / 'comparison.json')
+    comparison = load_comparison(directory)
     routing = load(directory / 'routing.json') if (directory / 'routing.json').exists() else {}
     conversation = load(directory / 'conversation.json')
     sid = sample['id']
@@ -273,10 +312,10 @@ def render_case(directory, selection, number, outcome, track, case_order):
     if directory.parent.parent == CONTEXT_SOURCE:
         if public_audio['default'] and public_audio['vocaagent'] and outputs['default'].get('audio_sha256') == outputs['vocaagent'].get('audio_sha256'):
             interpretation += ' VocaAgent reuses the identical Default audio; this is not a gain over Default.'
-        if comparison.get('default_score_basis'):
-            interpretation += ' The Default score is reused from the final-response judge because the audio files have identical SHA-256 hashes; it is not an independent evaluation.'
         if (default or {}).get('score_rate') is None:
             interpretation += ' No matching Default judge score is available; a comparison against Default cannot be established.'
+    if comparison.get('default_score_basis'):
+        interpretation += ' Default and VocaAgent use the identical audio, so they share its recorded judge score.'
 
     description = sample.get('transcript')
     if isinstance(description, dict):
@@ -387,6 +426,7 @@ CONTEXT_FOCUS = [
 
 def main():
     chosen = []
+    prior_codes = {case['id']: case['display_code'] for case in load(TOOLS / 'voca-agent-selection.json')['cases']}
     for source in (SOURCE, NEW_SOURCE, CONTEXT_SOURCE):
         for directory in sorted((source / 'cases').iterdir()):
             if not directory.is_dir():
@@ -401,7 +441,7 @@ def main():
                 selection['display_note'] = NEW_NOTES[number - 1]
             if source == CONTEXT_SOURCE:
                 selection['display_note'] = CONTEXT_FOCUS[number - 1]
-            comparison = load(directory / 'comparison.json')
+            comparison = load_comparison(directory)
             selection['model_key'] = next(k for k, v in MODELS.items() if v == comparison['model'])
             outputs = comparison['outputs']
             final = outputs['vocaagent']
@@ -421,7 +461,7 @@ def main():
     def sort_key(entry):
         directory, selection, number, outcome = entry
         sample = load(directory / 'sample.json')
-        comparison = load(directory / 'comparison.json')
+        comparison = load_comparison(directory)
         label = sample.get('label')
         cue = CUE_ORDER.index(label) if label in CUE_ORDER else len(CUE_ORDER)
         outputs = comparison['outputs']
@@ -435,7 +475,8 @@ def main():
         key = (selection['model_key'], selection['track'])
         sequences[key] = sequences.get(key, 0) + 1
         prefix = 'QW' if key[0] == 'qwen' else 'FUN'
-        selection['display_code'] = f'{prefix}-{key[1][0].upper()}{sequences[key]:02d}'
+        selection['display_code'] = prior_codes.get(selection['sample_id'], f'{prefix}-{key[1][0].upper()}{sequences[key]:02d}')
+    assert len({s['display_code'] for _, s, _, _ in chosen}) == len(chosen)
     model_buttons = '<button type="button" data-model="all" aria-pressed="true">All models <span>65</span></button>'
     for key, label in MODELS.items():
         count = sum(s['model_key'] == key for _, s, _, _ in chosen)

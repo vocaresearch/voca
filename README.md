@@ -84,6 +84,7 @@ and trigger, improvements precede limited results; similar reference cues are
 adjacent, with larger gains first (larger declines first in the limited group).
 The original case URLs remain unchanged. Linking to a case from another model
 reveals that model automatically.
+Published case codes are also retained when recovered scores change sorting.
 
 Four supplied publication figures are displayed as responsive WebP previews
 without open/download controls. Original PDFs remain under `static/figures/`. To refresh the previews
@@ -130,6 +131,15 @@ Regeneration reads `../candidate_samples/` and selected folders under
 which are only needed for this optional authoring step.
 VocaAgent regeneration additionally reads `../VocaAgent_Fun_Qwen_50例试听/` and
 `../VocaAgent_环境音与情感_20例试听/` and `../VocaAgent_上下文与语义_30例试听/`. The published HTML, scripts and audio are self-contained.
+It also reads the local authoring supplement
+`../网页修复/voca-agent-default-supplements.json`. This file preserves the
+original recovered judge records and is not published. The generator checks
+the Default WAV hash and criterion alignment before applying its scores.
+FUN-S08, FUN-S09 and FUN-S10 now show matching Default scores of 5/5, 5/5
+and 4/4; FUN-C02 retains 4/5. These four cases share the recorded evaluation
+of byte-identical Default and final VocaAgent audio. The remaining 23 Fun
+Default outputs still have no matching score (14 vocal/environmental,
+seven semantic and two contextual cases).
 
 ## Preview locally
 
