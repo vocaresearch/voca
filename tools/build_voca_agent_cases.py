@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
-"""Build selected VocaAgent comparisons as separate HTML case pages.
+"""Build the selected VocaAgent comparisons as separate HTML case pages.
 
-Retain only the twelve user-selected vocal cases from the first package,
-retain its semantic/contextual comparisons, add the twenty-case package, and curate eight cases from the thirty-case semantic/contextual package.
-No model calls or public JSON exports are made.
+Keep Qwen examples whose detail pages are present in the current gallery and
+replace the Fun-Audio-Chat selection with the explicitly selected cases from
+the September 2026 curated package. No model calls or public case JSON exports
+are made.
 """
 from pathlib import Path
 from functools import lru_cache
@@ -13,6 +14,7 @@ import json
 import re
 import shutil
 from case_pages import split_cases
+from english_content import CASE_TITLES, translate_text
 
 PAGE = Path(__file__).resolve().parents[1]
 SOURCE = PAGE.parent / 'VocaAgent_Fun_Qwen_50例试听'
@@ -227,7 +229,7 @@ def render_conversation(directory, conversation, case_key):
         if audio_rel:
             audio_public = copy_audio(directory, audio_rel, case_key, 'input/' + Path(audio_rel).name)
         body = render_audio(audio_public, label + ' input audio') if audio_public else ''
-        text = message.get('reference_transcript')
+        text = message.get('reference_transcript') or message.get('text')
         if text:
             body += f'<p class="agent-turn-text">{esc(text)}</p>'
         if not text and role == 'user':
@@ -239,15 +241,77 @@ def render_conversation(directory, conversation, case_key):
     return f'<div class="agent-conversation"><h4>{heading}</h4>{"".join(parts)}</div>'
 
 
-def render_case(directory, selection, number, outcome, track, case_order):
-    sample = load(directory / 'sample.json')
-    comparison = load_comparison(directory)
-    routing = load(directory / 'routing.json') if (directory / 'routing.json').exists() else {}
+def prepare_curated_case(directory, selection):
+    """Adapt the source package into the renderer's private in-memory schema."""
+    original = load(directory / 'comparison.json')
     conversation = load(directory / 'conversation.json')
+    outputs = {}
+    for stage in ('default', 'care', 'vocaagent'):
+        output = dict(original['outputs'][stage])
+        output['text'] = (directory / output['text']).read_text().strip()
+        judge_path = output.get('judge')
+        output['judge'] = load(directory / judge_path) if judge_path else None
+        outputs[stage] = output
+    current_user_text = next((m.get('text') for m in reversed(conversation)
+                              if m.get('role') == 'user' and m.get('text')), '')
+    sample_original = load(directory / 'sample.original.json')
+    sample = {
+        'id': original['sample_id'],
+        'label': original.get('label'),
+        'source-dataset': original.get('source_dataset'),
+        'subtype': original.get('subtype') or sample_original.get('subtype'),
+        'transcript': current_user_text,
+        'criteria': [translate_text(item) for item in (original.get('criteria') or [])],
+    }
+    comparison = dict(original)
+    comparison.update({
+        'title': CASE_TITLES.get(original.get('case_id'), translate_text(original.get('title', ''))),
+        'criteria': [translate_text(item) for item in (original.get('criteria') or [])],
+        'model': original.get('response_model') or 'Fun-Audio-Chat',
+        'track': selection['track'],
+        'outputs': outputs,
+    })
+    original_routing = load(directory / 'routing.original.json')
+    final_route = original_routing.get('final') or {}
+    stage = final_route.get('source') or final_route.get('stage') or 'agent3'
+    routing = {
+        'source_stage': stage,
+        'route': stage,
+        'overrode_agent1': bool(original.get('agent3_called')),
+    }
+    return sample, comparison, routing, conversation
+
+
+def curated_display_note(comparison):
+    care = comparison['outputs']['care']
+    final = comparison['outputs']['vocaagent']
+    delta = (final['score_rate'] - care['score_rate']) * 100
+    if delta > 1e-8:
+        relation = f'VocaAgent is {delta:.1f} percentage points above Care'
+    elif delta < -1e-8:
+        relation = f'VocaAgent is {abs(delta):.1f} percentage points below Care'
+    else:
+        relation = 'VocaAgent and Care have the same score rate'
+    return (f'{relation} ({score_info(care)["text"]} vs. {score_info(final)["text"]}). '
+            'The original Default audio and text are included, but this package has no matching Default Judge record; '
+            'a scored comparison against Default is unavailable.')
+
+
+def render_case(directory, selection, number, outcome, track, case_order, curated=False):
+    if curated:
+        sample, comparison, routing, conversation = prepare_curated_case(directory, selection)
+    else:
+        sample = load(directory / 'sample.json')
+        comparison = load_comparison(directory)
+        routing = load(directory / 'routing.json') if (directory / 'routing.json').exists() else {}
+        conversation = load(directory / 'conversation.json')
     sid = sample['id']
     case_key = f'{number:02d}_{sid}'
-    tier_class, tier_label = ('strict', 'Higher recorded score') if outcome == 'strong' else ('limited', 'Tie / regression')
-    if comparison.get('default_score_rate') is None:
+    if curated:
+        tier_class, tier_label = ('strict', 'Higher than Care') if outcome == 'strong' else ('limited', 'Tie / below Care')
+    else:
+        tier_class, tier_label = ('strict', 'Higher recorded score') if outcome == 'strong' else ('limited', 'Tie / regression')
+    if not curated and comparison.get('default_score_rate') is None:
         tier_class, tier_label = 'supplemental', 'Default score unavailable'
     label = label_for(sample, comparison, track)
     source = sample.get('source-dataset') or sample.get('source_dataset') or 'Not recorded'
@@ -282,8 +346,10 @@ def render_case(directory, selection, number, outcome, track, case_order):
     default = outputs.get('default')
     care = outputs.get('care')
     voca = outputs.get('vocaagent')
+    default_note = ('The original Default audio and response text are available, but no matching Default Judge score was supplied.'
+                    if curated else None)
     cards = [
-        response_card('Default prompt', 'agent-default', (default or {}).get('text', ''), public_audio['default'], default),
+        response_card('Default prompt', 'agent-default', (default or {}).get('text', ''), public_audio['default'], default, default_note),
         response_card('Care prompt', 'agent-care', (care or {}).get('text', ''), public_audio['care'], care),
         response_card('Agent 2 · observation', 'agent-monitor', '; '.join(item.get('label', '') for item in obs_labels) + '\n\n' + str(agent2_obs.get('summary') or ''), None, note='Agent 2 monitors the current audio and records observations; this stage has no speech output.'),
     ]
@@ -294,21 +360,23 @@ def render_case(directory, selection, number, outcome, track, case_order):
     cards.append(response_card('VocaAgent · final response', 'agent-voca', (voca or {}).get('text', ''), public_audio['vocaagent'], voca, note=f'Routing record: {route_label} ({route_note}).'))
 
     topics = {17:'Choosing a walk that fits mobility needs',18:'Keeping a distracting phone out of sight',19:'Remembering overdue recycling',20:'Leaving in time for the train',21:'Remembering an overdue medication',22:'Remembering an overdue filter change',23:'An unfinished expense report',24:'An imminent video call',25:'Moving overdue laundry',26:'Remembering an alcohol restriction',31:'Caregiving strain and screen-time rewards',32:'Grief after a mother’s death',33:'Traumatic memories triggered at night',34:'Worry about returning to school',35:'Sleeplessness and feeling unable to help',36:'Self-doubt after repeated mistakes',37:'Racing thoughts at bedtime',38:'Unwanted contact from an ex-partner',39:'Wanting to help but lacking motivation',40:'Job loss, drinking and family distance',44:'Anxiety after public criticism',45:'Staying within the remaining budget',48:'Worry about losing a job',49:'Sadness after an unexpected breakup',50:'Remembering a flashing-light restriction'}
-    if track != 'paralinguistic':
+    if not curated and track != 'paralinguistic':
         label = CONTEXT_TOPICS[number - 1] if directory.parent.parent == CONTEXT_SOURCE else topics[number]
     for i, stage in enumerate(('default', 'care', 'agent2', 'agent3')):
         if stage == 'agent2':
             continue
         prompt_path = directory / stage / 'effective_system_prompt.txt'
+        if curated and not prompt_path.exists():
+            prompt_path = directory / stage / 'system_prompt.txt'
         if prompt_path.exists():
             prompt = prompt_path.read_text().strip() or 'No additional system prompt was recorded for this stage.'
             details = f'<details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">{esc(prompt)}</div></details>'
             cards[i] = cards[i][:-6] + details + '</div>'
-    if track == 'paralinguistic':
+    if not curated and track == 'paralinguistic':
         label = NEW_TOPICS[number - 1] if directory.parent.parent == NEW_SOURCE else VOCAL_TOPICS[number]
-    title = f'{selection["display_code"]} · {label}'
+    title = f'{selection["display_code"]} · {comparison["title"]}' if curated else f'{selection["display_code"]} · {label}'
     summary_score = f'VocaAgent {score_info(voca)["text"]} · Default {score_info(default)["text"]} · Care {score_info(care)["text"]}'
-    interpretation = selection['display_note']
+    interpretation = curated_display_note(comparison) if curated else selection['display_note']
     if directory.parent.parent == CONTEXT_SOURCE:
         if public_audio['default'] and public_audio['vocaagent'] and outputs['default'].get('audio_sha256') == outputs['vocaagent'].get('audio_sha256'):
             interpretation += ' VocaAgent reuses the identical Default audio; this is not a gain over Default.'
@@ -347,6 +415,13 @@ def render_case(directory, selection, number, outcome, track, case_order):
 SELECTED_NUMBERS = {4, 5, 6, 7, 8, 10, 11, 12, 29, 30, 41, 47}
 NEW_SOURCE = PAGE.parent / 'VocaAgent_环境音与情感_20例试听'
 CONTEXT_SOURCE = PAGE.parent / 'VocaAgent_上下文与语义_30例试听'
+CURATED_SOURCE = PAGE.parent / '网页修复/Fun-Audio-Chat_分类分档触发案例_35例_20260923'
+CURATED_IDS = (
+    'P-H01', 'P-H03', 'P-H05', 'P-H06', 'P-H07', 'P-H08',
+    'P-H09', 'P-H10', 'P-H11', 'P-H13', 'P-H14', 'P-H15',
+    'S-H01', 'S-H02', 'S-H03', 'S-L01', 'S-L02', 'S-N01',
+    'C-N01', 'C-N02', 'C-N03',
+)
 # Select a compact, diverse subset from the 30-case package. The existing 57 cases remain unchanged.
 CONTEXT_SELECTED = {1, 2, 4, 8, 11, 12, 16, 29}
 NEW_NOTES = [
@@ -426,58 +501,98 @@ CONTEXT_FOCUS = [
 
 def main():
     chosen = []
-    prior_codes = {case['id']: case['display_code'] for case in load(TOOLS / 'voca-agent-selection.json')['cases']}
-    for source in (SOURCE, NEW_SOURCE, CONTEXT_SOURCE):
-        for directory in sorted((source / 'cases').iterdir()):
-            if not directory.is_dir():
-                continue
-            selection = load(directory / 'selection.json')
-            number = folder_number(directory)
-            if source == SOURCE and selection['track'] == 'paralinguistic' and number not in SELECTED_NUMBERS:
-                continue
-            if source == CONTEXT_SOURCE and number not in CONTEXT_SELECTED:
-                continue
-            if source == NEW_SOURCE:
-                selection['display_note'] = NEW_NOTES[number - 1]
-            if source == CONTEXT_SOURCE:
-                selection['display_note'] = CONTEXT_FOCUS[number - 1]
-            comparison = load_comparison(directory)
-            selection['model_key'] = next(k for k, v in MODELS.items() if v == comparison['model'])
-            outputs = comparison['outputs']
-            final = outputs['vocaagent']
-            baseline_rates = [outputs[k]['score_rate'] for k in ('default', 'care') if outputs[k].get('score_rate') is not None]
-            reused = final.get('audio_sha256') == outputs['default'].get('audio_sha256')
-            outcome = 'strong' if not reused and baseline_rates and final['score_rate'] > max(baseline_rates) + 1e-8 else 'limited'
-            if not selection.get('display_note'):
-                passed = {k: {r['criterion'] for r in (outputs[k].get('judge') or {}).get('results', []) if r.get('satisfied')} for k in outputs}
-                gained = sorted(passed['vocaagent'] - passed['care'] - passed['default'])
-                selection['display_note'] = ('VocaAgent passes requirements missed by both recorded baselines: ' + ' '.join(gained)) if gained and outputs['default'].get('judge') else ('Compare the recorded criterion-level reasons below: equal totals can reflect different omissions.' if outcome == 'limited' else 'VocaAgent receives a higher recorded score than the available baselines. Read the criterion-level reasons and listen to the responses.')
-                if outputs['default'].get('score_rate') is None:
-                    selection['display_note'] += ' The matching Default audio has no saved judge score; this comparison establishes a gain over Care only.'
-            chosen.append((directory, selection, number, outcome))
-    assert len(chosen) == 65
-    assert sum(x[1]['track'] == 'paralinguistic' and x[0].parent == SOURCE / 'cases' for x in chosen) == 12
-    assert len({x[1]['sample_id'] for x in chosen}) == len(chosen)
+    old_manifest = load(TOOLS / 'voca-agent-selection.json')
+    old_index = (PAGE / 'index.html').read_text()
+    start = old_index.index('<!-- AGENT_CASES:BEGIN')
+    end = old_index.index('<!-- AGENT_CASES:END -->', start) + len('<!-- AGENT_CASES:END -->')
+    old_gallery = old_index[start:end]
+    old_markup = {}
+    for markup in re.findall(r'<details class="agent-case-choice"[^>]*>.*?</details>', old_gallery, re.S):
+        case_id = re.search(r'data-case-id="([^"]+)"', markup)
+        model = re.search(r'data-model="([^"]+)"', markup)
+        if case_id and model:
+            old_markup[(model.group(1), case_id.group(1))] = translate_text(markup)
+    omitted_existing_qwen = []
+    for gallery_order, record in enumerate(old_manifest['cases']):
+        if record['model'] != MODELS['qwen']:
+            continue
+        case_id = record['id']
+        if ('qwen', case_id) not in old_markup:
+            omitted_existing_qwen.append(record)
+            continue
+        selection = {
+            'sample_id': case_id,
+            'track': record['track'],
+            'model_key': 'qwen',
+            'display_code': record['display_code'],
+            'source_package': 'Qwen-Audio-3.0-Realtime-Flash cases',
+            'source_number': record['source_number'],
+            'gallery_order': gallery_order,
+        }
+        chosen.append((None, selection, int(record['source_number']), record['outcome']))
+
+    curated_index = {item['case_id']: item for item in load(CURATED_SOURCE / 'case_index.json')}
+    for custom_number, case_id in enumerate(CURATED_IDS, 1):
+        directory = CURATED_SOURCE / 'cases' / case_id
+        comparison = load(directory / 'comparison.json')
+        track = comparison['category']
+        outcome = 'strong' if comparison.get('delta_vs_care', 0) > 1e-8 else 'limited'
+        selection = {
+            'sample_id': comparison['sample_id'],
+            'track': track,
+            'model_key': 'fun',
+            'source_case_id': case_id,
+            'source_package': 'Curated Fun-Audio-Chat cases',
+            'display_note': curated_display_note(comparison),
+        }
+        assert curated_index[case_id]['sample_id'] == selection['sample_id']
+        chosen.append((directory, selection, custom_number, outcome))
+
+    curated_cases = [x for x in chosen if x[0] is not None]
+    assert len(curated_cases) == 21
+    assert sum(x[1]['track'] == 'paralinguistic' for x in curated_cases) == 12
+    assert sum(x[1]['track'] == 'semantic' for x in curated_cases) == 6
+    assert sum(x[1]['track'] == 'contextual' for x in curated_cases) == 3
+    assert len({(x[1]['model_key'], x[1]['sample_id']) for x in chosen}) == len(chosen)
     def sort_key(entry):
         directory, selection, number, outcome = entry
-        sample = load(directory / 'sample.json')
-        comparison = load_comparison(directory)
-        label = sample.get('label')
+        if directory is None:
+            return (0, selection['gallery_order'])
+        curated = directory.parent.parent == CURATED_SOURCE
+        sample = load(directory / 'sample.original.json')
+        comparison = load(directory / 'comparison.json')
+        label = sample.get('label') or comparison.get('label')
         cue = CUE_ORDER.index(label) if label in CUE_ORDER else len(CUE_ORDER)
         outputs = comparison['outputs']
         baseline = max(o['score_rate'] for k, o in outputs.items() if k in ('default', 'care') and o.get('score_rate') is not None)
         gain = outputs['vocaagent']['score_rate'] - baseline
-        return (list(MODELS).index(selection['model_key']), TRACK_ORDER.index(selection['track']),
+        return (1, list(MODELS).index(selection['model_key']), TRACK_ORDER.index(selection['track']),
                 OUTCOME_ORDER.index(outcome), cue, -gain if outcome == 'strong' else gain, number, sample['id'])
     chosen.sort(key=sort_key)
     sequences = {}
-    for _, selection, _, _ in chosen:
+    for directory, selection, _, _ in chosen:
         key = (selection['model_key'], selection['track'])
         sequences[key] = sequences.get(key, 0) + 1
         prefix = 'QW' if key[0] == 'qwen' else 'FUN'
-        selection['display_code'] = prior_codes.get(selection['sample_id'], f'{prefix}-{key[1][0].upper()}{sequences[key]:02d}')
+        old_code = selection.get('display_code')
+        selection['display_code'] = f'{prefix}-{key[1][0].upper()}{sequences[key]:02d}'
+        if directory is None:
+            markup_key = ('qwen', selection['sample_id'])
+            markup = old_markup[markup_key].replace(old_code, selection['display_code'])
+            old_markup[markup_key] = markup
+            page_match = re.search(r'data-case-src="([^"]+)"', markup)
+            assert page_match, f'Missing Qwen standalone page link: {selection["sample_id"]}'
+            page_path = PAGE / page_match.group(1)
+            if page_path.is_file() and old_code:
+                page_path.write_text(translate_text(page_path.read_text().replace(old_code, selection['display_code'])))
+    for model_key in MODELS:
+        for track in TRACK_ORDER:
+            numbers = sorted(int(s['display_code'].split('-')[-1][1:]) for _, s, _, _ in chosen
+                             if s['model_key'] == model_key and s['track'] == track)
+            assert numbers == list(range(1, len(numbers) + 1)), f'Non-contiguous case numbering for {model_key}/{track}: {numbers}'
     assert len({s['display_code'] for _, s, _, _ in chosen}) == len(chosen)
-    model_buttons = '<button type="button" data-model="all" aria-pressed="true">All models <span>65</span></button>'
+    total_cases = len(chosen)
+    model_buttons = f'<button type="button" data-model="all" aria-pressed="true">All models <span>{total_cases}</span></button>'
     for key, label in MODELS.items():
         count = sum(s['model_key'] == key for _, s, _, _ in chosen)
         model_buttons += f'<button type="button" data-model="{key}" aria-pressed="false">{label} <span>{count}</span></button>'
@@ -495,14 +610,16 @@ def main():
             key = f'agent-{outcome}-{track}'
             label, description = TRACKS[track]
             subnav.append(f'<a href="#{key}" id="{key}-tab"><span>{label}</span><b>{len(entries)}</b></a>')
-            cards = ''.join(render_case(d, s, n, outcome, track, i) for i, (d, s, n, _) in enumerate(entries))
+            cards = ''.join(old_markup[('qwen', s['sample_id'])] if d is None else
+                            render_case(d, s, n, outcome, track, i, True)
+                            for i, (d, s, n, _) in enumerate(entries))
             panels.append(f'<section class="agent-subgroup" id="{key}"><div class="agent-subgroup-head"><div><span class="subgroup-kicker">Trigger type</span><h4>{label}</h4><p>{description}</p></div><span class="subgroup-count">{len(entries)} cases</span></div>{cards}<p class="agent-empty" hidden>No cases in this group for the selected model. Choose another trigger type or result group.</p></section>')
         blocks.append(f'<section class="agent-outcome" id="agent-outcome-{outcome}"><h3 class="sub-h" data-title="{title}">{title} · {len(items)} cases</h3><p class="browse-label">3. Choose a trigger type</p><nav class="agent-subgroup-nav" aria-label="{title} trigger types">{"".join(subnav)}</nav>{"".join(panels)}</section>')
     content = '''<!-- AGENT_CASES:BEGIN (generated by tools/build_voca_agent_cases.py) -->
 <section class="agent-case-gallery" id="agent-cases" aria-labelledby="agent-cases-heading">
 <div class="section-head"><span class="eyebrow">Listen and compare</span><h2 id="agent-cases-heading">VocaAgent case comparisons</h2><p class="section-sub">Compare Default, Care and VocaAgent on the same input. Explore vocal and environmental cues, semantic needs and contextual constraints, including improvements and remaining failures.</p></div>
 <aside class="agent-reading-guide"><strong>How to read one case</strong><p>Choose a model, result group and trigger type, then start browsing. Use Previous, Next or the case selector to move through the current group without closing cases manually. Default, Care and the final VocaAgent response appear together; the monitoring and deliberation steps are available below. Cases are grouped by reference cue, with larger score gains first within each cue; the ties/regressions group starts with larger declines. QW and FUN identify the model; P, S and C identify the trigger type. Listen to the input and response audio, read the task requirements, and expand the judge reasons. Agent 1 is Default; Agent 2 monitors the audio; Agent 3 generates a replacement when triggered. Otherwise VocaAgent reuses Default.</p><p>These selected cases come from multiple recorded configurations and are not an estimate of overall performance. Higher scores refer to the available audio-judge records; missing Default scores are marked. A high response score does not by itself establish correct recognition of the input cue. Ties are relative to the best available baseline, not necessarily both baselines. Empty filter combinations are omitted.</p></aside>
-<p class="browse-label">1. Choose a model</p><div class="agent-model-filter" role="group" aria-label="Filter VocaAgent cases by model">'''+model_buttons+'''</div><p class="agent-filter-status" aria-live="polite">Showing all 65 cases across both models.</p>
+<p class="browse-label">1. Choose a model</p><div class="agent-model-filter" role="group" aria-label="Filter VocaAgent cases by model">'''+model_buttons+f'''</div><p class="agent-filter-status" aria-live="polite">Showing all {total_cases} cases across both models.</p>
 <p class="browse-label">2. Choose a result group</p><nav class="agent-outcome-tabs" aria-label="VocaAgent case result groups">'''+''.join(nav_items)+'</nav>'+''.join(blocks)+'\n</section>\n<!-- AGENT_CASES:END -->'
     content, pages = split_cases(content, 'voca-agent')
     kept_audio = {f'{n:02d}_{s["sample_id"]}' for _, s, n, _ in chosen}
@@ -512,11 +629,33 @@ def main():
             if old_audio.is_dir() and old_audio.name not in kept_audio:
                 shutil.rmtree(old_audio)
 
+    # Keep the asset manifest complete for the retained prebuilt Qwen cases too.
+    manifest_assets = {}
+    for asset in ASSETS:
+        manifest_assets[asset['path']] = asset
+    if audio_root.exists():
+        for path in audio_root.rglob('*'):
+            if not path.is_file():
+                continue
+            rel = path.relative_to(PAGE).as_posix()
+            folder = path.relative_to(audio_root).parts[0]
+            manifest_assets[rel] = {
+                'path': rel,
+                'sha256': hashlib.sha256(path.read_bytes()).hexdigest(),
+                'case': folder,
+            }
+    ASSETS[:] = [manifest_assets[key] for key in sorted(manifest_assets)]
+
     p = PAGE / 'index.html'
     text = p.read_text(); start = text.index('<!-- AGENT_CASES:BEGIN'); end = text.index('<!-- AGENT_CASES:END -->', start) + len('<!-- AGENT_CASES:END -->')
     p.write_text(text[:start] + content + text[end:])
+    for html_page in [PAGE / 'index.html', *PAGE.glob('pages/**/*.html')]:
+        if html_page.is_file():
+            translated = translate_text(html_page.read_text())
+            if translated != html_page.read_text():
+                html_page.write_text(translated)
     (TOOLS / 'voca-agent-media.json').write_text(json.dumps(ASSETS, indent=2)+'\n')
-    selection_manifest = {'counts': counts, 'case_pages': pages, 'cases': [{'id':s['sample_id'],'source_package':d.parent.parent.name,'source_number':n,'track':s['track'],'outcome':o,'model':MODELS[s['model_key']],'display_code':s['display_code']} for d,s,n,o in chosen]}
+    selection_manifest = {'counts': counts, 'case_pages': pages, 'cases': [{'id':s['sample_id'],'source_package':s.get('source_package', d.parent.parent.name if d is not None else 'existing-published-Qwen'),'source_number':s.get('source_case_id', s.get('source_number', n)),'track':s['track'],'outcome':o,'model':MODELS[s['model_key']],'display_code':s['display_code']} for d,s,n,o in chosen]}
     (TOOLS / 'voca-agent-selection.json').write_text(json.dumps(selection_manifest, ensure_ascii=False, indent=2)+'\n')
     print(f'Rendered {len(chosen)} cases in separate HTML files: {counts}; {len(ASSETS)} audio references.')
 

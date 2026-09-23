@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>FUN-P07 · Sneeze-only input with no spoken words · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#agent-case-03_0236fc18-66cf-4012-a7b5-8a5df2d128d2">← Back to examples</a><h2>FUN-P07 · Sneeze-only input with no spoken words</h2>
+<div id="case-content">
+<header class="agent-case-head"><div><span class="agent-case-kicker">Paralinguistic cue</span><h4>FUN-P07 · Sneeze-only input with no spoken words</h4></div><span class="agent-tier strict">Higher than Care</span></header>
+<div class="agent-meta"><span class="meta-chip source-dataset">Source dataset: ESC-50</span><span class="meta-chip source-subtype">Type: real (nonverbal-only)</span><span class="meta-chip">Response model: Fun-Audio-Chat</span><span class="meta-chip">Routing: Agent 3 replacement</span></div>
+<p class="agent-case-description"></p>
+<div class="agent-evidence-note"><strong>What to compare.</strong> VocaAgent is 66.7 percentage points above Care (1/3 · 33% vs. 3/3 · 100%). The original Default audio and text are included, but this package has no matching Default Judge record; a scored comparison against Default is unavailable.</div>
+<div class="agent-score-strip"><div class="agent-score-pill default"><div><span>Default</span><strong>judge record unavailable</strong></div><span class="score-track"><span style="width:0%"></span></span></div><div class="agent-score-pill care"><div><span>Care</span><strong>1/3 · 33%</strong></div><span class="score-track"><span style="width:33%"></span></span></div><div class="agent-score-pill voca"><div><span>VocaAgent</span><strong>3/3 · 100%</strong></div><span class="score-track"><span style="width:100%"></span></span></div></div>
+<div class="agent-conversation"><h4>User input audio</h4><div class="agent-turn user"><div class="agent-turn-label">User</div><div class="agent-turn-body"><audio controls preload="none" src="static/audio/voca-agent/03_0236fc18-66cf-4012-a7b5-8a5df2d128d2/input/user_1_turn_1.wav" aria-label="User input audio"></audio><p class="agent-note">No lexical transcript is recorded; listen to the original input.</p></div></div></div>
+
+<div class="agent-rules"><h4>Recorded task requirements</h4><ol><li>The reply explicitly acknowledges the audible sneeze.</li><li>The reply checks whether the user is okay after sneezing.</li><li>The reply uses brief, warm, attentive intonation.</li></ol></div>
+<div class="agent-response-grid agent-main-comparison"><div class="agent-response-card agent-default"><div class="agent-response-heading"><h4>Default prompt</h4><span class="agent-response-score">judge record unavailable</span></div><audio controls preload="none" src="static/audio/voca-agent/03_0236fc18-66cf-4012-a7b5-8a5df2d128d2/default.wav" aria-label="Default prompt audio"></audio><p class="agent-response-text">Ah, that sneeze was quite the dramatic entrance! 😄  
+If you&#x27;re feeling under the weather, here’s a quick tip:  
+- **Breathe through your nose** to help clear your sinuses.  
+- **Stay hydrated**—water helps thin mucus.  
+- **Rest**—your body needs energy to fight off whatever’s causing the sneeze.  
+
+And if it’s more than just a one-time sneeze, consider a tissue, a warm drink, or even a little humor to keep the mood light! 😄  
+
+Hope you feel better soon! 🌿</p><p class="agent-note">The original Default audio and response text are available, but no matching Default Judge score was supplied.</p><p class="agent-note">No corresponding audio-judge record is available for this condition.</p><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are asked to generate both text and speech tokens at the same time.</div></details></div><div class="agent-response-card agent-care"><div class="agent-response-heading"><h4>Care prompt</h4><span class="agent-response-score">1/3 · 33%</span></div><audio controls preload="none" src="static/audio/voca-agent/03_0236fc18-66cf-4012-a7b5-8a5df2d128d2/care.wav" aria-label="Care prompt audio"></audio><p class="agent-response-text">Ah, looks like you&#x27;ve caught a cold! I hope you feel better soon. If you need anything, like a remedy or some advice on how to feel better, just let me know. Take care!</p><p class="judge-model"><strong>Judge model:</strong> <span>gemini-2.5-flash-thinking-512 </span><span class="judge-purpose">Evaluates the generated response audio.</span></p><div class="agent-judge-line"><span>Evaluation score</span><strong>1/3 · 33%</strong></div><details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check"><li class="no"><span>The reply explicitly acknowledges the audible sneeze.</span><small>Fail: The assistant attributes the sound to catching a cold but does not explicitly acknowledge the sneeze itself.</small></li><li class="no"><span>The reply checks whether the user is okay after sneezing.</span><small>Fail: The assistant wishes the user well and offers help, but does not check or ask if the user is okay.</small></li><li class="yes"><span>The reply uses brief, warm, attentive intonation.</span><small>Pass: The assistant&#x27;s delivery is warm, caring, and attentive.</small></li></ol><p class="agent-analysis"><strong>Overall analysis.</strong> The assistant responds to the user&#x27;s sneeze by suggesting they have caught a cold, wishing them well, and offering advice or remedies. The tone is warm, caring, and attentive. However, the assistant does not explicitly mention the word &quot;sneeze&quot; or ask the user if they are okay.</p><p class="agent-analysis"><strong>Judge transcription.</strong> Ah, looks like you&#x27;ve caught a cold. I hope you feel better soon. If you need anything, like a remedy or some advice on how to feel better, just let me know. Take care.</p></details><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are asked to generate both text and speech tokens at the same time.
+
+You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, or context.</div></details></div><div class="agent-response-card agent-voca"><div class="agent-response-heading"><h4>VocaAgent · final response</h4><span class="agent-response-score">3/3 · 100%</span></div><audio controls preload="none" src="static/audio/voca-agent/03_0236fc18-66cf-4012-a7b5-8a5df2d128d2/vocaagent.wav" aria-label="VocaAgent · final response audio"></audio><p class="agent-response-text">It sounds like you just had a sneeze. Make sure to cover your mouth and nose when you sneeze to prevent the spread of germs. If you&#x27;re feeling under the weather, it might be a good idea to rest and stay hydrated. Take care!</p><p class="agent-note">Routing record: Agent 3 replacement (agent3).</p><p class="judge-model"><strong>Judge model:</strong> <span>gemini-2.5-flash-thinking-512 </span><span class="judge-purpose">Evaluates the generated response audio.</span></p><div class="agent-judge-line"><span>Evaluation score</span><strong>3/3 · 100%</strong></div><details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check"><li class="yes"><span>The reply explicitly acknowledges the audible sneeze.</span><small>Pass: The assistant explicitly states, &quot;It sounds like you just had a sneeze.&quot;</small></li><li class="yes"><span>The reply checks whether the user is okay after sneezing.</span><small>Pass: The assistant implicitly checks by offering advice &quot;If you&#x27;re feeling under the weather,&quot; which addresses potential discomfort after sneezing.</small></li><li class="yes"><span>The reply uses brief, warm, attentive intonation.</span><small>Pass: The assistant&#x27;s vocal delivery is clear, calm, and has a warm, attentive intonation.</small></li></ol><p class="agent-analysis"><strong>Overall analysis.</strong> The assistant acknowledges the user&#x27;s sneeze and offers advice on preventing germ spread by covering the mouth and nose. It then proactively suggests resting and staying hydrated if the user is feeling unwell, concluding with a caring &quot;Take care.&quot; The response is directly relevant to the user&#x27;s paralinguistic cue. The vocal delivery is calm, clear, and attentive, conveying a caring tone. The audio quality is excellent.</p><p class="agent-analysis"><strong>Judge transcription.</strong> It sounds like you just had a sneeze. Make sure to cover your mouth and nose when you sneeze to prevent the spread of germs. If you&#x27;re feeling under the weather, it might be a good idea to rest and stay hydrated. Take care.</p></details></div></div>
+<details class="agent-pipeline-detail"><summary>How VocaAgent reached this response · Agent 2 and Agent 3</summary><div class="agent-response-grid"><div class="agent-response-card agent-monitor"><div class="agent-response-heading"><h4>Agent 2 · observation</h4></div><p class="agent-response-text">sneeze
+
+A sneeze is clearly audible, indicating a brief respiratory event with minimal proactive-care relevance.</p><p class="agent-note">Agent 2 monitors the current audio and records observations; this stage has no speech output.</p></div><div class="agent-response-card agent-agent3"><div class="agent-response-heading"><h4>Agent 3 · routed response</h4></div><audio controls preload="none" src="static/audio/voca-agent/03_0236fc18-66cf-4012-a7b5-8a5df2d128d2/agent3.wav" aria-label="Agent 3 · routed response audio"></audio><p class="agent-response-text">It sounds like you just had a sneeze. Make sure to cover your mouth and nose when you sneeze to prevent the spread of germs. If you&#x27;re feeling under the weather, it might be a good idea to rest and stay hydrated. Take care!</p><p class="agent-note">Agent 3 produced the routed response; VocaAgent uses the recorded final output below.</p><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are asked to generate both text and speech tokens at the same time.
+
+You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+4. What additional paralinguistic cues are provided by Agent-2?
+
+Agent-2 has analyzed the current user audio and produced the following observations:
+
+&lt;agent_2_analysis&gt;
+{
+  &quot;labels&quot;: [
+    {
+      &quot;label&quot;: &quot;sneeze&quot;,
+      &quot;probability&quot;: 0.95,
+      &quot;risk&quot;: 0.15
+    }
+  ],
+  &quot;summary&quot;: &quot;A sneeze is clearly audible, indicating a brief respiratory event with minimal proactive-care relevance.&quot;
+}
+&lt;/agent_2_analysis&gt;
+
+The Agent-2 output contains `labels` describing important paralinguistic cues, their `probability`, their `risk` of indicating a need for proactive care, and a `summary` of the overall observations.
+
+Treat this analysis as additional evidence about the user&#x27;s current state. Pay particular attention to cues with higher probability and higher risk, and use them to adjust your response appropriately.
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings or condition when appropriate.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, context, or Agent-2&#x27;s analysis.
+
+Do not expose Agent-2&#x27;s labels, probability, risk scores, or internal analysis to the user. Incorporate them naturally into your response instead.</div></details></div></div></details>
+<div class="agent-case-actions"><button type="button" class="gallery-action agent-copy-case">Copy example link</button><button type="button" class="gallery-action agent-close-case">Close example</button><span class="gallery-status" aria-live="polite"></span></div>
+</div></main></body></html>

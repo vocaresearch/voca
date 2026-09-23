@@ -14,7 +14,7 @@ voca-page/
 ├── index.html
 ├── .nojekyll                 # tells GitHub Pages to serve files as-is
 ├── tools/                    # optional gallery regeneration and selection manifest
-├── pages/                    # 44 benchmark and 65 VocaAgent case pages
+├── pages/                    # 44 benchmark and 59 VocaAgent case pages
 └── static/
     ├── audio/                # selected original WAVs under examples/ and voca-agent/
     ├── css/style.css
@@ -32,7 +32,7 @@ from `index.html` with relative paths and play on click:
 <audio controls preload="none" src="static/audio/pc_para_hit_model.m4a"></audio>
 ```
 
-The page links the original example audio plus 406 copied WAV files for the
+The page links the original example audio plus 380 copied WAV files for the
 VocaAgent gallery. The VocaAgent files preserve every selected input turn and
 the recorded Default, Care, Agent 3 and final VocaAgent response audio without
 re-encoding. The new audio manifest is `tools/voca-agent-media.json`.
@@ -70,21 +70,28 @@ remain available; full judge analyses, judge transcripts and evaluation prompts
 are omitted from benchmark examples. Raw records containing local source paths are not copied into the
 public gallery.
 
-The VocaAgent gallery contains 65 cases: the twelve explicitly selected
-paralinguistic cases from the original package, its thirteen semantic and twelve
-contextual cases, and all twenty environmental/emotional cases from the new
-package, plus eight selected semantic/contextual cases from the third package. The totals are 32 paralinguistic, 15 semantic and 18 contextual. Outcome tabs distinguish higher recorded
-scores from no gain/regressions; unavailable Default scores are labeled. Cases
-that reuse Default are not labeled as improvements over Default.
+The VocaAgent gallery contains 59 cases: 38 retained Qwen examples and 21
+selected Fun-Audio-Chat examples from the September 23 curated package. The new
+Fun selection includes P-H01, P-H03, P-H05–P-H11, P-H13–P-H15, all six semantic
+cases and all three contextual cases. The combined gallery has 30
+paralinguistic, 11 semantic and 18 contextual cases.
+
+The selected Fun package contains Default audio and text, but has no matching
+Default Judge records. The page marks those scores unavailable and compares the
+saved Care and VocaAgent scores only. Criterion-level reasons and all recorded
+user audio turns remain available. Its 21 Default scores are not inferred from
+other audio or cases. Three Qwen cases that share sample IDs with selected Fun
+cases are restored as separate entries and retain their own responses, scores,
+detail pages and audio.
 
 Model buttons filter the VocaAgent gallery by Qwen-Audio-3.0-Realtime-Flash
 or Fun-Audio-Chat, updating every result and trigger count. Cases use the codes
 QW/FUN plus P (paralinguistic), S (semantic) or C (contextual). Within each model
 and trigger, improvements precede limited results; similar reference cues are
 adjacent, with larger gains first (larger declines first in the limited group).
-The original case URLs remain unchanged. Linking to a case from another model
-reveals that model automatically.
-Published case codes are also retained when recovered scores change sorting.
+Qwen case links and their saved detail pages are retained when present. Fun
+case codes are regenerated in continuous sequences for each trigger type.
+Linking to a case from another model reveals that model automatically.
 
 Four supplied publication figures are displayed as responsive WebP previews
 without open/download controls. Original PDFs remain under `static/figures/`. To refresh the previews
@@ -126,20 +133,11 @@ python3 tools/build_examples.py
 python3 tools/build_voca_agent_cases.py
 ```
 
-Regeneration reads `../candidate_samples/` and selected folders under
-`../用户理解/`, `../主动关怀_多样对比/` and `../副语言触发_不提升与下降/`,
-which are only needed for this optional authoring step.
-VocaAgent regeneration additionally reads `../VocaAgent_Fun_Qwen_50例试听/` and
-`../VocaAgent_环境音与情感_20例试听/` and `../VocaAgent_上下文与语义_30例试听/`. The published HTML, scripts and audio are self-contained.
-It also reads the local authoring supplement
-`../网页修复/voca-agent-default-supplements.json`. This file preserves the
-original recovered judge records and is not published. The generator checks
-the Default WAV hash and criterion alignment before applying its scores.
-FUN-S08, FUN-S09 and FUN-S10 now show matching Default scores of 5/5, 5/5
-and 4/4; FUN-C02 retains 4/5. These four cases share the recorded evaluation
-of byte-identical Default and final VocaAgent audio. The remaining 23 Fun
-Default outputs still have no matching score (14 vocal/environmental,
-seven semantic and two contextual cases).
+Regeneration reads the benchmark source packages in sibling folders, which are
+only needed for this optional authoring step and are not published with the site.
+VocaAgent regeneration reuses retained Qwen case pages from the current gallery
+and reads the selected cases from the curated Fun-Audio-Chat package. It copies only the
+selected media files; raw source JSON is not published or loaded by the page.
 
 ## Preview locally
 
@@ -201,11 +199,7 @@ The case loader caches HTML in memory, prefetches the nearby visible category
 with at most two background requests, and anticipates hover/focus. It never
 prefetches audio or JSON; data-saver connections skip speculative fetching.
 Failed fetches retain a retry control and the standalone HTML fallback.
-Empty result/trigger tabs are hidden for the selected model. New Fun contextual
-cases do not exceed the best available baseline and remain in the limited group;
-identical-audio score reuse and unavailable Default judgments are stated.
-
-The third-package selection is limited to source numbers 01, 02, 04, 08, 11, 12,
-16 and 29 (five Qwen cases and three Fun cases). All other third-package files
-are excluded from the public pages and audio directories. The original 57-case
-selection, including the twelve specifically approved vocal cases, is unchanged.
+Empty result/trigger tabs are hidden for the selected model. The 21 new Fun
+examples state that Default scores are unavailable; their result groups compare
+VocaAgent with Care. All other cases retain the saved comparison basis and judge
+records.

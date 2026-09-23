@@ -12,6 +12,13 @@ def split_cases(markup, group):
     paths = []
     def replace(match):
         prefix, identifier, article, body = match.groups()
+        # A retained prebuilt gallery entry already points at its standalone
+        # page. Keep that full page intact instead of replacing it with the
+        # lightweight loader placeholder from the index.
+        existing = re.search(r'data-case-src="([^"]+)"', body)
+        if existing:
+            paths.append(existing.group(1))
+            return match.group(0)
         title = re.search(r'<span class="(?:choice-title|agent-choice-title)">(.*?)</span>', prefix, re.S)
         title = title.group(1) if title else identifier
         rel = f'pages/{group}/{identifier}.html'

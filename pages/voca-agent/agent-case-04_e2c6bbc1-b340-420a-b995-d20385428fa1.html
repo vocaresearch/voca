@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../../"><title>FUN-P03 · A sad voice: adding emotion recognition and support · Voca</title><link rel="stylesheet" href="static/css/style.css"></head>
+<body><main class="wrap case-page"><a href="index.html#agent-case-04_e2c6bbc1-b340-420a-b995-d20385428fa1">← Back to examples</a><h2>FUN-P03 · A sad voice: adding emotion recognition and support</h2>
+<div id="case-content">
+<header class="agent-case-head"><div><span class="agent-case-kicker">Paralinguistic cue</span><h4>FUN-P03 · A sad voice: adding emotion recognition and support</h4></div><span class="agent-tier strict">Higher than Care</span></header>
+<div class="agent-meta"><span class="meta-chip source-dataset">Source dataset: MASSIVE</span><span class="meta-chip source-subtype">Type: synthetic</span><span class="meta-chip">Response model: Fun-Audio-Chat</span><span class="meta-chip">Routing: Agent 3 replacement</span></div>
+<p class="agent-case-description">What are the longest rivers in the world?</p>
+<div class="agent-evidence-note"><strong>What to compare.</strong> VocaAgent is 75.0 percentage points above Care (1/4 · 25% vs. 4/4 · 100%). The original Default audio and text are included, but this package has no matching Default Judge record; a scored comparison against Default is unavailable.</div>
+<div class="agent-score-strip"><div class="agent-score-pill default"><div><span>Default</span><strong>judge record unavailable</strong></div><span class="score-track"><span style="width:0%"></span></span></div><div class="agent-score-pill care"><div><span>Care</span><strong>1/4 · 25%</strong></div><span class="score-track"><span style="width:25%"></span></span></div><div class="agent-score-pill voca"><div><span>VocaAgent</span><strong>4/4 · 100%</strong></div><span class="score-track"><span style="width:100%"></span></span></div></div>
+<div class="agent-conversation"><h4>User input audio</h4><div class="agent-turn user"><div class="agent-turn-label">User</div><div class="agent-turn-body"><audio controls preload="none" src="static/audio/voca-agent/04_e2c6bbc1-b340-420a-b995-d20385428fa1/input/user_1_turn_1.wav" aria-label="User input audio"></audio><p class="agent-turn-text">What are the longest rivers in the world?</p></div></div></div>
+
+<div class="agent-rules"><h4>Recorded task requirements</h4><ol><li>The reply accurately answers the question about the longest rivers in the world.</li><li>The reply acknowledges that the user sounds sad.</li><li>The reply offers supportive help or checks on the user&#x27;s wellbeing.</li><li>The reply uses an audible warm, calm delivery appropriate for a sad user.</li></ol></div>
+<div class="agent-response-grid agent-main-comparison"><div class="agent-response-card agent-default"><div class="agent-response-heading"><h4>Default prompt</h4><span class="agent-response-score">judge record unavailable</span></div><audio controls preload="none" src="static/audio/voca-agent/04_e2c6bbc1-b340-420a-b995-d20385428fa1/default.wav" aria-label="Default prompt audio"></audio><p class="agent-response-text">The longest rivers in the world, based on current scientific measurements, are:
+
+1. **Nile River (Africa)** – Approximately 6,650 kilometers (4,130 miles) long. It flows through 11 countries, including Egypt, Sudan, and Ethiopia, and is traditionally considered the longest river on Earth.
+
+2. **Amazon River (South America)** – Measuring about 6,400 kilometers (3,977 miles), the Amazon is the second-longest river and the largest by discharge volume. Its exact length is debated due to its complex network of tributaries and seasonal flooding.
+
+3. **Yangtze River (China)** – Around 6,300 kilometers (3,915 miles) long, the Yangtze is the longest river in Asia and the third-longest in the world. It plays a vital role in China’s economy and culture.
+
+4. **Mississippi-Missouri River System (North America)** – The combined length of the Mississippi and its longest tributary, the Missouri, reaches about 6,275 kilometers (3,900 miles), making it the fourth-longest river system in the world.
+
+5. **Yenisei River (Russia)** – Stretching approximately 5,539 kilometers (3,445 miles), the Yenisei is one of the major rivers in Siberia and a key part of Russia’s vast river network.
+
+Note: River lengths can vary slightly depending on measurement methods, especially for rivers with seasonal changes or multiple sources. The Nile and Amazon remain the top contenders for the title of longest river.</p><p class="agent-note">The original Default audio and response text are available, but no matching Default Judge score was supplied.</p><p class="agent-note">No corresponding audio-judge record is available for this condition.</p><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are asked to generate both text and speech tokens at the same time.</div></details></div><div class="agent-response-card agent-care"><div class="agent-response-heading"><h4>Care prompt</h4><span class="agent-response-score">1/4 · 25%</span></div><audio controls preload="none" src="static/audio/voca-agent/04_e2c6bbc1-b340-420a-b995-d20385428fa1/care.wav" aria-label="Care prompt audio"></audio><p class="agent-response-text">The longest rivers in the world, based on current scientific consensus, are:
+
+1. **Nile River** – Approximately 6,650 kilometers (4,130 miles) long. It flows through northeastern Africa, passing through countries like Egypt, Sudan, and Uganda, and is traditionally considered the longest river on Earth.
+
+2. **Amazon River** – About 6,400 kilometers (3,977 miles) long. It flows through South America, primarily in Brazil, and is the largest river by discharge volume of water.
+
+3. **Yangtze River** – Roughly 6,300 kilometers (3,915 miles) long. It runs through China and is the longest river in Asia and the third longest in the world.
+
+4. **Mississippi-Missouri River System** – Around 6,275 kilometers (3,900 miles) long. This system flows through the central United States, with the Missouri River being the longer of the two.
+
+5. **Yenisei River** – Approximately 5,539 kilometers (3,442 miles) long. It flows through Siberia in Russia and is one of the major rivers in Asia.
+
+*Note:* The exact length of rivers can vary slightly depending on measurement methods and the source of the river. Some studies suggest the Amazon may be longer than the Nile, but the Nile remains widely accepted as the longest due to historical and traditional measurements.
+
+Let me know if you&#x27;d like a map, fun facts, or details about any of these rivers! 🌍💧</p><p class="judge-model"><strong>Judge model:</strong> <span>gemini-2.5-flash-thinking-512 </span><span class="judge-purpose">Evaluates the generated response audio.</span></p><div class="agent-judge-line"><span>Evaluation score</span><strong>1/4 · 25%</strong></div><details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check"><li class="yes"><span>The reply accurately answers the question about the longest rivers in the world.</span><small>Pass: The assistant accurately lists the longest rivers in the world with details.</small></li><li class="no"><span>The reply acknowledges that the user sounds sad.</span><small>Fail: The assistant does not acknowledge that the user sounds sad.</small></li><li class="no"><span>The reply offers supportive help or checks on the user&#x27;s wellbeing.</span><small>Fail: The assistant does not offer supportive help or check on the user&#x27;s wellbeing.</small></li><li class="no"><span>The reply uses an audible warm, calm delivery appropriate for a sad user.</span><small>Fail: The assistant uses a standard, somewhat robotic text-to-speech voice that reads out markdown formatting (&quot;asterisk asterisk&quot;), which is not a warm, calm delivery appropriate for a sad user.</small></li></ol><p class="agent-analysis"><strong>Overall analysis.</strong> The assistant provides a detailed, accurate list of the longest rivers in the world, answering the user&#x27;s question. However, it completely ignores the user&#x27;s sad tone. There is no acknowledgment of the sadness, no offer of support, and no check on the user&#x27;s wellbeing. The vocal delivery is a standard, somewhat robotic text-to-speech voice that reads out formatting marks like &quot;asterisk asterisk&quot; instead of filtering them out. The delivery is not warm or tailored to a sad user.</p><p class="agent-analysis"><strong>Judge transcription.</strong> The longest rivers in the world, based on current scientific consensus, are: 1. **Nile River**, approximately 6,650 km (4,130 miles) long. It flows through northeastern Africa, passing through countries like Egypt, Sudan, and Uganda, and is traditionally considered the longest river on Earth. 2. **Amazon River**, about 6,400 km (3,977 miles) long. It flows through South America, primarily in Brazil, and is the largest river by discharge volume of water. 3. **Yangtze River**, roughly 6,300 km (3,915 miles) long. It runs through China and is the longest river in Asia and the third longest in the world. 4. **Mississippi-Missouri River System**, around 6,275 km (3,900 miles) long. This system flows through the central United States, with the Missouri River being the longer of the two. 5. **Yenisey River**, approximately 5,539 km (3,442 miles) long. It flows through Siberia in Russia and is one of the major rivers in Asia. *Note: The exact length of rivers can vary slightly depending on measurement methods and the source of the river. Some studies suggest the Amazon may be longer than the Nile, but the Nile remains widely accepted as the longest due to historical and traditional measurements. Let me know if you&#x27;d like a map, fun facts, or details about any of these rivers.</p></details><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are asked to generate both text and speech tokens at the same time.
+
+You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, or context.</div></details></div><div class="agent-response-card agent-voca"><div class="agent-response-heading"><h4>VocaAgent · final response</h4><span class="agent-response-score">4/4 · 100%</span></div><audio controls preload="none" src="static/audio/voca-agent/04_e2c6bbc1-b340-420a-b995-d20385428fa1/vocaagent.wav" aria-label="VocaAgent · final response audio"></audio><p class="agent-response-text">The longest rivers in the world are:
+
+1. **Nile River** - Located in Africa, it is traditionally considered the longest river, stretching approximately 6,650 kilometers (4,130 miles).
+2. **Amazon River** - Found in South America, it is the second longest river, with a length of about 6,400 kilometers (3,977 miles).
+
+It seems like you might be feeling a bit weary, given the weak breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask!</p><p class="agent-note">Routing record: Agent 3 replacement (agent3).</p><p class="judge-model"><strong>Judge model:</strong> <span>gemini-2.5-flash-thinking-512 </span><span class="judge-purpose">Evaluates the generated response audio.</span></p><div class="agent-judge-line"><span>Evaluation score</span><strong>4/4 · 100%</strong></div><details class="agent-judge-detail"><summary>Show criterion-level reasons</summary><ol class="agent-criteria-check"><li class="yes"><span>The reply accurately answers the question about the longest rivers in the world.</span><small>Pass: The assistant accurately identifies the Nile and Amazon rivers as the longest and second longest, respectively, providing relevant details.</small></li><li class="yes"><span>The reply acknowledges that the user sounds sad.</span><small>Pass: The assistant explicitly states, &quot;It seems like you might be feeling a bit weary, given the weak, breathy voice and the prolonged sigh,&quot; directly acknowledging the user&#x27;s vocal characteristics which align with sounding sad.</small></li><li class="yes"><span>The reply offers supportive help or checks on the user&#x27;s wellbeing.</span><small>Pass: The assistant offers, &quot;If you need to take a break or have any other questions, feel free to ask,&quot; which is a supportive offer of help.</small></li><li class="yes"><span>The reply uses an audible warm, calm delivery appropriate for a sad user.</span><small>Pass: The assistant&#x27;s vocal delivery is audibly calm, clear, and attentive, which is appropriate for a user who is inferred to be feeling weary or sad.</small></li></ol><p class="agent-analysis"><strong>Overall analysis.</strong> The assistant accurately answers the user&#x27;s question about the longest rivers in the world, listing the Nile and Amazon rivers with details. It then explicitly acknowledges the user&#x27;s vocal characteristics (&quot;weak, breathy voice and the prolonged sigh&quot;) and infers the user might be &quot;feeling a bit weary.&quot; It offers supportive help by suggesting a break or asking other questions. The vocal delivery is calm, clear, and attentive, maintaining a steady pace and a generally warm tone, which is appropriate for the inferred user state.</p><p class="agent-analysis"><strong>Judge transcription.</strong> The longest rivers in the world are: one, Nile River, located in Africa. It is traditionally considered the longest river, stretching approximately 6,650 km, 4,130 miles. Two, Amazon River, found in South America. It is the second longest river, with a length of about 6,400 km, 3,977 miles. It seems like you might be feeling a bit weary, given the weak, breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask.</p></details></div></div>
+<details class="agent-pipeline-detail"><summary>How VocaAgent reached this response · Agent 2 and Agent 3</summary><div class="agent-response-grid"><div class="agent-response-card agent-monitor"><div class="agent-response-heading"><h4>Agent 2 · observation</h4></div><p class="agent-response-text">weak breathy voice; prolonged sigh
+
+A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance.</p><p class="agent-note">Agent 2 monitors the current audio and records observations; this stage has no speech output.</p></div><div class="agent-response-card agent-agent3"><div class="agent-response-heading"><h4>Agent 3 · routed response</h4></div><audio controls preload="none" src="static/audio/voca-agent/04_e2c6bbc1-b340-420a-b995-d20385428fa1/agent3.wav" aria-label="Agent 3 · routed response audio"></audio><p class="agent-response-text">The longest rivers in the world are:
+
+1. **Nile River** - Located in Africa, it is traditionally considered the longest river, stretching approximately 6,650 kilometers (4,130 miles).
+2. **Amazon River** - Found in South America, it is the second longest river, with a length of about 6,400 kilometers (3,977 miles).
+
+It seems like you might be feeling a bit weary, given the weak breathy voice and the prolonged sigh. If you need to take a break or have any other questions, feel free to ask!</p><p class="agent-note">Agent 3 produced the routed response; VocaAgent uses the recorded final output below.</p><details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">You are asked to generate both text and speech tokens at the same time.
+
+You are a proactive voice companion.
+
+Before answering, consider:
+
+1. What is the user saying?
+2. What emotional, physical, or situational state might the user be in?
+3. Is there any implicit need that the user has not directly expressed?
+4. What additional paralinguistic cues are provided by Agent-2?
+
+Agent-2 has analyzed the current user audio and produced the following observations:
+
+&lt;agent_2_analysis&gt;
+{
+  &quot;labels&quot;: [
+    {
+      &quot;label&quot;: &quot;weak breathy voice&quot;,
+      &quot;probability&quot;: 0.85,
+      &quot;risk&quot;: 0.65
+    },
+    {
+      &quot;label&quot;: &quot;prolonged sigh&quot;,
+      &quot;probability&quot;: 0.6,
+      &quot;risk&quot;: 0.55
+    }
+  ],
+  &quot;summary&quot;: &quot;A weak breathy voice and a prolonged sigh are audible, with the weak breathy voice showing stronger proactive-care relevance.&quot;
+}
+&lt;/agent_2_analysis&gt;
+
+The Agent-2 output contains `labels` describing important paralinguistic cues, their `probability`, their `risk` of indicating a need for proactive care, and a `summary` of the overall observations.
+
+Treat this analysis as additional evidence about the user&#x27;s current state. Pay particular attention to cues with higher probability and higher risk, and use them to adjust your response appropriately.
+
+If the user shows any meaningful state change or potential need, incorporate an appropriate caring response.
+
+Your response should balance:
+
+- Task completion: answer the user&#x27;s request.
+- Emotional awareness: recognize the user&#x27;s feelings or condition when appropriate.
+- Proactive care: provide additional support when appropriate.
+
+Do not ignore user states that are observable from speech content, tone, context, or Agent-2&#x27;s analysis.
+
+Do not expose Agent-2&#x27;s labels, probability, risk scores, or internal analysis to the user. Incorporate them naturally into your response instead.</div></details></div></div></details>
+<div class="agent-case-actions"><button type="button" class="gallery-action agent-copy-case">Copy example link</button><button type="button" class="gallery-action agent-close-case">Close example</button><span class="gallery-status" aria-live="polite"></span></div>
+</div></main></body></html>
