@@ -92,7 +92,7 @@ def subgroup_heading(track):
 
 READING_GUIDES = {
  'usu': 'Listen to the user input, then compare the saved model answer with the green reference answer. The answer check explains whether they match.',
- 'ei': 'Read the user’s request, listen to the response, then check which task requirements pass or fail. Expand the saved judge analysis for more detail where available.',
+ 'ei': 'Read the user’s request, listen to the response, then check which task requirements pass or fail and read the criterion-level reasons.',
  'pc': 'Listen to the user input, then compare Default and Care on that same input. Read the task requirements and each Pass/Fail reason: equal totals can hide different omissions. Care adds a proactive-care instruction; this is a prompt comparison.',
  'scb': 'Follow who is speaking and what is requested, then read the model response and recorded refusal decision. REFUSAL and NOT_REFUSAL describe the saved response; the role-and-permission case has input only.'
 }
@@ -164,16 +164,8 @@ def judging(j):
         assert len(j['results']) == j['max_score']
         rules=''.join(f'<li class="{"yes" if r["satisfied"] else "no"}"><span class="criterion">{esc(r["criterion"])}</span><span class="why"><strong>{"Pass" if r["satisfied"] else "Fail"}.</strong> {esc(r["reason"])}</span></li>' for r in j['results'])
         out=f'<div class="rubric"><h4>Judge criteria</h4><p class="judge-model"><strong>Judge model:</strong> <span>{esc(j["judge_model"])}</span><span class="judge-purpose">Evaluates the generated response audio.</span></p><ul class="crit">{rules}</ul></div>'
-        if not j.get('analysis'):
-            out+=prose('The saved judge record contains the criterion-level reasons above; no separate overall analysis was recorded.','note')
     else:
         out=f'<div class="rubric"><h4>Recorded refusal classification</h4><p class="judge-model"><strong>Judge model:</strong> <span>{esc(j["judge_model"])}</span><span class="judge-purpose">Evaluates the generated response text.</span></p>{verdict(j)}'+''.join(prose(r['reason']) for r in j['results'])+'</div>'
-    out+=detail('Full saved judge analysis',j.get('analysis'),'judge-analysis')
-    out+=detail('Transcript heard by the audio judge',j.get('transcription'))
-    out+=detail('Full evaluation prompt',j.get('judge_prompt'))
-    verification=j.get('judge_prompt_verification','')
-    if 'hash unavailable' in verification:
-        out+=prose('Evaluation prompt reconstructed from the recorded template and task; no per-request prompt hash was saved.','note')
     return out
 
 def render_variant(d,v,group):
@@ -240,7 +232,7 @@ def protocol():
     return '''<details class="pc-protocol"><summary>Task rules, Default vs. Care, and judging</summary>
 <p><strong>Default</strong> uses the task’s baseline system prompt and response-format instruction. <strong>Care</strong> adds an instruction to notice emotional, physical and situational needs, and to balance answering with appropriate support. Contextual examples may also supply background records and response constraints; their full prompts are preserved inside each example.</p>
 <p>Answering a question, sounding friendly, or describing a desired TTS style does not by itself satisfy care criteria. The judge listens to the response, transcribes the audible words, and checks semantic behavior against that evidence and vocal behavior against the audio. Every criterion earns one point or zero. Read each case’s exact requirements: criteria counts can differ between cases.</p>
-<p>The comparisons deliberately include incomplete and successful responses. A higher score is the recorded judge’s decision; the complete reasons and available analysis remain visible for inspection.</p>'''+detail('Additional care instruction',prompts.get('benchmark_system_prompt'))+detail('Shared response-format instruction',prompts.get('format_prompt'))+'</details>'
+<p>The comparisons deliberately include incomplete and successful responses. A higher score is the recorded judge’s decision; the criterion-level reasons remain visible for inspection.</p>'''+detail('Additional care instruction',prompts.get('benchmark_system_prompt'))+detail('Shared response-format instruction',prompts.get('format_prompt'))+'</details>'
 
 def main():
     selected=load(TOOLS/'example-selection.json'); assert len({c['id'] for c in selected})==len(selected)

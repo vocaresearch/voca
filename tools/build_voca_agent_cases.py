@@ -258,6 +258,8 @@ def render_case(directory, selection, number, outcome, track, case_order):
     if track != 'paralinguistic':
         label = CONTEXT_TOPICS[number - 1] if directory.parent.parent == CONTEXT_SOURCE else topics[number]
     for i, stage in enumerate(('default', 'care', 'agent2', 'agent3')):
+        if stage == 'agent2':
+            continue
         prompt_path = directory / stage / 'effective_system_prompt.txt'
         if prompt_path.exists():
             prompt = prompt_path.read_text().strip() or 'No additional system prompt was recorded for this stage.'

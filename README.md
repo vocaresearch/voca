@@ -65,8 +65,9 @@ or response audio are identified rather than invented. The driving example now
 has its saved evaluations (Default 4/5, Care 5/5) and all six user recordings.
 
 All selected conversations retain the available original user audio, assistant
-history text, and relevant background constraints. Prompts and judge details can
-be expanded. Raw records containing local source paths are not copied into the
+history text, and relevant background constraints. Criterion-level judge reasons
+remain available; full judge analyses, judge transcripts and evaluation prompts
+are omitted from benchmark examples. Raw records containing local source paths are not copied into the
 public gallery.
 
 The VocaAgent gallery contains 65 cases: the twelve explicitly selected
@@ -99,9 +100,10 @@ JSON files are loaded or displayed. Original source packages are not modified.
 
 VocaAgent cards preserve all user audio turns, historical assistant text,
 background constraints, Default/Care/final outputs, Agent 2 observations,
-Agent 3 outputs where invoked, actual system prompts, and recorded audio-judge
+Agent 3 outputs where invoked, Default/Care/Agent 3 system prompts, and recorded audio-judge
 criteria and reasons. Audio loaded after expansion also obeys single-player
 playback and pauses when the case or its category is closed.
+The repeated Agent 2 system prompt is omitted from the presentation.
 
 Proactive care includes 14 voice or background-cue cases, three semantic cases
 and four contextual cases. The expanded selection covers nonverbal-only sniffing

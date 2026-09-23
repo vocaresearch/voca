@@ -35,6 +35,8 @@
       bar.querySelector('[data-review="list"]').disabled = !opened;
       var reasons = details(opened), expanded = reasons.length > 0 && reasons.every(function (item) { return item.open; });
       var button = bar.querySelector('[data-review="reasons"]');button.disabled = !reasons.length;
+      var hideReasons = panel.classList.contains('example-subgroup');
+      if (button.hidden !== hideReasons) button.hidden = hideReasons;
       button.setAttribute('aria-pressed', String(expanded));button.textContent = expanded ? 'Hide judge details' : 'Show all judge details';
     }
     function navigate(choice) {
