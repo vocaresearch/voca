@@ -362,16 +362,7 @@ def render_case(directory, selection, number, outcome, track, case_order, curate
     topics = {17:'Choosing a walk that fits mobility needs',18:'Keeping a distracting phone out of sight',19:'Remembering overdue recycling',20:'Leaving in time for the train',21:'Remembering an overdue medication',22:'Remembering an overdue filter change',23:'An unfinished expense report',24:'An imminent video call',25:'Moving overdue laundry',26:'Remembering an alcohol restriction',31:'Caregiving strain and screen-time rewards',32:'Grief after a mother’s death',33:'Traumatic memories triggered at night',34:'Worry about returning to school',35:'Sleeplessness and feeling unable to help',36:'Self-doubt after repeated mistakes',37:'Racing thoughts at bedtime',38:'Unwanted contact from an ex-partner',39:'Wanting to help but lacking motivation',40:'Job loss, drinking and family distance',44:'Anxiety after public criticism',45:'Staying within the remaining budget',48:'Worry about losing a job',49:'Sadness after an unexpected breakup',50:'Remembering a flashing-light restriction'}
     if not curated and track != 'paralinguistic':
         label = CONTEXT_TOPICS[number - 1] if directory.parent.parent == CONTEXT_SOURCE else topics[number]
-    for i, stage in enumerate(('default', 'care', 'agent2', 'agent3')):
-        if stage == 'agent2':
-            continue
-        prompt_path = directory / stage / 'effective_system_prompt.txt'
-        if curated and not prompt_path.exists():
-            prompt_path = directory / stage / 'system_prompt.txt'
-        if prompt_path.exists():
-            prompt = prompt_path.read_text().strip() or 'No additional system prompt was recorded for this stage.'
-            details = f'<details class="source-detail"><summary>Recorded system prompt</summary><div class="detail-text">{esc(prompt)}</div></details>'
-            cards[i] = cards[i][:-6] + details + '</div>'
+    # Keep internal system prompts out of the public comparison cards.
     if not curated and track == 'paralinguistic':
         label = NEW_TOPICS[number - 1] if directory.parent.parent == NEW_SOURCE else VOCAL_TOPICS[number]
     title = f'{selection["display_code"]} · {comparison["title"]}' if curated else f'{selection["display_code"]} · {label}'
