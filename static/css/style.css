@@ -92,6 +92,9 @@ a { color: var(--accent); }
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--serif);
   font-size: 22px;
   font-weight: 700;
@@ -100,14 +103,12 @@ a { color: var(--accent); }
   text-decoration: none;
 }
 
-.brand::after {
-  content: "";
-  display: inline-block;
-  width: 7px; height: 7px;
-  margin-left: 3px;
-  border-radius: 50%;
-  background: var(--accent);
-  vertical-align: baseline;
+.brand img {
+  display: block;
+  width: 29px;
+  height: 29px;
+  border-radius: 7px;
+  object-fit: cover;
 }
 
 .nav-links {
