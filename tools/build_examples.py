@@ -155,7 +155,7 @@ def conversation(d, input_note=None):
         result.append(f'<div class="turn {"model seeded" if role=="assistant" else "user"}"><div class="turn-label">{esc(label)}</div><div class="turn-body">{body}</div></div>')
     return '<div class="example-conversation"><h4>'+('Conversation and user audio' if len(messages)>1 else 'User input')+'</h4>'+''.join(result)+'</div>'
 
-def judging(j):
+def judging(j, group=None):
     kind=j['evaluation_type']
     if kind=='deterministic_exact_match':
         return '<div class="rubric"><h4>Answer check · no model judge</h4>'+prose(j['results'][0]['reason'])+'</div>'
@@ -165,7 +165,8 @@ def judging(j):
         rules=''.join(f'<li class="{"yes" if r["satisfied"] else "no"}"><span class="criterion">{esc(r["criterion"])}</span><span class="why"><strong>{"Pass" if r["satisfied"] else "Fail"}.</strong> {esc(r["reason"])}</span></li>' for r in j['results'])
         out=f'<div class="rubric"><h4>Judge criteria</h4><p class="judge-model"><strong>Judge model:</strong> <span>{esc(j["judge_model"])}</span><span class="judge-purpose">Evaluates the generated response audio.</span></p><ul class="crit">{rules}</ul></div>'
     else:
-        out=f'<div class="rubric"><h4>Recorded refusal classification</h4><p class="judge-model"><strong>Judge model:</strong> <span>{esc(j["judge_model"])}</span><span class="judge-purpose">Evaluates the generated response text.</span></p>{verdict(j)}'+''.join(prose(r['reason']) for r in j['results'])+'</div>'
+        judge_model = 'gemini-2.5-flash-thinking-512' if group == 'scb' else j['judge_model']
+        out=f'<div class="rubric"><h4>Recorded refusal classification</h4><p class="judge-model"><strong>Judge model:</strong> <span>{esc(judge_model)}</span><span class="judge-purpose">Evaluates the generated response text.</span></p>{verdict(j)}'+''.join(prose(r['reason']) for r in j['results'])+'</div>'
     return out
 
 def render_variant(d,v,group):
@@ -196,7 +197,7 @@ def render_variant(d,v,group):
         out+=detail('Style prompt passed to the TTS stage',style,'tts-style')
     prompts=load(d/'input_contract.json') if v.get('flat_files') else load(d/folder/'prompts.json')
     out+=detail('Actual system prompt for this response',prompts.get('effective_system_prompt'))
-    out+=judging(j)
+    out+=judging(j, group)
     return f'<div class="response-card {"def" if folder=="default" else "pro" if folder=="care" else "original"}" data-condition="{folder}">{out}</div>'
 
 def render_card(choice,group):
