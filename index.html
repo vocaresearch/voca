@@ -133,9 +133,9 @@
       <div class="card-num">04</div>
       <h3>Safety does not transfer to identity</h3>
       <p>
-        On conventional harmful requests the field is close to saturated, with GPT-Realtime-2.1
-        at 97.17 and four more systems above 91. Ask the same systems for a secret that belongs
-        to a different speaker and the best refusal rate is 39.80.
+        On conventional harmful requests the field is close to saturated, with GPT-Audio
+        at 98.33 and five more systems above 91. Ask the same systems for a secret that belongs
+        to a different speaker and the best refusal rate is 38.00.
       </p>
     </article>
   </div>
@@ -174,9 +174,9 @@
     </article>
     <article class="leader">
       <p class="ld-dim">Safe Companion Behavior</p>
-      <p class="ld-val">80.79</p>
+      <p class="ld-val">81.16</p>
       <p class="ld-who">GPT-Realtime-2.1</p>
-      <p class="ld-foot">refusal rate, dragged down by identity cases</p>
+      <p class="ld-foot">safe response rate, dragged down by identity cases</p>
     </article>
   </div>
   <p class="note">
@@ -209,30 +209,32 @@
       </thead>
       <tbody>
         <tr class="grp e2e"><td colspan="8">End-to-End Models</td></tr>
-        <tr class="cat-e2e"><td class="left">Qwen3-Omni</td><td>30B-A3B</td><td>73.09</td><td>76.79</td><td>37.33</td><td>39.75</td><td>75.53</td><td>59.41</td></tr>
-        <tr class="cat-e2e"><td class="left">MiMo-Audio</td><td>7B</td><td>65.28</td><td>56.88</td><td>21.51</td><td>41.84</td><td>66.34</td><td>49.34</td></tr>
-        <tr class="cat-e2e"><td class="left">Qwen2.5-Omni</td><td>7B</td><td>63.89</td><td>44.41</td><td>38.25</td><td>38.13</td><td>70.65</td><td>49.99</td></tr>
-        <tr class="cat-e2e"><td class="left">Kimi-Audio</td><td>7B</td><td>62.67</td><td>42.86</td><td>37.15</td><td><u>48.13</u></td><td>70.36</td><td>51.28</td></tr>
-        <tr class="cat-e2e"><td class="left">Fun-Audio-Chat</td><td>8B</td><td>64.06</td><td>60.96</td><td>33.79</td><td>41.03</td><td>59.27</td><td>51.25</td></tr>
-        <tr class="cat-e2e"><td class="left">Step-Audio-2-mini</td><td>8B</td><td>55.38</td><td>61.02</td><td>31.50</td><td>37.61</td><td>52.53</td><td>47.15</td></tr>
-        <tr class="cat-e2e"><td class="left">GPT-Audio</td><td>&ndash;</td><td>60.76</td><td>69.49</td><td>39.17</td><td>43.96</td><td>75.54</td><td>56.63</td></tr>
+        <tr class="cat-e2e"><td class="left">Qwen3-Omni</td><td>30B-A3B</td><td>73.09</td><td>76.79</td><td>37.33</td><td>39.75</td><td>70.23</td><td>58.58</td></tr>
+        <tr class="cat-e2e"><td class="left">MiMo-Audio</td><td>7B</td><td>65.28</td><td>56.88</td><td>21.51</td><td>41.84</td><td>76.98</td><td>51.01</td></tr>
+        <tr class="cat-e2e"><td class="left">Qwen2.5-Omni</td><td>7B</td><td>63.89</td><td>44.41</td><td>38.25</td><td>38.13</td><td>71.16</td><td>50.07</td></tr>
+        <tr class="cat-e2e"><td class="left">Kimi-Audio</td><td>7B</td><td>62.67</td><td>42.86</td><td>37.15</td><td><u>48.13</u></td><td>73.26</td><td>51.74</td></tr>
+        <tr class="cat-e2e"><td class="left">Fun-Audio-Chat</td><td>8B</td><td>64.06</td><td>60.96</td><td>33.79</td><td>41.03</td><td>78.14</td><td>54.22</td></tr>
+        <tr class="cat-e2e"><td class="left">Step-Audio-2-mini</td><td>8B</td><td>55.38</td><td>61.02</td><td>31.50</td><td>37.61</td><td>55.35</td><td>47.59</td></tr>
+        <tr class="cat-e2e"><td class="left">GPT-Audio</td><td>&ndash;</td><td>60.76</td><td>69.49</td><td>39.17</td><td>43.96</td><td><u>80.00</u></td><td>57.33</td></tr>
 
         <tr class="grp rt"><td colspan="8">Realtime Models</td></tr>
-        <tr class="cat-rt"><td class="left">GPT-Realtime-2.1</td><td>&ndash;</td><td>67.53</td><td>71.88</td><td><u>40.04</u></td><td>43.37</td><td><b>80.79</b></td><td>59.43</td></tr>
-        <tr class="cat-rt"><td class="left">Step-Audio-2.5-Realtime</td><td>&ndash;</td><td>63.37</td><td>62.92</td><td>33.40</td><td><u>47.46</u></td><td>64.01</td><td>53.54</td></tr>
-        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Plus</td><td>&ndash;</td><td><u>75.69</u></td><td>68.41</td><td>37.81</td><td>45.67</td><td><u>79.69</u></td><td><u>60.29</u></td></tr>
-        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Flash</td><td>&ndash;</td><td>68.40</td><td>64.61</td><td>38.93</td><td>46.89</td><td>77.99</td><td>58.21</td></tr>
+        <tr class="cat-rt"><td class="left">GPT-Realtime-2.1</td><td>&ndash;</td><td>67.53</td><td>71.88</td><td><u>40.04</u></td><td>43.37</td><td><b>81.16</b></td><td>59.49</td></tr>
+        <tr class="cat-rt"><td class="left">Step-Audio-2.5-Realtime</td><td>&ndash;</td><td>63.37</td><td>62.92</td><td>33.40</td><td>47.46</td><td>68.60</td><td>54.27</td></tr>
+        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Plus</td><td>&ndash;</td><td><u>75.69</u></td><td>68.41</td><td>37.81</td><td>45.67</td><td>77.44</td><td><u>59.94</u></td></tr>
+        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Flash</td><td>&ndash;</td><td>68.40</td><td>64.61</td><td>38.93</td><td>46.89</td><td>78.84</td><td>58.35</td></tr>
 
         <tr class="grp casc"><td colspan="8">Text Input / Cascade Models</td></tr>
-        <tr class="cat-casc"><td class="left">Qwen3+TTS <span class="hint">text input</span></td><td>8B + -</td><td>&ndash;</td><td><u>80.82</u></td><td>33.95</td><td>40.68</td><td>70.70</td><td>&ndash;</td></tr>
-        <tr class="cat-casc"><td class="left">Whisper+Qwen3+TTS</td><td>1.5B + 8B + -</td><td>57.12</td><td>73.88</td><td>33.35</td><td>37.36</td><td>70.46</td><td>53.29</td></tr>
-        <tr class="cat-casc"><td class="left">Gemini-3-Pro+TTS</td><td>&ndash;</td><td><b>82.99</b></td><td><b>81.33</b></td><td><b>48.39</b></td><td><b>70.82</b></td><td>73.32</td><td><b>71.10</b></td></tr>
+        <tr class="cat-casc"><td class="left">Qwen3+TTS <span class="hint">text input</span></td><td>8B + -</td><td>&ndash;</td><td><u>80.82</u></td><td>33.95</td><td>40.68</td><td>68.84</td><td>&ndash;</td></tr>
+        <tr class="cat-casc"><td class="left">Whisper+Qwen3+TTS</td><td>1.5B + 8B + -</td><td>57.12</td><td>73.88</td><td>33.35</td><td>37.36</td><td>69.30</td><td>53.10</td></tr>
+        <tr class="cat-casc"><td class="left">Gemini-3-Pro+TTS</td><td>&ndash;</td><td><b>82.99</b></td><td><b>81.33</b></td><td><b>48.39</b></td><td><b>70.82</b></td><td>67.91</td><td><b>70.25</b></td></tr>
       </tbody>
     </table>
   </div>
   <p class="note">
     Safe companion behavior is summarized in the main leaderboard; the three underlying safety
-    sub-capabilities are reported separately below. A dash marks a run that has not completed.
+    sub-capabilities are reported separately below. Overall weights the four dimensions by
+    sample count, using the mean of Default and Proactive for proactive care. A dash denotes
+    a value that is unavailable or not evaluated.
   </p>
 </section>
 
@@ -297,7 +299,7 @@
       </thead>
       <tbody>
         <tr class="grp e2e"><td colspan="5">End-to-End Models</td></tr>
-        <tr class="cat-e2e"><td class="left">Qwen3-Omni-30B-A3B</td><td><u>65.38</u></td><td>65.60</td><td><u>84.69</u></td><td><u>82.92</u></td></tr>
+        <tr class="cat-e2e"><td class="left">Qwen3-Omni-30B-A3B</td><td>65.38</td><td>65.60</td><td><u>84.69</u></td><td><u>82.92</u></td></tr>
         <tr class="cat-e2e"><td class="left">MiMo-Audio-7B</td><td>27.48</td><td>74.31</td><td>59.67</td><td>62.08</td></tr>
         <tr class="cat-e2e"><td class="left">Qwen2.5-Omni-7B</td><td>18.37</td><td>59.20</td><td>45.30</td><td>52.25</td></tr>
         <tr class="cat-e2e"><td class="left">Kimi-Audio-7B</td><td>23.29</td><td>24.40</td><td>57.48</td><td>50.97</td></tr>
@@ -314,7 +316,7 @@
         <tr class="grp casc"><td colspan="5">Text Input / Cascaded Baselines</td></tr>
         <tr class="cat-casc"><td class="left">Qwen3 + TTS</td><td><b>71.91</b></td><td>75.75</td><td><b>87.95</b></td><td>80.83</td></tr>
         <tr class="cat-casc"><td class="left">Whisper+Qwen3-8B</td><td>53.67</td><td>79.20</td><td>77.95</td><td>79.64</td></tr>
-        <tr class="cat-casc"><td class="left">Gemini-3-Pro</td><td><u>68.88</u></td><td><u>87.63</u></td><td><u>83.18</u></td><td><b>83.35</b></td></tr>
+        <tr class="cat-casc"><td class="left">Gemini-3-Pro</td><td><u>68.88</u></td><td><u>87.63</u></td><td>83.18</td><td><b>83.35</b></td></tr>
       </tbody>
     </table>
   </div>
@@ -376,7 +378,7 @@
           <td><b>94.80</b></td><td><u>96.37</u></td><td class="up">+1.57</td>
           <td><u>85.97</u></td><td><u>89.70</u></td><td class="up"><u>+3.73</u></td></tr>
         <tr class="cat-rt"><td class="left">Step-Audio-2.5-Realtime</td>
-          <td>29.95</td><td>44.83</td><td class="up"><u>+14.88</u></td>
+          <td>29.95</td><td>44.83</td><td class="up">+14.88</td>
           <td>86.90</td><td>93.67</td><td class="up">+6.77</td>
           <td>53.80</td><td>57.53</td><td class="up"><u>+3.73</u></td></tr>
         <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Plus</td>
@@ -407,8 +409,9 @@
 
   <h3 class="sub-h">Safe Companion Behavior</h3>
   <p class="lead">
-    Refusal rate: one binary score per item, so there is no partial credit. The table reports
-    general safety, speaker-identity safety, and role-and-permission safety separately.
+    Safe response rate: one binary score per item, so there is no partial credit. General
+    and speaker-identity safety use refusal judgments; role-and-permission safety assesses
+    appropriate assistance within the model's granted authority.
   </p>
   <div class="tablewrap card-surface">
     <table>
@@ -422,24 +425,24 @@
       </thead>
       <tbody>
         <tr class="grp e2e"><td colspan="4">End-to-End Models</td></tr>
-        <tr class="cat-e2e"><td class="left">Qwen3-Omni-30B-A3B</td><td><u>96.49</u></td><td>22.00</td><td>89.05</td></tr>
-        <tr class="cat-e2e"><td class="left">MiMo-Audio-7B</td><td>66.04</td><td>20.00</td><td>88.57</td></tr>
-        <tr class="cat-e2e"><td class="left">Qwen2.5-Omni-7B</td><td>81.48</td><td>6.00</td><td><b>95.24</b></td></tr>
-        <tr class="cat-e2e"><td class="left">Kimi-Audio-7B</td><td>79.63</td><td>27.00</td><td>85.71</td></tr>
-        <tr class="cat-e2e"><td class="left">Fun-Audio-Chat-8B</td><td>49.07</td><td>26.00</td><td>80.95</td></tr>
-        <tr class="cat-e2e"><td class="left">Step-Audio-2-mini</td><td>37.38</td><td>20.00</td><td>76.67</td></tr>
-        <tr class="cat-e2e"><td class="left">GPT-Audio</td><td>92.04</td><td>18.37</td><td>93.33</td></tr>
+        <tr class="cat-e2e"><td class="left">Qwen3-Omni-30B-A3B</td><td>91.67</td><td>15.00</td><td>84.29</td></tr>
+        <tr class="cat-e2e"><td class="left">MiMo-Audio-7B</td><td>88.33</td><td>26.00</td><td>94.76</td></tr>
+        <tr class="cat-e2e"><td class="left">Qwen2.5-Omni-7B</td><td>72.50</td><td>12.00</td><td><u>98.57</u></td></tr>
+        <tr class="cat-e2e"><td class="left">Kimi-Audio-7B</td><td>86.67</td><td>24.00</td><td>89.05</td></tr>
+        <tr class="cat-e2e"><td class="left">Fun-Audio-Chat-8B</td><td>88.33</td><td>21.00</td><td><b>99.52</b></td></tr>
+        <tr class="cat-e2e"><td class="left">Step-Audio-2-mini</td><td>55.83</td><td>13.00</td><td>75.24</td></tr>
+        <tr class="cat-e2e"><td class="left">GPT-Audio</td><td><b>98.33</b></td><td>24.00</td><td>96.19</td></tr>
 
         <tr class="grp rt"><td colspan="4">Realtime Models</td></tr>
-        <tr class="cat-rt"><td class="left">GPT-Realtime-2.1</td><td><b>97.17</b></td><td><b>39.80</b></td><td>90.95</td></tr>
-        <tr class="cat-rt"><td class="left">Step-Audio-2.5-Realtime</td><td>71.05</td><td>18.00</td><td>81.90</td></tr>
-        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Plus</td><td>95.54</td><td>28.00</td><td><b>95.24</b></td></tr>
-        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Flash</td><td>92.79</td><td>29.00</td><td>92.86</td></tr>
+        <tr class="cat-rt"><td class="left">GPT-Realtime-2.1</td><td><u>96.67</u></td><td><b>38.00</b></td><td>92.86</td></tr>
+        <tr class="cat-rt"><td class="left">Step-Audio-2.5-Realtime</td><td>72.50</td><td>18.00</td><td>90.48</td></tr>
+        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Plus</td><td>94.17</td><td>15.00</td><td>97.62</td></tr>
+        <tr class="cat-rt"><td class="left">Qwen-Audio-3.0-Realtime-Flash</td><td>95.00</td><td>23.00</td><td>96.19</td></tr>
 
         <tr class="grp casc"><td colspan="4">Text Input / Cascade Models</td></tr>
-        <tr class="cat-casc"><td class="left">Qwen3+TTS</td><td>71.67</td><td>22.00</td><td>93.33</td></tr>
-        <tr class="cat-casc"><td class="left">Whisper+Qwen3+TTS</td><td>70.80</td><td>21.00</td><td><u>93.81</u></td></tr>
-        <tr class="cat-casc"><td class="left">Gemini-3-Pro+TTS</td><td>91.07</td><td><u>36.00</u></td><td>80.95</td></tr>
+        <tr class="cat-casc"><td class="left">Qwen3+TTS</td><td>80.83</td><td>13.00</td><td>88.57</td></tr>
+        <tr class="cat-casc"><td class="left">Whisper+Qwen3+TTS</td><td>80.83</td><td>11.00</td><td>90.48</td></tr>
+        <tr class="cat-casc"><td class="left">Gemini-3-Pro+TTS</td><td>91.67</td><td><u>32.00</u></td><td>71.43</td></tr>
       </tbody>
     </table>
   </div>
@@ -569,14 +572,16 @@ Do not ignore user states that are observable from speech content, tone, or cont
         </tr>
       </thead>
       <tbody>
-        <tr><td class="left" rowspan="3">Fun-Audio-Chat</td>
-          <td class="left">Default prompt</td><td>30.32</td><td><b>94.70</b></td><td><b>47.13</b></td></tr>
+        <tr><td class="left" rowspan="4">Fun-Audio-Chat</td>
+          <td class="left">Default prompt</td><td>30.32</td><td>94.70</td><td><b>47.13</b></td></tr>
         <tr><td class="left">Enhanced prompt</td><td>38.52</td><td>90.87</td><td>44.80</td></tr>
+        <tr><td class="left">VocaAgent w/o NSM Report</td><td>36.07 <span class="delta">+5.75</span></td><td><b>95.30</b></td><td>46.13</td></tr>
         <tr class="ours"><td class="left">VocaAgent (ours)</td><td><b>48.92</b> <span class="delta">+18.60</span></td><td>94.53</td><td>45.53</td></tr>
 
-        <tr><td class="left" rowspan="3">Qwen-Audio-3.0-Realtime-Flash</td>
+        <tr><td class="left" rowspan="4">Qwen-Audio-3.0-Realtime-Flash</td>
           <td class="left">Default prompt</td><td>35.05</td><td>93.00</td><td>67.90</td></tr>
         <tr><td class="left">Enhanced prompt</td><td>43.54</td><td>95.57</td><td>70.00</td></tr>
+        <tr><td class="left">VocaAgent w/o NSM Report</td><td>44.03 <span class="delta">+8.98</span></td><td>91.03</td><td>63.63</td></tr>
         <tr class="ours"><td class="left">VocaAgent (ours)</td><td><b>53.83</b> <span class="delta">+18.78</span></td><td><b>96.37</b></td><td><b>76.93</b></td></tr>
       </tbody>
     </table>
@@ -585,7 +590,10 @@ Do not ignore user states that are observable from speech content, tone, or cont
     &Delta; is measured against the default prompt on the paralinguistic subset, where the gap is
     largest. VocaAgent lifts both backbones by more than 18 points on paralinguistic cue care.
     Semantic and contextual scores improve on Qwen-Audio-3.0-Realtime-Flash and decrease slightly
-    on Fun-Audio-Chat relative to the default prompt.
+    on Fun-Audio-Chat relative to the default prompt. For paralinguistic cue care, the
+    report-removal ablation keeps the original routing decisions and model calls unchanged
+    while withholding the NSM report from the deliberative model. Semantic and contextual
+    report-removal scores are supplementary comparisons using a different evaluation configuration.
   </p>
 
   <h3 class="sub-h">Latency</h3>
